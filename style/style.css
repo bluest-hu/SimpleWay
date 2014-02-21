@@ -1084,3 +1084,70 @@ article.article .article-top-column {
 }
 
 
+/*======================================== Tab Switcher ========================================*/
+.tab {
+
+}
+
+.tab .tab-switcher {
+	margin-bottom: -1px;
+}
+
+.tab .tab-switcher .tab-swither-container {
+	padding: 0px 30px;
+	margin: 0px;
+	list-style: none;
+	font-size: 0px;
+} 
+
+.tab .tab-switcher .tab-swither-container .tab-switcher-list {
+	display: inline-block;
+	padding: 3px 15px;
+	border: 1px solid transparent;
+	font-size: 18px;
+	line-height: 30px;
+	font-weight: 400;
+	color: #999;
+	transition: color .2s ease-in-out;
+}
+
+.tab .tab-switcher .tab-swither-container .tab-switcher-list:hover {
+	cursor: pointer;
+	color: #333;
+}
+
+.tab .tab-switcher .tab-swither-container .tab-switcher-list.current {
+	background-color: #FFF;
+	border-bottom: 1px solid transparent;
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+	color: #000;
+	box-shadow: 0 -1px 1px rgba(0, 0, 0 , .05);
+
+}
+
+.tab .tab-switcher .tab-swither-container .tab-switcher-list.current:hover {
+	cursor: auto;
+}
+
+.tab .tab-container {
+	border-radius: 2px;
+	padding: 20px;
+	background-color: #FFF;
+	box-shadow: 0 1px 1px rgba(0, 0, 0 , .1);
+}
+
+.tab .tab-container .tab-content {
+	margin: 0px;
+}
+
+.tab .tab-container .tab-content .tab-content-list {
+	padding: 0px;
+	margin: 0px;
+	list-style: none;
+	display: none;
+}
+
+.tab .tab-container .tab-content .tab-content-list.current {
+	display: block;
+}

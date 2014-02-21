@@ -108,3 +108,30 @@ $(function () {
 		$next.css({display: "none"});
 	}
 });
+
+
+$(function () {
+    tabSwitcher();
+});
+
+function tabSwitcher() {
+    var $tab = $(".tab");
+    $tab.each(function (index, element) {
+        var $tabSwitcherList = $(element).find(".tab-switcher .tab-switcher-list");
+        var $tabContentList = $(element).find(".tab-container .tab-content .tab-content-list");
+        var $tabContainer = $(element).find(".tab-container");
+
+        $tabSwitcherList.on("click", function (event) {
+            
+            event = event || window.event;
+            event.preventDefault();
+            
+            $tabSwitcherList.removeClass("current");
+
+            var index = $(this).addClass("current").index();
+
+            $tabContentList.css({display: "none"}).eq(index).slideDown("fast");
+
+        });
+    });
+}

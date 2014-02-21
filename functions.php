@@ -10,15 +10,6 @@ register_nav_menus( array(
 	'header_menu' => '顶部菜单',
 ) );
 
-if (function_exists('register_sidebar')) { 
-	register_sidebar(array( 
-		'name' => 'right sidebar', // 侧边栏 1 的名称 
-		'before_widget' => '<li class="widgets-lists">', // widget 的开始标签 
-		'after_widget' => '</li>', // widget 的结束标签 
-		'before_title' => '<h3 class="widget-title">', // 标题的开始标签 
-		'after_title' => '</h3>'// 标题的结束标签
-	));
-} 
 
 
 // class index_right_column_siderbar extends WP_Widget {
@@ -94,6 +85,16 @@ function par_pagenavi($range = 9) {
     }
 }
 
+if (function_exists('register_sidebar')) { 
+	register_sidebar(array( 
+		'name' => 'right sidebar', // 侧边栏 1 的名称 
+		'before_widget' => '<li class="widgets-lists">', // widget 的开始标签 
+		'after_widget' => '</li>', // widget 的结束标签 
+		'before_title' => '<h3 class="widget-title">', // 标题的开始标签 
+		'after_title' => '</h3>'// 标题的结束标签
+	));
+} 
+
 
 // 增加后台作者资料
 add_filter( 'user_contactmethods', 'add_author_contact_fields' );
@@ -137,6 +138,52 @@ class new_general_setting {
 	}
 }
 
+/**
+ * 
+ */
+function get_most_comments_friends($config) {
+	$config['container'] 		= array_key_exists('container', $config) ? $config['container'] : "";
+	$config['container_class'] 	= array_key_exists('container_class', $config) ? $config['container_class'] : "";
+	$config['container_id']		= array_key_exists('container_id', $config) ? $config['container_id'] : "";
+	$config['echo']				= array_key_exists('echo', $config) ? ($config['echo']) : false;
+	// $config['before']
+	$config['number'] 			= array_key_exists('number', $config) ? $config['number'] : 15;
 
+	global $wpdb;
+  	
+  	$counts = wp_cache_get( 'simpleway_mostactive' );
+
+  	$query = "SELECT COUNT(comment_author) AS cnt, comment_author, comment_author_url, comment_author_email
+	  	FROM {$wpdb->prefix}comments
+	  	WHERE comment_date > date_sub( NOW(), INTERVAL 1 MONTH )
+	        AND comment_approved = '1'
+	        AND comment_author_email != 'example@example.com'
+	        AND comment_author_url != ''
+	        AND comment_type = ''
+	        AND user_id = '0'
+	    GROUP BY comment_author_email
+	    ORDER BY cnt DESC
+	    LIMIT {$config['number']}";
+
+
+  if ( false === $counts ) {
+    $counts = $wpdb->get_results($query);
+  }
+
+  $mostactive = '';
+
+  if ( $counts ) {
+  	$mostactive .= "<ul>";
+    wp_cache_set( 'simpleway_mostactive', $counts );
+
+    foreach ($counts as $count) {
+      $c_url = $count->comment_author_url;
+      $mostactive .= '<li>' . '<a href="'. $c_url . '" title="' . $count->comment_author .' 发表 '. $count->cnt . ' 条评论" target="_blank">' . get_avatar($count->comment_author_email, 55, '', $count->comment_author . ' 发表 ' . $count->cnt . ' 条评论') . '</a></li>';
+    }
+
+  	return $mostactive .= " </ul>";
+  }
+}
+  
 ?> 
 
