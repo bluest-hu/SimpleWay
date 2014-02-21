@@ -28,7 +28,7 @@
 					<article class="article" id="post-<?php the_ID();?>"><!-- Article Begain -->
 						<div class="article-top-column post-meta-container clear">
 							<div class="left-column author-avatar-container"><!-- Author Avastar Container Begain -->
-								<a href="<?php get_the_author_meta('user_url'); ?>" title="<?php the_author(); ?>" class="author-avatar"><!-- Article Author Begain -->
+								<a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" alt="文章作者：<?php the_author(); ?>" title="文章作者：<?php the_author(); ?>" class="author-avatar"><!-- Article Author Begain -->
 									<?php echo get_avatar( get_the_author_email(), 50 ); ?>
 								</a><!-- Article Author Ends -->
 							</div><!-- Author Avastar Container Ends -->
