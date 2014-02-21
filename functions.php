@@ -3,16 +3,29 @@
 // require_once(TEMPLATEPATH . '/control.php');
 // remove_action('init', 'kses_init');   
 // remove_action('set_current_user', 'kses_init');
+/**
+ * 注册顶部菜单
+ */
+register_nav_menus( array(
+	'header_menu' => '顶部菜单',
+) );
 
 if (function_exists('register_sidebar')) { 
 	register_sidebar(array( 
-		'name' => 'sidebar', // 侧边栏 1 的名称 
+		'name' => 'right sidebar', // 侧边栏 1 的名称 
 		'before_widget' => '<li class="widgets-lists">', // widget 的开始标签 
 		'after_widget' => '</li>', // widget 的结束标签 
 		'before_title' => '<h3 class="widget-title">', // 标题的开始标签 
 		'after_title' => '</h3>'// 标题的结束标签
 	));
 } 
+
+
+// class index_right_column_siderbar extends WP_Widget {
+// 	public function _construct() {
+
+// 	}
+// }
 
 function par_pagenavi($range = 9) {
 	global	$paged, 
@@ -97,6 +110,31 @@ function add_author_contact_fields( $contactmethods ) {
 	// unset( $contactmethods['jabber'] );
 
 	return $contactmethods;
+}
+
+
+// 增加主页关键字以及描述
+
+$new_general_setting = new new_general_setting();
+
+class new_general_setting {
+	function new_general_setting( ) {
+		add_filter( 'admin_init' , array( &$this , 'register_fields' ) );
+	}
+
+	function register_fields() {
+		register_setting( 'general', 'favorite_color', 'esc_attr' );
+		add_settings_field('fav_color', 
+			'<label for="favorite_color">'.__('最喜欢的颜色' ).'</label>',
+			array(&$this, 'fields_html') ,
+			'general' 
+			);
+	}
+
+	function fields_html() {
+		$value = get_option( 'favorite_color', '' );
+		echo '<input type="text" id="favorite_color" name="favorite_color" value="' . $value . '" />';
+	}
 }
 
 

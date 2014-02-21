@@ -11,28 +11,7 @@
 				</div><!--Header Top Column End -->
 
 				<div class="header-bottom-column clear"><!-- Header Bottom  Begain -->
-					<nav class="navigation left-column">
-						<?php
-						wp_nav_menu( array(
-							'theme_location'  => '',
-							'menu'            => '',
-							'container'       => 'div',
-							'container_class' => 'navigation-container',
-							'container_id'    => 'navigationContainer',
-							'menu_class'      => 'menu',
-							'menu_id'         => '',
-							'echo'            => true,
-							'fallback_cb'     => 'wp_page_menu',
-							'before'          => '',
-							'after'           => '',
-							'link_before'     => '',
-							'link_after'      => '',
-							'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-							'depth'           => 1,
-							'walker'          => ''
-						));
-						?>
-					</nav><!-- Blog Header Navigation Ends -->
+					<?php get_template_part('nav'); ?>
 					<div class="search-form right-column">
 						<?php get_search_form(); ?>
 					</div>
@@ -147,15 +126,15 @@
 					</div>
 
 					<nav class="post-navigation clear">
-					<? if (get_previous_post_link()) { ?>
+					
 						<div class="left-column previous-post">
 							<?php previous_post_link(); ?>
 						</div>
-					<?php } ?>
-
+					
 						<div class="right-column next-post">
 							<?php next_post_link(); ?>
 						</div>
+					
 					</nav> <!-- Article Navigation Ends-->
 					
 					<div class="article-comments-container">

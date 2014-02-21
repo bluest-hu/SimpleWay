@@ -706,7 +706,16 @@ article.article .article-top-column {
 .article-comments-container .comment .comment-body {
 	padding: 10px 0;
 	border-bottom: 1px solid rgba(0, 0, 0, .1);
-	overflow: hidden;
+	/*overflow: hidden;*/
+}
+
+.article-comments-container .comment .comment-body:after {
+	display: block;
+	content: "";
+	width: 0;
+	height: 0;
+	visibility: hidden;
+	clear: both;
 }
 
 .article-comments-container .bypostauthor .comment-by-post-author  {
@@ -765,19 +774,25 @@ article.article .article-top-column {
 	float: right;
 }
 
-.comment-body .reply a {
+.comment-body .reply a.comment-reply-link {
 	padding: 4px 10px;
 	font-size: 12px;
+	opacity: 0;
 	color: #FFF;
 	background-color: #FF7373;
 	border-radius: 2px;
 	text-shadow: 0 1px 0px rgba(0, 0, 0, .2);
+	transition: all .4s ease-in-out;
 }
 
-.comment-body .reply a:hover {
+.comment-body .reply a.comment-reply-link:hover {
 	background-color: #FF5E5E;
 	box-shadow: 0 0 1px rgba(0, 0, 0, .1);
-	text-decoration: none;
+}
+
+.comment-body:hover .reply a.comment-reply-link {
+	visibility: visible;
+	opacity: 1;
 }
 
 .comment-author.vcard {
@@ -800,20 +815,21 @@ article.article .article-top-column {
 
 .comment-author.vcard .says {
 	color: #999; 
-	font-size: 13px;
+	font-size: 10px;
 	line-height: 25px;
+	/*display: none;*/
 }
 
 .comment-author.vcard .avatar {
 	width: 50px;
 	height: 50px;
-	border-radius: 50%;
+	border-radius: 5px;
 	display: block;
 	float: left;
 	margin: 0 10px 0 0;
 	overflow: hidden;
 	border: 1px solid rgba(0,0,0,.1);
-	box-shadow: 0 0 1px rgba(0, 0, 0, .15);
+	box-shadow: 0 0 1px rgba(0, 0, 0, .1);
 	transition: all .6s ease-in-out;
 }
 
