@@ -1,5 +1,3 @@
-
-<?php get_sidebar();?>
  <div class="tab">
     <div class="tab-switcher">
         <ul class="tab-swither-container">
@@ -16,14 +14,16 @@
                 <?php get_calendar();?>                                     
             </li>
             <li class="tab-content-list">
+            	<h3 class="widget-title">排排队啦！</h3>
             	<ul>
-            		<?php get_archives('postbypost','10','custom','<li>','</li>'); ?>
+            		<?php get_archives('postbypost', 10); ?>
             	</ul>
             </li>
             <li class="tab-content-list">
             	<?php wp_tag_cloud(); ?>
             </li>
             <li class="tab-content-list">
+            	<h3 class="widget-title">最佳灌水队员！</h3>
             	<?php echo get_most_comments_friends(array()); ?>
             </li>
         </ul>

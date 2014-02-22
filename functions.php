@@ -3,29 +3,38 @@
 // require_once(TEMPLATEPATH . '/control.php');
 // remove_action('init', 'kses_init');   
 // remove_action('set_current_user', 'kses_init');
+
+
 /**
  * 注册顶部菜单
  */
-register_nav_menus( array(
-	'header_menu' => '顶部菜单',
-) );
 
-if (function_exists('register_sidebar')) { 
+if ( function_exists( 'register_nav_menus' ) ) {
+	register_nav_menus( array(
+		'header_menu' => '顶部菜单',
+	) );
+}
+
+// 注册侧边栏
+if ( function_exists('register_sidebar')) { 
 	register_sidebar(array( 
-		'name' => 'right sidebar', // 侧边栏 1 的名称 
+		'name' 			=> __( 'Right Sidebar', '首页的右边栏，如果其他页面未定义侧边栏，则默认调用首页的侧边栏' ), // 侧边栏 1 的名称 
+		// 'id'			=> 'rightSidebar',
+		'class'			=> 'right-sidebar',
 		'before_widget' => '<li class="widgets-lists">', // widget 的开始标签 
-		'after_widget' => '</li>', // widget 的结束标签 
-		'before_title' => '<h3 class="widget-title">', // 标题的开始标签 
-		'after_title' => '</h3>'// 标题的结束标签
+		'after_widget' 	=> '</li>', // widget 的结束标签 
+		'before_title' 	=> '<h3 class="widget-title">', // 标题的开始标签 
+		'after_title' 	=> '</h3>'// 标题的结束标签
 	));
 } 
 
+// 注册侧边栏小工具
+if( function_exists( 'register_sidebar_widget' ) ) {   
+    register_sidebar_widget('四合一小工具', function() {
+    	include(TEMPLATEPATH . '/wedgit/tab_switcher.php');
+    } );   
+}  
 
-// class index_right_column_siderbar extends WP_Widget {
-// 	public function _construct() {
-
-// 	}
-// }
 
 function par_pagenavi($range = 9) {
 	global	$paged, 
