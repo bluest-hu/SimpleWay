@@ -77,7 +77,7 @@
 				</div><!-- Post Ends -->
 				
 				<aside class="aside right-column"><!-- Right Aside Begain -->
-					<?php get_sidebar();?>
+					<?php get_template_part('aside_right'); ?>
 				</aside><!-- Right Aside Ends -->
 
 			</div><!-- Content Ends -->

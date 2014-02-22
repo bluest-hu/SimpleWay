@@ -1086,7 +1086,7 @@ article.article .article-top-column {
 
 /*======================================== Tab Switcher ========================================*/
 .tab {
-
+	margin-bottom: 10px;
 }
 
 .tab .tab-switcher {
@@ -1094,7 +1094,7 @@ article.article .article-top-column {
 }
 
 .tab .tab-switcher .tab-swither-container {
-	padding: 0px 30px;
+	/*padding: 0px 10px;*/
 	margin: 0px;
 	list-style: none;
 	font-size: 0px;
@@ -1104,9 +1104,9 @@ article.article .article-top-column {
 	display: inline-block;
 	padding: 3px 15px;
 	border: 1px solid transparent;
-	font-size: 18px;
+	font-size: 15px;
+	font-weight: bold;
 	line-height: 30px;
-	font-weight: 400;
 	color: #999;
 	transition: color .2s ease-in-out;
 }
@@ -1117,13 +1117,12 @@ article.article .article-top-column {
 }
 
 .tab .tab-switcher .tab-swither-container .tab-switcher-list.current {
+	/*border: 1px solid #D5D5D5;*/
 	background-color: #FFF;
 	border-bottom: 1px solid transparent;
-	border-top-left-radius: 2px;
-	border-top-right-radius: 2px;
-	color: #000;
-	box-shadow: 0 -1px 1px rgba(0, 0, 0 , .05);
-
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	color: #333;
 }
 
 .tab .tab-switcher .tab-swither-container .tab-switcher-list.current:hover {
@@ -1131,14 +1130,15 @@ article.article .article-top-column {
 }
 
 .tab .tab-container {
+	/*border-top: 1px solid #D5D5D5;*/
 	border-radius: 2px;
-	padding: 20px;
-	background-color: #FFF;
-	box-shadow: 0 1px 1px rgba(0, 0, 0 , .1);
 }
 
 .tab .tab-container .tab-content {
+	padding: 15px 20px 20px 20px;
 	margin: 0px;
+	background-color: #FFF;
+	box-shadow: 0 1px 1px rgba(0, 0, 0 , .1);
 }
 
 .tab .tab-container .tab-content .tab-content-list {
@@ -1146,6 +1146,11 @@ article.article .article-top-column {
 	margin: 0px;
 	list-style: none;
 	display: none;
+}
+
+.tab-container .tab-content .tab-content-list ul,.tab-container .tab-content .tab-content-list ul li{
+	list-style-type: disc;
+	margin: 0 0 0 5px;
 }
 
 .tab .tab-container .tab-content .tab-content-list.current {

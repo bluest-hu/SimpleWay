@@ -179,13 +179,15 @@ article.article .article-top-column{margin:0 0 10px;padding:25px 30px 0}
 .author-info .author-contact ul li:hover.google-plus:before{background-position:-100px -60px}
 #backToTopBtn{position:fixed;bottom:110px;right:50px;width:50px;height:50px;display:block;background:#FFF url(../image/icons.png) -121px 0 no-repeat scroll;border:1px solid rgba(0,0,0,.1);border-radius:50%;box-shadow:0 0 1px rgba(0,0,0,.01);transition:all .1s ease-in-out}
 #backToTopBtn:hover{background-position:-121px -50px;background-color:#FAFAFA}
+.tab{margin-bottom:10px}
 .tab .tab-switcher{margin-bottom:-1px}
-.tab .tab-switcher .tab-swither-container{padding:0 30px;margin:0;list-style:none;font-size:0}
-.tab .tab-switcher .tab-swither-container .tab-switcher-list{display:inline-block;padding:3px 15px;border:1px solid transparent;font-size:18px;line-height:30px;font-weight:400;color:#999;transition:color .2s ease-in-out}
+.tab .tab-switcher .tab-swither-container{margin:0;list-style:none;font-size:0}
+.tab .tab-switcher .tab-swither-container .tab-switcher-list{display:inline-block;padding:3px 15px;border:1px solid transparent;font-size:15px;font-weight:700;line-height:30px;color:#999;transition:color .2s ease-in-out}
 .tab .tab-switcher .tab-swither-container .tab-switcher-list:hover{cursor:pointer;color:#333}
-.tab .tab-switcher .tab-swither-container .tab-switcher-list.current{background-color:#FFF;border-bottom:1px solid transparent;border-top-left-radius:2px;border-top-right-radius:2px;color:#000;box-shadow:0 -1px 1px rgba(0,0,0,.05)}
+.tab .tab-switcher .tab-swither-container .tab-switcher-list.current{background-color:#FFF;border-bottom:1px solid transparent;border-top-left-radius:3px;border-top-right-radius:3px;color:#333}
 .tab .tab-switcher .tab-swither-container .tab-switcher-list.current:hover{cursor:auto}
-.tab .tab-container{border-radius:2px;padding:20px;background-color:#FFF;box-shadow:0 1px 1px rgba(0,0,0,.1)}
-.tab .tab-container .tab-content{margin:0}
+.tab .tab-container{border-radius:2px}
+.tab .tab-container .tab-content{padding:15px 20px 20px;margin:0;background-color:#FFF;box-shadow:0 1px 1px rgba(0,0,0,.1)}
 .tab .tab-container .tab-content .tab-content-list{padding:0;margin:0;list-style:none;display:none}
+.tab-container .tab-content .tab-content-list ul,.tab-container .tab-content .tab-content-list ul li{list-style-type:disc;margin:0 0 0 5px}
 .tab .tab-container .tab-content .tab-content-list.current{display:block}

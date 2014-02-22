@@ -10,6 +10,15 @@ register_nav_menus( array(
 	'header_menu' => '顶部菜单',
 ) );
 
+if (function_exists('register_sidebar')) { 
+	register_sidebar(array( 
+		'name' => 'right sidebar', // 侧边栏 1 的名称 
+		'before_widget' => '<li class="widgets-lists">', // widget 的开始标签 
+		'after_widget' => '</li>', // widget 的结束标签 
+		'before_title' => '<h3 class="widget-title">', // 标题的开始标签 
+		'after_title' => '</h3>'// 标题的结束标签
+	));
+} 
 
 
 // class index_right_column_siderbar extends WP_Widget {
@@ -85,16 +94,6 @@ function par_pagenavi($range = 9) {
     }
 }
 
-if (function_exists('register_sidebar')) { 
-	register_sidebar(array( 
-		'name' => 'right sidebar', // 侧边栏 1 的名称 
-		'before_widget' => '<li class="widgets-lists">', // widget 的开始标签 
-		'after_widget' => '</li>', // widget 的结束标签 
-		'before_title' => '<h3 class="widget-title">', // 标题的开始标签 
-		'after_title' => '</h3>'// 标题的结束标签
-	));
-} 
-
 
 // 增加后台作者资料
 add_filter( 'user_contactmethods', 'add_author_contact_fields' );
@@ -143,8 +142,8 @@ class new_general_setting {
  */
 function get_most_comments_friends($config) {
 	$config['container'] 		= array_key_exists('container', $config) ? $config['container'] : "";
-	$config['container_class'] 	= array_key_exists('container_class', $config) ? $config['container_class'] : "";
-	$config['container_id']		= array_key_exists('container_id', $config) ? $config['container_id'] : "";
+	$config['container_class'] 	= array_key_exists('container_class', $config) ? $config['container_class'] : "most-comments-friend-wall";
+	$config['container_id']		= array_key_exists('container_id', $config) ? $config['container_id'] : "MostCommentsFirendsWall";
 	$config['echo']				= array_key_exists('echo', $config) ? ($config['echo']) : false;
 	// $config['before']
 	$config['number'] 			= array_key_exists('number', $config) ? $config['number'] : 15;
@@ -173,7 +172,7 @@ function get_most_comments_friends($config) {
   $mostactive = '';
 
   if ( $counts ) {
-  	$mostactive .= "<ul>";
+  	$mostactive .= '<ul class="' . $config['container_class'] . '"' . ' id="' . $config['container_id'].'">';
     wp_cache_set( 'simpleway_mostactive', $counts );
 
     foreach ($counts as $count) {

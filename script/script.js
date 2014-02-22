@@ -125,13 +125,14 @@ function tabSwitcher() {
             
             event = event || window.event;
             event.preventDefault();
-            
-            $tabSwitcherList.removeClass("current");
 
-            var index = $(this).addClass("current").index();
+            if (!$(this).hasClass("current")) {
+            	$tabSwitcherList.removeClass("current");
 
-            $tabContentList.css({display: "none"}).eq(index).slideDown("fast");
+            	var index = $(this).addClass("current").index();
 
+            	$tabContentList.css({display: "none"}).eq(index).fadeIn('slow');
+            }
         });
     });
 }
