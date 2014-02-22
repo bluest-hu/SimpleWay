@@ -578,11 +578,29 @@ article.article .article-top-column {
 
 .footer p {
 	color: #999;
-	font: normal 13px/1.5 Arial, "Microsoft Yahei";
+	font: normal 13px/20px Arial, "Microsoft Yahei";
 }
 
 .footer p, .footer a {
 	text-shadow: 0 1px 1px rgba(0, 0, 0, .89);
+}
+
+.footer .powered-by a .wordpress-logo {
+	width: 13px;
+	height: 13px;
+	margin-bottom: -2px;
+	margin-right: 2px;
+	display: inline-block;
+	background-image: url("../image/icons.png");
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	transition: all .1s ease-in-out;
+	background-position: -100px 0;
+}
+
+.footer .powered-by a:hover .wordpress-logo {
+	background-position: -100px -20px;
+
 }
 
 .footer a{
@@ -1155,4 +1173,8 @@ article.article .article-top-column {
 
 .tab .tab-container .tab-content .tab-content-list.current {
 	display: block;
+}
+
+.heart {
+	color: #FF6262;
 }

@@ -3,16 +3,21 @@
 				<div class="column clear">
 					<p class="copy-right left-column"><!-- Copy Right Begain -->
 						Copy Right:
-						© <a href="http://www.linkdigger.org" alt="链递阁" >链递阁</a>
+						© <a href="" alt="链递阁" >链递阁</a>
 					</p><!-- Copy Right Ends -->
 					<p class="designer right-column"><!-- Blog Designer Begain -->
+						Theme:
+						<a href="<?php echo wp_get_theme()->display('ThemeURI');?>" alt="访问主题页面" title="访问主题页面"><?php echo wp_get_theme()->display('Name');?></a>
+						V<?php echo wp_get_theme()->display('Version');?>
+						&nbsp;|&nbsp;
 						Designed By:
-						♥ <a href="http://bluest.me" alt="作者">深蓝</a>
+						<span class="heart">♥</span>&nbsp;<?php echo wp_get_theme()->display('Author'); ?>
+
 					</p><!-- Blog Designer Ends -->
 				</div>
 				<p class="powered-by"><!-- Blog Powered By Begain -->
-					Powered By: 
-					<a href="http://www.wordpress.org">WordPress</a>
+					Powered By:
+					<a href="http://www.wordpress.org"><span class="wordpress-logo"></span>WordPress</a>
 				</p><!-- Blog Powered By Ends -->
 			</div>
 			
