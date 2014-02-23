@@ -19,7 +19,6 @@ if ( function_exists( 'register_nav_menus' ) ) {
 if ( function_exists('register_sidebar')) { 
 	register_sidebar(array( 
 		'name' 			=> __( 'Right Sidebar', '首页的右边栏，如果其他页面未定义侧边栏，则默认调用首页的侧边栏' ), // 侧边栏 1 的名称 
-		// 'id'			=> 'rightSidebar',
 		'class'			=> 'right-sidebar',
 		'before_widget' => '<li class="widgets-lists">', // widget 的开始标签 
 		'after_widget' 	=> '</li>', // widget 的结束标签 
@@ -28,13 +27,15 @@ if ( function_exists('register_sidebar')) {
 	));
 } 
 
-// 注册侧边栏小工具
-if( function_exists( 'register_sidebar_widget' ) ) {   
-    register_sidebar_widget('四合一小工具', function() {
-    	include(TEMPLATEPATH . '/wedgit/tab_switcher.php');
-    } );   
+//注册侧边栏小工具
+if ( function_exists('wp_register_sidebar_widget' ) ) {   
+    wp_register_sidebar_widget(1, '四合一小工具', 'tab_switcher_one');
 }  
 
+
+function tab_switcher_one () {
+    include(TEMPLATEPATH . '/wedgit/tab_switcher_1.php');
+}
 
 function par_pagenavi($range = 9) {
 	global	$paged, 
