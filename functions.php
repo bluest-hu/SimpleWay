@@ -37,6 +37,17 @@ function tab_switcher_one () {
     include(TEMPLATEPATH . '/wedgit/tab_switcher_1.php');
 }
 
+
+// 时间可读
+// add_filter( 'the_date', 'human_readable_date');
+// add_filter( 'get_the_date', 'human_readable_date');
+// add_filter( 'the_modified_date', 'human_readable_date' );
+// add_filter( 'get_the_modified_date', 'human_readable_date' );
+
+// function human_readable_date( $the_date ){
+//     return human_time_diff( strtotime($the_date) ) .  __(' ago');
+// }
+
 function par_pagenavi($range = 9) {
 	global	$paged, 
 			$wp_query;

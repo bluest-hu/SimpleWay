@@ -98,12 +98,18 @@ blockquote::after {
 /*======================================== Font Begain ======================================*/
 
 @font-face {
-	font-family: "Source Code Pro";
-	src: url('../font/Source_Code_Pro/ttf/SourceCodePro-Regular.ttf');
-	font-weight: normal;
-    font-style: normal;
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Source Code Pro'), local('SourceCodePro-Regular'), url(http://themes.googleusercontent.com/static/fonts/sourcecodepro/v4/mrl8jkM18OlOQN8JLgasDxM0YzuT7MdOe03otPbuUS0.woff) format('woff');
 }
 
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Source Code Pro Black'), local('SourceCodePro-Black'), url(http://themes.googleusercontent.com/static/fonts/sourcecodepro/v4/leqv3v-yTsJNC7nFznSMqXiec-hVyr2k4iOzEQsW1iE.woff) format('woff');
+}
 /*======================================== Base Begain ======================================*/
 
 /***************************************** Layout *******************************************/
