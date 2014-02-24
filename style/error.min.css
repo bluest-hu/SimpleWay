@@ -1,4 +1,4 @@
-.error{margin:50px 0 20px;padding:20px 15px;background-color:#FFF;border-radius:6px;border:1px solid #DDD;box-shadow:0 1px 1px rgba(0,0,0,.1);position:relative;text-align:center}
+.error{margin:100px 0;padding:20px 15px;background-color:#FFF;border-radius:6px;border:1px solid #DDD;box-shadow:0 1px 1px rgba(0,0,0,.1);position:relative;text-align:center}
 .error h1.title{font:700 90px/2 "Microsoft Yahei",Arial;text-align:center;color:#FFA200;text-shadow:0 1px 1px rgba(0,0,0,.3);-moz-animation:text-blink 1s ease-out infinite;-ms-animation:text-blink 1s ease-out infinite;animation:text-blink 1s ease-out infinite}
 @-webkit-keyframes text-blink{0%{text-shadow:0 1px 0 rgba(0,41,255,.1)}
 25%{text-shadow:0 1px 5px rgba(0,41,255,.2)}

@@ -115,6 +115,11 @@ function human_readable_date( $the_date ){
     return human_time_diff( strtotime($the_date) ) .  __(' ago');
 }
 
+/**
+ * 页面分页
+ * @param  integer $range 分页计数
+ * @return string         html字符串
+ */
 function par_pagenavi($range = 9) {
 	global	$paged, 
 			$wp_query;
@@ -181,7 +186,6 @@ function par_pagenavi($range = 9) {
     	}
     }
 }
-
 
 // 增加后台作者资料
 add_filter( 'user_contactmethods', 'add_author_contact_fields' );
