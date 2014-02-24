@@ -8,14 +8,15 @@
 /**
  * 注册顶部菜单
  */
-
 if ( function_exists( 'register_nav_menus' ) ) {
 	register_nav_menus( array(
 		'header_menu' => '顶部菜单',
 	) );
 }
 
-// 注册侧边栏
+/**
+ * 注册侧边栏
+ */ 
 if ( function_exists('register_sidebar')) { 
 	register_sidebar(array( 
 		'name' 			=> __( 'Right Sidebar', '首页的右边栏，如果其他页面未定义侧边栏，则默认调用首页的侧边栏' ), // 侧边栏 1 的名称 
@@ -38,15 +39,15 @@ function tab_switcher_one () {
 }
 
 
-// 时间可读
-// add_filter( 'the_date', 'human_readable_date');
-// add_filter( 'get_the_date', 'human_readable_date');
-// add_filter( 'the_modified_date', 'human_readable_date' );
-// add_filter( 'get_the_modified_date', 'human_readable_date' );
+//时间可读
+add_filter( 'the_date', 'human_readable_date');
+add_filter( 'get_the_date', 'human_readable_date');
+add_filter( 'the_modified_date', 'human_readable_date' );
+add_filter( 'get_the_modified_date', 'human_readable_date' );
 
-// function human_readable_date( $the_date ){
-//     return human_time_diff( strtotime($the_date) ) .  __(' ago');
-// }
+function human_readable_date( $the_date ){
+    return human_time_diff( strtotime($the_date) ) .  __(' ago');
+}
 
 function par_pagenavi($range = 9) {
 	global	$paged, 
@@ -135,7 +136,6 @@ function add_author_contact_fields( $contactmethods ) {
 
 
 // 增加主页关键字以及描述
-
 $new_general_setting = new new_general_setting();
 
 class new_general_setting {
@@ -158,8 +158,9 @@ class new_general_setting {
 	}
 }
 
+
 /**
- * 
+ * 获取评论
  */
 function get_most_comments_friends($config) {
 	$config['container'] 		= array_key_exists('container', $config) ? $config['container'] : "";

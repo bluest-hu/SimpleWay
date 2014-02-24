@@ -408,8 +408,6 @@ article.article .article-top-column {
 
 .entry p {
 	margin: 10px 0;
-	line-height: 25px;
-	font-size: 14px;
 }
 
 .entry a {
@@ -575,6 +573,14 @@ article.article .article-top-column {
 .aside .widgets-lists ul li ul {
 	padding: 0 0 0 5px;
 }
+
+.aside .category-list .cat-item a {
+	font-weight: normal;
+}
+
+.aside .category-list .cat-item .children li.cat-item a {
+	font-weight: lighter;
+} 
 
 .footer {
 	background-color: #333;
@@ -871,7 +877,7 @@ article.article .article-top-column {
 	line-height: 30px;
 	margin-bottom: 10px;
 	color: #000;
-	font-weight: normal;
+	font-weight: 600;
 }
 
 .comment-form-container .comment-reply-title a, .comment-form-container .logged-in-as a:nth-child(1){
@@ -1129,7 +1135,7 @@ article.article .article-top-column {
 	padding: 3px 15px;
 	border: 1px solid transparent;
 	font-size: 15px;
-	font-weight: bold;
+	font-weight: 600;
 	line-height: 30px;
 	color: #999;
 	transition: color .2s ease-in-out;
@@ -1174,7 +1180,7 @@ article.article .article-top-column {
 
 .tab-container .tab-content .tab-content-list ul,.tab-container .tab-content .tab-content-list ul li{
 	list-style-type: disc;
-	margin: 0 0 0 5px;
+	margin: 0 0 0 10px;
 }
 
 .tab .tab-container .tab-content .tab-content-list.current {

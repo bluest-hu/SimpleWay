@@ -11,8 +11,7 @@
 						V<?php echo wp_get_theme()->display('Version');?>
 						&nbsp;|&nbsp;
 						Designed By:
-						<span class="heart">♥</span>&nbsp;<?php echo wp_get_theme()->display('Author'); ?>
-
+						<span class="heart">❤</span>&nbsp;<?php echo wp_get_theme()->display('Author'); ?>
 					</p><!-- Blog Designer Ends -->
 				</div>
 				<p class="powered-by"><!-- Blog Powered By Begain -->
@@ -23,8 +22,8 @@
 			
 		</footer>
 		<?php wp_footer(); ?>
-    	<script type="text/javascript" src="http://cdn.staticfile.org/jquery/2.1.0/jquery.min.js"></script>
-		<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/script/script.js"></script>
+    	// <script type="text/javascript" src="http://cdn.staticfile.org/jquery/2.1.0/jquery.min.js"></script>
+		<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/script/script.min.js"></script>
 		<!-- Google Analytics Begain -->
 		<script>
 			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

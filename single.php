@@ -101,7 +101,7 @@
 								</li><!-- Post Author Twitter -->
 							<?php } ?>
 
-							<?php if (get_the_author_meta()) { ?>
+							<?php if (get_the_author_meta('facebook')) { ?>
 								<li class="facebook">
 									<a href="<?php the_author_meta('facebook'); ?>" alt="FaceBook" title="Facebook" rel="nofollow">Facebook</a>
 								</li><!-- Post Author Facebook -->

@@ -13,7 +13,34 @@
         <ul class="tab-content">
             <li class="tab-content-list current">
                 <h3 class="widget-title">看这个月我又在偷懒了！</h3>
-                <?php get_calendar();?>                                     
+                <ul class="category-list">
+                <?php wp_list_categories( array(
+                    'show_option_all'    => '',
+                    'orderby'            => 'name',
+                    'order'              => 'ASC',
+                    'style'              => 'list',
+                    'show_count'         => 1,
+                    'hide_empty'         => 1,
+                    'use_desc_for_title' => 1,
+                    'child_of'           => 0,
+                    'feed'               => '',
+                    'feed_type'          => '',
+                    'feed_image'         => '',
+                    'exclude'            => '',
+                    'exclude_tree'       => '',
+                    'include'            => '',
+                    'hierarchical'       => TRUE, //是否显示缩进
+                    'title_li'           => '',
+                    'show_option_none'   => __('没有目录'),
+                    'number'             => null,
+                    'echo'               => 1,
+                    'depth'              => 0,
+                    'current_category'   => 0,
+                    'pad_counts'         => 0,
+                    'taxonomy'           => 'category',
+                    'walker'             => null
+                ) ); ?>                                 
+                </ul>
             </li>
             <li class="tab-content-list">
             	<ul>
