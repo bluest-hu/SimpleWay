@@ -19,7 +19,64 @@ if ( function_exists( 'register_nav_menus' ) ) {
  */ 
 if ( function_exists('register_sidebar')) { 
 	register_sidebar(array( 
-		'name' 			=> __( 'Right Sidebar', '首页的右边栏，如果其他页面未定义侧边栏，则默认调用首页的侧边栏' ), // 侧边栏 1 的名称 
+		'name' 			=> __( 'Index Right Sidebar', '首页的右边栏，如果其他页面未定义侧边栏，则默认调用首页的侧边栏' ), // 侧边栏 1 的名称 
+		'class'			=> 'right-sidebar',
+		'before_widget' => '<li class="widgets-lists">', // widget 的开始标签 
+		'after_widget' 	=> '</li>', // widget 的结束标签 
+		'before_title' 	=> '<h3 class="widget-title">', // 标题的开始标签 
+		'after_title' 	=> '</h3>'// 标题的结束标签
+	));
+
+
+	
+	register_sidebar(array( 
+		'name' 			=> __( 'Post Right Sidebar', '文章页面的右边栏，如果未定义侧边栏，则默认调用首页的侧边栏' ), // 侧边栏 1 的名称 
+		'class'			=> 'right-sidebar',
+		'before_widget' => '<li class="widgets-lists">', // widget 的开始标签 
+		'after_widget' 	=> '</li>', // widget 的结束标签 
+		'before_title' 	=> '<h3 class="widget-title">', // 标题的开始标签 
+		'after_title' 	=> '</h3>'// 标题的结束标签
+	));
+
+	register_sidebar(array( 
+		'name' 			=> __( 'Achieve Right Sidebar', '存档页页面的右边栏，如果未定义侧边栏，则默认调用首页的侧边栏' ), // 侧边栏 1 的名称 
+		'class'			=> 'right-sidebar',
+		'before_widget' => '<li class="widgets-lists">', // widget 的开始标签 
+		'after_widget' 	=> '</li>', // widget 的结束标签 
+		'before_title' 	=> '<h3 class="widget-title">', // 标题的开始标签 
+		'after_title' 	=> '</h3>'// 标题的结束标签
+	));
+
+	register_sidebar(array( 
+		'name' 			=> __( 'Author Right Sidebar', '存档页页面的右边栏，如果未定义侧边栏，则默认调用首页的侧边栏' ), // 侧边栏 1 的名称 
+		'class'			=> 'right-sidebar',
+		'before_widget' => '<li class="widgets-lists">', // widget 的开始标签 
+		'after_widget' 	=> '</li>', // widget 的结束标签 
+		'before_title' 	=> '<h3 class="widget-title">', // 标题的开始标签 
+		'after_title' 	=> '</h3>'// 标题的结束标签
+	));
+
+
+	register_sidebar(array( 
+		'name' 			=> __( 'Page Right Sidebar', '存档页页面的右边栏，如果未定义侧边栏，则默认调用首页的侧边栏' ), // 侧边栏 1 的名称 
+		'class'			=> 'right-sidebar',
+		'before_widget' => '<li class="widgets-lists">', // widget 的开始标签 
+		'after_widget' 	=> '</li>', // widget 的结束标签 
+		'before_title' 	=> '<h3 class="widget-title">', // 标题的开始标签 
+		'after_title' 	=> '</h3>'// 标题的结束标签
+	));
+
+	register_sidebar(array( 
+		'name' 			=> __( 'Category Right Sidebar', '存档页页面的右边栏，如果未定义侧边栏，则默认调用首页的侧边栏' ), // 侧边栏 1 的名称 
+		'class'			=> 'right-sidebar',
+		'before_widget' => '<li class="widgets-lists">', // widget 的开始标签 
+		'after_widget' 	=> '</li>', // widget 的结束标签 
+		'before_title' 	=> '<h3 class="widget-title">', // 标题的开始标签 
+		'after_title' 	=> '</h3>'// 标题的结束标签
+	));
+
+	register_sidebar(array( 
+		'name' 			=> __( 'Tag Right Sidebar', '存档页页面的右边栏，如果未定义侧边栏，则默认调用首页的侧边栏' ), // 侧边栏 1 的名称 
 		'class'			=> 'right-sidebar',
 		'before_widget' => '<li class="widgets-lists">', // widget 的开始标签 
 		'after_widget' 	=> '</li>', // widget 的结束标签 
@@ -30,12 +87,21 @@ if ( function_exists('register_sidebar')) {
 
 //注册侧边栏小工具
 if ( function_exists('wp_register_sidebar_widget' ) ) {   
-    wp_register_sidebar_widget(1, '四合一小工具', 'tab_switcher_one');
+    wp_register_sidebar_widget(1, '四合一小工具：日历最近文章、标签云、分类目录', 'tab_switcher_one');
 }  
 
 
 function tab_switcher_one () {
     include(TEMPLATEPATH . '/wedgit/tab_switcher_1.php');
+}
+
+// 注册侧边栏小工具2
+if ( function_exists('wp_register_sidebar_widget' ) ) {   
+    wp_register_sidebar_widget(2, '四合一小工具', 'tab_switcher_two');
+}
+
+function tab_switcher_two () {
+    include(TEMPLATEPATH . '/wedgit/tab_switcher_2.php');
 }
 
 
