@@ -10,7 +10,7 @@ img{max-width:100%;border:0}
 pre{background-color:#F7F7F7;padding:15px 20px;color:#777;font:400 14px/1.5 "Source Code Pro",Consolas,Arial;border-radius:2px;border:1px solid rgba(0,0,0,.04);overflow-x:auto}
 blockquote{padding:10px 30px;margin:0;position:relative;text-indent:2em;color:#777}
 blockquote p{color:#777}
-blockquote::before,blockquote::after{position:absolute;display:block;width:16px;height:16px;content:"";background:transparent url(../image/icons.png?1402252220) 0 0 no-repeat scroll}
+blockquote::before,blockquote::after{position:absolute;display:block;width:16px;height:16px;content:"";background:transparent url(../image/icons.png?1402252224) 0 0 no-repeat scroll}
 blockquote::before{top:10px;left:0}
 blockquote::after{bottom:10px;right:0;background-position:-20px 0}
 @font-face{font-family:'Source Code Pro';font-style:normal;font-weight:400;src:local('Source Code Pro'),local('SourceCodePro-Regular'),url(http://themes.googleusercontent.com/static/fonts/sourcecodepro/v4/mrl8jkM18OlOQN8JLgasDxM0YzuT7MdOe03otPbuUS0.woff) format('woff')}
@@ -38,7 +38,7 @@ header.header{overflow-x:hidden;background-color:#FAFAFA;box-shadow:0 1px 1px rg
 .search-form #s{width:inherit;height:28px;display:block;padding:6px 12px;color:#727272;margin-bottom:0;border:1px solid #F7F5F5;border-radius:20px;box-sizing:border-box;-moz-box-sizing:border-box;transition:all .1s ease}
 .search-form #s:focus{border:1px solid #dadada}
 .search-form #s:focus,.search-form #searchsubmit:focus{outline:0 none}
-.search-form #searchsubmit{width:16px;height:16px;padding:0;margin:0;position:absolute;display:block;right:10px;top:6px;background-color:transparent;background-image:url(../image/icons.png?1402252220);background-repeat:no-repeat;background-position:-60px -20px;text-indent:99em;border:0}
+.search-form #searchsubmit{width:16px;height:16px;padding:0;margin:0;position:absolute;display:block;right:10px;top:6px;background-color:transparent;background-image:url(../image/icons.png?1402252224);background-repeat:no-repeat;background-position:-60px -20px;text-indent:99em;border:0}
 .search-form #searchsubmit:hover{cursor:pointer}
 .main{overflow:hidden}
 .main .content{margin-top:10px;margin-bottom:10px}
@@ -53,7 +53,7 @@ article.article .article-top-column{margin:0 0 10px;padding:25px 30px 0}
 .article .post-meta,.article .post-meta a{color:#999;font:400 13px/20px "Microsoft Yahei"}
 .article .post-meta a:hover{color:#FFA200}
 .article .article-column-bottom{width:590px;padding:15px 30px 25px}
-.post-meta .article-category::before,.post-meta .article-time:before,.post-meta .article-comment::before,.post-meta .article-tags::before{width:16px;height:17px;display:block;float:left;content:"";margin-right:5px;margin-top:3px;background-image:url(../image/icons.png?1402252220);background-repeat:no-repeat}
+.post-meta .article-category::before,.post-meta .article-time:before,.post-meta .article-comment::before,.post-meta .article-tags::before{width:16px;height:17px;display:block;float:left;content:"";margin-right:5px;margin-top:3px;background-image:url(../image/icons.png?1402252224);background-repeat:no-repeat}
 .post-meta .article-time:before{background-position:-80px 0}
 .post-meta .article-category::before{background-position:-20px -20px}
 .post-meta .article-comment::before{background-position:0 -20px}
@@ -100,7 +100,7 @@ article.article .article-top-column{margin:0 0 10px;padding:25px 30px 0}
 .most-comments-friend-wall{overflow:hidden}
 .most-comments-friend-wall .most-active-people{float:left}
 .most-comments-friend-wall .most-active-people a{display:block;margin:0 5px 5px 0}
-.most-comments-friend-wall .most-active-people img.avatar{border-radius:4px;box-shadow:0 0 1px rgba(0,0,0,.1)}
+.most-comments-friend-wall .most-active-people img.avatar{border-radius:5px;box-shadow:0 0 1px rgba(0,0,0,.1)}
 #wp-calendar{width:100%;border-collapse:collapse}
 #wp-calendar caption{border-top:1px solid rgba(0,0,0,.1);border-bottom:1px solid rgba(0,0,0,.1);line-height:35px;font-size:17px}
 #wp-calendar tfoot tr td{padding-top:10px}
@@ -135,7 +135,7 @@ article.article .article-top-column{margin:0 0 10px;padding:25px 30px 0}
 .footer{background-color:#333;padding:30px 0;margin:30px 0 0}
 .footer p{color:#999;font:400 13px/20px Arial,"Microsoft Yahei"}
 .footer p,.footer a{text-shadow:0 1px 1px rgba(0,0,0,.89)}
-.footer .powered-by a .wordpress-logo{width:13px;height:13px;margin-bottom:-2px;margin-right:2px;display:inline-block;background-image:url(../image/icons.png?1402252220);background-repeat:no-repeat;background-attachment:scroll;transition:all .1s ease-in-out;background-position:-100px 0}
+.footer .powered-by a .wordpress-logo{width:13px;height:13px;margin-bottom:-2px;margin-right:2px;display:inline-block;background-image:url(../image/icons.png?1402252224);background-repeat:no-repeat;background-attachment:scroll;transition:all .1s ease-in-out;background-position:-100px 0}
 .footer .powered-by a:hover .wordpress-logo{background-position:-100px -20px}
 .footer a{color:#A3A3A3;font:400 13px/1.5 Arial,"Microsoft Yahei"}
 .footer a:hover{color:#ffa200}
@@ -193,7 +193,7 @@ article.article .article-top-column{margin:0 0 10px;padding:25px 30px 0}
 .author-info .author-contact ul li{display:inline-block;font:400 16px/20px Arial,"Microsoft Yahei";margin-right:15px}
 .author-info .author-contact ul li a{color:#CCC;display:inline-block;transition:color .2s ease}
 .author-info .author-contact ul li:hover a{color:#666}
-.author-info .author-contact ul li:before{width:20px;height:20px;content:"";display:block;float:left;margin-right:5px;background-image:url(../image/icons.png?1402252220);background-repeat:no-repeat;background-attachment:scroll;transition:all .1s ease-in-out}
+.author-info .author-contact ul li:before{width:20px;height:20px;content:"";display:block;float:left;margin-right:5px;background-image:url(../image/icons.png?1402252224);background-repeat:no-repeat;background-attachment:scroll;transition:all .1s ease-in-out}
 .author-info .author-contact ul li.email:before{background-position:-60px -40px}
 .author-info .author-contact ul li:hover.email:before{background-position:-60px -60px}
 .author-info .author-contact ul li.website:before{background-position:-80px -40px}
@@ -206,6 +206,6 @@ article.article .article-top-column{margin:0 0 10px;padding:25px 30px 0}
 .author-info .author-contact ul li:hover.github:before{background-position:-0px -60px}
 .author-info .author-contact ul li.google-plus:before{background-position:-100px -40px}
 .author-info .author-contact ul li:hover.google-plus:before{background-position:-100px -60px}
-#backToTopBtn{position:fixed;bottom:110px;right:50px;width:50px;height:50px;display:block;background:#FFF url(../image/icons.png?1402252220) -121px 0 no-repeat scroll;border:1px solid rgba(0,0,0,.1);border-radius:50%;box-shadow:0 0 1px rgba(0,0,0,.01);transition:all .1s ease-in-out}
+#backToTopBtn{position:fixed;bottom:110px;right:50px;width:50px;height:50px;display:block;background:#FFF url(../image/icons.png?1402252224) -121px 0 no-repeat scroll;border:1px solid rgba(0,0,0,.1);border-radius:50%;box-shadow:0 0 1px rgba(0,0,0,.01);transition:all .1s ease-in-out}
 #backToTopBtn:hover{background-position:-121px -50px;background-color:#FAFAFA}
 .heart{color:#FF6262}

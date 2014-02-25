@@ -43,7 +43,7 @@
             <li class="tab-content-list">
             	<?php echo get_most_comments_friends(array(
                     $config['number'] = 20,
-                    $config['size'] = 50
+                    $config['size'] = 45
                 )); ?>
             </li>
         </ul>

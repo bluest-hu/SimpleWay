@@ -390,7 +390,7 @@ function get_most_comments_friends($config) {
 	$config['echo']				= !empty($config['echo']) ? $config['echo'] : false;
 	$config['before']			= !empty($config['before']) ? $config['before'] : "li";
 	$config['number'] 			= !empty($config['number']) ? $config['number'] : 15;
-	$config['size'] 			= !empty($config['size']) ? $config['size'] : 40;
+	$config['size'] 			= !empty($config['size']) ? $config['size'] : 45;
 	$config['time']				= !empty($config['time']) ? $config['time'] : 1;
 
 	global $wpdb;
@@ -428,7 +428,7 @@ function get_most_comments_friends($config) {
       		$c_author 	= $count->comment_author;
       		$c_email 	= $count->comment_author_email;
 
-     		$mostactive .= "<li id=\"mostActivePeople-{$_index}\" class=\"most-active-people\"><a href=\"{$c_url}\" title=\"{$c_author} 发表 条评论\" rel=\"nofollow\" target=\"_blank\">" . 
+     		$mostactive .= "<li id=\"mostActivePeople-{$_index}\" class=\"most-active-people\"><a href=\"{$c_url}\" title=\"{$c_author} 发表{$c_count} 条评论\" rel=\"nofollow\" target=\"_blank\">" . 
 	     		get_avatar($c_email, $config['size']) . 
 	     		'</a></li>';
    		}
