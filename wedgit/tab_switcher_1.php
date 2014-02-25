@@ -16,7 +16,16 @@
             <li class="tab-content-list">
             	<h3 class="widget-title">排排队啦！</h3>
             	<ul class="article-cata">
-            		<?php get_archives('postbypost', 10); ?>
+            		<?php wp_get_archives( array(
+                        'type'            => 'postbypost', //yearly、monthly - Default、daily、weekly、postbypost (posts ordered by post date)、alpha (same as postbypost but posts are ordered by post title)
+                        'limit'           => 10,
+                        'format'          => 'html', 
+                        'before'          => '',
+                        'after'           => '',
+                        'show_post_count' => true,
+                        'echo'            => 1,
+                        'order'           => 'DESC'
+                    ) ); ?>
             	</ul>
             </li>
             <li class="tab-content-list">

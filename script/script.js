@@ -73,23 +73,23 @@ $(document).ready(function () {
 
 
 // navigation
-$(document).ready(function () {
+// $(document).ready(function () {
 
-	var $navigationIteams 			= $(".navigation .navigation-container .menu li");
-	var navigationContainerWidth 	= document.getElementById('navigationContainer').offsetWidth;
-	var IteamSumWith 				= 0;
+// 	var $navigationIteams 			= $(".navigation .navigation-container .menu li");
+// 	var navigationContainerWidth 	= document.getElementById('navigationContainer').offsetWidth;
+// 	var IteamSumWith 				= 0;
 
-	$navigationIteams.each(function (index) {
+// 	$navigationIteams.each(function (index) {
 
-		IteamSumWith += $navigationIteams.eq(index)[0].offsetWidth;
+// 		IteamSumWith += $navigationIteams.eq(index)[0].offsetWidth;
 
-		// find those more iteams
-		if (IteamSumWith > navigationContainerWidth) {
+// 		// find those more iteams
+// 		if (IteamSumWith > navigationContainerWidth) {
 
-			// wrap this more iteams
-		}
-	});
-});
+// 			// wrap this more iteams
+// 		}
+// 	});
+// });
 
 // fix the single article page empty navigation 
 $(function () {
@@ -131,7 +131,7 @@ function tabSwitcher() {
 
             	var index = $(this).addClass("current").index();
 
-            	$tabContentList.css({display: "none"}).eq(index).fadeIn('slow');
+            	$tabContentList.css({display:"none"}).eq(index).fadeIn(300);	
             }
         });
     });

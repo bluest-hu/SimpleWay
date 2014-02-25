@@ -26,8 +26,6 @@ if ( function_exists('register_sidebar')) {
 		'before_title' 	=> '<h3 class="widget-title">', // 标题的开始标签 
 		'after_title' 	=> '</h3>'// 标题的结束标签
 	));
-
-
 	
 	register_sidebar(array( 
 		'name' 			=> __( 'Post Right Sidebar', '文章页面的右边栏，如果未定义侧边栏，则默认调用首页的侧边栏' ), // 侧边栏 1 的名称 
@@ -103,6 +101,98 @@ if ( function_exists('wp_register_sidebar_widget' ) ) {
 function tab_switcher_two () {
     include(TEMPLATEPATH . '/wedgit/tab_switcher_2.php');
 }
+
+//URL:http://www.daqianduan.com/wordpress-tools-newcomments/
+register_widget('widget_newcomments');
+
+class widget_newcomments extends WP_Widget {
+
+	function widget_newcomments() {
+		$option = array('classname' => 'widget_newcomments', 'description' => '显示网友最新评论（头像+名称+评论）' );
+		$this->WP_Widget(false, 'D - 最新评论 ', $option);
+	}
+
+	function widget($args, $instance) {
+		extract($args, EXTR_SKIP);
+		echo $before_widget;
+		$title = empty($instance['title']) ? '最新评论' : apply_filters('widget_title', $instance['title']);
+		$count = empty($instance['count']) ? '5' : apply_filters('widget_count', $instance['count']);
+
+		echo $before_title . $title . $after_title;
+		echo '<ul class="new-comments">';
+		echo simpleway_newcomments( $count );
+		echo '</ul>';
+		echo $after_widget;
+	}
+
+	function update($new_instance, $old_instance) {
+		$instance = $old_instance;
+		$instance['title'] = strip_tags($new_instance['title']);
+		$instance['count'] = strip_tags($new_instance['count']);
+		return $instance;
+	}
+
+	function form($instance) {
+		$instance = wp_parse_args( (array) $instance, array( 'title' => '', 'count' => '' ) );
+		$title = strip_tags($instance['title']);
+		$count = strip_tags($instance['count']);
+
+		echo '<p><label>标题：<input id="'.$this->get_field_id('title').'" name="'.$this->get_field_name('title').'" type="text" value="'.attribute_escape($title).'" size="24" /></label></p>';
+		echo '<p><label>数目：<input id="'.$this->get_field_id('count').'" name="'.$this->get_field_name('count').'" type="text" value="'.attribute_escape($count).'" size="3" /></label></p>';
+	}
+}
+
+function simpleway_newcomments( $limit ){
+	global $wpdb;
+
+	$comments = wp_cache_get( 'simpleway_newcomments' );
+
+	$sql = "SELECT DISTINCT 
+		ID,
+		post_title,
+		post_password,
+		comment_ID, 
+		comment_post_ID,
+		comment_author,
+		comment_date_gmt,
+		comment_approved, 
+		comment_author_email,
+		comment_type,
+		comment_author_url,
+		comment_content
+	FROM $wpdb->comments 
+		LEFT OUTER JOIN $wpdb->posts 
+		ON ($wpdb->comments.comment_post_ID = $wpdb->posts.ID) 
+		WHERE comment_approved = '1'
+	AND comment_type = ''
+	AND post_password = ''
+	AND user_id  = '0'
+	ORDER BY comment_date_gmt DESC LIMIT $limit ";
+	
+	if ($comments === false) {
+		$comments = $wpdb->get_results($sql);
+		wp_cache_set( 'simpleway_mostactive', $comments );
+	}
+
+	foreach ( $comments as $comment ) {
+		if ( mb_strlen($comment->comment_content, 'utf-8') > 35 ) {
+			$comment->comment_content = mb_substr($comment->comment_content, 0, 35, 'utf-8') . "......";
+		}
+
+		$output .= "<li class=\"new-comment-lists\" ><a href=\"" . 
+						get_permalink($comment->ID) . 
+						"#comment-" . $comment->comment_ID . 
+						"\" title=\"" . 
+						$comment->post_title .
+						"上的评论\">" .
+						get_avatar( $comment->comment_author_email, 40) . 
+						"<strong class=\"comment-author\">". strip_tags($comment->comment_author) . 
+						"：</strong>" .
+						strip_tags($comment->comment_content) 
+						."</a></li>";
+	}
+	echo $output;
+};
 
 
 //时间可读
@@ -209,6 +299,7 @@ function add_author_contact_fields( $contactmethods ) {
 $new_general_setting = new new_general_setting();
 
 class new_general_setting {
+
 	function new_general_setting( ) {
 		add_filter( 'admin_init' , array( &$this , 'register_fields' ) );
 	}
@@ -229,16 +320,78 @@ class new_general_setting {
 }
 
 
+register_widget('widget_most_comments_wall');
+
+class widget_most_comments_wall extends WP_Widget {
+
+	function widget_most_comments_wall() {
+		$option = array(
+			'classname' => 'widget_most_comments_wall',
+			'description' => '最多评论的N个读者头像'
+		);
+
+		$this->WP_Widget(false, '读者评论墙', $option);
+	}
+
+	function widget($args, $instance) {
+
+		extract($args, EXTR_SKIP);
+		
+		echo $before_widget;
+		
+		$title = empty($instance['title']) ? '读者评论墙' : apply_filters('widget_title', $instance['title']);
+		$count = empty($instance['count']) ? '5' : apply_filters('widget_count', $instance['count']);
+		$size = empty($instance['width']) ? '40' : apply_filters('widget_count', $instance['size']);
+
+		echo $before_title . $title . $after_title;
+
+		echo '<ul class="new-comments">';
+		
+		echo get_most_comments_friends( array(
+			$config['number'] = $count,
+			$config['size'] = $size
+			) );
+		echo '</ul>';
+
+		echo $after_widget;
+	}
+
+	function update($new_instance, $old_instance) {
+		$instance = $old_instance;
+		
+		$instance['title'] = strip_tags($new_instance['title']);
+		$instance['count'] = strip_tags($new_instance['count']);
+		$instance['size'] = strip_tags($new_instance['size']);
+
+		return $instance;
+	}
+
+	function form($instance) {
+		$instance = wp_parse_args( (array) $instance, array( 'title' => '', 'count' => '','size' => '' ) );
+
+		$title = strip_tags($instance['title']);
+		$count = strip_tags($instance['count']);
+		$size = strip_tags($instance['size']);
+
+		echo '<p><label>标题：<input id="'.$this->get_field_id('title').'" name="'.$this->get_field_name('title').'" type="text" value="'.attribute_escape($title).'" size="24" /></label></p>';
+		echo '<p><label>数目：<input id="'.$this->get_field_id('count').'" name="'.$this->get_field_name('count').'" type="number" value="'.attribute_escape($count).'" size="3" /></label></p>';
+		echo '<p><label>大小：<input id="'.$this->get_field_id('size').'" name="'.$this->get_field_name('size').'" type="number" value="'.attribute_escape($size).'" size="3" /></label></p>';
+	}
+}
+
 /**
  * 获取评论
  */
 function get_most_comments_friends($config) {
-	$config['container'] 		= array_key_exists('container', $config) ? $config['container'] : "";
-	$config['container_class'] 	= array_key_exists('container_class', $config) ? $config['container_class'] : "most-comments-friend-wall";
-	$config['container_id']		= array_key_exists('container_id', $config) ? $config['container_id'] : "MostCommentsFirendsWall";
-	$config['echo']				= array_key_exists('echo', $config) ? ($config['echo']) : false;
-	// $config['before']
-	$config['number'] 			= array_key_exists('number', $config) ? $config['number'] : 15;
+
+	$config['container'] 		= !empty($config['container']) ? $config['container'] : "";
+	$config['container_class'] 	= !empty($config['container_class']) ? $config['container_class'] : "most-comments-friend-wall";
+	$config['container_id']		= !empty($config['container_id']) ? $config['container_id'] : "MostCommentsFirendsWall";
+	$config['echo']				= !empty($config['echo']) ? $config['echo'] : false;
+	$config['before']			= !empty($config['before']) ? $config['before'] : "li";
+	$config['number'] 			= !empty($config['number']) ? $config['number'] : 15;
+	$config['size'] 			= !empty($config['size']) ? $config['size'] : 40;
+	$config['time']				= !empty($config['time']) ? $config['time'] : 1;
 
 	global $wpdb;
   	
@@ -246,7 +399,7 @@ function get_most_comments_friends($config) {
 
   	$query = "SELECT COUNT(comment_author) AS cnt, comment_author, comment_author_url, comment_author_email
 	  	FROM {$wpdb->prefix}comments
-	  	WHERE comment_date > date_sub( NOW(), INTERVAL 1 MONTH )
+	  	WHERE comment_date > date_sub( NOW(), INTERVAL {$config['time']} MONTH )
 	        AND comment_approved = '1'
 	        AND comment_author_email != 'example@example.com'
 	        AND comment_author_url != ''
@@ -257,24 +410,51 @@ function get_most_comments_friends($config) {
 	    LIMIT {$config['number']}";
 
 
-  if ( false === $counts ) {
-    $counts = $wpdb->get_results($query);
-  }
+  	if ( false === $counts ) {
+    	$counts = $wpdb->get_results($query);
+  	}
 
-  $mostactive = '';
+  	$mostactive = '';
 
-  if ( $counts ) {
-  	$mostactive .= '<ul class="' . $config['container_class'] . '"' . ' id="' . $config['container_id'].'">';
-    wp_cache_set( 'simpleway_mostactive', $counts );
+	if ( $counts ) {
+  		$mostactive .= "<ul class=\"{$config['container_class']}\" id=\"{$config['container_id']}\">";
 
-    foreach ($counts as $count) {
-      $c_url = $count->comment_author_url;
-      $mostactive .= '<li>' . '<a href="'. $c_url . '" title="' . $count->comment_author .' 发表 '. $count->cnt . ' 条评论" target="_blank">' . get_avatar($count->comment_author_email, 55, '', $count->comment_author . ' 发表 ' . $count->cnt . ' 条评论') . '</a></li>';
-    }
+  		wp_cache_set( 'simpleway_mostactive', $counts );
+  		
+  		$_index = 1;
+    	foreach ($counts as $count) {
+      		$c_url 		= $count->comment_author_url;
+      		$c_count	= $count->cnt;
+      		$c_author 	= $count->comment_author;
+      		$c_email 	= $count->comment_author_email;
 
-  	return $mostactive .= " </ul>";
-  }
+     		$mostactive .= "<li id=\"mostActivePeople-{$_index}\" class=\"most-active-people\"><a href=\"{$c_url}\" title=\"{$c_author} 发表 条评论\" rel=\"nofollow\" target=\"_blank\">" . 
+	     		get_avatar($c_email, $config['size']) . 
+	     		'</a></li>';
+   		}
+
+   		$_index++;
+ 	}
+
+	$mostactive .= " </ul>";
+
+	if ( $config['echo'] ) {
+		echo $mostactive;
+	} else {
+		return $mostactive;
+	}
 }
-  
+
+// 给评论链接添加No-follw
+add_filter('comment_reply_link', 'add_nofollow', 420, 4);
+
+function add_nofollow($link, $args, $comment, $post){
+  return str_replace("href=", "rel='nofollow' href=", $link);
+}
+
+
+// 恢复友情链接
+add_filter( 'pre_option_link_manager_enabled', '__return_true' );
+
 ?> 
 

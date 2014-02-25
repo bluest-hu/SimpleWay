@@ -39,7 +39,7 @@ a {
 }
 
 a:hover {
-	text-decoration: underline;
+	text-decoration: none;
 }
 
 p {
@@ -362,7 +362,7 @@ article.article .article-top-column {
 
 .post-meta .article-tags a {
 	color: #FFF;
-	background-color: #5290FF;
+	background-color: #4AA5FD;
 	padding: 1px 5px;
 	font-size: 11px;
 	border-radius: 2px;
@@ -412,7 +412,12 @@ article.article .article-top-column {
 }
 
 .entry a {
+	color: #4AA5FD;
+}
+
+.entry a:hover {
 	color: #FFA200;
+	text-decoration: none;
 }
 
 .entry hr {
@@ -532,12 +537,11 @@ article.article .article-top-column {
 	color: #666;
 	font-size: 13px;
 	line-height: 25px;
-	transition: all .2s ease;
+	transition: color .2s ease;
 }
 
 .aside ul li a:hover {
 	color: #FFA200;
-	text-decoration: none;
 }
 
 
@@ -550,7 +554,7 @@ article.article .article-top-column {
 .aside .widgets-lists {
 	padding: 20px;
 	background-color: #FFF;
-	margin-bottom: 10px;
+	margin: 10px 0;
 	border-radius: 2px;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
 }
@@ -563,11 +567,14 @@ article.article .article-top-column {
 	padding: 0 0 0 5px;
 }
 
+/************************************** Blog Roll ***************************************/
 .aside .widgets-lists .blogroll, .aside .widgets-lists .blogroll li {
 	padding: 0;
 	margin: 0;
 	list-style: none;
 }
+
+/**** inside list *****/
 .aside .widgets-lists ul, .aside .widgets-lists ul li {
 	list-style-type: disc;
 	margin: 0 0 0 5px;
@@ -577,6 +584,7 @@ article.article .article-top-column {
 	padding: 0 0 0 5px;
 }
 
+/************************************** Category List ***************************************/
 .aside .category-list .cat-item a {
 	font-weight: normal;
 }
@@ -586,13 +594,37 @@ article.article .article-top-column {
 } 
 
 /************************************** Siderbar Most Comment Wall ***************************************/
-.aside .most-comments-friend-wall, .aside .most-comments-friend-wall li {
-	list-style: none;	
+.aside .widgets-lists ul.most-comments-friend-wall,
+.aside .widgets-lists ul.most-comments-friend-wall li.most-active-people,
+.tab-container .tab-content .tab-content-list ul.most-comments-friend-wall,
+.tab-container .tab-content .tab-content-list ul.most-comments-friend-wall li.most-active-people {
+	list-style: none;
+	padding: 0;
+	margin: 0;	
 }
+
+.most-comments-friend-wall {
+	overflow: hidden;
+}
+
+.most-comments-friend-wall .most-active-people {
+	float: left;
+}
+
+.most-comments-friend-wall .most-active-people a {
+	display: block;
+	margin: 0 5px 5px 0;
+}
+
+.most-comments-friend-wall .most-active-people img.avatar {
+	border-radius: 4px;
+	box-shadow: 0 0 1px rgba(0, 0, 0, .1);
+} 
 
 /************************************** Siderbar Calendar ***************************************/
 #wp-calendar {
 	width: 100%;
+	border-collapse: collapse;
 }
 
 #wp-calendar caption {
@@ -602,14 +634,15 @@ article.article .article-top-column {
 	font-size: 17px;
 }
 
-#wp-calendar tfoot {
-	/*width: 100%;*/
+#wp-calendar tfoot tr td {
+	padding-top: 10px;
 }
 
 #wp-calendar thead {
 	text-align: center;
 	border-collapse:collapse;
 	font-size: 15px;
+	line-height: 30px;
 }
 
 #wp-calendar tbody, #wp-calendar tbody a{
@@ -617,13 +650,13 @@ article.article .article-top-column {
 	font-size: 16px;
 	font-family: Consolas, Arial;
 	text-align: center;
-	line-height: 24px;
+	line-height: 26px;
 }
 
 #wp-calendar tbody a {
 	margin: 0 auto;
-	width: 24px;
-	height: 24px;
+	width: 26px;
+	height: 26px;
 	color: #FFF;
 	background-color: #FF7373;
 	border-radius: 50%;
@@ -634,10 +667,15 @@ article.article .article-top-column {
 	background-color: #FF5E5E;
 }
 
+#wp-calendar tbody tr:last-child td {
+	border-bottom: 1px solid rgba(0, 0, 0, .1);
+	padding-bottom: 10px;
+}
+
 #wp-calendar #prev a, #wp-calendar #next a {
-	padding: 2px 10px;
+	padding: 3px 15px;
 	border-radius: 2px;
-	background-color: #5290FF;
+	background-color: #4AA5FD;
 	color: #FFF;
 } 
 
@@ -677,6 +715,35 @@ article.article .article-top-column {
 	box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
 }
 
+/************************************** Wdgit New Coments ***************************************/
+.aside .widgets-lists ul.new-comments, 
+.aside .widgets-lists ul.new-comments li.new-comment-lists ,
+.tab .tab-container .tab-content .tab-content-list ul.new-comments,
+.tab .tab-container .tab-content .tab-content-list ul.new-comments li.new-comment-lists {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.new-comments .new-comment-lists {
+	line-height: 20px;
+}
+
+.new-comments .new-comment-lists a {
+	display: block;
+	overflow: hidden;
+	margin: 10px 0;
+	line-height: 20px;
+}
+
+.new-comments .new-comment-lists a .avatar {
+	display: block;
+	float: left;
+	border-radius: 5px;
+	margin-right: 5px;
+}
+
+
 /*======================================== Tab Switcher ========================================*/
 .tab {
 	margin-bottom: 10px;
@@ -687,7 +754,6 @@ article.article .article-top-column {
 }
 
 .tab .tab-switcher .tab-swither-container {
-	/*padding: 0px 10px;*/
 	margin: 0px;
 	list-style: none;
 	font-size: 0px;
@@ -695,9 +761,9 @@ article.article .article-top-column {
 
 .tab .tab-switcher .tab-swither-container .tab-switcher-list {
 	display: inline-block;
-	padding: 3px 15px;
-	border: 1px solid transparent;
-	font-size: 15px;
+	padding: 2px 14px;
+	border: 1px solid rgba(0, 0, 0, 0);
+	font-size: 14px;
 	font-weight: 600;
 	line-height: 30px;
 	color: #999;
@@ -710,7 +776,6 @@ article.article .article-top-column {
 }
 
 .tab .tab-switcher .tab-swither-container .tab-switcher-list.current {
-	/*border: 1px solid #D5D5D5;*/
 	background-color: #FFF;
 	border-bottom: 1px solid transparent;
 	border-top-left-radius: 3px;
@@ -838,12 +903,12 @@ article.article .article-top-column {
 	font-size: 10px;
 	color: #FFF;
 	padding: 2px 6px;
-	line-height: 25px;
+	line-height: 32px;
 	margin: 0; 
 	border-radius: 2px;
 	display:inline;
-	background-color: rgba(45, 120, 255, 0.8);
-	border: 1px solid rgba(45, 120, 255, 1);
+	background-color: #4AA5FD;
+	border: 1px solid #178FFF;
 	font-family: Georgia;
 }
 
@@ -866,8 +931,7 @@ article.article .article-top-column {
 	color: #FF5E5E;
 }
 
-
-.comment-metadata a, .comment-metadata a time {
+.comment-metadata, .comment-metadata a, .comment-metadata a time {
 	font-size: 10px;
 	color: #999;
 	line-height: 20px;
@@ -911,29 +975,27 @@ article.article .article-top-column {
 	opacity: 1;
 }
 
-.comment-author.vcard {
-	font-size: 15px;
+.comment-meta.comment-author,.comment-meta .comment-author.vcard {
+	line-height: 32px;
 }
 
 .comment-author.vcard .fn {
 	margin-right: 5px;
 }
 
-.comment-author.vcard .fn, .comment-author.vcard .fn a {
+.comment-author.vcard .fn, .comment-author.vcard .fn .url {
 	font-weight: normal;
-	line-height: 25px;
 	font-size: 16px;
+	font-weight: bold;
 }
 
-.comment-author.vcard .fn a {
+.comment-author.vcard .fn .url {
 	color: #FFA200;
 }	
 
 .comment-author.vcard .says {
 	color: #999; 
 	font-size: 10px;
-	line-height: 25px;
-	/*display: none;*/
 }
 
 .comment-author.vcard .avatar {
@@ -962,7 +1024,7 @@ article.article .article-top-column {
 	font-size: 18px;
 	line-height: 30px;
 	margin-bottom: 10px;
-	color: #000;
+	color: #333;
 	font-weight: 600;
 }
 
@@ -1038,10 +1100,10 @@ article.article .article-top-column {
 }
 
 #commentform input[type="submit"] {
-	background-color: #5290FF;
+	background-color: #4AA5FD;
 	padding: 5px 10px;
 	border-radius: 2px;
-	border: 1px solid #005BFF;
+	border: 1px solid #178FFF;
 	color: #FFF;
 }
 
