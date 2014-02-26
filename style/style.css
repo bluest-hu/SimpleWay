@@ -6,23 +6,23 @@
 
 /*======================================== Reset Begain ======================================*/
 body {
-	font: normal 16px/1.5 'Microsoft Yahei', 微软雅黑, Tahoma, Arial, Helvetica, STHeiti;
+	font: normal 16px/1.5 'Microsoft Yahei', Tahoma, Arial, Helvetica, STHeiti;
 }
 
 html, body, h1, h2, h3, h4, h5, p {
-	padding: 0px;
 	margin: 0px;
+	padding: 0px;
 }
 
 ul, ul li {
 	list-style: none;
-	padding: 0px;
 	margin: 0px;
+	padding: 0px;
 }
 
 input, textarea{
-	padding: 0;
 	margin: 0;
+	padding: 0;
 	border: 1px solid #CCC;
 	text-indent: 5px;
 	line-height: 1.5;
@@ -30,8 +30,8 @@ input, textarea{
 
 input[type="text"]:focus, input[type="passwod"]:focus, textarea:focus {
 	outline: none;
-	transition: border-color .2s  ease-in-out;
 	border-color: #FFA200;
+	transition: border-color .2s  ease-in-out;
 }
 
 a {
@@ -43,10 +43,10 @@ a:hover {
 }
 
 p {
-	color: #333;
-	font: normal 14px/25px "Microsoft Yahei";
-	padding: 0;
 	margin: 0;
+	padding: 0;
+	color: #666;
+	font: normal 14px/25px "Microsoft Yahei";
 }
 
 img {
@@ -55,21 +55,21 @@ img {
 }
 
 pre {
-	background-color: #F7F7F7;
+	overflow-x: auto;
 	padding: 15px 20px;
+	border: 1px solid rgba(0, 0, 0, .04);
+	border-radius: 2px;
+	background-color: #F7F7F7;
 	color: #777;
 	font: normal 14px/1.5 "Source Code Pro", Consolas, Arial;
-	border-radius: 2px;
-	border: 1px solid rgba(0, 0, 0, .04);
-	overflow-x: auto;
 }
 
 blockquote {
-	padding: 10px 30px 10px 30px;
-	margin: 0;
 	position: relative;
-	text-indent: 2em;
+	margin: 0;
+	padding: 10px 30px 10px 30px;
 	color: #777;
+	text-indent: 2em;
 }
 
 blockquote p {
@@ -81,8 +81,8 @@ blockquote::before, blockquote::after {
 	display: block;
 	width: 16px;
 	height: 16px;
-	content: "";
 	background: transparent url("../image/icons.png") 0 0 no-repeat scroll;
+	content: "";
 }
 
 blockquote::before {
@@ -91,23 +91,23 @@ blockquote::before {
 }
 
 blockquote::after {
-	bottom: 10px;
 	right: 0px;
+	bottom: 10px;
 	background-position: -20px 0;
 }
 /*======================================== Font Begain ======================================*/
 
 @font-face {
-  font-family: 'Source Code Pro';
-  font-style: normal;
   font-weight: 400;
+  font-style: normal;
+  font-family: 'Source Code Pro';
   src: local('Source Code Pro'), local('SourceCodePro-Regular'), url(http://themes.googleusercontent.com/static/fonts/sourcecodepro/v4/mrl8jkM18OlOQN8JLgasDxM0YzuT7MdOe03otPbuUS0.woff) format('woff');
 }
 
 @font-face {
-  font-family: 'Source Code Pro';
-  font-style: normal;
   font-weight: 900;
+  font-style: normal;
+  font-family: 'Source Code Pro';
   src: local('Source Code Pro Black'), local('SourceCodePro-Black'), url(http://themes.googleusercontent.com/static/fonts/sourcecodepro/v4/leqv3v-yTsJNC7nFznSMqXiec-hVyr2k4iOzEQsW1iE.woff) format('woff');
 }
 /*======================================== Base Begain ======================================*/
@@ -115,11 +115,11 @@ blockquote::after {
 /***************************************** Layout *******************************************/
 .clear:after {
 	display: block;
-	content: "";
-	width: 0;
-	height: 0;
 	visibility: hidden;
 	clear: both;
+	width: 0;
+	height: 0;
+	content: "";
 }
 
 .left-column {
@@ -144,8 +144,8 @@ header.header {
 } 
 
 .content {
-	width: 1000px;
 	margin: 0 auto;
+	width: 1000px;
 }
 
 .header .header-top-column {
@@ -158,8 +158,8 @@ header.header {
 }
 
 .header-top-column h1.title a {
-	font: normal 32px/60px "Microsoft Yahei";
 	color: #FFA200;
+	font: normal 32px/60px "Microsoft Yahei";
 }
 
 .header-top-column h1.title a:hover {
@@ -167,8 +167,8 @@ header.header {
 }
 
 .header .navigation {
-	width: 680px;
 	padding-bottom: 2px;
+	width: 680px;
 }
 /*************************************** Header Navigation Begain **************************/ 
 
@@ -181,14 +181,14 @@ header.header {
 }
 
 .navigation .navigation-container ul li {
-	display: inline-block;
 	position: relative;
+	display: inline-block;
 }
 
 .navigation-container ul li ul {
 	position: absolute;
-	background-color: #FAFAFA;
 	display: none;
+	background-color: #FAFAFA;
 }
 
 .navigation-container ul li ul li {
@@ -196,12 +196,12 @@ header.header {
 }
 
 .navigation-container ul li a {
-	color: #585858;
-	padding: 3px 9px;
-	margin-right: 10px;
 	display: block;
-	font-size: 12px;
 	box-sizing: border-box;
+	margin-right: 10px;
+	padding: 3px 9px;
+	color: #585858;
+	font-size: 12px;
 	transition: all .1s ease;
 }
 
@@ -215,24 +215,24 @@ header.header {
 }
 /***************************************** Search Form Begain *******************************************/
 .header-bottom-column .search-form {
-	display: block;
 	position: relative;
+	display: block;
+	margin: 7px 0 5px 0;
 	width: 180px;
 	height: 28px;
-	margin: 7px 0 5px 0;
 }
 
 .search-form #s {
+	display: block;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	margin-bottom: 0;
+	padding: 6px 12px;
 	width: inherit;
 	height: 28px;
-	display: block;
-	padding: 6px 12px;
-	color: #727272;
-	margin-bottom: 0;
 	border: 1px solid #F7F5F5;
 	border-radius: 20px;
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
+	color: #727272;
 	transition: all .1s ease;
 }
 
@@ -245,20 +245,20 @@ header.header {
 }
 
 .search-form #searchsubmit {
+	position: absolute;
+	top: 6px;
+	right: 10px;
+	display: block;
+	margin: 0;
+	padding: 0;
 	width: 16px;
 	height: 16px;
-	padding: 0;
-	margin: 0;
-	position: absolute;
-	display: block;
-	right: 10px;
-	top: 6px;
+	border: none;
 	background-color: transparent;
 	background-image: url("../image/icons.png");
-	background-repeat: no-repeat;
 	background-position: -60px -20px;
+	background-repeat: no-repeat;
 	text-indent: 99em;
-	border: none;
 }
 
 .search-form #searchsubmit:hover {
@@ -267,7 +267,7 @@ header.header {
 
 /*======================================== Main Begain ======================================*/
 .main {
-	overflow: hidden 
+	overflow: hidden; 
 }
 
 .main .content {
@@ -279,9 +279,9 @@ header.header {
 }
 /*======================================== Article Begain ======================================*/
 .main .content .post article.article {
-	background-color: #FFF;
-	border-radius: 2px;
 	margin: 10px 0;
+	border-radius: 2px;
+	background-color: #FFF;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
 }
 
@@ -296,29 +296,33 @@ article.article .article-top-column {
 	margin-right: 20px;
 }
 
-.article-top-column .author-avatar, .article-top-column .avatar{
+.article-top-column .author-avatar, 
+.article-top-column .avatar {
+	display: block;
 	width: 50px;
 	height: 50px;
-	display: block;
 	border-radius: 8px;
 }
 
-.article-top-column .article-title, .article-top-column .article-title a {
-	font: bold 22px/30px "Microsoft Yahei";
+.article-top-column .article-title,
+.article-top-column .article-title a {
 	color: #000;
 	text-decoration: none;
+	font: bold 22px/30px "Microsoft Yahei";
 }
 
-.article-top-column .article-title:hover, .article-top-column .article-title a:hover {
+.article-top-column .article-title:hover, 
+.article-top-column .article-title a:hover {
 	color: #585858;
 }
 
 .article-top-column .post-meta {
-	width: 520px;
 	padding: 3px 0;
+	width: 520px;
 }
 
-.article .post-meta, .article .post-meta a {
+.article .post-meta, 
+.article .post-meta a {
 	color: #999;
 	font: normal 13px/20px "Microsoft Yahei";
 } 
@@ -328,20 +332,23 @@ article.article .article-top-column {
 }
 
 .article .article-column-bottom {
-	width: 590px;
 	padding: 15px 30px 25px 30px;
+	width: 590px;
 }
 
-.post-meta .article-category::before, .post-meta .article-time:before, .post-meta .article-comment::before, .post-meta .article-tags::before{
-	width: 16px;
-	height: 17px;
+.post-meta .article-category::before, 
+.post-meta .article-time:before, 
+.post-meta .article-comment::before,
+ .post-meta .article-tags::before {
 	display: block;
 	float: left;
-	content: "";
-	margin-right: 5px;
 	margin-top: 3px;
+	margin-right: 5px;
+	width: 16px;
+	height: 17px;
 	background-image: url("../image/icons.png");
 	background-repeat: no-repeat;
+	content: "";
 }
 
 .post-meta .article-time:before {
@@ -361,36 +368,41 @@ article.article .article-top-column {
 }
 
 .post-meta .article-tags a {
-	color: #FFF;
-	background-color: #4AA5FD;
 	padding: 1px 5px;
-	font-size: 11px;
 	border-radius: 2px;
+	background-color: #4AA5FD;
 	box-shadow: 0 0 1px rgba(0, 0, 0, .04);
+	color: #FFF;
+	font-size: 11px;
 }
 
 .post-meta .article-tags a:hover {
-	text-decoration: none;
-	color: #FFF;
 	background-color: #2D78FF;
+	color: #FFF;
+	text-decoration: none;
 }
 
 /************************************** Article Entry ***************************************/
 .article .entry {
+	overflow: hidden;
 	margin: 0px 30px 0 30px;
 	padding-top: 10px; 
 	padding-bottom: 10px;
-	overflow: hidden;
-	border-bottom: 1px solid rgba(0, 0, 0, .05);
 	border-top: 1px solid rgba(0, 0, 0, .05);
+	border-bottom: 1px solid rgba(0, 0, 0, .05);
+	color: #333;
 	font-size: 14px;
 	line-height: 1.5;
-	color: #333;
 }
 
-.entry h1, .entry h2, .entry h3, .entry h4, .entry h5, .entry h6 {
-	color: #333;
+.entry h1,
+.entry h2, 
+.entry h3, 
+.entry h4, 
+.entry h5, 
+.entry h6 {
 	margin: 15px 0px;
+	color: #333;
 	line-height: 1.6;
 }
 
@@ -399,8 +411,8 @@ article.article .article-top-column {
 }
 
 .entry h2 {
-	font-size: 18px;
 	border-bottom: 1px solid rgba(0, 0, 0, .1);
+	font-size: 18px;
 }
 
 .entry h3 {
@@ -409,6 +421,11 @@ article.article .article-top-column {
 
 .entry p {
 	margin: 10px 0;
+	color: #555;
+	font: normal 14px/25px "Microsoft Yahei",SimHei,YouYuan,STHeiti;
+}
+.entry blockquote p {
+	color: #777;
 }
 
 .entry a {
@@ -421,41 +438,41 @@ article.article .article-top-column {
 }
 
 .entry hr {
-	border-color: rgba(0, 0, 0, .1);
 	margin: 10px 0;
+	border-color: rgba(0, 0, 0, .1);
 }
 
 .entry table {
 	width: 100%;
-	border-collapse: collapse;
 	border: 1px solid rgba(0, 0, 0, .1);
+	border-collapse: collapse;
 	border-radius: 2px;
 	background-color: #fff;
+	color: #333;
 	font-size: 14px;
 	line-height: 1.5;
-	color: #333;
 }
 
 .entry code {
 	margin: 0 2px;
 	padding: 0 5px;
-	white-space: nowrap;
 	border: 1px solid #eaeaea;
-	background-color: #f8f8f8;
 	border-radius: 3px;
+	background-color: #f8f8f8;
+	white-space: nowrap;
 	font-family: "Source Code Pro", "Microsoft Yahei", Arial;
 }
 
 .entry table tr {
-	border-top: 1px solid #cccccc;
-	background-color: white;
 	margin: 0;
 	padding: 0;
+	border-top: 1px solid #cccccc;
+	background-color: white;
 }
 
 .entry table tr th , .entry table tr td {
-	border: 1px solid #ccc;
 	padding: 4px 9px;
+	border: 1px solid #ccc;
 	text-align: left;
 }
 
@@ -472,23 +489,82 @@ article.article .article-top-column {
 }
 
 .entry li {
-	font-size: 14px;
 	margin: 5px 0 5px 15px;
+	font-size: 14px;
 }
 
-.entry p img {
-	margin: 5px 0;
+.entry img {
+	max-width: 588px;
+	border: 1px solid #ddd;
+	box-shadow: 0 0 1px rgba(0,0,0,.1);
 }
 
-.article .entry .more-link {
-	font: normal 13px/1.5 "Microsoft Yahei";
-	padding: 4px 6px; 
+.entry .site-info {
+	position: relative;
+	margin: 10px 0;
+	padding: 5px 15px;
+	border: 1px solid #EAEAEA;
+	border-radius: 3px;
+	background-color: #FBFBFB;
+	box-shadow: 0 0 1px rgba(0, 0, 0, .15);
+}
+
+
+.entry .site-info:after {
+	position: absolute;
+	top: -1px;
+	right: 10px;
+	display: block;
+	width: 20px;
+	height: 65px;
+	background-color: #FF5E5E;
+	content: "";
+}
+
+.entry .site-info:before {
+	position: absolute;
+	top: 45px;
+	right: 10px;
+	z-index: 999;
+	display: block;
+	width: 0;
+	height: 0;
+	border: 10px solid transparent;
+	border-bottom-color: #FBFBFB;
+	content: "";
+}
+
+.entry .site-info h2 {
+	margin: 0px 0 10px 0;
+	box-shadow: inset 0 1px 1px rgba(255, 255, 255, .9);
+	color: #FFA200;
+	font: bold 25px/45px "Microsoft Yahei", Arial;
+}
+
+.entry .site-info img {
+	display: block;
+	margin: 0;
+}
+
+.entry .summary {
+	margin-top: 15px; 
+	color: #4AA5FD;
+	font: bold 20px/40px "Microsoft Yahei", Arial;
+}
+
+.entry a {
+	font-weight: normal;
+}
+
+.article .entry .more-link { 
 	float: right;
 	clear: right;
-	background-color: #FF7373;
-	color: #FFF;
+	padding: 4px 6px;
 	border: 1px solid rgb(246, 92, 92);
 	border-radius: 2px;
+	background-color: #FF7373;
+	color: #FFF;
+	font: normal 13px/1.5 "Microsoft Yahei";
 	transition: background-color 0.2s ease;
 }
 
@@ -499,37 +575,37 @@ article.article .article-top-column {
 
 /*======================================== Post Navigation ======================================*/
 .post .page-navigation {
-	font-size: 0;
 	margin: 25px 0 0 0; 
 	text-align: center;
+	font-size: 0;
 }
 
 .post .page-navigation a {
 	display: inline-block;
-	padding: 4px 10px;
 	margin-right: 10px;
-	color: #7e7e7e;
-	background-color: #FFF;
-	font-size: 14px;
+	padding: 4px 10px;
 	border-radius: 3px;
+	background-color: #FFF;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
+	color: #7e7e7e;
+	font-size: 14px;
 }
 
 .post .page-navigation a:hover {
-	color: #333;
 	background-color: #FBFBFB;
+	color: #333;
 	text-decoration: none;
 }
 
 .post .page-navigation a.current {
-	color: #FFF;
 	background-color: #ffa200;
+	color: #FFF;
 }
 
 .main .content .aside {
-	width: 330px;
+	margin-top: 10px;
 	margin-left: 10px;
-	margin-top: 10px; 
+	width: 330px; 
 }
 
 /*======================================== Siderbar ======================================*/
@@ -546,16 +622,16 @@ article.article .article-top-column {
 
 
 .aside ul, .aside ul li {
-	list-style: none;
-	padding: 0;
 	margin: 0;
+	padding: 0;
+	list-style: none;
 }
 
 .aside .widgets-lists {
-	padding: 20px;
-	background-color: #FFF;
 	margin: 0 0 10px 0;
+	padding: 20px;
 	border-radius: 2px;
+	background-color: #FFF;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
 }
 
@@ -586,17 +662,17 @@ article.article .article-top-column {
 }
 
 .blogroll li a img {
+	display: inline-block;
 	width: 16px;
 	height: 16px;
-	display: inline-block;
 	vertical-align: middle;
 	line-height: 25px;
 }
 
 /**** inside list *****/
 .aside .widgets-lists ul, .aside .widgets-lists ul li {
-	list-style-type: disc;
 	margin: 0 0 0 5px;
+	list-style-type: disc;
 }
 
 .aside .widgets-lists ul li ul {
@@ -617,9 +693,9 @@ article.article .article-top-column {
 .aside .widgets-lists ul.most-comments-friend-wall li.most-active-people,
 .tab-container .tab-content .tab-content-list ul.most-comments-friend-wall,
 .tab-container .tab-content .tab-content-list ul.most-comments-friend-wall li.most-active-people {
-	list-style: none;
+	margin: 0;
 	padding: 0;
-	margin: 0;	
+	list-style: none;	
 }
 
 .most-comments-friend-wall {
@@ -653,8 +729,8 @@ article.article .article-top-column {
 #wp-calendar caption {
 	border-top: 1px solid rgba(0, 0, 0, .1);
 	border-bottom: 1px solid rgba(0, 0, 0, .1);
-	line-height: 35px;
 	font-size: 17px;
+	line-height: 35px;
 }
 
 #wp-calendar tfoot tr td {
@@ -662,28 +738,28 @@ article.article .article-top-column {
 }
 
 #wp-calendar thead {
-	text-align: center;
 	border-collapse:collapse;
+	text-align: center;
 	font-size: 15px;
 	line-height: 30px;
 }
 
 #wp-calendar tbody, #wp-calendar tbody a{
 	color: #777;
+	text-align: center;
 	font-size: 16px;
 	font-family: Consolas, Arial;
-	text-align: center;
 	line-height: 26px;
 }
 
 #wp-calendar tbody a {
+	display: block;
 	margin: 0 auto;
 	width: 26px;
 	height: 26px;
-	color: #FFF;
-	background-color: #FF7373;
 	border-radius: 50%;
-	display: block;
+	background-color: #FF7373;
+	color: #FFF;
 }
 
 #wp-calendar tbody a:hover{
@@ -691,8 +767,8 @@ article.article .article-top-column {
 }
 
 #wp-calendar tbody tr:last-child td {
-	border-bottom: 1px solid rgba(0, 0, 0, .1);
 	padding-bottom: 10px;
+	border-bottom: 1px solid rgba(0, 0, 0, .1);
 }
 
 #wp-calendar #prev a, #wp-calendar #next a {
@@ -713,16 +789,16 @@ article.article .article-top-column {
 
 /************************************** Siderbar Search ***************************************/
 .sidebar #searchform #s, .sidebar #searchform #searchsubmit{
-	border: 1px solid #DDD;
-	height: 25px;
-	padding: 0;
 	margin: 0;
+	padding: 0;
+	height: 25px;
+	border: 1px solid #DDD;
 	border-radius: 2px;
 }
 
 .sidebar #searchform #searchsubmit {
-	border-color: #ffa200;
 	padding: 0 5px;
+	border-color: #ffa200;
 	background-color: #ffa200;
 	color: #FFF;
 }
@@ -732,9 +808,9 @@ article.article .article-top-column {
 }
 
 .article-comments-container {
-	background-color: #FFF;
 	padding: 25px 30px;
 	border-radius: 2px;
+	background-color: #FFF;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
 }
 
@@ -743,9 +819,9 @@ article.article .article-top-column {
 .aside .widgets-lists ul.new-comments li.new-comment-lists ,
 .tab .tab-container .tab-content .tab-content-list ul.new-comments,
 .tab .tab-container .tab-content .tab-content-list ul.new-comments li.new-comment-lists {
-	list-style: none;
-	padding: 0;
 	margin: 0;
+	padding: 0;
+	list-style: none;
 }
 
 .new-comments .new-comment-lists {
@@ -755,16 +831,16 @@ article.article .article-top-column {
 .new-comments .new-comment-lists a {
 	display: block;
 	overflow: hidden;
-	font-size: 12px;
 	margin: 10px 0;
+	font-size: 12px;
 	line-height: 20px;
 }
 
 .new-comments .new-comment-lists a .avatar {
 	display: block;
 	float: left;
-	border-radius: 3px;
 	margin-right: 10px;
+	border-radius: 3px;
 	box-shadow: 0 0 1px rgba(0, 0, 0, .4);
 }
 
@@ -788,23 +864,23 @@ article.article .article-top-column {
 	display: inline-block;
 	padding: 2px 14px;
 	border: 1px solid rgba(0, 0, 0, 0);
-	font-size: 14px;
-	font-weight: 600;
-	line-height: 30px;
 	color: #999;
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 30px;
 	transition: color .2s ease-in-out;
 }
 
 .tab .tab-switcher .tab-swither-container .tab-switcher-list:hover {
-	cursor: pointer;
 	color: #333;
+	cursor: pointer;
 }
 
 .tab .tab-switcher .tab-swither-container .tab-switcher-list.current {
-	background-color: #FFF;
 	border-bottom: 1px solid transparent;
 	border-top-left-radius: 3px;
 	border-top-right-radius: 3px;
+	background-color: #FFF;
 	color: #333;
 }
 
@@ -818,22 +894,23 @@ article.article .article-top-column {
 }
 
 .tab .tab-container .tab-content {
-	padding: 15px 20px 20px 20px;
 	margin: 0px;
+	padding: 15px 20px 20px 20px;
 	background-color: #FFF;
 	box-shadow: 0 1px 1px rgba(0, 0, 0 , .1);
 }
 
 .tab .tab-container .tab-content .tab-content-list {
-	padding: 0px;
-	margin: 0px;
-	list-style: none;
 	display: none;
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
 }
 
-.tab-container .tab-content .tab-content-list ul,.tab-container .tab-content .tab-content-list ul li{
-	list-style-type: disc;
+.tab-container .tab-content .tab-content-list ul,
+.tab-container .tab-content .tab-content-list ul li {
 	margin: 0 0 0 10px;
+	list-style-type: disc;
 }
 
 .tab .tab-container .tab-content .tab-content-list.current {
@@ -842,9 +919,9 @@ article.article .article-top-column {
 
 /*======================================== Footer ======================================*/
 .footer {
-	background-color: #333;
-	padding: 30px 0;
 	margin: 30px 0 0 0;
+	padding: 30px 0;
+	background-color: #333;
 }
 
 .footer p {
@@ -857,16 +934,16 @@ article.article .article-top-column {
 }
 
 .footer .powered-by a .wordpress-logo {
+	display: inline-block;
+	margin-right: 2px;
+	margin-bottom: -2px;
 	width: 13px;
 	height: 13px;
-	margin-bottom: -2px;
-	margin-right: 2px;
-	display: inline-block;
 	background-image: url("../image/icons.png");
-	background-repeat: no-repeat;
 	background-attachment: scroll;
-	transition: all .1s ease-in-out;
 	background-position: -100px 0;
+	background-repeat: no-repeat;
+	transition: all .1s ease-in-out;
 }
 
 .footer .powered-by a:hover .wordpress-logo {
@@ -890,22 +967,24 @@ article.article .article-top-column {
 
 .main .post-navigation div {
 	padding: 8px 15px;
+	border-radius: 2px;
 	background-color: #FFF;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
-	border-radius: 2px;
-	font-size: 16px;
-	color: #7e7e7e;
-}
-
-.main .post-navigation div, .main .post-navigation div a {
 	color: #7e7e7e;
 	font-size: 16px;
 }
 
-.main .post-navigation div a:hover,.main .post-navigation div:hover {
+.main .post-navigation div,
+.main .post-navigation div a {
+	color: #7e7e7e;
+	font-size: 16px;
+}
+
+.main .post-navigation div a:hover,
+.main .post-navigation div:hover {
+	background-color: #FBFBFB;
 	color: #333;
 	text-decoration: none;
-	background-color: #FBFBFB;
 }
 
 /*======================================== Article Comemnts ======================================*/
@@ -917,24 +996,24 @@ article.article .article-top-column {
 
 .article-comments-container .comment .comment-body:after {
 	display: block;
-	content: "";
-	width: 0;
-	height: 0;
 	visibility: hidden;
 	clear: both;
+	width: 0;
+	height: 0;
+	content: "";
 }
 
 .article-comments-container .bypostauthor .comment-by-post-author  {
-	font-size: 10px;
-	color: #FFF;
-	padding: 2px 6px;
-	line-height: 32px;
-	margin: 0; 
-	border-radius: 2px;
 	display:inline;
+	margin: 0;
+	padding: 2px 6px;
+	border: 1px solid #178FFF; 
+	border-radius: 2px;
 	background-color: #4AA5FD;
-	border: 1px solid #178FFF;
+	color: #FFF;
+	font-size: 10px;
 	font-family: Georgia;
+	line-height: 32px;
 }
 
 .comment ul.children li {
@@ -956,7 +1035,8 @@ article.article .article-top-column {
 	color: #FF5E5E;
 }
 
-.comment-metadata, .comment-metadata a, .comment-metadata a time {
+.comment-metadata, .comment-metadata a, 
+.comment-metadata a time {
 	font-size: 10px;
 	color: #999;
 	line-height: 20px;
@@ -1000,7 +1080,8 @@ article.article .article-top-column {
 	opacity: 1;
 }
 
-.comment-meta.comment-author,.comment-meta .comment-author.vcard {
+.comment-meta.comment-author,
+.comment-meta .comment-author.vcard {
 	line-height: 32px;
 }
 
@@ -1008,10 +1089,11 @@ article.article .article-top-column {
 	margin-right: 5px;
 }
 
-.comment-author.vcard .fn, .comment-author.vcard .fn .url {
+.comment-author.vcard .fn, 
+.comment-author.vcard .fn .url {
 	font-weight: normal;
-	font-size: 16px;
 	font-weight: bold;
+	font-size: 16px;
 }
 
 .comment-author.vcard .fn .url {
@@ -1024,14 +1106,14 @@ article.article .article-top-column {
 }
 
 .comment-author.vcard .avatar {
-	width: 50px;
-	height: 50px;
-	border-radius: 5px;
 	display: block;
 	float: left;
-	margin: 0 10px 0 0;
 	overflow: hidden;
+	margin: 0 10px 0 0;
+	width: 50px;
+	height: 50px;
 	border: 1px solid rgba(0,0,0,.1);
+	border-radius: 5px;
 	box-shadow: 0 0 1px rgba(0, 0, 0, .1);
 	transition: all .6s ease-in-out;
 }
@@ -1045,29 +1127,34 @@ article.article .article-top-column {
 
 }
 
-.article-comments-container .comment-title, .article-comments-container .comment-reply-title, .aside .widget-title {
-	font-size: 18px;
-	line-height: 30px;
+.article-comments-container .comment-title, 
+.article-comments-container .comment-reply-title, .aside .widget-title {
 	margin-bottom: 10px;
 	color: #333;
 	font-weight: 600;
+	font-size: 18px;
+	line-height: 30px;
 }
 
 /*======================================== Article Comemnts Form ======================================*/
-.comment-form-container .comment-reply-title a, .comment-form-container .logged-in-as a:nth-child(1){
+.comment-form-container .comment-reply-title a, 
+.comment-form-container .logged-in-as a:nth-child(1){
 	color: #FFA200;
 }
 
-.comment-form-container .comment-reply-title > a, .comment-form-container .logged-in-as a:nth-child(1) {
+.comment-form-container .comment-reply-title > a, 
+.comment-form-container .logged-in-as a:nth-child(1) {
 	margin: 0 2px;
 }
 
-.comment-reply-title small , .comment-reply-title small a, .logged-in-as a:nth-child(2) {
+.comment-reply-title small , 
+.comment-reply-title small a, 
+.logged-in-as a:nth-child(2) {
+	border-radius: 2px;
 	background-color: #FF7373;
 	color: #FFF;
-	font-size: 10px;
-	border-radius: 2px;
 	color: white;
+	font-size: 10px;
 }
 
 .comment-form-container .logged-in-as {
@@ -1077,8 +1164,8 @@ article.article .article-top-column {
 
 .comment-form-container .comment-reply-title small a, .comment-form-container .logged-in-as a:nth-child(2) {
 	padding: 2px 6px;
-	color: white;
 	border: 1px solid rgb(246, 92, 92);
+	color: white;
 }
 
 .comment-awaiting-moderation {
@@ -1087,8 +1174,8 @@ article.article .article-top-column {
 }
 
 .comment-reply-title small a:hover,.comment-form .logged-in-as a:nth-child(2):hover {
-	text-decoration: none;
 	background-color: #FF5E5E;
+	text-decoration: none;
 }
 
 .article-comments-container .comment-form-container {
@@ -1096,19 +1183,19 @@ article.article .article-top-column {
 }
 
 .author-info {
-	padding: 25px 30px;
 	margin: 10px 0;
-	background-color: #FFF;
+	padding: 25px 30px;
 	border-radius: 2px;
+	background-color: #FFF;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
 }
 
 #commentform label {
-	font-size: 13px;
 	display: inline-block;
 	width: 70px;
-	line-height: 33px;
 	color: #777;
+	font-size: 13px;
+	line-height: 33px;
 }
 
 #commentform .required {
@@ -1116,8 +1203,8 @@ article.article .article-top-column {
 }
 
 #commentform input[type="text"] {
-	height: 25px;
 	margin: 3px 0;
+	height: 25px;
 	border-radius: 2px;
 }
 #commentform .form-submit {
@@ -1125,10 +1212,10 @@ article.article .article-top-column {
 }
 
 #commentform input[type="submit"] {
-	background-color: #4AA5FD;
 	padding: 5px 10px;
-	border-radius: 2px;
 	border: 1px solid #178FFF;
+	border-radius: 2px;
+	background-color: #4AA5FD;
 	color: #FFF;
 }
 
@@ -1139,9 +1226,9 @@ article.article .article-top-column {
 
 #commentform .comment-notes, #commentform .form-allowed-tags {
 	margin: 5px 0;
-	font: normal 12px/1.5 "Source Code Pro";
-	color: #7e7e7e;
 	background-color: #FBFBFB;
+	color: #7e7e7e;
+	font: normal 12px/1.5 "Source Code Pro";
 }
 
 #commentform textarea {
@@ -1150,40 +1237,40 @@ article.article .article-top-column {
 
 /*======================================== Article Single Page Author Infomation Card ========================================*/
 .author-info .author-avatar {
+	margin-right: 10px;
 	width: 80px;
 	height: 80px;
-	margin-right: 10px;
 }
 
 .author-info .author-avatar .avatar {
+	display: block;
 	width: inherit;
 	height: inherit;
-	display: block;
 	border-radius: 10px;
 	box-shadow: 0 0 1px rgba(0, 0, 0, .1);
 }
 
 .author-info .author-descrption {
-	width: 490px;
 	clear: right;
+	width: 490px;
 }
 
 .author-info .author-descrption .author-name, .author-info .author-descrption .author-name a {
-	font: bold 20px/30px Arial "Microsoft Yahei";
 	color: #FFA200;
+	font: bold 20px/30px Arial "Microsoft Yahei";
 }
 
 .author-info .author-descript .author-summery {
+	color: #999;
 	font-size: 14px;
 	line-height: 1.5px;
-	color: #999;
 }
 
 .author-info .author-contact {
-	width: 100%;
 	clear: both;
-	padding-top: 10px;
 	margin-top: 10px;
+	padding-top: 10px;
+	width: 100%;
 }
 
 .author-info .author-contact ul {
@@ -1192,13 +1279,13 @@ article.article .article-top-column {
 
 .author-info .author-contact ul li {
 	display: inline-block;
-	font: normal 16px/20px Arial, "Microsoft Yahei";
 	margin-right: 15px;
+	font: normal 16px/20px Arial, "Microsoft Yahei";
 }
 
 .author-info .author-contact ul li a {
-	color: #CCC;
 	display: inline-block;
+	color: #CCC;
 	transition: color .2s ease;
 }
 
@@ -1207,15 +1294,15 @@ article.article .article-top-column {
 }
 
 .author-info .author-contact ul li:before {
-	width: 20px;
-	height: 20px;
-	content: "";
 	display: block;
 	float: left;
 	margin-right: 5px;
+	width: 20px;
+	height: 20px;
 	background-image: url("../image/icons.png");
-	background-repeat: no-repeat;
 	background-attachment: scroll;
+	background-repeat: no-repeat;
+	content: "";
 	transition: all .1s ease-in-out;
 }
 
@@ -1270,21 +1357,21 @@ article.article .article-top-column {
 /*************************************** Back To Top Buttom ***********************************/
 #backToTopBtn {
 	position: fixed;
-	bottom: 110px;
 	right: 50px;
+	bottom: 110px;
+	display: block;
 	width: 50px;
 	height: 50px;
-	display: block;
-	background: #FFF url("../image/icons.png") -121px 0 no-repeat scroll;
 	border: 1px solid rgba(0, 0, 0, .1);
 	border-radius: 50%;
+	background: #FFF url("../image/icons.png") -121px 0 no-repeat scroll;
 	box-shadow: 0 0 1px rgba(0, 0, 0, .01);
 	transition: all .1s ease-in-out;
 }
 
 #backToTopBtn:hover {
-	background-position: -121px -50px;
 	background-color: #FAFAFA;
+	background-position: -121px -50px;
 }
 
 .heart {
@@ -1292,11 +1379,11 @@ article.article .article-top-column {
 }
 
 #wumiiDisplayDiv {
-	background-color: #FFF;
-	padding: 25px 30px;
 	margin: 10px 0;
-	background-color: #FFF;
+	padding: 25px 30px;
 	border-radius: 2px;
+	background-color: #FFF;
+	background-color: #FFF;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 

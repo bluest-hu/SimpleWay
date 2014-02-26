@@ -434,9 +434,9 @@ function get_most_comments_friends($config) {
 
      		$mostactive .= "<li id=\"mostActivePeople-{$_index}\" class=\"most-active-people\"><a href=\"{$c_url}\" title=\"{$c_author} 发表 {$c_count} 条评论\" rel=\"nofollow\" target=\"_blank\">" . 
 	     		get_avatar($c_email, $config['size']) . 
-	     		'</a></li>';
+	     		"</a></li>";
+   			$_index++;
    		}
-   		$_index++;
  	}
 
 	$mostactive .= " </ul>";
