@@ -568,10 +568,29 @@ article.article .article-top-column {
 }
 
 /************************************** Blog Roll ***************************************/
-.aside .widgets-lists .blogroll, .aside .widgets-lists .blogroll li {
-	padding: 0;
-	margin: 0;
-	list-style: none;
+.aside .widgets-lists ul.blogroll,
+.aside .widgets-lists ul.blogroll li,
+.tab-container .tab-content .tab-content-list ul.blogroll, 
+.tab-container .tab-content .tab-content-list ul.blogroll li {
+	list-style: disc;
+}
+
+.blogroll li,
+.aside .widgets-lists ul.blogroll li,
+.tab-container .tab-content .tab-content-list ul.blogroll li {
+	margin-right: 5px;
+}
+
+.blogroll li a {
+	display: block;
+}
+
+.blogroll li a img {
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 25px;
 }
 
 /**** inside list *****/
@@ -621,7 +640,7 @@ article.article .article-top-column {
 }
 
 .most-comments-friend-wall .most-active-people img.avatar {
-	border-radius: 4px;
+	border-radius: 3px;
 	box-shadow: 0 0 1px rgba(0, 0, 0, .2);
 } 
 
@@ -744,7 +763,7 @@ article.article .article-top-column {
 .new-comments .new-comment-lists a .avatar {
 	display: block;
 	float: left;
-	border-radius: 5px;
+	border-radius: 3px;
 	margin-right: 10px;
 	box-shadow: 0 0 1px rgba(0, 0, 0, .4);
 }
