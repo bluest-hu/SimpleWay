@@ -3,20 +3,20 @@
  <div class="tab">
     <div class="tab-switcher">
         <ul class="tab-swither-container">
-            <li class=" tab-switcher-list">最近评论</li>
-            <li class="tab-switcher-list current">友链</li>
+            <li class="current tab-switcher-list">最近评论</li>
+            <li class="tab-switcher-list">友链</li>
             <li class="tab-switcher-list">评论墙</li>
         </ul>
     </div>
     <div class="tab-container">
         <ul class="tab-content">
-            <li class="tab-content-list ">
+            <li class="tab-content-list current">
                 <h3 class="widget-title">最近的评论！</h3>
                 <ul class="new-comments">
                     <?php simpleway_newcomments(6); ?>
                 </ul>
             </li>
-            <li class="tab-content-list current">
+            <li class="tab-content-list">
                 <?php wp_list_bookmarks(array(
                     'orderby'          => 'name',
                     'order'            => 'ASC',

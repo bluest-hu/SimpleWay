@@ -379,7 +379,7 @@ article.article .article-top-column {
 .article .entry {
 	margin: 0px 30px 0 30px;
 	padding-top: 10px; 
-	padding-bottom: 20px;
+	padding-bottom: 10px;
 	overflow: hidden;
 	border-bottom: 1px solid rgba(0, 0, 0, .05);
 	border-top: 1px solid rgba(0, 0, 0, .05);
@@ -578,11 +578,11 @@ article.article .article-top-column {
 .blogroll li,
 .aside .widgets-lists ul.blogroll li,
 .tab-container .tab-content .tab-content-list ul.blogroll li {
-	margin-right: 5px;
+	/*margin-right: 5px;*/
 }
 
-.blogroll li a {
-	display: block;
+.blogroll li {
+	/*display: block;*/
 }
 
 .blogroll li a img {
@@ -1298,4 +1298,8 @@ article.article .article-top-column {
 	background-color: #FFF;
 	border-radius: 2px;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.wumii-hook {
+	display: none;
 }
