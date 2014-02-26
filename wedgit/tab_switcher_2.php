@@ -12,11 +12,13 @@
         <ul class="tab-content">
             <li class="tab-content-list current">
                 <ul class="new-comments">
+                    <h3 class="widget-title">最近的评论！</h3>
                     <?php simpleway_newcomments(6); ?>
                 </ul>
             </li>
             <li class="tab-content-list">
                 <ul class="blog roll">
+                    <h3 class="widget-title">有情才链接！</h3>
             	   <?php wp_list_bookmarks(array(
                         'orderby'          => 'count', // 排序方式'name' - Default、'id'、'slug'、'count'
                         'order'            => 'ASC',
@@ -27,7 +29,7 @@
                         'hide_invisible'   => 1,
                         'show_updated'     => 0,
                         'show_images'      => 1,
-                        'echo'             => 1,
+                        'echo'             => true,
                         'categorize'       => 1,
                         'title_li'         => __('Bookmarks'),
                         'title_before'     => '<h2>',
@@ -41,9 +43,10 @@
                 </ul>
             </li>
             <li class="tab-content-list">
-            	<?php echo get_most_comments_friends(array(
-                    $config['number'] = 20,
-                    $config['size'] = 45
+                <h3 class="widget-title">本月灌水王！</h3>
+            	<?php echo get_most_comments_friends( array(
+                    'number' => 20,
+                    'size' => 40
                 )); ?>
             </li>
         </ul>

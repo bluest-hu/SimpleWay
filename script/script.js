@@ -12,7 +12,8 @@ $(document).ready(function() {
 	var timer = null;
 
 	$scrollBtn = $("#backToTopBtn");
-	
+
+
 	if (!$scrollBtn) {
 		return;
 	}
@@ -20,9 +21,10 @@ $(document).ready(function() {
 	$scrollBtn.css({'display': 'none'});
 	
 	$(document).on("scroll", function () {
-		var scrollToTopDis = document.documentElement.scrollTop;
 
+		var scrollToTopDis = document.documentElement.scrollTop || document.body.scrollTop;
 		// 使得返回顶部按钮在合适的时候出现
+
 		if (scrollToTopDis >= parseInt(documentHeight / 4)) {
 			$scrollBtn.fadeIn();
 		} else {

@@ -29,6 +29,7 @@
             	</ul>
             </li>
             <li class="tab-content-list">
+                <h3 class="widget-title">它们像云一样~~</h3>
             	<?php wp_tag_cloud(); ?>
             </li>
             <li class="tab-content-list">

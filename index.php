@@ -86,6 +86,6 @@
 		<?php get_footer(  ); ?>
 		<!-- Footer Ends -->
 	</div><!-- Wrap Ends -->
-	<a href="#" id="backToTopBtn"></a>
+	
 </body>
 </html>

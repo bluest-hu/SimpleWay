@@ -95,7 +95,7 @@ function tab_switcher_one () {
 
 // 注册侧边栏小工具2
 if ( function_exists('wp_register_sidebar_widget' ) ) {   
-    wp_register_sidebar_widget(2, '四合一小工具', 'tab_switcher_two');
+    wp_register_sidebar_widget(2, '三合一小工具：最近评论、友情链接、评论墙。', 'tab_switcher_two');
 }
 
 function tab_switcher_two () {
@@ -108,8 +108,11 @@ register_widget('widget_newcomments');
 class widget_newcomments extends WP_Widget {
 
 	function widget_newcomments() {
-		$option = array('classname' => 'widget_newcomments', 'description' => '显示网友最新评论（头像+名称+评论）' );
-		$this->WP_Widget(false, 'D - 最新评论 ', $option);
+		$option = array(
+			'classname' => 'widget_newcomments', 
+			'description' => '显示网友最新评论（头像+名称+评论）' 
+		);
+		$this->WP_Widget(false, '最新评论', $option);
 	}
 
 	function widget($args, $instance) {
@@ -284,7 +287,7 @@ function add_author_contact_fields( $contactmethods ) {
 
 	$contactmethods['twitter'] 		= 'Twitter';
 	$contactmethods['google_plus'] 	= 'Google+';
-	$contactmethods['faceboook'] 	= 'Faceboook';
+	$contactmethods['facebook'] 	= 'Faceboook';
 	$contactmethods['github'] 		= 'GitHub';
 	
 	// unset( $contactmethods['yim'] );
@@ -348,8 +351,8 @@ class widget_most_comments_wall extends WP_Widget {
 		echo '<ul class="new-comments">';
 		
 		echo get_most_comments_friends( array(
-			$config['number'] = $count,
-			$config['size'] = $size
+			'number' => $count,
+			'size' => $size
 			) );
 		echo '</ul>';
 
@@ -387,7 +390,7 @@ function get_most_comments_friends($config) {
 	$config['container'] 		= !empty($config['container']) ? $config['container'] : "";
 	$config['container_class'] 	= !empty($config['container_class']) ? $config['container_class'] : "most-comments-friend-wall";
 	$config['container_id']		= !empty($config['container_id']) ? $config['container_id'] : "MostCommentsFirendsWall";
-	$config['echo']				= !empty($config['echo']) ? $config['echo'] : false;
+	$config['echo']				= !empty($config['echo']) ? !!$config['echo'] : false;
 	$config['before']			= !empty($config['before']) ? $config['before'] : "li";
 	$config['number'] 			= !empty($config['number']) ? $config['number'] : 15;
 	$config['size'] 			= !empty($config['size']) ? $config['size'] : 45;
@@ -422,17 +425,17 @@ function get_most_comments_friends($config) {
   		wp_cache_set( 'simpleway_mostactive', $counts );
   		
   		$_index = 1;
+  		
     	foreach ($counts as $count) {
       		$c_url 		= $count->comment_author_url;
       		$c_count	= $count->cnt;
       		$c_author 	= $count->comment_author;
       		$c_email 	= $count->comment_author_email;
 
-     		$mostactive .= "<li id=\"mostActivePeople-{$_index}\" class=\"most-active-people\"><a href=\"{$c_url}\" title=\"{$c_author} 发表{$c_count} 条评论\" rel=\"nofollow\" target=\"_blank\">" . 
+     		$mostactive .= "<li id=\"mostActivePeople-{$_index}\" class=\"most-active-people\"><a href=\"{$c_url}\" title=\"{$c_author} 发表 {$c_count} 条评论\" rel=\"nofollow\" target=\"_blank\">" . 
 	     		get_avatar($c_email, $config['size']) . 
 	     		'</a></li>';
    		}
-
    		$_index++;
  	}
 

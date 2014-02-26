@@ -123,6 +123,10 @@
 						</div><!-- Author Contact Info Ends -->
 					</div>
 
+					<div id="wumiiDisplayDiv">
+						
+					</div>
+
 					<nav class="post-navigation clear">
 					
 						<div class="left-column previous-post">
@@ -162,6 +166,5 @@
 		<?php get_footer(  ); ?>
 		<!-- Footer Ends -->
 	</div><!-- Wrap Ends -->
-	<a href="#" id="backToTopBtn"></a>
 </body>
 </html>

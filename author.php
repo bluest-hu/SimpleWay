@@ -28,7 +28,6 @@
 						<?php get_most_comments_friends(array(
 							'number' => 30
 						)) ?>
-</div> <!-- / hotfriends -->
 					</div>
 				</div><!-- Post Ends -->
 
@@ -41,6 +40,5 @@
 		<?php get_footer(  ); ?>
 		<!-- Footer Ends -->
 	</div><!-- Wrap Ends -->
-	<a href="#" id="backToTopBtn"></a>
 </body>
 </html>

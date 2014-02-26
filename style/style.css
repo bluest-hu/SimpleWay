@@ -554,7 +554,7 @@ article.article .article-top-column {
 .aside .widgets-lists {
 	padding: 20px;
 	background-color: #FFF;
-	margin: 10px 0;
+	margin: 0 0 10px 0;
 	border-radius: 2px;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
 }
@@ -616,9 +616,13 @@ article.article .article-top-column {
 	margin: 0 5px 5px 0;
 }
 
+.most-comments-friend-wall .most-active-people:nth-child(7n+7) a {
+	margin-right: 0;
+}
+
 .most-comments-friend-wall .most-active-people img.avatar {
-	border-radius: 5px;
-	box-shadow: 0 0 1px rgba(0, 0, 0, .1);
+	border-radius: 4px;
+	box-shadow: 0 0 1px rgba(0, 0, 0, .2);
 } 
 
 /************************************** Siderbar Calendar ***************************************/
@@ -732,6 +736,7 @@ article.article .article-top-column {
 .new-comments .new-comment-lists a {
 	display: block;
 	overflow: hidden;
+	font-size: 12px;
 	margin: 10px 0;
 	line-height: 20px;
 }
@@ -740,7 +745,8 @@ article.article .article-top-column {
 	display: block;
 	float: left;
 	border-radius: 5px;
-	margin-right: 5px;
+	margin-right: 10px;
+	box-shadow: 0 0 1px rgba(0, 0, 0, .4);
 }
 
 
@@ -1264,4 +1270,13 @@ article.article .article-top-column {
 
 .heart {
 	color: #FF6262;
+}
+
+#wumiiDisplayDiv {
+	background-color: #FFF;
+	padding: 25px 30px;
+	margin: 10px 0;
+	background-color: #FFF;
+	border-radius: 2px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }

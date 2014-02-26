@@ -2,25 +2,25 @@
 			<div class="content">
 				<div class="column clear">
 					<p class="copy-right left-column"><!-- Copy Right Begain -->
-						Copy Right:
+						Copyright 
 						© <a href="" alt="链递阁" >链递阁</a>
 					</p><!-- Copy Right Ends -->
 					<p class="designer right-column"><!-- Blog Designer Begain -->
-						Theme:
 						<a href="<?php echo wp_get_theme()->display('ThemeURI');?>" alt="访问主题页面" title="访问主题页面"><?php echo wp_get_theme()->display('Name');?></a>
 						V<?php echo wp_get_theme()->display('Version');?>
 						&nbsp;|&nbsp;
-						Designed By:
+						Designed By 
 						<span class="heart">❤</span>&nbsp;<?php echo wp_get_theme()->display('Author'); ?>
 					</p><!-- Blog Designer Ends -->
 				</div>
 				<p class="powered-by"><!-- Blog Powered By Begain -->
-					Powered By:
+					Powered By 
 					<a href="http://www.wordpress.org"><span class="wordpress-logo"></span>WordPress</a>
 				</p><!-- Blog Powered By Ends -->
 			</div>
 			
 		</footer>
+		<a href="#" id="backToTopBtn" class="back-to-top-btn"></a>
 		<?php wp_footer(); ?>
     	<script type="text/javascript" src="http://cdn.staticfile.org/jquery/2.1.0/jquery.min.js"></script>
 		<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/script/script.min.js"></script>
@@ -43,6 +43,8 @@
 		<!-- Baidu TONGJI Ends -->
 		
 	<?php if ( is_single() ) { ?>
-		<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"0","bdPos":"left","bdTop":"100"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+		<script>
+		window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"0","bdPos":"left","bdTop":"100"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+		</script>
 	<?php } ?>
 
