@@ -1,4 +1,4 @@
- <div class="tab">
+ <li class="tab">
     <div class="tab-switcher">
         <ul class="tab-swither-container">
             <li class="current tab-switcher-list">近期评论</li>
@@ -64,4 +64,4 @@
             </li>
         </ul>
     </div>
-</div><!-- Tab Switcher Ends -->  
+</li><!-- Tab Switcher Ends -->  

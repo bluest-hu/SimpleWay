@@ -1,6 +1,6 @@
 <?php get_sidebar();?>
 
- <div class="tab">
+ <li class="tab">
     <div class="tab-switcher">
         <ul class="tab-swither-container">
             <li class="current tab-switcher-list">最近评论</li>
@@ -49,4 +49,4 @@
             </li>
         </ul>
     </div>
-</div><!-- Tab Switcher Ends -->  
+</li><!-- Tab Switcher Ends -->  

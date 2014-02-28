@@ -348,13 +348,10 @@ class widget_most_comments_wall extends WP_Widget {
 
 		echo $before_title . $title . $after_title;
 
-		echo '<ul class="new-comments">';
-		
 		echo get_most_comments_friends( array(
-			'number' => $count,
-			'size' => $size
-			) );
-		echo '</ul>';
+			'number' => 20,
+            'size' => 40
+            ));
 
 		echo $after_widget;
 	}
@@ -370,11 +367,15 @@ class widget_most_comments_wall extends WP_Widget {
 	}
 
 	function form($instance) {
-		$instance = wp_parse_args( (array) $instance, array( 'title' => '', 'count' => '','size' => '' ) );
+		$instance = wp_parse_args( (array) $instance, array( 
+			'title' => '', 
+			'count' => '',
+			'size' => '' 
+			) );
 
-		$title = strip_tags($instance['title']);
-		$count = strip_tags($instance['count']);
-		$size = strip_tags($instance['size']);
+		$title 	= strip_tags($instance['title']);
+		$count 	= strip_tags($instance['count']);
+		$size 	= strip_tags($instance['size']);
 
 		echo '<p><label>标题：<input id="'.$this->get_field_id('title').'" name="'.$this->get_field_name('title').'" type="text" value="'.attribute_escape($title).'" size="24" /></label></p>';
 		echo '<p><label>数目：<input id="'.$this->get_field_id('count').'" name="'.$this->get_field_name('count').'" type="number" value="'.attribute_escape($count).'" size="3" /></label></p>';
@@ -428,18 +429,17 @@ function get_most_comments_friends($config) {
   		
     	foreach ($counts as $count) {
       		$c_url 		= $count->comment_author_url;
-      		$c_count	= $count->cnt;
+      		$c_count	= print_r($count->cnt);
       		$c_author 	= $count->comment_author;
       		$c_email 	= $count->comment_author_email;
 
      		$mostactive .= "<li id=\"mostActivePeople-{$_index}\" class=\"most-active-people\"><a href=\"{$c_url}\" title=\"{$c_author} 发表 {$c_count} 条评论\" rel=\"nofollow\" target=\"_blank\">" . 
-	     		get_avatar($c_email, $config['size']) . 
-	     		"</a></li>";
+	     		get_avatar($c_email, $config['size']) . "</a></li>";
+   			
    			$_index++;
    		}
+   		$mostactive .="</ul>";
  	}
-
-	$mostactive .= " </ul>";
 
 	if ( $config['echo'] ) {
 		echo $mostactive;

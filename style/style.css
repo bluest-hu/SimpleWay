@@ -69,7 +69,6 @@ blockquote {
 	margin: 0;
 	padding: 10px 30px 10px 30px;
 	color: #777;
-	text-indent: 2em;
 }
 
 blockquote p {
@@ -339,7 +338,7 @@ article.article .article-top-column {
 .post-meta .article-category::before, 
 .post-meta .article-time:before, 
 .post-meta .article-comment::before,
- .post-meta .article-tags::before {
+.post-meta .article-tags::before {
 	display: block;
 	float: left;
 	margin-top: 3px;
@@ -423,6 +422,7 @@ article.article .article-top-column {
 	margin: 10px 0;
 	color: #555;
 	font: normal 14px/25px "Microsoft Yahei",SimHei,YouYuan,STHeiti;
+	text-indent: 1em;
 }
 .entry blockquote p {
 	color: #777;
@@ -493,6 +493,16 @@ article.article .article-top-column {
 	font-size: 14px;
 }
 
+.entry ul li ol,
+.entry ul li ol li {
+	padding: 0 0 0 20px;
+	list-style-type: decimal;
+}
+
+.entry ul li ol li {
+	padding: 0;
+}
+
 .entry img {
 	max-width: 588px;
 	border: 1px solid #ddd;
@@ -501,7 +511,7 @@ article.article .article-top-column {
 
 .entry .site-info {
 	position: relative;
-	margin: 10px 0;
+	margin: 15px 0;
 	padding: 5px 15px;
 	border: 1px solid #EAEAEA;
 	border-radius: 3px;
@@ -749,14 +759,14 @@ article.article .article-top-column {
 	text-align: center;
 	font-size: 16px;
 	font-family: Consolas, Arial;
-	line-height: 26px;
+	line-height: 24px;
 }
 
 #wp-calendar tbody a {
 	display: block;
 	margin: 0 auto;
-	width: 26px;
-	height: 26px;
+	width: 24px;
+	height: 24px;
 	border-radius: 50%;
 	background-color: #FF7373;
 	color: #FFF;
@@ -764,6 +774,10 @@ article.article .article-top-column {
 
 #wp-calendar tbody a:hover{
 	background-color: #FF5E5E;
+}
+
+#wp-calendar tbody tr td {
+	padding: 2px 0;
 }
 
 #wp-calendar tbody tr:last-child td {
@@ -846,7 +860,7 @@ article.article .article-top-column {
 
 
 /*======================================== Tab Switcher ========================================*/
-.tab {
+.aside ul .tab {
 	margin-bottom: 10px;
 }
 

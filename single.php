@@ -143,9 +143,10 @@
 						<ul>
 							<?php comments_template(); ?>
 						</ul>
-						<div class="comment-form-container">
-							<?php comment_form(); ?>
-						</div><!-- Comment Form Ends -->
+						
+						<!-- <div class="comment-form-container"> -->
+							<?php //comment_form(); ?> 
+						<!-- </div>Comment Form Ends -->
 					</div><!-- Single Article Comment Ends -->
 
 			<?php else:?>
