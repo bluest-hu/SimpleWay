@@ -174,7 +174,7 @@ function simpleway_newcomments( $limit ){
 	
 	if ($comments === false) {
 		$comments = $wpdb->get_results($sql);
-		wp_cache_set( 'simpleway_mostactive', $comments );
+		wp_cache_set( 'simpleway_newcomments', $comments );
 	}
 
 	foreach ( $comments as $comment ) {
@@ -395,27 +395,31 @@ function get_most_comments_friends($config) {
 	$config['before']			= !empty($config['before']) ? $config['before'] : "li";
 	$config['number'] 			= !empty($config['number']) ? $config['number'] : 15;
 	$config['size'] 			= !empty($config['size']) ? $config['size'] : 45;
-	$config['time']				= !empty($config['time']) ? $config['time'] : 1;
+	$config['time']				= !empty($config['time']) ? $config['time'] : 3;
 
 	global $wpdb;
   	
   	$counts = wp_cache_get( 'simpleway_mostactive' );
 
-  	$query = "SELECT COUNT(comment_author) AS cnt, comment_author, comment_author_url, comment_author_email
-	  	FROM {$wpdb->prefix}comments
-	  	WHERE comment_date > date_sub( NOW(), INTERVAL {$config['time']} MONTH )
-	        AND comment_approved = '1'
-	        AND comment_author_email != 'example@example.com'
-	        AND comment_author_url != ''
-	        AND comment_type = ''
-	        AND user_id = '0'
-	    GROUP BY comment_author_email
-	    ORDER BY cnt DESC
-	    LIMIT {$config['number']}";
+  	$query = "SELECT 
+  	COUNT(comment_author_email) AS cnt,
+  	comment_author, comment_author_url, 
+  	comment_author_email
+  	FROM {$wpdb->prefix}comments
+  	WHERE comment_date > date_sub( NOW(), INTERVAL {$config['time']} MONTH )
+        AND comment_approved = '1'
+        AND comment_author_email != 'example@example.com'
+        AND comment_author_url != ''
+        AND comment_type = ''
+        AND user_id = '0'
+    GROUP BY comment_author_email AND comment_author
+    ORDER BY cnt DESC
+    LIMIT {$config['number']}";
 
 
   	if ( false === $counts ) {
     	$counts = $wpdb->get_results($query);
+    	wp_cache_set( 'simpleway_mostactive', $counts );
   	}
 
   	$mostactive = '';
@@ -429,7 +433,7 @@ function get_most_comments_friends($config) {
   		
     	foreach ($counts as $count) {
       		$c_url 		= $count->comment_author_url;
-      		$c_count	= print_r($count->cnt);
+      		$c_count	= $count->cnt;
       		$c_author 	= $count->comment_author;
       		$c_email 	= $count->comment_author_email;
 
