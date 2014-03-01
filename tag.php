@@ -83,9 +83,4 @@
 			</div><!-- Content Ends -->
 		</div><!-- Main Ends -->
 		<!-- Footer Begain -->
-		<?php get_footer(  ); ?>
-		<!-- Footer Ends -->
-	</div><!-- Wrap Ends -->
-	<a href="#" id="backToTopBtn"></a>
-</body>
-</html>
+		<?php get_footer(); ?>

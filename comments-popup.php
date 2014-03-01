@@ -22,15 +22,16 @@
 
 		<div class="main">
 			<div class="content clear">
-				<div class="author left-column">
-					<div class="author-info">
-						<?php echo get_avatar( get_the_author_email(), 200 ); ?>
-						<?php get_most_comments_friends(array(
-							'number' => 30
-						)) ?>
-					</div>
-				</div><!-- Post Ends -->
-
+				<div class="post left-column">
+					<div class="article-comments-container">
+						<ul>
+							<?php comments_template(); ?>
+						</ul>
+						
+						<div class="comment-form-container">
+							<?php comment_form(); ?>
+						</div><!--Comment Form Ends -->
+					</div><!-- Single Article Comment Ends -->
 				<aside class="aside right-column"><!-- Right Aside Begain -->
 					<?php get_sidebar();?>
 				</aside><!-- Right Aside Ends -->

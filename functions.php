@@ -3,6 +3,54 @@
 // remove_action('init', 'kses_init');   
 // remove_action('set_current_user', 'kses_init');
 
+
+
+/**
+ * [my_avatar 将Gavatar的头像存储在本地，防止伟大的GFW Fuck Gavatar，反强奸]
+ * @param  [type]  $email   [email]
+ * @param  string  $size    [头像大小]
+ * @param  string  $default [默认头像地址]
+ * @param  boolean/string $alt     [alt文本]
+ * @return [type]           [html img 字符串]
+ */
+ function my_avatar( $email, $size = '50', $default = '', $alt = false ) {
+	$alt 			= (false === $alt) ? '' : esc_attr( $alt );
+	$email_md5 		= md5( strtolower( $email ) );// 对email 进行 md5处理
+	$avatar_url 	= home_url() . '/avatar/'. $email_md5 . '.jpg'; // 猜测在本地的头像
+	$avatar_local 	= preg_replace('/wordpress\//', '', ABSPATH) . 'avatar/' . $email_md5 . '.jpg';// 猜测本地绝对路径
+	$t 				= 604800; //设定7天, 单位:秒
+	$STORE_PATH 	= ABSPATH . '/avatar'; //默认存储地址
+	$r 				= get_option('avatar_rating');
+
+    // 暂时判断目录存在，如果不存在创建，存放的文件夹
+	if (!is_dir($STORE_PATH)) {
+		if ( !!mkdir( $STORE_PATH ) ) {
+		}
+	}
+
+	// 设置默认头像
+	if ( empty($default) ) {
+		$default = get_stylesheet_directory_uri() . '/image/default.jpg';
+	}
+	
+	// 判断在本地的头像文件 是否存在或者已经过期
+	if ( !is_file($avatar_local) || (time() - filemtime($avatar_local)) > $t ) {
+		// 如果不能存在 Gravatar 会返回你设置的地址的头像
+		$gravatar = sprintf( "http://www.gravatar.com", ( hexdec( $email_md5{0} ) % 2 ) ) . '/avatar/'. $email_md5. '?s='. $size. '&d='. $default. '&r='. $r;
+		copy($gravatar, $avatar_local);
+	}
+
+	// 判断如果头像文件太大 就用本地的替代 好机智
+	if (filesize($avatar_local) < 500) {
+		copy($default, $avatar_local);
+	}
+
+	$avatar = "<img title='{$alt}' alt='{$alt}' src='{$avatar_url}' class='avatar avatar-{$size} photo' height='{$size}' width='{$size}' />";
+	
+	return $avatar;
+ }
+
+
 /**
  * 注册顶部菜单
  */
@@ -186,7 +234,7 @@ function simpleway_newcomments( $limit ){
 						"\" title=\"" . 
 						$comment->post_title .
 						"上的评论\">" .
-						get_avatar( $comment->comment_author_email, 40) . 
+						my_avatar( $comment->comment_author_email, 40) . 
 						"<strong class=\"comment-author\">". strip_tags($comment->comment_author) . 
 						"：</strong>" .
 						strip_tags($comment->comment_content) 
@@ -437,7 +485,7 @@ function get_most_comments_friends($config) {
       		$c_email 	= $count->comment_author_email;
 
      		$mostactive .= "<li id=\"mostActivePeople-{$_index}\" class=\"most-active-people\"><a href=\"{$c_url}\" title=\"{$c_author} 发表 {$c_count} 条评论\" rel=\"nofollow\" target=\"_blank\">" . 
-	     		get_avatar($c_email, $config['size']) . "</a></li>";
+	     		my_avatar($c_email, $config['size']) . "</a></li>";
    			
    			$_index++;
    		}

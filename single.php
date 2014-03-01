@@ -29,7 +29,7 @@
 						<div class="article-top-column post-meta-container clear">
 							<div class="left-column author-avatar-container"><!-- Author Avastar Container Begain -->
 								<a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" alt="文章作者：<?php the_author(); ?>" title="文章作者：<?php the_author(); ?>" class="author-avatar"><!-- Article Author Begain -->
-									<?php echo get_avatar( get_the_author_email(), 50 ); ?>
+									<?php echo my_avatar( get_the_author_email(), 50 ); ?>
 								</a><!-- Article Author Ends -->
 							</div><!-- Author Avastar Container Ends -->
 
@@ -68,7 +68,7 @@
 					<div class="author-info">
 						<div class="top-column clear">
 							<div class="author-avatar left-column">
-								<?php echo get_avatar( get_the_author_email(), 80 ); ?>
+								<?php echo my_avatar( get_the_author_email(), 80 ); ?>
 							</div>
 					
 							<div class="author-descrption right-column">
@@ -164,8 +164,4 @@
 			</div><!-- Content Ends -->
 		</div><!-- Main Ends -->
 		<!-- Footer Begain -->
-		<?php get_footer(  ); ?>
-		<!-- Footer Ends -->
-	</div><!-- Wrap Ends -->
-</body>
-</html>
+		<?php get_footer(); ?>
