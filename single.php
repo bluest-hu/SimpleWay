@@ -123,8 +123,8 @@
 						</div><!-- Author Contact Info Ends -->
 					</div>
 
-					<div id="wumiiDisplayDiv">
-						
+					<div  class="related-post">
+						<div id="hm_t_23962"></div>
 					</div>
 
 					<nav class="post-navigation clear">

@@ -1,9 +1,7 @@
 <?php 
-
 // require_once(TEMPLATEPATH . '/control.php');
 // remove_action('init', 'kses_init');   
 // remove_action('set_current_user', 'kses_init');
-
 
 /**
  * 注册顶部菜单
@@ -402,17 +400,18 @@ function get_most_comments_friends($config) {
   	$counts = wp_cache_get( 'simpleway_mostactive' );
 
   	$query = "SELECT 
-  	COUNT(comment_author_email) AS cnt,
-  	comment_author, comment_author_url, 
-  	comment_author_email
+  		COUNT(comment_author) AS cnt,
+  		comment_author, 
+  		comment_author_url, 
+  		comment_author_email
   	FROM {$wpdb->prefix}comments
   	WHERE comment_date > date_sub( NOW(), INTERVAL {$config['time']} MONTH )
         AND comment_approved = '1'
         AND comment_author_email != 'example@example.com'
-        AND comment_author_url != ''
+        -- AND comment_author_url != ''
         AND comment_type = ''
         AND user_id = '0'
-    GROUP BY comment_author_email AND comment_author
+    GROUP BY comment_author_email
     ORDER BY cnt DESC
     LIMIT {$config['number']}";
 
@@ -432,7 +431,7 @@ function get_most_comments_friends($config) {
   		$_index = 1;
   		
     	foreach ($counts as $count) {
-      		$c_url 		= $count->comment_author_url;
+      		$c_url 		= $count->comment_author_url != "" ? $count->comment_author_url : get_bloginfo('url');
       		$c_count	= $count->cnt;
       		$c_author 	= $count->comment_author;
       		$c_email 	= $count->comment_author_email;
@@ -459,9 +458,5 @@ function add_nofollow($link, $args, $comment, $post){
   return str_replace("href=", "rel='nofollow' href=", $link);
 }
 
-
 // 恢复友情链接
 add_filter( 'pre_option_link_manager_enabled', '__return_true' );
-
-?> 
-

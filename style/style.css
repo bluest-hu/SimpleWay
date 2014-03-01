@@ -516,7 +516,7 @@ article.article .article-top-column {
 	border: 1px solid #EAEAEA;
 	border-radius: 3px;
 	background-color: #FBFBFB;
-	box-shadow: 0 0 1px rgba(0, 0, 0, .15);
+	box-shadow: 0 0 1px rgba(0, 0, 0, .1);
 }
 
 
@@ -554,6 +554,7 @@ article.article .article-top-column {
 .entry .site-info img {
 	display: block;
 	margin: 0;
+	box-shadow: none;
 }
 
 .entry .summary {
@@ -1269,9 +1270,10 @@ article.article .article-top-column {
 	width: 490px;
 }
 
-.author-info .author-descrption .author-name, .author-info .author-descrption .author-name a {
+.author-info .author-descrption .author-name,
+.author-info .author-descrption .author-name a {
 	color: #FFA200;
-	font: bold 20px/30px Arial "Microsoft Yahei";
+	font: bold 20px/30px Arial,"Microsoft Yahei";
 }
 
 .author-info .author-descript .author-summery {
@@ -1392,15 +1394,11 @@ article.article .article-top-column {
 	color: #FF6262;
 }
 
-#wumiiDisplayDiv {
+.related-post {
 	margin: 10px 0;
 	padding: 25px 30px;
 	border-radius: 2px;
 	background-color: #FFF;
 	background-color: #FFF;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-}
-
-.wumii-hook {
-	display: none;
 }
