@@ -9,10 +9,10 @@
     <title>搜索结果 | <?php bloginfo('name'); ?></title>
   <?php } ?>
   <?php if ( is_single() ) { ?>
-    <title><?php echo trim(wp_title('',0)); ?> | <?php bloginfo('name'); ?></title>
+    <title><?php echo trim(wp_title('', 0)); ?> | <?php bloginfo('name'); ?></title>
   <?php } ?>
   <?php if ( is_page() ) { ?>
-    <title><?php echo trim(wp_title('',0)); ?> | <?php bloginfo('name'); ?></title>
+    <title><?php echo trim(wp_title('', 0)); ?> | <?php bloginfo('name'); ?></title>
   <?php } ?>
   <?php if ( is_category() ) { ?>
     <title><?php single_cat_title(); ?> | <?php bloginfo('name'); ?></title>
@@ -59,13 +59,14 @@
     <meta name="description" content="<?php echo trim($description); ?>" />
     <meta name="keywords" content="<?php echo rtrim($keywords,','); ?>" />
   <?php } ?>
-  <?php if (is_home()) { ?>
+  <?php if ( is_home()) { ?>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
   <?php }; ?>
     <meta http-equiv="Content-Type" content="<?php bloginfo( 'html_type' ); ?>; charset=<?php bloginfo('charset'); ?>" />
     <meta name="generator" content="WordPress" />
     <!--END meta--> 
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/style/style.min.css">
     <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name');?>&raquo;Feed" href="<?php bloginfo('rss2_url');?>" />
     <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name');?>&raquo;评论&raquo;Feed" href="<?php bloginfo('comments_rss2_url'); ?>comments/feed" />

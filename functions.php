@@ -4,7 +4,6 @@
 // remove_action('set_current_user', 'kses_init');
 
 
-
 /**
  * [my_avatar 将Gavatar的头像存储在本地，防止伟大的GFW Fuck Gavatar，反强奸]
  * @param  [type]  $email   [email]
@@ -57,6 +56,7 @@
 if ( function_exists( 'register_nav_menus' ) ) {
 	register_nav_menus( array(
 		'header_menu' => '顶部菜单',
+		'footer_menu' => '底部菜单'
 	) );
 }
 
@@ -508,3 +508,45 @@ function add_nofollow($link, $args, $comment, $post){
 
 // 恢复友情链接
 add_filter( 'pre_option_link_manager_enabled', '__return_true' );
+
+/**
+ * 添加主题设置选项
+ */
+add_action('admin_menu', 'theme_way_setting_page');
+// add_theme_page( 'title标题', '菜单标题', 'administrator', 'xmlas_slug','simple_settings'); 
+
+function theme_way_setting_page (){
+ 
+	if ( count($_POST) > 0 && isset($_POST['simple_settings']) ){
+		$options = array ('analytics');
+		foreach ( $options as $opt ){
+			delete_option ( 'simple_'.$opt, $_POST[$opt] );
+			add_option ( 'simple_'.$opt, $_POST[$opt] );	
+		}
+	}
+	add_menu_page(__('主题选项'), __('主题选项'), 'edit_themes', basename(__FILE__), 'simple_settings');
+}
+ 
+function simple_settings(){?>
+ 
+<div class="wrap">
+	<h2>主题选项</h2>
+	<form method="post" action="">
+		<fieldset style="border:1px solid #ddd;padding-bottom:20px;margin-top:20px;">
+		<legend style="margin-left:5px; padding:0 5px;color:#2481C6;text-transform:uppercase;"><strong>统计代码添加</strong></legend>
+		<table class="form-table">
+			<tr>
+			<td>
+				<textarea name="analytics" id="analytics" rows="5" cols="70" style="font-size:11px;width:100%;"><?php echo stripslashes(get_option('simple_analytics')); ?></textarea>
+			</td>
+			</tr>
+		</table>
+		</fieldset>
+		<p class="submit">
+			<input type="submit" name="Submit" class="button-primary" value="保存设置" />
+			<input type="hidden" name="simple_settings" value="save" style="display:none;" />
+		</p>
+	</form>
+</div>
+ 
+<?php }

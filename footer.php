@@ -1,5 +1,27 @@
 		<footer class="footer">
 			<div class="content">
+				<nav class="navigation">
+					<?php
+					wp_nav_menu( array(
+						'theme_location'  => 'footer_menu',
+						'menu'            => '',
+						'container'       => 'div',
+						'container_class' => 'navigation-container',
+						'container_id'    => 'footerNavigationContainer',
+						'menu_class'      => 'menu',
+						'menu_id'         => 'topMenu',
+						'echo'            => true,
+						'fallback_cb'     => 'wp_page_menu',
+						'before'          => '',
+						'after'           => '',
+						'link_before'     => '',
+						'link_after'      => '',
+						'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+						'depth'           => 1,
+						'walker'          => ''
+					));
+					?>
+				</nav>
 				<div class="column clear">
 					<p class="copy-right left-column"><!-- Copy Right Begain -->
 						Copyright 
@@ -23,8 +45,10 @@
 		</footer><!-- Footer Ends -->
 	</div><!-- Wrap Ends -->
 </body>
-<script type="text/javascript" src="http://cdn.staticfile.org/jquery/2.1.0/jquery.min.js"></script>
-<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/script/script.min.js"></script>
+<!-- jQuery -->
+<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/script/jquery-2.0.3.min.js"></script>
+<!-- 博客所用 JavaScript 文件 -->
+<script type="text/javascript" async="async" src="<?php echo get_stylesheet_directory_uri(); ?>/script/script.min.js"></script>
 <!-- Google Analytics Begain -->
 <script>
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
