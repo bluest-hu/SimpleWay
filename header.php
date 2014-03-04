@@ -70,5 +70,26 @@
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/style/style.min.css">
     <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name');?>&raquo;Feed" href="<?php bloginfo('rss2_url');?>" />
     <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name');?>&raquo;评论&raquo;Feed" href="<?php bloginfo('comments_rss2_url'); ?>comments/feed" />
+    <link rel="dns-prefetch" href="<?php ?>" />
   </head>
+  <body>
+  <div class="wrap"><!-- Blog Wrap Begain -->
+    <header class="header"><!-- Bolg Header Begain -->
+      <div class="content"><!-- Blog Header Content Begain -->
+        <div class="header-top-column"><!--Header Top Column Begain -->
+          <h1 class="title"><!-- Blog Title Begain -->
+            <a href="<?php bloginfo('url');?>"> <?php bloginfo('name'); ?> </a>
+          </h1><!-- Blog Header Title Ends -->
+          <span class="blog-desciption"></span>
+        </div><!--Header Top Column End -->
+
+        <div class="header-bottom-column clear"><!-- Header Bottom  Begain -->
+          <?php get_template_part('nav'); ?>
+          <div class="search-form right-column">
+            <?php get_search_form(); ?>
+          </div>
+        </div><!-- Header Bottom Ends -->
+        
+      </div><!-- Blog Header Content Ends -->
+    </header><!-- Bolg Header Ends -->
     

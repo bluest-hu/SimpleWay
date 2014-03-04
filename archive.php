@@ -7,48 +7,6 @@
 ?>
 
 <?php get_header();?>
-<body>
-	<div class="wrap"><!-- Blog Wrap Begain -->
-		<header class="header"><!-- Bolg Header Begain -->
-			<div class="content"><!-- Blog Header Content Begain -->
-				<div class="header-top-column"><!--Header Top Column Begain -->
-					<h1 class="title"><!-- Blog Title Begain -->
-						<a href="<?php bloginfo('url');?>"> <?php bloginfo('name'); ?> </a>
-					</h1><!-- Blog Header Title Ends -->
-					<span class="blog-desciption"></span>
-				</div><!--Header Top Column End -->
-
-				<div class="header-bottom-column clear"><!-- Header Bottom  Begain -->
-					<nav class="navigation left-column">
-						<?php
-						wp_nav_menu( array(
-							'theme_location'  => '',
-							'menu'            => '',
-							'container'       => 'div',
-							'container_class' => 'navigation-container',
-							'container_id'    => 'navigationContainer',
-							'menu_class'      => 'menu',
-							'menu_id'         => '',
-							'echo'            => true,
-							'fallback_cb'     => 'wp_page_menu',
-							'before'          => '',
-							'after'           => '',
-							'link_before'     => '',
-							'link_after'      => '',
-							'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-							'depth'           => 2,
-							'walker'          => ''
-							));
-						?>
-					</nav><!-- Blog Header Navigation Ends -->
-					<div class="search-form right-column">
-						<?php get_search_form(); ?>
-					</div>
-				</div><!-- Header Bottom Ends -->
-				
-			</div><!-- Blog Header Content Ends -->
-		</header><!-- Bolg Header Ends -->
-
 		<div class="main">
 			<div class="content clear">
 				<div class="post left-column">

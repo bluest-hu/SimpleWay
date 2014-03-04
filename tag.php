@@ -1,31 +1,13 @@
 <?php get_header();?>
-<body>
-	<div class="wrap"><!-- Blog Wrap Begain -->
-		<header class="header"><!-- Bolg Header Begain -->
-			<div class="content"><!-- Blog Header Content Begain -->
-				<div class="header-top-column"><!--Header Top Column Begain -->
-					<h1 class="title"><!-- Blog Title Begain -->
-						<a href="<?php bloginfo('url');?>"> <?php bloginfo('name'); ?> </a>
-					</h1><!-- Blog Header Title Ends -->
-					<span class="blog-desciption"></span>
-				</div><!--Header Top Column End -->
-
-				<div class="header-bottom-column clear"><!-- Header Bottom  Begain -->
-					<?php get_template_part('nav'); ?>
-					<div class="search-form right-column">
-						<?php get_search_form(); ?>
-					</div>
-				</div><!-- Header Bottom Ends -->
-				
-			</div><!-- Blog Header Content Ends -->
-		</header><!-- Bolg Header Ends -->
-
 		<div class="main">
 			<div class="content clear">
 				<div class="post left-column">
+					<div class="box">
+						this is a box
+					</div>
 			<?php if(have_posts()):?>
 				<?php while (have_posts()):the_post();?>
-					<article class="article" id="post-<?php the_ID();?>"><!-- Article Begain -->
+					<article class="article box" id="post-<?php the_ID();?>"><!-- Article Begain -->
 						<div class="article-top-column post-meta-container clear">
 							<div class="left-column author-avatar-container"><!-- Author Avastar Container Begain -->
 								<a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" alt="文章作者：<?php the_author(); ?>" title="文章作者：<?php the_author(); ?>" class="author-avatar"><!-- Article Author Begain -->

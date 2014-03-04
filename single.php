@@ -1,31 +1,10 @@
 <?php get_header();?>
-<body>
-	<div class="wrap"><!-- Blog Wrap Begain -->
-		<header class="header"><!-- Bolg Header Begain -->
-			<div class="content"><!-- Blog Header Content Begain -->
-				<div class="header-top-column"><!--Header Top Column Begain -->
-					<h1 class="title"><!-- Blog Title Begain -->
-						<a href="<?php bloginfo('url');?>"> <?php bloginfo('name'); ?> </a>
-					</h1><!-- Blog Header Title Ends -->
-					<span class="blog-desciption"></span>
-				</div><!--Header Top Column End -->
-
-				<div class="header-bottom-column clear"><!-- Header Bottom  Begain -->
-					<?php get_template_part('nav'); ?>
-					<div class="search-form right-column">
-						<?php get_search_form(); ?>
-					</div>
-				</div><!-- Header Bottom Ends -->
-				
-			</div><!-- Blog Header Content Ends -->
-		</header><!-- Bolg Header Ends -->
-
 		<div class="main">
 			<div class="content clear">
 				<div class="post left-column">
 			<?php if(have_posts()):?>
 				<?php while (have_posts()):the_post();?>
-					<article class="article" id="post-<?php the_ID();?>"><!-- Article Begain -->
+					<article class="article card" id="post-<?php the_ID();?>"><!-- Article Begain -->
 						<div class="article-top-column post-meta-container clear">
 							<div class="left-column author-avatar-container"><!-- Author Avastar Container Begain -->
 								<a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" alt="文章作者：<?php the_author(); ?>" title="文章作者：<?php the_author(); ?>" class="author-avatar"><!-- Article Author Begain -->
@@ -65,7 +44,7 @@
 					</article><!-- Article Ends -->
 				<?php endwhile;?>
 
-					<div class="author-info">
+					<div class="author-info card">
 						<div class="top-column clear">
 							<div class="author-avatar left-column">
 								<?php echo my_avatar( get_the_author_email(), 80 ); ?>
@@ -139,14 +118,14 @@
 					
 					</nav> <!-- Article Navigation Ends-->
 					
-					<div class="article-comments-container">
+					<div class="article-comments-container card">
 						<ul>
 							<?php comments_template(); ?>
 						</ul>
 						
-						<!-- <div class="comment-form-container"> -->
-							<?php //comment_form(); ?> 
-						<!-- </div>Comment Form Ends -->
+						<div class="comment-form-container">
+							<?php //comment_form(); ?>  
+						 </div><!--Comment Form Ends -->
 					</div><!-- Single Article Comment Ends -->
 
 			<?php else:?>
