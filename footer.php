@@ -52,13 +52,13 @@
 
 
 <?php if (get_option('simple_way_analytics')!="") {
-	echo stripslashes(stripslashes(get_option('simple_way_analytics')));
+	echo trim(stripslashes(get_option('simple_way_analytics')));
 }?>
 
 
 <?php if ( is_single() ) { 
 	if (get_option('simple_way_single_script') != '') {
-		echo stripslashes(stripslashes(get_option('simple_way_single_script')));
+		echo trim(stripslashes(get_option('simple_way_single_script')));
 	}
 } ?>
 </html>

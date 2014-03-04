@@ -134,7 +134,6 @@ if ( function_exists('wp_register_sidebar_widget' ) ) {
     wp_register_sidebar_widget(1, '四合一小工具：日历最近文章、标签云、分类目录', 'tab_switcher_one');
 }  
 
-
 function tab_switcher_one () {
     include(TEMPLATEPATH . '/wedgit/tab_switcher_1.php');
 }
@@ -242,131 +241,6 @@ function simpleway_newcomments( $limit ){
 	}
 	echo $output;
 };
-
-
-//时间可读
-add_filter( 'the_date', 'human_readable_date');
-add_filter( 'get_the_date', 'human_readable_date');
-add_filter( 'the_modified_date', 'human_readable_date' );
-add_filter( 'get_the_modified_date', 'human_readable_date' );
-
-function human_readable_date( $the_date ){
-    return human_time_diff( strtotime($the_date) ) .  __(' ago');
-}
-
-/**
- * 页面分页
- * @param  integer $range 分页计数
- * @return string         html字符串
- */
-function par_pagenavi($range = 9) {
-	global	$paged, 
-			$wp_query;
-			
-	if ( !$max_page ) {
-		$max_page = $wp_query->max_num_pages;
-	}
-
-	if ($max_page > 1) {
-		if (!$paged) {
-			$paged = 1;
-		}
-
-		if ($paged != 1) {
-			echo "<a href='" . get_pagenum_link(1) . "' class='extend' title='跳转到首页'>首页</a>";
-		}
-
-		echo "<span class='page-next'>";
-		previous_posts_link('<<');
-		echo "</span>";
-
-    	if ($max_page > $range) {
-			if ($paged < $range) {
-				for ($i = 1; $i <= ($range + 1); $i++) {
-					echo "<a href='" . get_pagenum_link($i) ."'";
-					if ( $i==$paged ) {
-						echo " class='current'";
-					}
-					echo ">$i</a>";
-				}
-			} elseif ($paged >= ($max_page - ceil(($range/2)))) {
-				for ($i = $max_page - $range; $i <= $max_page; $i++) {
-					echo "<a href='" . get_pagenum_link($i) ."'";
-					if ($i==$paged) {
-						echo " class='current'";
-					}
-					echo ">$i</a>";
-				}
-			} elseif ($paged >= $range && $paged < ($max_page - ceil(($range/2)))) {
-				for ($i = ($paged - ceil($range/2)); $i <= ($paged + ceil(($range/2))); $i++) {
-					echo "<a href='" . get_pagenum_link($i) ."'";
-					if ($i==$paged) {
-						echo " class='current'";
-					}
-					echo ">$i</a>";
-				}
-			}
-		} else {
-			for ($i = 1; $i <= $max_page; $i++) {
-				echo "<a href='" . get_pagenum_link($i) ."'";
-			    if ($i==$paged) {
-			    	echo " class='current'";
-			    }
-			    echo ">$i</a>";
-			}
-		}
-
-		echo "<span class='page-next'>";
-			next_posts_link('>>');
-		echo "</span>";
-
-    	if ($paged != $max_page) {
-    		echo "<a href='" . get_pagenum_link($max_page) . "' class='extend' title='跳转到最后一页'>最后</a>";
-    	}
-    }
-}
-
-// 增加后台作者资料
-add_filter( 'user_contactmethods', 'add_author_contact_fields' );
-
-function add_author_contact_fields( $contactmethods ) {
-
-	$contactmethods['twitter'] 		= 'Twitter';
-	$contactmethods['google_plus'] 	= 'Google+';
-	$contactmethods['facebook'] 	= 'Faceboook';
-	$contactmethods['github'] 		= 'GitHub';
-	
-	// unset( $contactmethods['yim'] );
-	// unset( $contactmethods['aim'] );
-	// unset( $contactmethods['jabber'] );
-
-	return $contactmethods;
-}
-
-
-// // 增加主页关键字以及描述
-// $new_general_setting = new new_general_setting();
-
-// class new_general_setting {
-
-// 	function new_general_setting( ) {
-// 		add_filter( 'admin_init' , array( &$this , 'register_fields' ) );
-// 	}
-
-// 	function register_fields() {
-// 		register_setting( 'general', 'favorite_color', 'esc_attr' );
-// 		add_settings_field('fav_color', 
-// 			'<label for="favorite_color">'.__('最喜欢的颜色' ).'</label>',
-// 			array(&$this, 'fields_html') ,
-// 			'general' 
-// 			);
-// 	}
-
-// 	function fields_html() {
-// 		$value = get_option( 'favorite_color', '' );
-// 		echo '<input type="text" id="favorite_color" name="favorite_color" value="' . $value . '" />';
-// 	}
-// }
 
 
 register_widget('widget_most_comments_wall');
@@ -499,6 +373,133 @@ function get_most_comments_friends($config) {
 	}
 }
 
+
+//时间可读
+add_filter( 'the_date', 'human_readable_date');
+add_filter( 'get_the_date', 'human_readable_date');
+add_filter( 'the_modified_date', 'human_readable_date' );
+add_filter( 'get_the_modified_date', 'human_readable_date' );
+
+function human_readable_date( $the_date ){
+    return human_time_diff( strtotime($the_date) ) .  __(' ago');
+}
+
+/**
+ * 页面分页
+ * @param  integer $range 分页计数
+ * @return string         html字符串
+ */
+function par_pagenavi($range = 9) {
+	global	$paged, 
+			$wp_query;
+			
+	if ( !$max_page ) {
+		$max_page = $wp_query->max_num_pages;
+	}
+
+	if ($max_page > 1) {
+		if (!$paged) {
+			$paged = 1;
+		}
+
+		if ($paged != 1) {
+			echo "<a href='" . get_pagenum_link(1) . "' class='extend' title='跳转到首页'>首页</a>";
+		}
+
+		echo "<span class='page-next'>";
+		previous_posts_link('<<');
+		echo "</span>";
+
+    	if ($max_page > $range) {
+			if ($paged < $range) {
+				for ($i = 1; $i <= ($range + 1); $i++) {
+					echo "<a href='" . get_pagenum_link($i) ."'";
+					if ( $i==$paged ) {
+						echo " class='current'";
+					}
+					echo ">$i</a>";
+				}
+			} elseif ($paged >= ($max_page - ceil(($range/2)))) {
+				for ($i = $max_page - $range; $i <= $max_page; $i++) {
+					echo "<a href='" . get_pagenum_link($i) ."'";
+					if ($i==$paged) {
+						echo " class='current'";
+					}
+					echo ">$i</a>";
+				}
+			} elseif ($paged >= $range && $paged < ($max_page - ceil(($range/2)))) {
+				for ($i = ($paged - ceil($range/2)); $i <= ($paged + ceil(($range/2))); $i++) {
+					echo "<a href='" . get_pagenum_link($i) ."'";
+					if ($i==$paged) {
+						echo " class='current'";
+					}
+					echo ">$i</a>";
+				}
+			}
+		} else {
+			for ($i = 1; $i <= $max_page; $i++) {
+				echo "<a href='" . get_pagenum_link($i) ."'";
+			    if ($i==$paged) {
+			    	echo " class='current'";
+			    }
+			    echo ">$i</a>";
+			}
+		}
+
+		echo "<span class='page-next'>";
+			next_posts_link('>>');
+		echo "</span>";
+
+    	if ($paged != $max_page) {
+    		echo "<a href='" . get_pagenum_link($max_page) . "' class='extend' title='跳转到最后一页'>最后</a>";
+    	}
+    }
+}
+
+// 增加后台作者资料
+add_filter( 'user_contactmethods', 'add_author_contact_fields' );
+
+function add_author_contact_fields( $contactmethods ) {
+
+	$contactmethods['twitter'] 		= 'Twitter';
+	$contactmethods['google_plus'] 	= 'Google+';
+	$contactmethods['facebook'] 	= 'Faceboook';
+	$contactmethods['github'] 		= 'GitHub';
+	
+	// unset( $contactmethods['yim'] );
+	// unset( $contactmethods['aim'] );
+	// unset( $contactmethods['jabber'] );
+
+	return $contactmethods;
+}
+
+
+// // 增加主页关键字以及描述
+// $new_general_setting = new new_general_setting();
+
+// class new_general_setting {
+
+// 	function new_general_setting( ) {
+// 		add_filter( 'admin_init' , array( &$this , 'register_fields' ) );
+// 	}
+
+// 	function register_fields() {
+// 		register_setting( 'general', 'favorite_color', 'esc_attr' );
+// 		add_settings_field('fav_color', 
+// 			'<label for="favorite_color">'.__('最喜欢的颜色' ).'</label>',
+// 			array(&$this, 'fields_html') ,
+// 			'general' 
+// 			);
+// 	}
+
+// 	function fields_html() {
+// 		$value = get_option( 'favorite_color', '' );
+// 		echo '<input type="text" id="favorite_color" name="favorite_color" value="' . $value . '" />';
+// 	}
+// }
+
+
+
 // 给评论链接添加No-follw
 add_filter('comment_reply_link', 'add_nofollow', 420, 4);
 
@@ -529,6 +530,7 @@ function theme_way_setting_page (){
 			}
 		}
 	}
+	
 	add_menu_page(__('主题选项'), __('主题选项'), 'edit_themes', basename(__FILE__), 'simple_way_theme_settings');
 }
  
@@ -539,6 +541,44 @@ function simple_way_theme_settings(){?>
 	<form method="post" action="">
 		<table class="form-table">
 			<tbody>
+				<tr valign="top">
+					<th scope="row">首页关键词添加</th>
+					<td>
+						<fieldset>
+							<legend class="screen-reader-text">
+								<span>首页关键词添加</span>
+							</legend>
+							<p>
+								<label for="indexKeywords" class="description">
+									添加在首页关键词，请用<code>,</code>间隔
+								</label>
+							</p>
+							<textarea name="index_keywords" class="large-text code" id="indexKeywords" rows="3" cols="30" style="text-indent:0;padding:0"><?php echo stripslashes( trim( get_option( 'simple_way_index_keywords' ))); ?></textarea>
+							<p class="description">
+								建议设置 2~3 个，最多不超过 5 个
+							</p>
+						</fieldset>
+					</td>
+				</tr>
+				<tr valign="top">
+					<th scope="row">首页描述添加</th>
+					<td>
+						<fieldset>
+							<legend class="screen-reader-text">
+								<span>首页描述添加</span>
+							</legend>
+							<p>
+								<label for="indexDescription" class="description">
+									添加首页描述
+								</label>
+							</p>
+							<textarea name="index_description" class="large-text code" id="indexDescription" rows="3" cols="30" style="text-indent:0;padding:0"><?php echo stripslashes( trim( get_option( 'simple_way_index_description' ))); ?></textarea>
+							<p class="description">
+								在Google的搜索结果中，摘要信息标题长度一般在 72 字节（即 36 个中文字）左右，而百度则只有 56 字节（即 28 个中文字）左右，超出这个范围的内容将被省略。
+							</p>
+						</fieldset>
+					</td>
+				</tr>
 				<tr valign="top">
 					<th scope="row">统计代码添加</th>
 					<td>
@@ -551,9 +591,7 @@ function simple_way_theme_settings(){?>
 									在主题底部添加统计代码或者分享代码等（请包含 <code>&lt;script&gt;&lt;/script&gt;</code>标签 ）
 								</label>
 							</p>
-							<textarea name="analytics" class="large-text code" id="analytics" rows="10" cols="50" style="text-indent:0;padding:0">
-								<?php echo stripslashes( trim( get_option( 'simple_way_analytics' ))); ?>
-							</textarea>
+							<textarea name="analytics" class="large-text code" id="analytics" rows="10" cols="50" style="text-indent:0;padding:0"><?php echo stripslashes( trim( get_option( 'simple_way_analytics' ))); ?></textarea>
 						</fieldset>
 					</td>
 				</tr>
@@ -569,14 +607,13 @@ function simple_way_theme_settings(){?>
 									在文章主题底部添加统计代码或者分享代码等（请包含 <code>&lt;script&gt;&lt;/script&gt;</code>标签 ）
 								</label>
 							</p>
-							<textarea name="single_script" class="large-text code" id="single_script" rows="10" cols="50" style="text-indent:0;padding:0">
-								<?php echo stripslashes(trim( get_option( 'simple_way_single_script' ))); ?>
-							</textarea>
-							<p class="description">请注意该段代码只会在文章页面出现</p>
+							<textarea name="single_script" class="large-text code" id="single_script" rows="10" cols="50" style="text-indent:0;padding:0"><?php echo stripslashes(trim( get_option( 'simple_way_single_script' ))); ?></textarea>
+							<p class="description">
+								请注意该段代码只会在文章页面出现
+							</p>
 						</fieldset>
 					</td>
 				</tr>
-
 			</tbody>	
 		</table>
 		<p class="submit">

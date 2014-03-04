@@ -1,3 +1,11 @@
+<?php 
+/*
+ * Template Name: Archive
+ * @author: Bluest  
+ * @Blog  : http://bluest.me
+ */
+?>
+
 <?php get_header();?>
 <body>
 	<div class="wrap"><!-- Blog Wrap Begain -->
@@ -44,67 +52,91 @@
 		<div class="main">
 			<div class="content clear">
 				<div class="post left-column">
-			<?php if(have_posts()):?>
-				<?php while (have_posts()):the_post();?>
-					<article class="article" id="post-<?php the_ID();?>"><!-- Article Begain -->
-						<div class="article-top-column post-meta-container clear">
-							<div class="left-column author-avatar-container"><!-- Author Avastar Container Begain -->
-								<a href="<?php get_the_author_meta('user_url'); ?>" title="<?php the_author(); ?>" class="author-avatar"><!-- Article Author Begain -->
-									<?php echo get_avatar( get_the_author_email(), 50 ); ?>
-								</a><!-- Article Author Ends -->
-							</div><!-- Author Avastar Container Ends -->
-
-							<diiv class="left-column">
-								<h1 class="article-title top-column"><!-- Article Title Begain -->
-									<a href="<?php the_permalink();?>" title="<?php the_title();?>">
-										<?php the_title(); ?>
-									</a>
-								</h1><!-- Article Title End -->
-								<div class="bottom-column post-meta clear">
-									<div class="article-category left-column">
-										<?php the_category(' / ') ?>
-									</div><!--Category End -->
-									<time class="article-time right-column">
-										<?php the_time('Y-m-d') ?>
-									</time><!--Article End-->
-								</div><!-- Left Column Begain -->
-							</diiv><!-- Left Column Ends -->
-						</div><!-- Article Top Column Ends -->	
-							
-						<div class="entry">
-							<?php the_content("继续阅读 >>"); ?>
-						</div><!-- End Blog Entry -->
-
-						<div class="article-column-bottom post-meta clear">
-							<div class="article-tags left-column">
-								<?php the_tags("", " "); ?>
-							</div><!-- Article Tags End -->
-							<div class="article-comment right-column">
-								<?php comments_popup_link('木有评论', '1 条评论', '% 条评论'); ?>
-							</div><!-- Comments End -->
-						</div><!-- Article Bottom Column Ends -->
-					</article><!-- Article Ends -->
-				<?php endwhile;?>
-				<nav class="page-navigation">
-					<?php par_pagenavi(8); ?><!-- Article Navigation Ends-->
-				</nav> <!-- Article Navigation Ends-->
-			<?php else:?>
-				<article class="article" id="post-<?php the_ID();?>"><!-- Article Begain -->
-					<div>
-						<h2><?php _e("Not Found");?></h2> 
-					</div>
-				</article><!-- Article Ends -->
-			<?php endif;?>
+					<div class="myArchive">
+						<ul>
+						<?php
+						/**
+						 * WordPress分类存档页面
+						 * 作者：露兜
+						 * 博客：http://www.ludou.org/
+						 * 最后修改：2012年8月27日
+						 */
+						$query = "SELECT 
+							post_title, 
+							ID, 
+							post_name,
+							slug, 
+							wp_terms.term_id AS catID, 
+							wp_terms.name AS categoryname
+						FROM 
+							wp_posts,
+							wp_term_relationships, 
+							wp_term_taxonomy, 
+							wp_terms
+						WHERE wp_posts.ID = wp_term_relationships.object_id
+						AND wp_terms.term_id = wp_term_taxonomy.term_id
+						AND wp_term_taxonomy.term_taxonomy_id = wp_term_relationships.term_taxonomy_id
+						AND wp_term_taxonomy.taxonomy = 'category'
+						AND wp_posts.post_status = 'publish'
+						AND wp_posts.post_type = 'post'
+						ORDER BY wp_terms.term_id, wp_posts.post_date DESC";
+						$categoryPosts = $wpdb->get_results();
+						    $postID = 0;
+						    if ( $categoryPosts ) :
+						        $category = $categoryPosts[0]->catID;
+						        foreach ($categoryPosts as $key => $mypost) :
+						            if($postID == 0) {
+						                echo '<li><strong>分类:</strong> <a title="'.$mypost->categoryname.'" href="'.get_category_link($mypost->catID).'">'.$mypost->categoryname."</a>\n";
+						                echo '<ul>';
+						            }
+						           
+						            if($category == $mypost->catID) {          
+						?>
+						    <li><a title="<?php echo $mypost->post_title; ?>" href="<?php echo get_permalink( $mypost->ID ); ?>"><?php echo $mypost->post_title; ?></a></li>
+						<?php
+						                $category = $mypost->catID;
+						                $postID++;
+						            }
+						            else {
+						                echo "</ul>\n</li>";
+						                echo '<li><strong>分类:</strong> <a title="'.$mypost->categoryname.'" href="'.get_category_link($mypost->catID).'">'.$mypost->categoryname."</a>\n";
+						                echo '<ul>';
+						?>
+						    <li><a title="<?php echo $mypost->post_title; ?>" href="<?php echo get_permalink( $mypost->ID ); ?>"><?php echo $mypost->post_title; ?></a></li>
+						<?php
+						                $category = $mypost->catID;
+						                $postID = 1;
+						            }
+						        endforeach;
+						    endif;
+						    echo "</ul>\n</li>";
+						?>
+						<li><strong>页面</strong>
+						<ul>
+						<?php
+						    // 读取所有页面
+						    $mypages = $wpdb->get_results("
+						        SELECT post_title, post_name, ID
+						        FROM {$wpdb->prefix}posts
+						        WHERE post_status = 'publish'
+						        AND post_type = 'page'");
+						    if ( $mypages ) :
+						        foreach ($mypages as $mypage) :
+						?>
+						    <li><a title="<?php echo $mypage->post_title; ?>" href="<?php echo get_permalink( $mypage->ID ); ?>"><?php echo $mypage->post_title; ?></a></li>
+						    <?php endforeach; echo "</ul>\n</li>"; endif; ?>
+						</ul>
+						<p><a href="http://www.ludou.org/sitemap.xml">查看 sitemap.xml</a></p>
+						</div>
 				</div><!-- Post Ends -->
 				
 				<aside class="aside right-column"><!-- Right Aside Begain -->
 					<?php get_sidebar();?>
 				</aside><!-- Right Aside Ends -->
-
 			</div><!-- Content Ends -->
 		</div><!-- Main Ends -->
 		<!-- Footer Begain -->
-		<?php get_footer(  ); ?>
+		<?php get_footer(); ?>
 		<!-- Footer Ends -->
 	</div><!-- Wrap Ends -->
 </body>

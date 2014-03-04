@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
   <head>
-      <!-- Meta Tags -->
   <?php if ( is_home() ) { ?>
     <title><?php bloginfo('name'); ?> - <?php bloginfo('description'); ?></title>
+    <?php if ( get_option('simple_way_index_keywords' ) != '' ) { ?>
+    <meta name="keywords" content="<?php echo trim(get_option('simple_way_index_keywords')); ?>" />
+    <?php } ?>
+    <?php if (get_option('simple_way_index_description') != '' ) { ?>
+    <meta name="description" content="<?php echo trim(get_option('simple_way_index_description')); ?>" />
+    <?php } ?>
   <?php } ?>
   <?php if ( is_search() ) { ?>
     <title>搜索结果 | <?php bloginfo('name'); ?></title>
@@ -37,7 +42,7 @@
           if ($post->post_excerpt) {
             $description  = $post->post_excerpt;
           } else {
-            if(preg_match('/<p>(.*)<\/p>/iU',trim(strip_tags($post->post_content,"<p>")),$result)){
+            if ( preg_match('/<p>(.*)<\/p>/iU', trim(strip_tags($post->post_content,"<p>")), $result)) {
               $post_content = $result['1'];
             } else {
               $post_content_r = explode("\n",trim(strip_tags($post->post_content)));
@@ -59,17 +64,11 @@
     <meta name="description" content="<?php echo trim($description); ?>" />
     <meta name="keywords" content="<?php echo rtrim($keywords,','); ?>" />
   <?php } ?>
-  <?php if ( is_home()) { ?>
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-  <?php }; ?>
     <meta http-equiv="Content-Type" content="<?php bloginfo( 'html_type' ); ?>; charset=<?php bloginfo('charset'); ?>" />
     <meta name="generator" content="WordPress" />
-    <!--END meta--> 
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/style/style.min.css">
     <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name');?>&raquo;Feed" href="<?php bloginfo('rss2_url');?>" />
     <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name');?>&raquo;评论&raquo;Feed" href="<?php bloginfo('comments_rss2_url'); ?>comments/feed" />
-    <!-- <?php comments_popup_script(); ?> -->
   </head>
     
