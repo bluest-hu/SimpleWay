@@ -344,29 +344,29 @@ function add_author_contact_fields( $contactmethods ) {
 }
 
 
-// 增加主页关键字以及描述
-$new_general_setting = new new_general_setting();
+// // 增加主页关键字以及描述
+// $new_general_setting = new new_general_setting();
 
-class new_general_setting {
+// class new_general_setting {
 
-	function new_general_setting( ) {
-		add_filter( 'admin_init' , array( &$this , 'register_fields' ) );
-	}
+// 	function new_general_setting( ) {
+// 		add_filter( 'admin_init' , array( &$this , 'register_fields' ) );
+// 	}
 
-	function register_fields() {
-		register_setting( 'general', 'favorite_color', 'esc_attr' );
-		add_settings_field('fav_color', 
-			'<label for="favorite_color">'.__('最喜欢的颜色' ).'</label>',
-			array(&$this, 'fields_html') ,
-			'general' 
-			);
-	}
+// 	function register_fields() {
+// 		register_setting( 'general', 'favorite_color', 'esc_attr' );
+// 		add_settings_field('fav_color', 
+// 			'<label for="favorite_color">'.__('最喜欢的颜色' ).'</label>',
+// 			array(&$this, 'fields_html') ,
+// 			'general' 
+// 			);
+// 	}
 
-	function fields_html() {
-		$value = get_option( 'favorite_color', '' );
-		echo '<input type="text" id="favorite_color" name="favorite_color" value="' . $value . '" />';
-	}
-}
+// 	function fields_html() {
+// 		$value = get_option( 'favorite_color', '' );
+// 		echo '<input type="text" id="favorite_color" name="favorite_color" value="' . $value . '" />';
+// 	}
+// }
 
 
 register_widget('widget_most_comments_wall');
@@ -513,38 +513,75 @@ add_filter( 'pre_option_link_manager_enabled', '__return_true' );
  * 添加主题设置选项
  */
 add_action('admin_menu', 'theme_way_setting_page');
-// add_theme_page( 'title标题', '菜单标题', 'administrator', 'xmlas_slug','simple_settings'); 
 
 function theme_way_setting_page (){
  
-	if ( count($_POST) > 0 && isset($_POST['simple_settings']) ){
-		$options = array ('analytics');
-		foreach ( $options as $opt ){
-			delete_option ( 'simple_'.$opt, $_POST[$opt] );
-			add_option ( 'simple_'.$opt, $_POST[$opt] );	
+	if ( count($_POST) > 0 && isset($_POST['simple_way_theme_settings']) ) {
+
+		$settings = $_POST;
+		foreach ( $settings as $setting => $value ) {
+			
+			if ($setting != 'simple_way_theme_settings' && $setting != 'Submit') {
+				
+				$option_key = 'simple_way_' . $setting;
+				delete_option ( $option_key );
+				add_option ( $option_key , trim( $value ));	
+			}
 		}
 	}
-	add_menu_page(__('主题选项'), __('主题选项'), 'edit_themes', basename(__FILE__), 'simple_settings');
+	add_menu_page(__('主题选项'), __('主题选项'), 'edit_themes', basename(__FILE__), 'simple_way_theme_settings');
 }
  
-function simple_settings(){?>
+function simple_way_theme_settings(){?>
  
 <div class="wrap">
 	<h2>主题选项</h2>
 	<form method="post" action="">
-		<fieldset style="border:1px solid #ddd;padding-bottom:20px;margin-top:20px;">
-		<legend style="margin-left:5px; padding:0 5px;color:#2481C6;text-transform:uppercase;"><strong>统计代码添加</strong></legend>
 		<table class="form-table">
-			<tr>
-			<td>
-				<textarea name="analytics" id="analytics" rows="5" cols="70" style="font-size:11px;width:100%;"><?php echo stripslashes(get_option('simple_analytics')); ?></textarea>
-			</td>
-			</tr>
+			<tbody>
+				<tr valign="top">
+					<th scope="row">统计代码添加</th>
+					<td>
+						<fieldset>
+							<legend class="screen-reader-text">
+								<span>统计代码添加</span>
+							</legend>
+							<p>
+								<label for="analytics" class="description">
+									在主题底部添加统计代码或者分享代码等（请包含 <code>&lt;script&gt;&lt;/script&gt;</code>标签 ）
+								</label>
+							</p>
+							<textarea name="analytics" class="large-text code" id="analytics" rows="10" cols="50" style="text-indent:0;padding:0">
+								<?php echo stripslashes( trim( get_option( 'simple_way_analytics' ))); ?>
+							</textarea>
+						</fieldset>
+					</td>
+				</tr>
+				<tr valign="top">
+					<th scope="row">文章页面的分享代码/相关文章</th>
+					<td>
+						<fieldset>
+							<legend class="screen-reader-text">
+								<span>统计代码添加</span>
+							</legend>
+							<p>
+								<label for="single_script">
+									在文章主题底部添加统计代码或者分享代码等（请包含 <code>&lt;script&gt;&lt;/script&gt;</code>标签 ）
+								</label>
+							</p>
+							<textarea name="single_script" class="large-text code" id="single_script" rows="10" cols="50" style="text-indent:0;padding:0">
+								<?php echo stripslashes(trim( get_option( 'simple_way_single_script' ))); ?>
+							</textarea>
+							<p class="description">请注意该段代码只会在文章页面出现</p>
+						</fieldset>
+					</td>
+				</tr>
+
+			</tbody>	
 		</table>
-		</fieldset>
 		<p class="submit">
 			<input type="submit" name="Submit" class="button-primary" value="保存设置" />
-			<input type="hidden" name="simple_settings" value="save" style="display:none;" />
+			<input type="hidden" name="simple_way_theme_settings" value="save" style="display:none;" />
 		</p>
 	</form>
 </div>

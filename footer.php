@@ -49,30 +49,16 @@
 <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/script/jquery-2.0.3.min.js"></script>
 <!-- 博客所用 JavaScript 文件 -->
 <script type="text/javascript" async="async" src="<?php echo get_stylesheet_directory_uri(); ?>/script/script.min.js"></script>
-<!-- Google Analytics Begain -->
-<script>
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-	ga('create', 'UA-22609002-1', 'linkdigger.org');
-	ga('send', 'pageview');
-</script>
-<!-- Google Analytics Ends -->
-<!-- Baidu TONGJI Begain -->
-<script type="text/javascript">
-var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F4496a45676f90fa733814a1e011e657a' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<!-- Baidu TONGJI Ends -->
 
-<?php if ( is_single() ) { ?>
-<script>
-document.write(unescape('%3Cdiv id="hm_t_23962"%3E%3C/div%3E%3Cscript charset="utf-8" src="http://crs.baidu.com/t.js?siteId=4496a45676f90fa733814a1e011e657a&planId=23962&async=0&referer=') + encodeURIComponent(document.referrer) + '&title=' + encodeURIComponent(document.title) + '&rnd=' + (+new Date) + unescape('"%3E%3C/script%3E'));
-</script>
-<script>
-window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"0","bdPos":"left","bdTop":"100"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-</script>
-<?php } ?>
+<?php if (get_option('simple_way_analytics')!="") {
+	echo stripslashes(stripslashes(get_option('simple_way_analytics')));
+}?>
+
+
+<?php if ( is_single() ) { 
+	if (get_option('simple_way_single_script') != '') {
+		echo stripslashes(stripslashes(get_option('simple_way_single_script')));
+	}
+} ?>
 </html>
