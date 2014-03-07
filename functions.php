@@ -223,8 +223,8 @@ function simpleway_newcomments( $limit ){
 	}
 
 	foreach ( $comments as $comment ) {
-		if ( mb_strlen($comment->comment_content, 'utf-8') > 35 ) {
-			$comment->comment_content = mb_substr($comment->comment_content, 0, 35, 'utf-8') . "......";
+		if ( mb_strlen($comment->comment_content, 'utf-8') > 37 ) {
+			$comment->comment_content = mb_substr($comment->comment_content, 0, 37, 'utf-8') . "......";
 		}
 
 		$output .= "<li class=\"new-comment-lists\" ><a href=\"" . 

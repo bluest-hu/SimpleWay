@@ -2,9 +2,29 @@
 		<div class="main">
 			<div class="content clear">
 				<div class="post left-column">
+					<div class="card tag description">
+						<div class="description-content clear">
+							<img class="description-image left-column" src="<?php echo get_stylesheet_directory_uri(); ?>/image/logo.png" alt="分类 <?php single_cat_title('', true); ?> 下的文章" title="分类 <?php single_cat_title('', true); ?> 下的文章">
+							<div class="descripton-text-content">
+								<h2 class="description-title">
+									分类 <q><?php single_cat_title('', true); ?></q> 下的文章						
+								</h2>
+								<div class="description-text">
+									<?php 
+									if (category_description()) {
+										echo category_description();
+									} else {
+										echo "<p>暂时还没有关于分类 <q>" . single_cat_title("", false) . "</q> 的文字介绍，博主太懒啦，要打小 PP 哦!</P>";
+									}
+									?>
+								</div>
+							</div>
+						</div><!-- Description Content Ends -->
+					</div><!-- Tag Card Ends -->
+
 			<?php if(have_posts()):?>
 				<?php while (have_posts()):the_post();?>
-					<article class="article" id="post-<?php the_ID();?>"><!-- Article Begain -->
+					<article class="article card" id="post-<?php the_ID();?>"><!-- Article Begain -->
 						<div class="article-top-column post-meta-container clear">
 							<div class="left-column author-avatar-container"><!-- Author Avastar Container Begain -->
 								<a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" alt="文章作者：<?php the_author(); ?>" title="文章作者：<?php the_author(); ?>" class="author-avatar"><!-- Article Author Begain -->

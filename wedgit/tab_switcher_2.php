@@ -44,7 +44,7 @@
                 <h3 class="widget-title">本月灌水王！</h3>
             	<?php echo get_most_comments_friends( array(
                     'number' => 20,
-                    'size' => 40
+                    'size' => 38
                 )); ?>
             </li>
         </ul>

@@ -30,7 +30,9 @@
             </li>
             <li class="tab-content-list">
                 <h3 class="widget-title">它们像云一样~~</h3>
-            	<?php wp_tag_cloud(); ?>
+                <div class="tagcloud">
+            	   <?php wp_tag_cloud(); ?>
+                </div>
             </li>
             <li class="tab-content-list">
             	<h3 class="widget-title">分分类啦！</h3>

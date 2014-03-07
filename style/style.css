@@ -185,7 +185,7 @@ header.header {
 }
 /*************************************** Header Navigation Begain **************************/ 
 
-.navigation .navigation-container {
+.header .navigation .navigation-container {
 	padding: 8px 0;
 }
 
@@ -303,7 +303,7 @@ article.article .article-top-column {
 	/*padding: 25px 30px 0px 30px;*/
 }
 
-/************************************** Article Avastar ***************************************/
+/************************************** Article Avatar ***************************************/
 
 .article-top-column .author-avatar-container {
 	margin-right: 20px;
@@ -518,6 +518,7 @@ article.article .article-top-column {
 }
 
 .entry img {
+	margin-top: 5px;
 	max-width: 588px;
 	border: 1px solid #ddd;
 	box-shadow: 0 0 1px rgba(0,0,0,.1);
@@ -630,7 +631,7 @@ article.article .article-top-column {
 .main .content .aside {
 	margin-top: 10px;
 	margin-left: 10px;
-	width: 330px; 
+	width: 340px; 
 }
 
 /*======================================== Siderbar ======================================*/
@@ -688,13 +689,21 @@ article.article .article-top-column {
 
 .blogroll li a img {
 	display: inline-block;
+	margin-bottom: 4px;
 	width: 16px;
 	height: 16px;
 	vertical-align: middle;
 	line-height: 25px;
 }
-
-/**** inside list *****/
+                    
+/*.aside .tagcloud a {
+	background-color: blue;
+	color: #FFF;
+	padding: 4px 6px;
+	border-radius: 2px;
+	margin:2px;
+}
+*//**** inside list *****/
 .aside .widgets-lists ul, .aside .widgets-lists ul li {
 	margin: 0 0 0 5px;
 	list-style-type: disc;
@@ -740,10 +749,15 @@ article.article .article-top-column {
 	margin-right: 0;
 }
 
-.most-comments-friend-wall .most-active-people img.avatar {
+.most-comments-friend-wall .most-active-people .avatar {
+	display: block;
 	border-radius: 3px;
 	box-shadow: 0 0 1px rgba(0, 0, 0, .2);
 } 
+
+.most-comments-friend-wall .most-active-people .avatar:hover {
+	-webkit-filter: blur(1px);
+}
 
 /************************************** Siderbar Calendar ***************************************/
 #wp-calendar {
@@ -958,7 +972,7 @@ article.article .article-top-column {
 	margin-bottom: 15px;
 }
 
-.navigation .navigation-container {
+.footer .navigation .navigation-container {
 	padding: 0 0 2px 0;
 }
 
@@ -1104,7 +1118,7 @@ article.article .article-top-column {
 }
 
 .comment-body .comment-content {
-	padding-left: 60px;
+	padding-left: 55px;
 }
 
 .comment-body .comment-content p {
@@ -1443,4 +1457,69 @@ article.article .article-top-column {
 	background-color: #FFF;
 	background-color: #FFF;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+
+/*======================================== Author Page ========================================*/
+.author {
+	width: 650px;
+}
+.description {
+	position: relative;
+}
+
+.description:after {
+	position: absolute;
+	top: 0px;
+	right: 25px;
+	display: block;
+	width: 20px;
+	height: 60px;
+	background-color: #FF5E5E;
+	content: "";
+}
+
+.description:before {
+	position: absolute;
+	top: 40px;
+	right: 25px;
+	z-index: 999;
+	display: block;
+	width: 0;
+	height: 0;
+	border: 10px solid transparent;
+	border-bottom-color: #FFF;
+	content: "";
+}
+.description q {
+	font-style: italic;
+}
+
+.description .descripton-text-content {
+}
+
+.description .description-title {
+	margin-left: 90px;
+	padding-bottom: 5px;
+	font: bold 22px/30px "Microsoft Yahei", Arial;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	color: #4AA5FD;
+}
+
+.description .description-image {
+	display: block;
+	margin-right: 10px;
+	width: 80px;
+	height: 80px;
+	float: left;
+	border-radius: 4px;
+	box-shadow: 0 0px 1px rgba(0, 0, 0, 0.1);
+}
+
+.description .description-text {
+	margin-top: 5px;
+}
+
+.description .description-text p {
+	font: normal 13px/23px "Microsoft Yahei", Arial;
 }

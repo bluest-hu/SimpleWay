@@ -25,10 +25,10 @@
   <?php if ( is_month() ) { ?>
     <title><?php the_time('F'); ?> | <?php bloginfo('name'); ?></title>
   <?php } ?>
-  <?php if (function_exists('is_tag')) { ?>
-    <?php if ( is_tag() ) { ?>
-    <title><?php  single_tag_title("", true); ?> | <?php bloginfo('name'); ?></title>
-    <?php } ?>
+  <?php if ( is_tag() ) { ?>
+  <title><?php  single_tag_title("", true); ?> | <?php bloginfo('name'); ?></title>
+  <meta name="keywords" content="<?php single_tag_title("", true); ?>" />
+  <meta name="description" content="<?php echo mb_substr(tag_description(), 36); ?>" />
   <?php } ?>
     <?php
       if (!function_exists('utf8Substr')) {
