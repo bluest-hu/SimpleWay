@@ -4,9 +4,6 @@
 				<div class="author left-column">
 					<div class="author-info card">
 						<?php echo get_avatar( get_the_author_email(), 200 ); ?>
-						<?php get_most_comments_friends(array(
-							'number' => 30
-						)) ?>
 					</div>
 				</div><!-- Post Ends -->
 

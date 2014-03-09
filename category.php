@@ -49,7 +49,7 @@
 							</diiv><!-- Left Column Ends -->
 						</div><!-- Article Top Column Ends -->	
 							
-						<div class="entry">
+						<div class="entry clear">
 							<?php the_content("继续阅读 >>"); ?>
 						</div><!-- End Blog Entry -->
 

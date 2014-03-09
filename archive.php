@@ -5,87 +5,53 @@
  * @Blog  : http://bluest.me
  */
 ?>
-
+<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/style/archive.min.css">
 <?php get_header();?>
 		<div class="main">
 			<div class="content clear">
 				<div class="post left-column">
-					<div class="myArchive">
-						<ul>
-						<?php
-						/**
-						 * WordPress分类存档页面
-						 * 作者：露兜
-						 * 博客：http://www.ludou.org/
-						 * 最后修改：2012年8月27日
-						 */
-						$query = "SELECT 
-							post_title, 
-							ID, 
-							post_name,
-							slug, 
-							wp_terms.term_id AS catID, 
-							wp_terms.name AS categoryname
-						FROM 
-							wp_posts,
-							wp_term_relationships, 
-							wp_term_taxonomy, 
-							wp_terms
-						WHERE wp_posts.ID = wp_term_relationships.object_id
-						AND wp_terms.term_id = wp_term_taxonomy.term_id
-						AND wp_term_taxonomy.term_taxonomy_id = wp_term_relationships.term_taxonomy_id
-						AND wp_term_taxonomy.taxonomy = 'category'
-						AND wp_posts.post_status = 'publish'
-						AND wp_posts.post_type = 'post'
-						ORDER BY wp_terms.term_id, wp_posts.post_date DESC";
-						$categoryPosts = $wpdb->get_results();
-						    $postID = 0;
-						    if ( $categoryPosts ) :
-						        $category = $categoryPosts[0]->catID;
-						        foreach ($categoryPosts as $key => $mypost) :
-						            if($postID == 0) {
-						                echo '<li><strong>分类:</strong> <a title="'.$mypost->categoryname.'" href="'.get_category_link($mypost->catID).'">'.$mypost->categoryname."</a>\n";
-						                echo '<ul>';
-						            }
-						           
-						            if($category == $mypost->catID) {          
-						?>
-						    <li><a title="<?php echo $mypost->post_title; ?>" href="<?php echo get_permalink( $mypost->ID ); ?>"><?php echo $mypost->post_title; ?></a></li>
-						<?php
-						                $category = $mypost->catID;
-						                $postID++;
-						            }
-						            else {
-						                echo "</ul>\n</li>";
-						                echo '<li><strong>分类:</strong> <a title="'.$mypost->categoryname.'" href="'.get_category_link($mypost->catID).'">'.$mypost->categoryname."</a>\n";
-						                echo '<ul>';
-						?>
-						    <li><a title="<?php echo $mypost->post_title; ?>" href="<?php echo get_permalink( $mypost->ID ); ?>"><?php echo $mypost->post_title; ?></a></li>
-						<?php
-						                $category = $mypost->catID;
-						                $postID = 1;
-						            }
-						        endforeach;
-						    endif;
-						    echo "</ul>\n</li>";
-						?>
-						<li><strong>页面</strong>
-						<ul>
-						<?php
-						    // 读取所有页面
-						    $mypages = $wpdb->get_results("
-						        SELECT post_title, post_name, ID
-						        FROM {$wpdb->prefix}posts
-						        WHERE post_status = 'publish'
-						        AND post_type = 'page'");
-						    if ( $mypages ) :
-						        foreach ($mypages as $mypage) :
-						?>
-						    <li><a title="<?php echo $mypage->post_title; ?>" href="<?php echo get_permalink( $mypage->ID ); ?>"><?php echo $mypage->post_title; ?></a></li>
-						    <?php endforeach; echo "</ul>\n</li>"; endif; ?>
-						</ul>
-						<p><a href="http://www.ludou.org/sitemap.xml">查看 sitemap.xml</a></p>
+					<div class="archive card">
+						<div class="archives-content">
+							<div class="title">
+								<h1>文章归档</h1>
+								<span class="bg"></span>
+							</div>
+							<div class="archive-time-line">
+								<?php
+							   	$previous_year 	= $year = 0;
+							    $previous_month = $month = 0;
+							    $ul_open 		= false;
+
+							    $myposts = get_posts('numberposts=-1&orderby=post_date&order=DESC');
+
+							    foreach($myposts as $post) {
+
+							        setup_postdata($post);
+
+							        $year 	= mysql2date('Y', $post->post_date);
+							        $month 	= mysql2date('n', $post->post_date);
+							        $day 	= mysql2date('j', $post->post_date);
+
+							        if ( $year != $previous_year ) {
+						        		echo "<div class=\"year\"><h2>"; the_time('Y'); echo "</h2></div>";
+							        } 
+
+							        if ( $month != $previous_month ) {
+							            echo "<div class=\"month\"><h3>"; the_time('m'); echo "月</h3></div>";
+									} 
+
+							       	$previous_month = $month;
+							        $previous_year = $year; 
+							    ?>
+							        <div class="article-lists">
+							            <span class="day"><?php the_time('d'); ?></span>
+							            <a class="article-title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+							            <a class="comments" href="<?php comments_link(); ?>" title="查看 <?php the_title(); ?> 的评论"><?php comments_number('0', '1', '%'); ?></a>
+							        </div>
+							    <?php } ?>
+						    </div>	
 						</div>
+					</div><!-- Archieve Ends -->
 				</div><!-- Post Ends -->
 				
 				<aside class="aside right-column"><!-- Right Aside Begain -->

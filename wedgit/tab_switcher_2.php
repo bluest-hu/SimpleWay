@@ -43,7 +43,7 @@
             <li class="tab-content-list">
                 <h3 class="widget-title">本月灌水王！</h3>
             	<?php echo get_most_comments_friends( array(
-                    'number' => 20,
+                    'number' => 49,
                     'size' => 38
                 )); ?>
             </li>
