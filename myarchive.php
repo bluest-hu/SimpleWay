@@ -1,6 +1,6 @@
 <?php 
 /*
- * Template Name: Archive
+ * Template Name: Simple Way Archive
  * @author: Bluest  
  * @Blog  : http://bluest.me
  */
@@ -46,7 +46,7 @@
 							        <div class="article-lists">
 							            <span class="day"><?php the_time('d'); ?></span>
 							            <a class="article-title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-							            <a class="comments" href="<?php comments_link(); ?>" title="查看 <?php the_title(); ?> 的评论"><?php comments_number('0', '1', '%'); ?></a>
+							            <a class="comments" href="<?php comments_link(); ?>" title="查看 <?php the_title(); ?> 的评论"><?php echo get_comments_number(); ?></a>
 							        </div>
 							    <?php } ?>
 						    </div>	

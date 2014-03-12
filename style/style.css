@@ -213,6 +213,7 @@ header.header {
 .navigation-container ul li a {
 	display: block;
 	box-sizing: border-box;
+	-moz-box-sizing: border-box;
 	margin-right: 10px;
 	padding: 3px 9px;
 	color: #585858;
@@ -281,16 +282,17 @@ header.header {
 }
 
 /*======================================== Main Begain ======================================*/
-.main {
+/*.main {
 	overflow: hidden; 
-}
+}*/
 
 .main .content {
 	margin-top: 10px;
-	margin-bottom: 10px;
+	/*margin-bottom: 10px;*/
 }
 .main .content .post {
 	width: 650px;
+	margin-bottom: 20px;
 }
 /*======================================== Article Begain ======================================*/
 /*.main .content .post article.article {
@@ -620,20 +622,40 @@ article.article .article-top-column {
 
 /*======================================== Post Navigation ======================================*/
 .post .page-navigation {
-	margin: 25px 0 0 0; 
+	margin: 20px 0 0 0 0; 
 	text-align: center;
 	font-size: 0;
+	position: relative;
+}
+
+.page-navigation .post-navigation-content {
+	position: relative;
+	margin: auto;
+	top: 0px;
+	left: 0px;
+	bottom: 0px;
+	right: 0px;
+	display: inline-block;	
+	box-shadow: 0px 1px 1px rgba(0, 0, 0, .1);
+}
+ 
+.post .page-navigation a:first-child {
+	border-top-left-radius: 2px;
+	border-bottom-left-radius: 2px;
+}
+
+.post .page-navigation a:last-child {
+	border-top-right-radius: 2px;
+	border-bottom-right-radius: 2px;
 }
 
 .post .page-navigation a {
 	display: inline-block;
-	margin-right: 10px;
-	padding: 4px 10px;
-	border-radius: 3px;
+	padding: 10px 14px;
 	background-color: #FFF;
-	box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
 	color: #7e7e7e;
-	font-size: 14px;
+	font-size: 13px;
+	line-height: 20px;
 }
 
 .post .page-navigation a:hover {
@@ -980,7 +1002,6 @@ article.article .article-top-column {
 
 /*======================================== Footer ======================================*/
 .footer {
-	margin: 30px 0 0 0;
 	padding: 30px 0;
 	background-color: #333;
 }
@@ -999,7 +1020,8 @@ article.article .article-top-column {
 	text-align: center;
 }
 
-.navigation .navigation-container a {
+
+.navigation .navigation-container ul li a {
 	font-size: 12px;
 	line-height: 20px;
 	margin-right: 5px;
@@ -1009,13 +1031,14 @@ article.article .article-top-column {
 	margin-left: 0px;
 }
 
-.footer p {
+.footer p, .footer a {
 	color: #646464;
-	font: normal 13px/20px Arial, "Microsoft Yahei";
+	font: normal 11px/20px Arial, "Microsoft Yahei";
+	text-shadow: 0 1px 1px rgba(0, 0, 0, .89);
 }
 
-.footer p, .footer a {
-	text-shadow: 0 1px 1px rgba(0, 0, 0, .89);
+.footer a:hover {
+	color: #ffa200;
 }
 
 .footer .powered-by a .wordpress-logo {
@@ -1033,17 +1056,8 @@ article.article .article-top-column {
 
 .footer .powered-by a:hover .wordpress-logo {
 	background-position: -100px -20px;
-
 }
 
-.footer a{
-	color: #646464;
-	font: normal 13px/1.5 Arial, "Microsoft Yahei";
-}
-
-.footer a:hover {
-	color: #ffa200;
-}
 
 /************************************** Post Navigation ***************************************/
 .main .post-navigation {

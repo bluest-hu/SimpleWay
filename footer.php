@@ -9,7 +9,7 @@
 						'container_class' => 'navigation-container',
 						'container_id'    => 'footerNavigationContainer',
 						'menu_class'      => 'menu',
-						'menu_id'         => 'topMenu',
+						'menu_id'         => 'bottomMenu',
 						'echo'            => true,
 						'fallback_cb'     => 'wp_page_menu',
 						'before'          => '',
