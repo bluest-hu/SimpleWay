@@ -102,7 +102,7 @@
 						</div><!-- Author Contact Info Ends -->
 					</div>
 
-					<div  class="related-post">
+					<div  class="related-post card">
 						<div id="hm_t_23962"></div>
 					</div>
 

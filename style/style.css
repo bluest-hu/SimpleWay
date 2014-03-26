@@ -540,7 +540,6 @@ article.article .article-top-column {
 
 .entry img {
 	margin-top: 5px;
-	max-width: 588px;
 	border: 1px solid #ddd;
 	box-shadow: 0 0 1px rgba(0,0,0,.1);
 }
@@ -1004,6 +1003,7 @@ article.article .article-top-column {
 .footer {
 	padding: 30px 0;
 	background-color: #333;
+	overflow-x: hidden;
 }
 
 .footer .navigation {
@@ -1033,7 +1033,7 @@ article.article .article-top-column {
 
 .footer p, .footer a {
 	color: #646464;
-	font: normal 11px/20px Arial, "Microsoft Yahei";
+	font: normal 11px/20px "Microsoft Yahei", Arial;
 	text-shadow: 0 1px 1px rgba(0, 0, 0, .89);
 }
 
@@ -1117,6 +1117,12 @@ article.article .article-top-column {
 
 .comment ul.children li {
 	padding-left: 30px; 
+}
+
+
+.comment ul.children .avatar {
+	width: 35px;
+	height: 35px;
 }
 
 .comment-meta .edit-link .comment-edit-link {
@@ -1484,12 +1490,6 @@ article.article .article-top-column {
 }
 
 .related-post {
-	margin: 10px 0;
-	padding: 25px 30px;
-	border-radius: 2px;
-	background-color: #FFF;
-	background-color: #FFF;
-	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 
 
