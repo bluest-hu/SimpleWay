@@ -217,7 +217,7 @@ function simpleway_newcomments( $limit ){
 	AND user_id  = '0'
 	ORDER BY comment_date_gmt DESC LIMIT $limit ";
 	
-	if ($comments === false) {
+	if ( $comments === false ) {
 		$comments = $wpdb->get_results($sql);
 		wp_cache_set( 'simpleway_newcomments', $comments );
 	}
@@ -503,7 +503,7 @@ function add_author_contact_fields( $contactmethods ) {
 // 给评论链接添加No-follw
 add_filter('comment_reply_link', 'add_nofollow', 420, 4);
 
-function add_nofollow($link, $args, $comment, $post){
+function add_nofollow($link, $args, $comment, $post) {
   return str_replace("href=", "rel='nofollow' href=", $link);
 }
 
