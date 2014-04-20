@@ -11,7 +11,7 @@ img{max-width:100%;border:0}
 pre{overflow-x:auto;padding:15px 20px;border:1px solid rgba(0,0,0,.04);border-radius:2px;background-color:#F7F7F7;color:#777;font:400 14px/1.5 "Source Code Pro",Consolas,Arial}
 blockquote{position:relative;margin:0;padding:10px 30px;color:#777}
 blockquote p{color:#777}
-blockquote::before,blockquote::after{position:absolute;display:block;width:16px;height:16px;background:transparent url(../image/icons.png) 0 0 no-repeat scroll;content:""}
+blockquote::before,blockquote::after{position:absolute;display:block;width:16px;height:16px;background:transparent url(../image/icons.png?1404210011) 0 0 no-repeat scroll;content:""}
 blockquote::before{top:10px;left:0}
 blockquote::after{right:0;bottom:10px;background-position:-20px 0}
 @font-face{font-weight:400;font-style:normal;font-family:'Source Code Pro';src:local('Source Code Pro'),local('SourceCodePro-Regular'),url(http://themes.googleusercontent.com/static/fonts/sourcecodepro/v4/mrl8jkM18OlOQN8JLgasDxM0YzuT7MdOe03otPbuUS0.woff) format('woff')}
@@ -41,7 +41,7 @@ header.header{overflow-x:hidden;background-color:#FAFAFA;box-shadow:0 1px 1px rg
 .search-form #s{display:block;-moz-box-sizing:border-box;box-sizing:border-box;margin-bottom:0;padding:6px 12px;width:inherit;height:28px;border:1px solid #F7F5F5;border-radius:20px;color:#727272;transition:all .1s ease}
 .search-form #s:focus{border:1px solid #dadada}
 .search-form #s:focus,.search-form #searchsubmit:focus{outline:0 none}
-.search-form #searchsubmit{position:absolute;top:6px;right:10px;display:block;margin:0;padding:0;width:16px;height:16px;border:0;background-color:transparent;background-image:url(../image/icons.png);background-position:-60px -20px;background-repeat:no-repeat;text-indent:99em}
+.search-form #searchsubmit{position:absolute;top:6px;right:10px;display:block;margin:0;padding:0;width:16px;height:16px;border:0;background-color:transparent;background-image:url(../image/icons.png?1404210011);background-position:-60px -20px;background-repeat:no-repeat;text-indent:99em}
 .search-form #searchsubmit:hover{cursor:pointer}
 .main .content{margin-top:10px}
 .main .content .post{width:650px;margin-bottom:20px}
@@ -49,12 +49,13 @@ article.article .article-top-column{margin:0 0 10px}
 .article-top-column .author-avatar-container{margin-right:20px}
 .article-top-column .author-avatar,.article-top-column .avatar{display:block;width:50px;height:50px;border-radius:8px}
 .article-top-column .article-title,.article-top-column .article-title a{color:#000;text-decoration:none;font:700 22px/30px "Microsoft Yahei"}
+.article-top-column .article-title{max-width:520px}
 .article-top-column .article-title:hover,.article-top-column .article-title a:hover{color:#585858}
 .article-top-column .post-meta{padding:3px 0;width:520px}
 .article .post-meta,.article .post-meta a{color:#999;font:400 13px/20px "Microsoft Yahei"}
 .article .post-meta a:hover{color:#FFA200}
 .article .article-column-bottom{padding:15px 0 0;width:590px}
-.post-meta .article-category::before,.post-meta .article-time:before,.post-meta .article-comment::before,.post-meta .article-tags::before{display:block;float:left;margin-top:3px;margin-right:5px;width:16px;height:17px;background-image:url(../image/icons.png);background-repeat:no-repeat;content:""}
+.post-meta .article-category::before,.post-meta .article-time:before,.post-meta .article-comment::before,.post-meta .article-tags::before{display:block;float:left;margin-top:3px;margin-right:5px;width:16px;height:17px;background-image:url(../image/icons.png?1404210011);background-repeat:no-repeat;content:""}
 .post-meta .article-time:before{background-position:-80px 0}
 .post-meta .article-category::before{background-position:-20px -20px}
 .post-meta .article-comment::before{background-position:0 -20px}
@@ -84,7 +85,7 @@ article.article .article-top-column{margin:0 0 10px}
 .entry li{margin:5px 0 5px 15px;font-size:14px}
 .entry ul li ol,.entry ul li ol li{padding:0 0 0 20px;list-style-type:decimal}
 .entry ul li ol li{padding:0}
-.entry img{margin-top:5px;border:1px solid #ddd;box-shadow:0 0 1px rgba(0,0,0,.1)}
+.entry img{margin-top:5px;border:1px solid #ddd}
 .entry .site-info{position:relative;margin:15px 0;padding:5px 15px;border:1px solid #EAEAEA;border-radius:3px;background-color:#FBFBFB;box-shadow:0 0 1px rgba(0,0,0,.05)}
 .entry .site-info:after{position:absolute;top:-1px;right:10px;display:block;width:20px;height:65px;background-color:#FF5E5E;content:""}
 .entry .site-info:before{position:absolute;top:45px;right:10px;z-index:999;display:block;width:0;height:0;border:10px solid transparent;border-bottom-color:#FBFBFB;content:""}
@@ -161,7 +162,7 @@ article.article .article-top-column{margin:0 0 10px}
 .navigation-container ul li a:first-child{margin-left:0}
 .footer p,.footer a{color:#646464;font:400 11px/20px "Microsoft Yahei",Arial;text-shadow:0 1px 1px rgba(0,0,0,.89)}
 .footer a:hover{color:#ffa200}
-.footer .powered-by a .wordpress-logo{display:inline-block;margin-right:2px;margin-bottom:-2px;width:13px;height:13px;background-image:url(../image/icons.png);background-attachment:scroll;background-position:-100px 0;background-repeat:no-repeat;transition:all .1s ease-in-out}
+.footer .powered-by a .wordpress-logo{display:inline-block;margin-right:2px;margin-bottom:-2px;width:13px;height:13px;background-image:url(../image/icons.png?1404210011);background-attachment:scroll;background-position:-100px 0;background-repeat:no-repeat;transition:all .1s ease-in-out}
 .footer .powered-by a:hover .wordpress-logo{background-position:-100px -20px}
 .main .post-navigation{margin:10px 0}
 .main .post-navigation div{padding:8px 15px;border-radius:2px;background-color:#FFF;box-shadow:0 1px 1px rgba(0,0,0,.1);color:#7e7e7e;font-size:16px}
@@ -219,7 +220,7 @@ article.article .article-top-column{margin:0 0 10px}
 .author-info .author-contact ul li{display:inline-block;margin-right:10px;font:400 14px/20px Arial,"Microsoft Yahei";transition:all .15s ease-in}
 .author-info .author-contact ul li a{display:inline-block;color:#CCC}
 .author-info .author-contact ul li:hover a{color:#666}
-.author-info .author-contact ul li:before{display:block;float:left;margin-right:5px;width:20px;height:20px;background-image:url(../image/icons.png);background-attachment:scroll;background-repeat:no-repeat;content:"";transition:all .15s ease}
+.author-info .author-contact ul li:before{display:block;float:left;margin-right:5px;width:20px;height:20px;background-image:url(../image/icons.png?1404210011);background-attachment:scroll;background-repeat:no-repeat;content:"";transition:all .15s ease}
 .author-info .author-contact ul li.email:before{background-position:-60px -40px}
 .author-info .author-contact ul li:hover.email:before{background-position:-60px -60px}
 .author-info .author-contact ul li.website:before{background-position:-80px -40px}
@@ -232,7 +233,7 @@ article.article .article-top-column{margin:0 0 10px}
 .author-info .author-contact ul li:hover.github:before{background-position:-0px -60px}
 .author-info .author-contact ul li.google-plus:before{background-position:-100px -40px}
 .author-info .author-contact ul li:hover.google-plus:before{background-position:-100px -60px}
-#backToTopBtn{position:fixed;right:50px;bottom:160px;display:block;width:50px;height:50px;border:1px solid #EAEAEA;border-radius:50%;background:#FFF url(../image/icons.png) -121px 0 no-repeat scroll;box-shadow:0 0 1px rgba(0,0,0,.1);transition:all .1s ease-in-out}
+#backToTopBtn{position:fixed;right:50px;bottom:160px;display:block;width:50px;height:50px;border:1px solid #EAEAEA;border-radius:50%;background:#FFF url(../image/icons.png?1404210011) -121px 0 no-repeat scroll;box-shadow:0 0 1px rgba(0,0,0,.1);transition:all .1s ease-in-out}
 #backToTopBtn:hover{background-color:#FAFAFA;background-position:-121px -50px}
 .heart{color:#FF6262}
 .related-post{padding:0}

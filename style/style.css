@@ -328,6 +328,10 @@ article.article .article-top-column {
 	font: bold 22px/30px "Microsoft Yahei";
 }
 
+.article-top-column .article-title {
+	max-width: 520px;
+}
+
 .article-top-column .article-title:hover, 
 .article-top-column .article-title a:hover {
 	color: #585858;
@@ -541,7 +545,7 @@ article.article .article-top-column {
 .entry img {
 	margin-top: 5px;
 	border: 1px solid #ddd;
-	box-shadow: 0 0 1px rgba(0,0,0,.1);
+	/*box-shadow: 0 0 1px rgba(0,0,0,.1);*/
 }
 
 .entry .site-info {
