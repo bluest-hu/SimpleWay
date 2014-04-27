@@ -26,7 +26,7 @@
 										<?php the_time('Y-m-d') ?>
 									</time><!--Article End-->
 								</div><!-- Left Column Begain -->
-							</diiv><!-- Left Column Ends -->
+							</div><!-- Left Column Ends -->
 						</div><!-- Article Top Column Ends -->	
 							
 						<div class="entry clear">

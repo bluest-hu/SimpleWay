@@ -12,7 +12,7 @@
 								</a><!-- Article Author Ends -->
 							</div><!-- Author Avastar Container Ends -->
 
-							<diiv class="left-column">
+							<div class="left-column">
 								<h1 class="article-title top-column"><!-- Article Title Begain -->
 									<a href="<?php the_permalink();?>" title="<?php the_title();?>">
 										<?php the_title(); ?>
@@ -26,7 +26,7 @@
 										<?php the_time('Y-m-d') ?>
 									</time><!--Article End-->
 								</div><!-- Left Column Begain -->
-							</diiv><!-- Left Column Ends -->
+							</div><!-- Left Column Ends -->
 						</div><!-- Article Top Column Ends -->	
 							
 						<div class="entry clear">
