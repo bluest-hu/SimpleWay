@@ -2,7 +2,7 @@
 		<div class="main">
 			<div class="content clear">
 				<div class="post left-column">
-			<?php if(have_posts()):?>
+			<?php if( have_posts()) :?>
 				<?php while (have_posts()):the_post();?>
 					<article class="article card" id="post-<?php the_ID();?>"><!-- Article Begain -->
 						<div class="article-top-column post-meta-container clear">

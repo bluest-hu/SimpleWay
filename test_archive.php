@@ -1,6 +1,6 @@
 <?php 
 /*
- * Template Name: Simple Way Archive
+ * Template Name: Simple Way Archive Test
  * @author: Bluest  
  * @Blog  : http://bluest.me
  */
@@ -25,15 +25,16 @@
 							    $all_post = get_posts('numberposts=-1&orderby=post_date&order=DESC');
 
 
+							    $psots_array = array();
 
 
-							    foreach ($all_post as $pos => $value) {
+							    foreach ($all_post as $post) {
 							    	$year 	= mysql2date('Y', $post->post_date);
 							        $month 	= mysql2date('n', $post->post_date);
 							        $day 	= mysql2date('j', $post->post_date);
-
-
+							        $psots_array[$year][$month] = $post;
 							    }
+							   
 
 							    foreach($all_post as $post) {
 
@@ -43,7 +44,7 @@
 
 							        if ( $year != $previous_year ) {
 						        		echo "<div class=\"year\"><h2>"; the_time('Y'); echo "</h2></div>";
-							        } 
+							        }
 
 							        if ( $month != $previous_month ) {
 							            echo "<div class=\"month\"><h3>"; the_time('m'); echo "月</h3></div>";

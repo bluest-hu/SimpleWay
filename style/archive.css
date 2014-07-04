@@ -276,6 +276,7 @@
 	border-radius: 14px;
 	position: relative;
 	font-weight: bold;
+	font-size: 12px;
 }
 .archive-time-line .article-lists .comments:hover{
 	background-color: #4AA5FD;

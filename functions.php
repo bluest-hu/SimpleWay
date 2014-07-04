@@ -215,7 +215,8 @@ function simpleway_newcomments( $limit ){
 	AND comment_type = ''
 	AND post_password = ''
 	AND user_id  = '0'
-	ORDER BY comment_date_gmt DESC LIMIT $limit ";
+	ORDER BY comment_date_gmt DESC 
+	LIMIT $limit ";
 	
 	if ( $comments === false ) {
 		$comments = $wpdb->get_results($sql);
@@ -277,6 +278,7 @@ class widget_most_comments_wall extends WP_Widget {
 	}
 
 	function update($new_instance, $old_instance) {
+		
 		$instance = $old_instance;
 		
 		$instance['title'] = strip_tags($new_instance['title']);
