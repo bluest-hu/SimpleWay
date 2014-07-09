@@ -7,7 +7,7 @@
 					<article class="article card" id="post-<?php the_ID();?>"><!-- Article Begain -->
 						<div class="article-top-column post-meta-container clear">
 							<div class="left-column author-avatar-container"><!-- Author Avastar Container Begain -->
-								<a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" alt="文章作者：<?php the_author(); ?>" title="文章作者：<?php the_author(); ?>" class="author-avatar"><!-- Article Author Begain -->
+								<a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" title="文章作者：<?php the_author(); ?>" class="author-avatar"><!-- Article Author Begain -->
 									<?php echo my_avatar( get_the_author_email(), 50 ); ?>
 								</a><!-- Article Author Ends -->
 							</div><!-- Author Avastar Container Ends -->
@@ -64,37 +64,37 @@
 
 							<?php if (get_the_author_meta('user_url')) { ?> 
 								<li class="website">
-									<a href="<?php the_author_meta('user_url'); ?>" alt="主页" title="主页" rel="nofollow">主页</a>
+									<a href="<?php the_author_meta('user_url'); ?>" title="主页" rel="nofollow">主页</a>
 								</li><!-- Post Author Website -->
 							<?php } ?>
 
 							<?php if (get_the_author_meta('user_email')) { ?>
 								<li class="email">
-									<a href="mailto:<?php the_author_email(); ?>" alt="e-mail" title="e-mail" rel="nofollow" >邮箱</a>
+									<a href="mailto:<?php the_author_email(); ?>" title="e-mail" rel="nofollow" >邮箱</a>
 								</li><!-- Post Author E-mail -->
 							<?php } ?>	
 							
 							<?php if (get_the_author_meta('twitter')) { ?>
 								<li class="twitter">
-									<a href="<?php the_author_meta('twitter'); ?>" alt="Twitter" rel="nofollow" title="Twitter">Twitter</a>
+									<a href="<?php the_author_meta('twitter'); ?>"" rel="nofollow" title="Twitter">Twitter</a>
 								</li><!-- Post Author Twitter -->
 							<?php } ?>
 
 							<?php if (get_the_author_meta('facebook')) { ?>
 								<li class="facebook">
-									<a href="<?php the_author_meta('facebook'); ?>" alt="FaceBook" title="Facebook" rel="nofollow">Facebook</a>
+									<a href="<?php the_author_meta('facebook'); ?>"k" title="Facebook" rel="nofollow">Facebook</a>
 								</li><!-- Post Author Facebook -->
 							<?php } ?>
 							
 							<?php if (get_the_author_meta('google_plus')) { ?> 
 								<li class="google-plus">
-									<a href="<?php the_author_meta('google_plus'); ?>?rel=author" alt="Google+" title="Google Plus" rel="nofollow">Google+</a>
+									<a href="<?php the_author_meta('google_plus');" ?>?rel=author"" title="Google Plus" rel="nofollow">Google+</a>
 								</li><!-- Post Auhtor Google Plus -->
 							<?php } ?>	
 
 							<?php if (get_the_author_meta('github')) { ?>
 								<li class="github">
-									<a href="<?php the_author_meta('github'); ?>" alt="Github" title="Github" rel="nofollow">Github</a>
+									<a href="<?php the_author_meta('github'); ?>" title="Github" rel="nofollow">Github</a>
 								</li><!-- Post Author Github -->
 							<?php } ?>	
 

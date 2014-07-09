@@ -1,7 +1,7 @@
  <li class="tab">
     <div class="tab-switcher">
         <ul class="tab-swither-container">
-            <li class="current tab-switcher-list">近期评论</li>
+            <li class="current tab-switcher-list">日历</li>
             <li class="tab-switcher-list">近期文章</li>
             <li class="tab-switcher-list">标签云</li>
             <li class="tab-switcher-list">分类</li>
@@ -62,7 +62,8 @@
                     'pad_counts'         => 0,
                     'taxonomy'           => 'category',
                     'walker'             => null
-                ) ); ?>                            
+                ) ); ?>   
+                </ul>                         
             </li>
         </ul>
     </div>

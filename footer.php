@@ -25,10 +25,10 @@
 				<div class="column clear">
 					<p class="copy-right left-column"><!-- Copy Right Begain -->
 						Copyright 
-						© <a href="" alt="链递阁" >链递阁</a>
+						© <a href="" title="链递阁" >链递阁</a>
 					</p><!-- Copy Right Ends -->
 					<p class="designer right-column"><!-- Blog Designer Begain -->
-						<a href="<?php echo wp_get_theme()->display('ThemeURI');?>" alt="访问主题页面" title="访问主题页面"><?php echo wp_get_theme()->display('Name');?></a>
+						<a href="<?php echo wp_get_theme()->display('ThemeURI');?>" title="访问主题页面"><?php echo wp_get_theme()->display('Name');?></a>
 						V<?php echo wp_get_theme()->display('Version');?>
 						&nbsp;|&nbsp;
 						Designed By 
@@ -37,7 +37,7 @@
 				</div>
 				<p class="powered-by"><!-- Blog Powered By Begain -->
 					Powered By 
-					<a href="http://www.wordpress.org"><span class="wordpress-logo"></span>WordPress</a>
+					<a href="http://www.wordpress.org" title="wordpress"><span class="wordpress-logo"></span>WordPress</a>
 				</p><!-- Blog Powered By Ends -->
 			</div>
 			<a href="#" id="backToTopBtn" class="back-to-top-btn"></a>
