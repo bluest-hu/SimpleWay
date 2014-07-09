@@ -88,7 +88,7 @@
 							
 							<?php if (get_the_author_meta('google_plus')) { ?> 
 								<li class="google-plus">
-									<a href="<?php the_author_meta('google_plus');" ?>?rel=author"" title="Google Plus" rel="nofollow">Google+</a>
+									<a href="<?php the_author_meta('google_plus'); ?>?rel=author" title="Google Plus" rel="nofollow">Google+</a>
 								</li><!-- Post Auhtor Google Plus -->
 							<?php } ?>	
 
