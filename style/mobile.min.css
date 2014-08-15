@@ -1,10 +1,1 @@
-@media screen and (min-width:0) and (max-width:640px){.wrap{overflow-x:hidden}
-.header .navigation{width:100%}
-.content{width:100%}
-.article-top-column .author-avatar-container{display:none}
-.article .article-column-bottom{width:auto}
-.article-top-column .post-meta{width:auto}
-.main .content .post{clear:left;width:inherit}
-.main .content .aside{clear:both;width:100%}
-.footer .designer{margin-right:10px}
-.footer .powered-by,.footer .copy-right{margin-left:10px}}
+@media screen and (min-width:0) and (max-width:640px){.wrap{overflow-x:hidden}.content,.header .navigation{width:100%}.article-top-column .author-avatar-container{display:none}.article .article-column-bottom,.article-top-column .post-meta{width:auto}.main .content .post{clear:left;width:inherit}.main .content .aside{clear:both;width:100%}.footer .designer{margin-right:10px}.footer .copy-right,.footer .powered-by{margin-left:10px}}
