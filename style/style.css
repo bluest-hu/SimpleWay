@@ -111,7 +111,25 @@ blockquote::after {
   font-family: 'Source Code Pro';
   src: local('Source Code Pro Black'), local('SourceCodePro-Black'), url(http://themes.googleusercontent.com/static/fonts/sourcecodepro/v4/leqv3v-yTsJNC7nFznSMqXiec-hVyr2k4iOzEQsW1iE.woff) format('woff');
 }*/
+
+/*======================================== Font Icons Begain ======================================*/
+
+@font-face {
+  font-weight: 400;
+  font-style: normal;
+  font-family: 'Source Code Pro';
+  src: local('Source Code Pro'), local('SourceCodePro-Regular'), url(http://themes.googleusercontent.com/static/fonts/sourcecodepro/v4/mrl8jkM18OlOQN8JLgasDxM0YzuT7MdOe03otPbuUS0.woff) format('woff');
+}
+
+@font-face {
+  font-weight: 900;
+  font-style: normal;
+  font-family: 'Source Code Pro';
+  src: local('Source Code Pro Black'), local('SourceCodePro-Black'), url(http://themes.googleusercontent.com/static/fonts/sourcecodepro/v4/leqv3v-yTsJNC7nFznSMqXiec-hVyr2k4iOzEQsW1iE.woff) format('woff');
+}
+
 /*======================================== Base Begain ======================================*/
+
 
 /***************************************** Layout *******************************************/
 .clear:after {
@@ -1080,7 +1098,7 @@ article.article .article-top-column {
 .main .post-navigation div,
 .main .post-navigation div a {
 	color: #7e7e7e;
-	font-size: 12px;
+	font-size: 14px;
 }
 
 .main .post-navigation div a:hover,

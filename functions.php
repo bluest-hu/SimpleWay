@@ -408,7 +408,6 @@ function par_pagenavi($range = 9) {
 			echo "<a href='" . get_pagenum_link(1) . "' class='extend' title='跳转到首页'>首页</a>";
 		}
 
-
 		previous_posts_link('<<');
 
 
