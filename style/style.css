@@ -993,18 +993,6 @@ article.article .article-top-column {
 	font-size: 0px;
 } 
 
-.tab .tab-switcher .tab-swither-container .icons {
-	font-size: 130%;
-	line-height: inherit;
-	vertical-align: middle;
-}
-.tab .tab-switcher .tab-swither-container .icons:before {
-	font-size: 100%;
-	margin-right: 3px;
-	line-height: inherit;
-	font-weight: normal;
-}
-
 .tab .tab-switcher .tab-switcher-list {
 	display: inline-block;
 	padding: 2px 14px;
@@ -1013,7 +1001,21 @@ article.article .article-top-column {
 	font-weight: 600;
 	font-size: 14px;
 	line-height: 30px;
-	transition: color .2s ease-in-out;
+	transition: color .2s linear;
+}
+
+.tab .tab-switcher .tab-swither-container.icons {
+	line-height: inherit;
+	font-size: inherit;
+	display: inline-block;
+}
+
+.tab .tab-switcher  .tab-swither-container  .tab-switcher-list  .icons:before {
+	font-size: 18px;
+	margin-right: 4px;
+	line-height: 30px;
+	font-weight: normal;
+	vertical-align: middle;
 }
 
 .tab .tab-switcher .tab-switcher-list:hover {

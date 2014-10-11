@@ -10,7 +10,7 @@ img{max-width:100%;border:none}
 pre{overflow-x:auto;padding:15px 20px;border:1px solid rgba(0,0,0,.04);border-radius:2px;background-color:#F7F7F7;color:#777;font:400 14px/1.5 "Source Code Pro",Consolas,Arial}
 blockquote{position:relative;margin:0;padding:10px 30px;color:#777}
 blockquote p{color:#777}
-blockquote::after,blockquote::before{position:absolute;display:block;width:16px;height:16px;background:transparent url(../image/icons.png?14010112356) 0 0 no-repeat scroll;content:""}
+blockquote::after,blockquote::before{position:absolute;display:block;width:16px;height:16px;background:transparent url(../image/icons.png?14010120046) 0 0 no-repeat scroll;content:""}
 blockquote::before{top:10px;left:0}
 blockquote::after{right:0;bottom:10px;background-position:-20px 0}
 .clear:after{display:block;visibility:hidden;clear:both;width:0;height:0;content:""}
@@ -37,7 +37,7 @@ header.header{overflow-x:hidden;background-color:#FFF;box-shadow:0 1px 1px rgba(
 .search-form #s{display:block;-moz-box-sizing:border-box;box-sizing:border-box;margin-bottom:0;padding:6px 12px;width:inherit;height:28px;border:1px solid #F7F5F5;border-radius:20px;color:#727272;transition:all .1s ease}
 .search-form #s:focus{border:1px solid #dadada}
 .search-form #s:focus,.search-form #searchsubmit:focus{outline:0 none}
-.search-form #searchsubmit{position:absolute;top:6px;right:10px;display:block;margin:0;padding:0;width:16px;height:16px;border:none;background-color:transparent;background-image:url(../image/icons.png?14010112356);background-position:-60px -20px;background-repeat:no-repeat;text-indent:99em}
+.search-form #searchsubmit{position:absolute;top:6px;right:10px;display:block;margin:0;padding:0;width:16px;height:16px;border:none;background-color:transparent;background-image:url(../image/icons.png?14010120046);background-position:-60px -20px;background-repeat:no-repeat;text-indent:99em}
 .search-form #searchsubmit:hover{cursor:pointer}
 .main .content{margin-top:10px}
 .main .content .post{width:650px;margin-bottom:20px}
@@ -142,9 +142,9 @@ article.article .article-top-column{margin:0 0 10px}
 .aside ul .tab{margin-bottom:10px}
 .tab .tab-switcher{margin-bottom:-1px}
 .tab .tab-switcher .tab-swither-container{margin:0;list-style:none;font-size:0}
-.tab .tab-switcher .tab-swither-container .icons{font-size:130%;line-height:inherit;vertical-align:middle}
-.tab .tab-switcher .tab-swither-container .icons:before{font-size:100%;margin-right:3px;line-height:inherit;font-weight:400}
-.tab .tab-switcher .tab-switcher-list{display:inline-block;padding:2px 14px;border:1px solid rgba(0,0,0,0);color:#999;font-weight:600;font-size:14px;line-height:30px;transition:color .2s ease-in-out}
+.tab .tab-switcher .tab-switcher-list{display:inline-block;padding:2px 14px;border:1px solid rgba(0,0,0,0);color:#999;font-weight:600;font-size:14px;line-height:30px;transition:color .2s linear}
+.tab .tab-switcher .tab-swither-container.icons{line-height:inherit;font-size:inherit;display:inline-block}
+.tab .tab-switcher .tab-swither-container .tab-switcher-list .icons:before{font-size:18px;margin-right:4px;line-height:30px;font-weight:400;vertical-align:middle}
 .tab .tab-switcher .tab-switcher-list:hover{color:#333;cursor:pointer}
 .tab .tab-switcher .tab-switcher-list.current{border-bottom:1px solid transparent;border-top-left-radius:3px;border-top-right-radius:3px;background-color:#FFF;color:#333}
 .tab .tab-switcher .tab-switcher-list.current:hover{cursor:auto}
@@ -161,7 +161,7 @@ article.article .article-top-column{margin:0 0 10px}
 .navigation-container ul li a:first-child{margin-left:0}
 .footer a,.footer p{color:#646464;font:400 11px/20px "Microsoft Yahei",Arial;text-shadow:0 1px 1px rgba(0,0,0,.89)}
 .footer a:hover{color:#ffa200}
-.footer .powered-by a .wordpress-logo{display:inline-block;margin-right:2px;margin-bottom:-2px;width:13px;height:13px;background-image:url(../image/icons.png?14010112356);background-attachment:scroll;background-position:-100px 0;background-repeat:no-repeat;transition:all .1s ease-in-out}
+.footer .powered-by a .wordpress-logo{display:inline-block;margin-right:2px;margin-bottom:-2px;width:13px;height:13px;background-image:url(../image/icons.png?14010120046);background-attachment:scroll;background-position:-100px 0;background-repeat:no-repeat;transition:all .1s ease-in-out}
 .footer .powered-by a:hover .wordpress-logo{background-position:-100px -20px}
 .main .post-navigation{margin:10px 0}
 .main .post-navigation div{padding:8px 15px;border-radius:2px;background-color:#FFF;box-shadow:0 1px 1px rgba(0,0,0,.1)}
@@ -219,7 +219,7 @@ article.article .article-top-column{margin:0 0 10px}
 .author-info .author-contact ul li{display:inline-block;margin-right:10px;font:400 14px/20px Arial,"Microsoft Yahei";transition:all .15s ease-in}
 .author-info .author-contact ul li a{display:inline-block;color:#CCC}
 .author-info .author-contact ul li:hover a{color:#666}
-.author-info .author-contact ul li:before{display:block;float:left;margin-right:5px;width:20px;height:20px;background-image:url(../image/icons.png?14010112356);background-attachment:scroll;background-repeat:no-repeat;content:"";transition:all .15s ease}
+.author-info .author-contact ul li:before{display:block;float:left;margin-right:5px;width:20px;height:20px;background-image:url(../image/icons.png?14010120046);background-attachment:scroll;background-repeat:no-repeat;content:"";transition:all .15s ease}
 .author-info .author-contact ul li.email:before{background-position:-60px -40px}
 .author-info .author-contact ul li:hover.email:before{background-position:-60px -60px}
 .author-info .author-contact ul li.website:before{background-position:-80px -40px}
@@ -232,7 +232,7 @@ article.article .article-top-column{margin:0 0 10px}
 .author-info .author-contact ul li:hover.github:before{background-position:0 -60px}
 .author-info .author-contact ul li.google-plus:before{background-position:-100px -40px}
 .author-info .author-contact ul li:hover.google-plus:before{background-position:-100px -60px}
-#backToTopBtn{position:fixed;right:50px;bottom:160px;display:block;width:50px;height:50px;border:1px solid #EAEAEA;border-radius:50%;background:#FFF url(../image/icons.png?14010112356) -121px 0 no-repeat scroll;box-shadow:0 0 1px rgba(0,0,0,.1);transition:all .1s ease-in-out}
+#backToTopBtn{position:fixed;right:50px;bottom:160px;display:block;width:50px;height:50px;border:1px solid #EAEAEA;border-radius:50%;background:#FFF url(../image/icons.png?14010120046) -121px 0 no-repeat scroll;box-shadow:0 0 1px rgba(0,0,0,.1);transition:all .1s ease-in-out}
 #backToTopBtn:hover{background-color:#FAFAFA;background-position:-121px -50px}
 .heart{color:#FF6262}
 .related-post{padding:0}
