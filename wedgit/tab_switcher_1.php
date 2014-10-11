@@ -1,10 +1,10 @@
  <li class="tab">
     <div class="tab-switcher">
         <ul class="tab-swither-container">
-            <li class="current tab-switcher-list">日历</li>
-            <li class="tab-switcher-list">近期文章</li>
-            <li class="tab-switcher-list">标签云</li>
-            <li class="tab-switcher-list">分类</li>
+            <li class="current tab-switcher-list"><span class="icons fi-calendar"></span>日历</li>
+            <li class="tab-switcher-list"><span class="icons fi-clock"></span>近期文章</li>
+            <li class="tab-switcher-list"><span class="icons fi-bookmark"></span>标签云</li>
+            <li class="tab-switcher-list"><span class="icons fi-archive"></span>分类</li>
         </ul>
     </div>
     <div class="tab-container">

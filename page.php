@@ -12,7 +12,7 @@
 								</a><!-- Article Author Ends -->
 							</div><!-- Author Avastar Container Ends -->
 
-							<diiv class="left-column">
+							<div class="left-column fix-width">
 								<h1 class="article-title top-column"><!-- Article Title Begain -->
 									<a href="<?php the_permalink();?>" title="<?php the_title();?>">
 										<?php the_title(); ?>
@@ -20,13 +20,13 @@
 								</h1><!-- Article Title End -->
 								<div class="bottom-column post-meta clear">
 									<div class="article-category left-column">
-										<?php the_category(' / ') ?>
+										<span class="icons fi-folder"></span><?php the_category(' / ') ?>
 									</div><!--Category End -->
-									<time class="article-time right-column">
-										<?php the_time('Y-m-d') ?>
-									</time><!--Article End-->
+									<div class="right-column article-time">
+										<span class="icons fi-clock"></span><time class="article-time"><?php the_time('Y-m-d') ?></time>
+									</div><!--Article Time End-->
 								</div><!-- Left Column Begain -->
-							</diiv><!-- Left Column Ends -->
+							</div><!-- Left Column Ends -->
 						</div><!-- Article Top Column Ends -->	
 							
 						<div class="entry clear">
@@ -35,10 +35,13 @@
 
 						<div class="article-column-bottom post-meta clear">
 							<div class="article-tags left-column">
-								<?php the_tags("", " "); ?>
+								<span class="icons fi-bookmark left-column"></span>
+								<div class="tag-list left-column">
+									<?php the_tags("", " "); ?>
+								</div>	
 							</div><!-- Article Tags End -->
 							<div class="article-comment right-column">
-								<?php comments_popup_link('木有评论', '1 条评论', '% 条评论'); ?>
+								<span class="icons fi-comments"></span><?php comments_popup_link('木有评论', '1 条评论', '% 条评论'); ?>
 							</div><!-- Comments End -->
 						</div><!-- Article Bottom Column Ends -->
 					</article><!-- Article Ends -->

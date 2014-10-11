@@ -7,7 +7,7 @@
 .title:hover .bg:after{display:block}
 .title .bg:before{width:inherit;height:inherit;position:absolute;content:"";left:0;bottom:0;display:block;box-shadow:-1px 1px 1px rgba(0,0,0,.1);z-index:66}
 .archive-time-line{position:relative}
-.archive-time-line::before{position:absolute;display:block;content:"";width:5px;height:100%;margin:-30px 0;background-color:#505050;background-image:linear-gradient(to bottom,rgba(80,80,80,0) 0,#505050 8%,#505050 92%,rgba(80,80,80,0) 100%);top:0;left:150px;border-radius:5px}
+.archive-time-line::before{position:absolute;display:block;content:"";width:5px;height:100%;margin:-30px 0;background-color:#505050;background-image:linear-gradient(to bottom,rgba(80,80,80,0)0,#505050 8%,#505050 92%,rgba(80,80,80,0)100%);top:0;left:150px;border-radius:5px}
 .archive-time-line .year{position:relative}
 .archive-time-line .year h2{color:#FFF;min-width:52px;font:700 26px/30px Arial;display:inline-block;padding:1px 6px;border:1px solid #EAEAEA;border-radius:4px;position:relative;background-color:#4AA5FD;z-index:10000}
 .archive-time-line .year::before{position:absolute;display:block;content:"";width:150px;border-bottom:3px dotted #ccc;top:15px;left:0}
@@ -17,7 +17,7 @@
 .archive-time-line .month{margin-top:10px;position:relative}
 .archive-time-line .month:before{position:absolute;top:12px;left:110px;content:"";display:block;width:40px;height:0;border-bottom:3px dotted #ccc}
 .archive-time-line .month:after{position:absolute;top:5px;left:145px;content:"";display:block;width:10px;height:10px;border:3px solid #FFF;background-color:#A100FC;box-shadow:0 0 1px rgba(0,0,0,.1);border-radius:50%}
-.archive-time-line .month h3{position:relative;display:inline-block;padding:1px 5px;border-radius:3px;border-top-right-radius:0;border-bottom-right-radius:0;margin-left:50px;font-size:15px;background-color:#FFA200;border:1px solid #EAEAEA;border-right:0;color:#FFF;font-weight:400}
+.archive-time-line .month h3{position:relative;display:inline-block;padding:1px 5px;border-radius:3px;border-top-right-radius:0;border-bottom-right-radius:0;margin-left:50px;font-size:15px;background-color:#FFA200;border:1px solid #EAEAEA;border-right:none;color:#FFF;font-weight:400}
 .archive-time-line .month h3:after{position:absolute;display:block;width:0;height:0;content:"";right:-22px;top:0;border:12px solid transparent;border-left:12px solid #FFA201}
 .archive-time-line .month h3:before{position:absolute;display:block;width:0;height:0;content:"";right:-25px;top:-1px;border:13px solid transparent;border-left:13px solid #EAEAEA}
 .archive-time-line .article-lists{font-size:13px;margin:0 0 0 190px;color:#FF5E5E;padding:4px 0 4px 10px;line-height:25px}

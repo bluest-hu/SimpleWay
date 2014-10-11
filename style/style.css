@@ -112,24 +112,8 @@ blockquote::after {
   src: local('Source Code Pro Black'), local('SourceCodePro-Black'), url(http://themes.googleusercontent.com/static/fonts/sourcecodepro/v4/leqv3v-yTsJNC7nFznSMqXiec-hVyr2k4iOzEQsW1iE.woff) format('woff');
 }*/
 
-/*======================================== Font Icons Begain ======================================*/
-
-@font-face {
-  font-weight: 400;
-  font-style: normal;
-  font-family: 'Source Code Pro';
-  src: local('Source Code Pro'), local('SourceCodePro-Regular'), url(http://themes.googleusercontent.com/static/fonts/sourcecodepro/v4/mrl8jkM18OlOQN8JLgasDxM0YzuT7MdOe03otPbuUS0.woff) format('woff');
-}
-
-@font-face {
-  font-weight: 900;
-  font-style: normal;
-  font-family: 'Source Code Pro';
-  src: local('Source Code Pro Black'), local('SourceCodePro-Black'), url(http://themes.googleusercontent.com/static/fonts/sourcecodepro/v4/leqv3v-yTsJNC7nFznSMqXiec-hVyr2k4iOzEQsW1iE.woff) format('woff');
-}
 
 /*======================================== Base Begain ======================================*/
-
 
 /***************************************** Layout *******************************************/
 .clear:after {
@@ -358,24 +342,26 @@ article.article .article-top-column {
 .article-top-column .post-meta {
 	padding: 3px 0;
 	width: 520px;
+	height: 20px;
+}
+
+.article .article-column-bottom {
+	padding: 15px 0px 0px 0px;
+	width: 590px;
+	min-height: 20px;
 }
 
 .article .post-meta, 
 .article .post-meta a {
 	color: #999;
-	font: normal 12px/20px "Microsoft Yahei";
+	font: normal 12px/20px "Microsoft Yahei" Arial;
 } 
 
 .article .post-meta a:hover {
 	color: #FFA200;
 }
 
-.article .article-column-bottom {
-	padding: 15px 0px 0px 0px;
-	width: 590px;
-}
-
-.post-meta .article-category::before, 
+/*.post-meta .article-category::before, 
 .post-meta .article-time:before, 
 .post-meta .article-comment::before,
 .post-meta .article-tags::before {
@@ -388,9 +374,40 @@ article.article .article-top-column {
 	background-image: url("../image/icons.png");
 	background-repeat: no-repeat;
 	content: "";
+}*/
+
+.post-meta .article-category .icons, 
+.post-meta .article-time .icons,
+.post-meta .article-comment .icons,
+.post-meta .article-tags .icons {
+	margin-right: 5px;
+	line-height: 20px;
+	/*font-size: 20px;*/
 }
 
+.post-meta .article-comment .icons,
+.post-meta .article-tags .icons {
+	line-height: 22px;
+}
+
+.post-meta .article-category .icons:before, 
+.post-meta .article-time .icons:before, 
+.post-meta .article-comment .icons:before,
+.post-meta .article-tags .icons:before ,
 .post-meta .article-time:before {
+	font-size: 20px;
+	line-height: 20px;
+	vertical-align: bottom;
+	color: #999;
+}
+
+.post-meta .article-tags .icons:before ,
+.post-meta .article-time:before {
+	line-height: 22px;
+}
+
+
+/*.post-meta .article-time:before {
 	background-position: -80px 0;
 }
 
@@ -405,20 +422,32 @@ article.article .article-top-column {
 .post-meta .article-tags::before {
 	background-position: -40px 0px;
 }
+*/
 
+.post-meta .article-tags .tag-list {
+	max-width: 490px;
+}
 .post-meta .article-tags a {
-	padding: 1px 5px;
+	padding: 1px 8px;
 	border-radius: 2px;
 	background-color: #4AA5FD;
 	box-shadow: 0 0 1px rgba(0, 0, 0, .04);
 	color: #FFF;
-	font-size: 11px;
+	font-size: 12px;
+	display: inline-block;
+	line-height: 18px;
+	margin-top: 1px;
+	margin-bottom: 1px;
 }
 
 .post-meta .article-tags a:hover {
 	background-color: #2D78FF;
 	color: #FFF;
 	text-decoration: none;
+}
+
+.article-comment a {
+	line-height: 22px;
 }
 
 /************************************** Article Entry ***************************************/
@@ -460,7 +489,7 @@ article.article .article-top-column {
 	margin: 10px 0;
 	color: #555;
 	font: normal 14px/25px "Microsoft Yahei",SimHei,YouYuan,STHeiti;
-	text-indent: 1em;
+	/*text-indent: 1em;*/
 }
 
 .entry blockquote {
@@ -562,7 +591,7 @@ article.article .article-top-column {
 
 .entry img {
 	margin-top: 5px;
-	border: 1px solid #ddd;
+	border: 1px solid #EEE;
 	/*box-shadow: 0 0 1px rgba(0,0,0,.1);*/
 }
 
@@ -964,7 +993,19 @@ article.article .article-top-column {
 	font-size: 0px;
 } 
 
-.tab .tab-switcher .tab-swither-container .tab-switcher-list {
+.tab .tab-switcher .tab-swither-container .icons {
+	font-size: 130%;
+	line-height: inherit;
+	vertical-align: middle;
+}
+.tab .tab-switcher .tab-swither-container .icons:before {
+	font-size: 100%;
+	margin-right: 3px;
+	line-height: inherit;
+	font-weight: normal;
+}
+
+.tab .tab-switcher .tab-switcher-list {
 	display: inline-block;
 	padding: 2px 14px;
 	border: 1px solid rgba(0, 0, 0, 0);
@@ -975,12 +1016,12 @@ article.article .article-top-column {
 	transition: color .2s ease-in-out;
 }
 
-.tab .tab-switcher .tab-swither-container .tab-switcher-list:hover {
+.tab .tab-switcher .tab-switcher-list:hover {
 	color: #333;
 	cursor: pointer;
 }
 
-.tab .tab-switcher .tab-swither-container .tab-switcher-list.current {
+.tab .tab-switcher .tab-switcher-list.current {
 	border-bottom: 1px solid transparent;
 	border-top-left-radius: 3px;
 	border-top-right-radius: 3px;
@@ -988,7 +1029,7 @@ article.article .article-top-column {
 	color: #333;
 }
 
-.tab .tab-switcher .tab-swither-container .tab-switcher-list.current:hover {
+.tab .tab-switcher .tab-switcher-list.current:hover {
 	cursor: auto;
 }
 
@@ -1559,9 +1600,21 @@ article.article .article-top-column {
 	color: #4AA5FD;
 }
 
+.description .description-title .icons {
+	font-size: 28px;
+	line-height: 30px;
+	margin-right: 5px;
+}
+
+.description .description-title .icons:before {
+	font-size: inherit;
+	line-height: inherit;
+	vertical-align: middle;
+}
+
 .description .description-image {
 	display: block;
-	margin-right: 10px;
+	margin-right: 15px;
 	width: 80px;
 	height: 80px;
 	float: left;
