@@ -68,7 +68,7 @@
     <meta name="generator" content="WordPress" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/font/foundation-icons/foundation-icons.css">
+    <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/style/ionicons.min.css">
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/style/style.min.css">
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/style/mobile.min.css">
     <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name');?>&raquo;Feed" href="<?php bloginfo('rss2_url');?>" />

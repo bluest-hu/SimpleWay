@@ -323,26 +323,71 @@ article.article .article-top-column {
 	border-radius: 4px;
 }
 
+
+.article-top-column .article-title {
+	min-height: 30px;
+	max-width: 520px;
+}
+
 .article-top-column .article-title,
 .article-top-column .article-title a {
 	color: #000;
 	text-decoration: none;
-	font: bold 22px/30px "Microsoft Yahei";
+	font: bold 24px/30px "Microsoft Yahei";
 }
 
-.article-top-column .article-title {
-	max-width: 520px;
-}
-
-.article-top-column .article-title:hover, 
 .article-top-column .article-title a:hover {
 	color: #585858;
 }
 
 .article-top-column .post-meta {
-	padding: 3px 0;
 	width: 520px;
+	min-height: 20px;
+	font-size: 12px;
+	line-height: 20px;
+	color: #999;
+	position: relative;
+	top:3px;
+}
+
+.article .article-category .icons {
+	float: left;
+}
+
+.article .article-category .article-category-list {
+	max-width: 400px;
+}
+
+.article .article-category .article-category-list a {
+	display: inline-block;
+}
+
+.article .article-category,
+.article .article-time,
+.article .article-comment,
+.article .post-meta a,
+.article .post-meta .icons {
+	color: #999;
+	font:normal 12px/20px "Microsoft Yahei"; 
+}
+
+.article .post-meta a:hover {
+	color: #FFA200;
+}
+
+.article .post-meta .icons {
+	margin-right: 5px;
 	height: 20px;
+	display: block;
+	float: left;
+	font-size: 0px;
+	line-height: 20px;
+}
+
+.article .icons::before {
+	font-size: 20px;
+	line-height: 20px;
+	display: block;
 }
 
 .article .article-column-bottom {
@@ -351,103 +396,27 @@ article.article .article-top-column {
 	min-height: 20px;
 }
 
-.article .post-meta, 
-.article .post-meta a {
-	color: #999;
-	font: normal 12px/20px "Microsoft Yahei" Arial;
-} 
-
-.article .post-meta a:hover {
-	color: #FFA200;
-}
-
-/*.post-meta .article-category::before, 
-.post-meta .article-time:before, 
-.post-meta .article-comment::before,
-.post-meta .article-tags::before {
-	display: block;
-	float: left;
-	margin-top: 3px;
-	margin-right: 5px;
-	width: 16px;
-	height: 17px;
-	background-image: url("../image/icons.png");
-	background-repeat: no-repeat;
-	content: "";
-}*/
-
-.post-meta .article-category .icons, 
-.post-meta .article-time .icons,
-.post-meta .article-comment .icons,
-.post-meta .article-tags .icons {
-	margin-right: 5px;
-	line-height: 20px;
-	/*font-size: 20px;*/
-}
-
-.post-meta .article-comment .icons,
-.post-meta .article-tags .icons {
-	line-height: 22px;
-}
-
-.post-meta .article-category .icons:before, 
-.post-meta .article-time .icons:before, 
-.post-meta .article-comment .icons:before,
-.post-meta .article-tags .icons:before ,
-.post-meta .article-time:before {
-	font-size: 20px;
-	line-height: 20px;
-	vertical-align: bottom;
-	color: #999;
-}
-
-.post-meta .article-tags .icons:before ,
-.post-meta .article-time:before {
-	line-height: 22px;
-}
-
-
-/*.post-meta .article-time:before {
-	background-position: -80px 0;
-}
-
-.post-meta .article-category::before {
-	background-position: -20px -20px;
-}
-
-.post-meta .article-comment::before {
-	background-position: 0px -20px;
-}
-
-.post-meta .article-tags::before {
-	background-position: -40px 0px;
-}
-*/
-
 .post-meta .article-tags .tag-list {
-	max-width: 490px;
+	max-width: 475px;
 }
+
 .post-meta .article-tags a {
 	padding: 1px 8px;
 	border-radius: 2px;
 	background-color: #4AA5FD;
 	box-shadow: 0 0 1px rgba(0, 0, 0, .04);
 	color: #FFF;
-	font-size: 12px;
-	display: inline-block;
+	display: block;
+	float: left;
 	line-height: 18px;
-	margin-top: 1px;
-	margin-bottom: 1px;
+	margin-bottom: 2px;
+	margin-right: 2px;
 }
 
 .post-meta .article-tags a:hover {
 	background-color: #2D78FF;
 	color: #FFF;
 	text-decoration: none;
-}
-
-.article-comment a {
-	line-height: 22px;
 }
 
 /************************************** Article Entry ***************************************/
@@ -905,14 +874,16 @@ article.article .article-top-column {
 	border-bottom: 1px solid rgba(0, 0, 0, .1);
 }
 
-#wp-calendar #prev a, #wp-calendar #next a {
+#prev a, 
+#next a {
 	padding: 3px 15px;
 	border-radius: 2px;
 	background-color: #4AA5FD;
 	color: #FFF;
 } 
 
-#wp-calendar #prev a:hover, #wp-calendar #next a:hover{
+#prev a:hover, 
+#next a:hover{
 	background-color: #2D78FF;
 	text-decoration: none;
 }
@@ -995,7 +966,7 @@ article.article .article-top-column {
 
 .tab .tab-switcher .tab-switcher-list {
 	display: inline-block;
-	padding: 2px 14px;
+	padding: 2px 12px;
 	border: 1px solid rgba(0, 0, 0, 0);
 	color: #999;
 	font-weight: 600;
@@ -1005,17 +976,17 @@ article.article .article-top-column {
 }
 
 .tab .tab-switcher .tab-swither-container.icons {
-	line-height: inherit;
+	line-height: 30px;
 	font-size: inherit;
-	display: inline-block;
 }
 
 .tab .tab-switcher  .tab-swither-container  .tab-switcher-list  .icons:before {
-	font-size: 18px;
-	margin-right: 4px;
-	line-height: 30px;
+	font-size: 20px;
+	line-height: inherit;
 	font-weight: normal;
-	vertical-align: middle;
+	display: block;
+	float: left;
+	padding-right: 4px;
 }
 
 .tab .tab-switcher .tab-switcher-list:hover {
@@ -1129,7 +1100,13 @@ article.article .article-top-column {
 	margin: 10px 0;
 }
 
-.main .post-navigation div {
+.post-navigation .previous-post-wrap ,
+.post-navigation .next-post-wrap {
+	max-width: 50%;
+}
+
+.post-navigation .previous-post,
+.post-navigation .next-post {
 	padding: 8px 15px;
 	border-radius: 2px;
 	background-color: #FFF;
@@ -1138,14 +1115,31 @@ article.article .article-top-column {
 	font-size: 16px;
 }
 
-.main .post-navigation div,
-.main .post-navigation div a {
+.post-navigation .ion-chevron-left-after  {
+	display: inline-block;
+	
+	speak: none;
+	font-style: normal;
+	font-weight: 400;
+	font-variant: normal;
+	text-transform: none;
+	text-rendering: auto;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+
+.post-navigation .ion-chevron-left-after::after {
+	content: "\f125";
+	font-family: Ionicons;
+}
+
+.post-navigation div a {
 	color: #7e7e7e;
 	font-size: 14px;
 }
 
-.main .post-navigation div a:hover,
-.main .post-navigation div:hover {
+.post-navigation div a:hover,
+.post-navigation div:hover {
 	background-color: #FBFBFB;
 	color: #333;
 	text-decoration: none;
@@ -1597,21 +1591,18 @@ article.article .article-top-column {
 .description .description-title {
 	margin-left: 90px;
 	padding-bottom: 5px;
-	font: bold 22px/30px "Microsoft Yahei", Arial;
+	font: normal 20px/30px "Microsoft Yahei", Arial;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 	color: #4AA5FD;
 }
 
-.description .description-title .icons {
-	font-size: 28px;
-	line-height: 30px;
-	margin-right: 5px;
+.description .description-title q {
+	font-weight: bold;
 }
 
-.description .description-title .icons:before {
-	font-size: inherit;
+.description .description-title::before {
+	font-size: 24px;
 	line-height: inherit;
-	vertical-align: middle;
 }
 
 .description .description-image {
