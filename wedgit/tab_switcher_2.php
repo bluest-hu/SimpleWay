@@ -3,7 +3,7 @@
  <li class="tab">
     <div class="tab-switcher">
         <ul class="tab-swither-container">
-            <li class="current tab-switcher-list"><span class="icons ion-ios7-chatboxes-outline"></span>最近评论</li>
+            <li class="current tab-switcher-list"><span class="icons ion-ios7-chatbubble-outline"></span>最近评论</li>
             <li class="tab-switcher-list"><span class="icons ion-ios7-world-outline"></span>友链</li>
             <li class="tab-switcher-list"><span class="icons ion-ios7-chatboxes-outline"></span>评论墙</li>
         </ul>
