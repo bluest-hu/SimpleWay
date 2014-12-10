@@ -10,10 +10,10 @@
     <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/script/jquery-2.0.3.min.js"></script>
 </head>
 <body>
-	<div class="wrap"><!-- Blog Wrap Begain -->
+	<div class="wrap"><!-- Blog Wrap Begin -->
 		<div class="main">
 			<div class="content">
-				<div class="error"><!-- Error begain -->
+				<div class="error"><!-- Error Begin -->
 					<h1 class="title">
 						404 Not Find!!!
 					</h1>
@@ -27,7 +27,7 @@
 						<div class="suggestion-content">
 							<a href="<?php bloginfo('url');?>" title="返回首页" class="back-to-home btn">返回首页</a>
 							 OR 
-							<a href="mailto:ihuguowei@gmail.com" class="send-email btn">提交错误</a>
+							<a href="<?php  ?>" class="send-email btn">提交错误</a>
 						</div>
 					</div>
 

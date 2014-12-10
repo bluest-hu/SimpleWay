@@ -1,16 +1,11 @@
 <?php 
-// require_once(TEMPLATEPATH . '/control.php');
-// remove_action('init', 'kses_init');   
-// remove_action('set_current_user', 'kses_init');
-
-
 /**
- * [my_avatar 将Gavatar的头像存储在本地，防止伟大的GFW Fuck Gavatar，反强奸]
- * @param  [type]  $email   [email]
+ * [my_avatar 将Gavatar的头像存储在本地，防止伟大的GFW Fuck Gavatar，反强奸（很不幸已经被墙了）]
+ * @param  string  $email   [email]
  * @param  string  $size    [头像大小]
  * @param  string  $default [默认头像地址]
  * @param  boolean/string $alt     [alt文本]
- * @return [type]           [html img 字符串]
+ * @return string   [html img 字符串]
  */
  function my_avatar( $email, $size = '50', $default = '', $alt = false ) {
 	$alt 			= (false === $alt) ? '' : esc_attr( $alt );
@@ -24,6 +19,7 @@
     // 暂时判断目录存在，如果不存在创建，存放的文件夹
 	if (!is_dir($STORE_PATH)) {
 		if ( !!mkdir( $STORE_PATH ) ) {
+            return ;
 		}
 	}
 
@@ -35,13 +31,14 @@
 	// 判断在本地的头像文件 是否存在或者已经过期
 	if ( !is_file($avatar_local) || (time() - filemtime($avatar_local)) > $t ) {
 		// 如果不能存在 Gravatar 会返回你设置的地址的头像
-		$gravatar = sprintf( "http://www.gravatar.com", ( hexdec( $email_md5{0} ) % 2 ) ) . '/avatar/'. $email_md5. '?s='. $size. '&d='. $default. '&r='. $r;
-		copy($gravatar, $avatar_local);
+		$gravatar = sprintf( "https://www.gravatar.com", ( hexdec( $email_md5{0} ) % 2 ) ) . '/avatar/'. $email_md5. '?s='. $size. '&d='. $default. '&r='. $r;
+
+		@copy($gravatar, $avatar_local);
 	}
 
 	// 判断如果头像文件太大 就用本地的替代 好机智
-	if (filesize($avatar_local) < 500) {
-		copy($default, $avatar_local);
+	if ( @filesize($avatar_local) < 500 ) {
+		@copy($default, $avatar_local);
 	}
 
 	$avatar = "<img title='{$alt}' alt='{$alt}' src='{$avatar_url}' class='avatar avatar-{$size} photo' height='{$size}' width='{$size}' />";
@@ -192,6 +189,9 @@ class widget_newcomments extends WP_Widget {
 
 function simpleway_newcomments( $limit ){
 	global $wpdb;
+
+
+    $output = "";
 
 	$comments = wp_cache_get( 'simpleway_newcomments' );
 

@@ -25,8 +25,6 @@
 							    $all_post = get_posts('numberposts=-1&orderby=post_date&order=DESC');
 
 
-
-
 							    foreach ($all_post as $pos => $value) {
 							    	$year 	= mysql2date('Y', $post->post_date);
 							        $month 	= mysql2date('n', $post->post_date);

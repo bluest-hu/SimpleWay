@@ -331,13 +331,14 @@ article.article .article-top-column {
 
 .article-top-column .article-title,
 .article-top-column .article-title a {
-	color: #000;
+	color: #585858;
 	text-decoration: none;
 	font: bold 24px/30px "Microsoft Yahei";
+	transiton: color .5s ease;
 }
 
 .article-top-column .article-title a:hover {
-	color: #585858;
+	color: #000;
 }
 
 .article-top-column .post-meta {
@@ -401,22 +402,23 @@ article.article .article-top-column {
 }
 
 .post-meta .article-tags a {
-	padding: 1px 8px;
-	border-radius: 2px;
-	background-color: #4AA5FD;
-	box-shadow: 0 0 1px rgba(0, 0, 0, .04);
-	color: #FFF;
+	padding: 0px 8px;
+	border-radius: 10px;
+	color: #4AA5FD;
+	border: 1px solid #4AA5FD;
 	display: block;
 	float: left;
 	line-height: 18px;
-	margin-bottom: 2px;
-	margin-right: 2px;
+	margin-bottom: 3px;
+	margin-right: 3px;
 }
 
 .post-meta .article-tags a:hover {
-	background-color: #2D78FF;
+	background-color: #4AA5FD;
 	color: #FFF;
 	text-decoration: none;
+	box-shadow: 0 0 1px rgba(0, 0, 0, .04);
+	transition: all .2s ease-in;
 }
 
 /************************************** Article Entry ***************************************/
@@ -461,6 +463,16 @@ article.article .article-top-column {
 	/*text-indent: 1em;*/
 }
 
+.entry p:after {
+	content: "";
+	width: 0px;
+	height: 0px;
+	display: block;
+	visibility: hidden;
+	border:none;
+	clear: both;
+}
+
 .entry blockquote {
 	padding: 25px 60px;
 	margin: 0px -30px;
@@ -493,7 +505,8 @@ article.article .article-top-column {
 }
 
 .entry hr {
-	margin: 10px 0;
+	margin: 10px -30px;
+	border-top: none;
 	border-color: rgba(0, 0, 0, .1);
 }
 
@@ -969,7 +982,7 @@ article.article .article-top-column {
 	padding: 2px 13px;
 	border: 1px solid rgba(0, 0, 0, 0);
 	color: #999;
-	font-weight: 600;
+	font-weight: normal;
 	font-size: 14px;
 	line-height: 30px;
 	transition: color .2s linear;
@@ -987,6 +1000,7 @@ article.article .article-top-column {
 	display: block;
 	float: left;
 	padding-right: 4px;
+	vertical-align: middle;
 }
 
 .tab .tab-switcher .tab-switcher-list:hover {
@@ -1058,7 +1072,7 @@ article.article .article-top-column {
 
 
 .navigation .navigation-container ul li a {
-	font-size: 12px;
+	font-size: 13px;
 	line-height: 20px;
 	margin-right: 5px;
 }
@@ -1067,10 +1081,11 @@ article.article .article-top-column {
 	margin-left: 0px;
 }
 
-.footer p, .footer a {
+.footer p,
+ .footer a {
 	color: #646464;
-	font: normal 11px/20px "Microsoft Yahei", Arial;
-	text-shadow: 0 1px 1px rgba(0, 0, 0, .89);
+	font: normal 12px/20px "Microsoft Yahei", Arial;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, .8);
 }
 
 .footer a:hover {
@@ -1121,6 +1136,9 @@ article.article .article-top-column {
 	color: #7e7e7e;
 }
 
+.post-navigation .ion-chevron-left::before {
+}
+
 .post-navigation .ion-chevron-left-after::after {
 	content: "\f125";
 	font-family: Ionicons;
@@ -1132,8 +1150,8 @@ article.article .article-top-column {
 	line-height: 25px;
 }
 
-.post-navigation  a:hover,
-.post-navigation a:hover {
+.post-navigation .previous-post:hover ,
+.post-navigation  next-post:hover{
 	background-color: #FBFBFB;
 	color: #333;
 	text-decoration: none;
