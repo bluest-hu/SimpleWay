@@ -1,4 +1,14 @@
+
+<?php 
+if ( is_single() ) {
+?>
+   <img class="default-thumbnail" src="<?php echo get_post_thumbnail_url($post_id, ''); ?>" style="margin-bottom:
+   -20px;border-top-left-radius:4px;"> 
+<?php
+}
+?>
 <article class="article card" id="post-<?php the_ID();?>"><!-- Article Begain -->
+
     <div class="article-top-column post-meta-container clear">
         <div class="left-column author-avatar-container"><!-- Author Avastar Container Begain -->
             <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" title="文章作者：<?php the_author(); ?>" class="author-avatar"><!-- Article Author Begain -->
@@ -18,7 +28,7 @@
                     </div>
                 </div><!--Category End -->
                 <div class="right-column article-time"><span class="icons ion-ios7-clock-outline"></span><time class="article-time"><?php the_time('Y-m-d') ?></time></div><!--Article Time End-->
-            </div><!-- Left Column Begain -->
+            </div><!-- Left Column Begin -->
         </div><!-- Left Column Ends -->
     </div><!-- Article Top Column Ends -->
 

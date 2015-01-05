@@ -17,7 +17,7 @@
 	$r 				= get_option('avatar_rating');
 
     // 暂时判断目录存在，如果不存在创建，存放的文件夹
-	if (!is_dir($STORE_PATH)) {
+	if ( !is_dir($STORE_PATH)) {
 		if ( !!mkdir( $STORE_PATH ) ) {
             return ;
 		}
@@ -60,323 +60,363 @@ if ( function_exists( 'register_nav_menus' ) ) {
 /**
  * 注册侧边栏
  */ 
-if ( function_exists('register_sidebar')) { 
-	register_sidebar(array( 
-		'name' 			=> __( 'Index Right Sidebar', '首页的右边栏，如果其他页面未定义侧边栏，则默认调用首页的侧边栏' ), // 侧边栏 1 的名称 
-		'class'			=> 'right-sidebar',
-		'before_widget' => '<li class="widgets-lists">', // widget 的开始标签 
-		'after_widget' 	=> '</li>', // widget 的结束标签 
-		'before_title' 	=> '<h3 class="widget-title">', // 标题的开始标签 
-		'after_title' 	=> '</h3>'// 标题的结束标签
-	));
+// if ( function_exists('register_sidebar')) { 
+// 	register_sidebar(array( 
+// 		'name' 			=> __( 'Index Right Sidebar', '首页的右边栏，如果其他页面未定义侧边栏，则默认调用首页的侧边栏' ), // 侧边栏 1 的名称 
+// 		'class'			=> 'right-sidebar',
+// 		'before_widget' => '<li class="widgets-lists">', // widget 的开始标签 
+// 		'after_widget' 	=> '</li>', // widget 的结束标签 
+// 		'before_title' 	=> '<h3 class="widget-title">', // 标题的开始标签 
+// 		'after_title' 	=> '</h3>'// 标题的结束标签
+// 	));
 	
-	register_sidebar(array( 
-		'name' 			=> __( 'Post Right Sidebar', '文章页面的右边栏，如果未定义侧边栏，则默认调用首页的侧边栏' ), // 侧边栏 1 的名称 
-		'class'			=> 'right-sidebar',
-		'before_widget' => '<li class="widgets-lists">', // widget 的开始标签 
-		'after_widget' 	=> '</li>', // widget 的结束标签 
-		'before_title' 	=> '<h3 class="widget-title">', // 标题的开始标签 
-		'after_title' 	=> '</h3>'// 标题的结束标签
-	));
+// 	register_sidebar(array( 
+// 		'name' 			=> __( 'Post Right Sidebar', '文章页面的右边栏，如果未定义侧边栏，则默认调用首页的侧边栏' ), // 侧边栏 1 的名称 
+// 		'class'			=> 'right-sidebar',
+// 		'before_widget' => '<li class="widgets-lists">', // widget 的开始标签 
+// 		'after_widget' 	=> '</li>', // widget 的结束标签 
+// 		'before_title' 	=> '<h3 class="widget-title">', // 标题的开始标签 
+// 		'after_title' 	=> '</h3>'// 标题的结束标签
+// 	));
 
-	register_sidebar(array( 
-		'name' 			=> __( 'Achieve Right Sidebar', '存档页页面的右边栏，如果未定义侧边栏，则默认调用首页的侧边栏' ), // 侧边栏 1 的名称 
-		'class'			=> 'right-sidebar',
-		'before_widget' => '<li class="widgets-lists">', // widget 的开始标签 
-		'after_widget' 	=> '</li>', // widget 的结束标签 
-		'before_title' 	=> '<h3 class="widget-title">', // 标题的开始标签 
-		'after_title' 	=> '</h3>'// 标题的结束标签
-	));
+// 	register_sidebar(array( 
+// 		'name' 			=> __( 'Achieve Right Sidebar', '存档页页面的右边栏，如果未定义侧边栏，则默认调用首页的侧边栏' ), // 侧边栏 1 的名称 
+// 		'class'			=> 'right-sidebar',
+// 		'before_widget' => '<li class="widgets-lists">', // widget 的开始标签 
+// 		'after_widget' 	=> '</li>', // widget 的结束标签 
+// 		'before_title' 	=> '<h3 class="widget-title">', // 标题的开始标签 
+// 		'after_title' 	=> '</h3>'// 标题的结束标签
+// 	));
 
-	register_sidebar(array( 
-		'name' 			=> __( 'Author Right Sidebar', '存档页页面的右边栏，如果未定义侧边栏，则默认调用首页的侧边栏' ), // 侧边栏 1 的名称 
-		'class'			=> 'right-sidebar',
-		'before_widget' => '<li class="widgets-lists">', // widget 的开始标签 
-		'after_widget' 	=> '</li>', // widget 的结束标签 
-		'before_title' 	=> '<h3 class="widget-title">', // 标题的开始标签 
-		'after_title' 	=> '</h3>'// 标题的结束标签
-	));
+// 	register_sidebar(array( 
+// 		'name' 			=> __( 'Author Right Sidebar', '存档页页面的右边栏，如果未定义侧边栏，则默认调用首页的侧边栏' ), // 侧边栏 1 的名称 
+// 		'class'			=> 'right-sidebar',
+// 		'before_widget' => '<li class="widgets-lists">', // widget 的开始标签 
+// 		'after_widget' 	=> '</li>', // widget 的结束标签 
+// 		'before_title' 	=> '<h3 class="widget-title">', // 标题的开始标签 
+// 		'after_title' 	=> '</h3>'// 标题的结束标签
+// 	));
 
 
-	register_sidebar(array( 
-		'name' 			=> __( 'Page Right Sidebar', '存档页页面的右边栏，如果未定义侧边栏，则默认调用首页的侧边栏' ), // 侧边栏 1 的名称 
-		'class'			=> 'right-sidebar',
-		'before_widget' => '<li class="widgets-lists">', // widget 的开始标签 
-		'after_widget' 	=> '</li>', // widget 的结束标签 
-		'before_title' 	=> '<h3 class="widget-title">', // 标题的开始标签 
-		'after_title' 	=> '</h3>'// 标题的结束标签
-	));
+// 	register_sidebar(array( 
+// 		'name' 			=> __( 'Page Right Sidebar', '存档页页面的右边栏，如果未定义侧边栏，则默认调用首页的侧边栏' ), // 侧边栏 1 的名称 
+// 		'class'			=> 'right-sidebar',
+// 		'before_widget' => '<li class="widgets-lists">', // widget 的开始标签 
+// 		'after_widget' 	=> '</li>', // widget 的结束标签 
+// 		'before_title' 	=> '<h3 class="widget-title">', // 标题的开始标签 
+// 		'after_title' 	=> '</h3>'// 标题的结束标签
+// 	));
 
-	register_sidebar(array( 
-		'name' 			=> __( 'Category Right Sidebar', '存档页页面的右边栏，如果未定义侧边栏，则默认调用首页的侧边栏' ), // 侧边栏 1 的名称 
-		'class'			=> 'right-sidebar',
-		'before_widget' => '<li class="widgets-lists">', // widget 的开始标签 
-		'after_widget' 	=> '</li>', // widget 的结束标签 
-		'before_title' 	=> '<h3 class="widget-title">', // 标题的开始标签 
-		'after_title' 	=> '</h3>'// 标题的结束标签
-	));
+// 	register_sidebar(array( 
+// 		'name' 			=> __( 'Category Right Sidebar', '存档页页面的右边栏，如果未定义侧边栏，则默认调用首页的侧边栏' ), // 侧边栏 1 的名称 
+// 		'class'			=> 'right-sidebar',
+// 		'before_widget' => '<li class="widgets-lists">', // widget 的开始标签 
+// 		'after_widget' 	=> '</li>', // widget 的结束标签 
+// 		'before_title' 	=> '<h3 class="widget-title">', // 标题的开始标签 
+// 		'after_title' 	=> '</h3>'// 标题的结束标签
+// 	));
 
-	register_sidebar(array( 
-		'name' 			=> __( 'Tag Right Sidebar', '存档页页面的右边栏，如果未定义侧边栏，则默认调用首页的侧边栏' ), // 侧边栏 1 的名称 
-		'class'			=> 'right-sidebar',
-		'before_widget' => '<li class="widgets-lists">', // widget 的开始标签 
-		'after_widget' 	=> '</li>', // widget 的结束标签 
-		'before_title' 	=> '<h3 class="widget-title">', // 标题的开始标签 
-		'after_title' 	=> '</h3>'// 标题的结束标签
-	));
-} 
+// 	register_sidebar(array( 
+// 		'name' 			=> __( 'Tag Right Sidebar', '存档页页面的右边栏，如果未定义侧边栏，则默认调用首页的侧边栏' ), // 侧边栏 1 的名称 
+// 		'class'			=> 'right-sidebar',
+// 		'before_widget' => '<li class="widgets-lists">', // widget 的开始标签 
+// 		'after_widget' 	=> '</li>', // widget 的结束标签 
+// 		'before_title' 	=> '<h3 class="widget-title">', // 标题的开始标签 
+// 		'after_title' 	=> '</h3>'// 标题的结束标签
+// 	));
+// } 
 
 //注册侧边栏小工具
-if ( function_exists('wp_register_sidebar_widget' ) ) {   
-    wp_register_sidebar_widget(1, '四合一小工具：日历最近文章、标签云、分类目录', 'tab_switcher_one');
-}  
+// if ( function_exists('wp_register_sidebar_widget' ) ) {   
+//     wp_register_sidebar_widget(1, '四合一小工具：日历最近文章、标签云、分类目录', 'tab_switcher_one');
+// }  
 
-function tab_switcher_one () {
-    include(TEMPLATEPATH . '/wedgit/tab_switcher_1.php');
-}
+// function tab_switcher_one () {
+//     include(TEMPLATEPATH . '/wedgit/tab_switcher_1.php');
+// }
 
-// 注册侧边栏小工具2
-if ( function_exists('wp_register_sidebar_widget' ) ) {   
-    wp_register_sidebar_widget(2, '三合一小工具：最近评论、友情链接、评论墙。', 'tab_switcher_two');
-}
+// // 注册侧边栏小工具2
+// if ( function_exists('wp_register_sidebar_widget' ) ) {   
+//     wp_register_sidebar_widget(2, '三合一小工具：最近评论、友情链接、评论墙。', 'tab_switcher_two');
+// }
 
-function tab_switcher_two () {
-    include(TEMPLATEPATH . '/wedgit/tab_switcher_2.php');
-}
+// function tab_switcher_two () {
+//     include(TEMPLATEPATH . '/wedgit/tab_switcher_2.php');
+// }
 
 //URL:http://www.daqianduan.com/wordpress-tools-newcomments/
-register_widget('widget_newcomments');
+// register_widget('widget_newcomments');
 
-class widget_newcomments extends WP_Widget {
+// class widget_newcomments extends WP_Widget {
 
-	function widget_newcomments() {
-		$option = array(
-			'classname' => 'widget_newcomments', 
-			'description' => '显示网友最新评论（头像+名称+评论）' 
-		);
-		$this->WP_Widget(false, '最新评论', $option);
-	}
+// 	function widget_newcomments() {
+// 		$option = array(
+// 			'classname' => 'widget_newcomments', 
+// 			'description' => '显示网友最新评论（头像+名称+评论）' 
+// 		);
+// 		$this->WP_Widget(false, '最新评论', $option);
+// 	}
 
-	function widget($args, $instance) {
-		extract($args, EXTR_SKIP);
-		echo $before_widget;
-		$title = empty($instance['title']) ? '最新评论' : apply_filters('widget_title', $instance['title']);
-		$count = empty($instance['count']) ? '5' : apply_filters('widget_count', $instance['count']);
+// 	function widget($args, $instance) {
+// 		extract($args, EXTR_SKIP);
+// 		echo $before_widget;
+// 		$title = empty($instance['title']) ? '最新评论' : apply_filters('widget_title', $instance['title']);
+// 		$count = empty($instance['count']) ? '5' : apply_filters('widget_count', $instance['count']);
 
-		echo $before_title . $title . $after_title;
-		echo '<ul class="new-comments">';
-		echo simpleway_newcomments( $count );
-		echo '</ul>';
-		echo $after_widget;
-	}
+// 		echo $before_title . $title . $after_title;
+// 		echo '<ul class="new-comments">';
+// 		echo simpleway_newcomments( $count );
+// 		echo '</ul>';
+// 		echo $after_widget;
+// 	}
 
-	function update($new_instance, $old_instance) {
-		$instance = $old_instance;
-		$instance['title'] = strip_tags($new_instance['title']);
-		$instance['count'] = strip_tags($new_instance['count']);
-		return $instance;
-	}
+// 	function update($new_instance, $old_instance) {
+// 		$instance = $old_instance;
+// 		$instance['title'] = strip_tags($new_instance['title']);
+// 		$instance['count'] = strip_tags($new_instance['count']);
+// 		return $instance;
+// 	}
 
-	function form($instance) {
-		$instance = wp_parse_args( (array) $instance, array( 'title' => '', 'count' => '' ) );
-		$title = strip_tags($instance['title']);
-		$count = strip_tags($instance['count']);
+// 	function form($instance) {
+// 		$instance = wp_parse_args( (array) $instance, array( 'title' => '', 'count' => '' ) );
+// 		$title = strip_tags($instance['title']);
+// 		$count = strip_tags($instance['count']);
 
-		echo '<p><label>标题：<input id="'.$this->get_field_id('title').'" name="'.$this->get_field_name('title').'" type="text" value="'.attribute_escape($title).'" size="24" /></label></p>';
-		echo '<p><label>数目：<input id="'.$this->get_field_id('count').'" name="'.$this->get_field_name('count').'" type="text" value="'.attribute_escape($count).'" size="3" /></label></p>';
-	}
-}
+// 		echo '<p><label>标题：<input id="'.$this->get_field_id('title').'" name="'.$this->get_field_name('title').'" type="text" value="'.attribute_escape($title).'" size="24" /></label></p>';
+// 		echo '<p><label>数目：<input id="'.$this->get_field_id('count').'" name="'.$this->get_field_name('count').'" type="text" value="'.attribute_escape($count).'" size="3" /></label></p>';
+// 	}
+// }
 
-function simpleway_newcomments( $limit ){
-	global $wpdb;
+// function simpleway_newcomments( $limit ){
+// 	global $wpdb;
 
+//     $output = "";
 
-    $output = "";
+// 	$comments = wp_cache_get( 'simpleway_newcomments' );
 
-	$comments = wp_cache_get( 'simpleway_newcomments' );
-
-	$sql = "SELECT DISTINCT 
-		ID,
-		post_title,
-		post_password,
-		comment_ID, 
-		comment_post_ID,
-		comment_author,
-		comment_date_gmt,
-		comment_approved, 
-		comment_author_email,
-		comment_type,
-		comment_author_url,
-		comment_content
-	FROM $wpdb->comments 
-		LEFT OUTER JOIN $wpdb->posts 
-		ON ($wpdb->comments.comment_post_ID = $wpdb->posts.ID) 
-		WHERE comment_approved = '1'
-	AND comment_type = ''
-	AND post_password = ''
-	AND user_id  = '0'
-	ORDER BY comment_date_gmt DESC 
-	LIMIT $limit ";
+// 	$sql = "SELECT DISTINCT 
+// 		ID,
+// 		post_title,
+// 		post_password,
+// 		comment_ID, 
+// 		comment_post_ID,
+// 		comment_author,
+// 		comment_date_gmt,
+// 		comment_approved, 
+// 		comment_author_email,
+// 		comment_type,
+// 		comment_author_url,
+// 		comment_content
+// 	FROM $wpdb->comments 
+// 		LEFT OUTER JOIN $wpdb->posts 
+// 		ON ($wpdb->comments.comment_post_ID = $wpdb->posts.ID) 
+// 		WHERE comment_approved = '1'
+// 	AND comment_type = ''
+// 	AND post_password = ''
+// 	AND user_id  = '0'
+// 	ORDER BY comment_date_gmt DESC 
+// 	LIMIT $limit ";
 	
-	if ( $comments === false ) {
-		$comments = $wpdb->get_results($sql);
-		wp_cache_set( 'simpleway_newcomments', $comments );
-	}
+// 	if ( $comments === false ) {
+// 		$comments = $wpdb->get_results($sql);
+// 		wp_cache_set( 'simpleway_newcomments', $comments );
+// 	}
 
-	foreach ( $comments as $comment ) {
-		if ( mb_strlen($comment->comment_content, 'utf-8') > 37 ) {
-			$comment->comment_content = mb_substr($comment->comment_content, 0, 37, 'utf-8') . "......";
-		}
+// 	foreach ( $comments as $comment ) {
+// 		if ( mb_strlen($comment->comment_content, 'utf-8') > 37 ) {
+// 			$comment->comment_content = mb_substr($comment->comment_content, 0, 37, 'utf-8') . "......";
+// 		}
 
-		$output .= "<li class=\"new-comment-lists\" ><a href=\"" . 
-						get_permalink($comment->ID) . 
-						"#comment-" . $comment->comment_ID . 
-						"\" title=\"" . 
-						$comment->post_title .
-						"上的评论\">" .
-						my_avatar( $comment->comment_author_email, 40) . 
-						"<strong class=\"comment-author\">". strip_tags($comment->comment_author) . 
-						"：</strong>" .
-						strip_tags($comment->comment_content) 
-						."</a></li>";
-	}
-	echo $output;
-};
+// 		$output .= "<li class=\"new-comment-lists\" ><a href=\"" . 
+// 						get_permalink($comment->ID) . 
+// 						"#comment-" . $comment->comment_ID . 
+// 						"\" title=\"" . 
+// 						$comment->post_title .
+// 						"上的评论\">" .
+// 						my_avatar( $comment->comment_author_email, 40) . 
+// 						"<strong class=\"comment-author\">". strip_tags($comment->comment_author) . 
+// 						"：</strong>" .
+// 						strip_tags($comment->comment_content) 
+// 						."</a></li>";
+// 	}
+// 	echo $output;
+// };
 
 
-register_widget('widget_most_comments_wall');
+// register_widget('widget_most_comments_wall');
 
-class widget_most_comments_wall extends WP_Widget {
+// class widget_most_comments_wall extends WP_Widget {
 
-	function widget_most_comments_wall() {
-		$option = array(
-			'classname' => 'widget_most_comments_wall',
-			'description' => '最多评论的N个读者头像'
-		);
+// 	function widget_most_comments_wall() {
+// 		$option = array(
+// 			'classname' => 'widget_most_comments_wall',
+// 			'description' => '最多评论的N个读者头像'
+// 		);
 
-		$this->WP_Widget(false, '读者评论墙', $option);
-	}
+// 		$this->WP_Widget(false, '读者评论墙', $option);
+// 	}
 
-	function widget($args, $instance) {
+// 	function widget($args, $instance) {
 
-		extract($args, EXTR_SKIP);
+// 		extract($args, EXTR_SKIP);
 		
-		echo $before_widget;
+// 		echo $before_widget;
 		
-		$title = empty($instance['title']) ? '读者评论墙' : apply_filters('widget_title', $instance['title']);
-		$count = empty($instance['count']) ? '5' : apply_filters('widget_count', $instance['count']);
-		$size = empty($instance['width']) ? '40' : apply_filters('widget_count', $instance['size']);
+// 		$title = empty($instance['title']) ? '读者评论墙' : apply_filters('widget_title', $instance['title']);
+// 		$count = empty($instance['count']) ? '5' : apply_filters('widget_count', $instance['count']);
+// 		$size = empty($instance['width']) ? '40' : apply_filters('widget_count', $instance['size']);
 
-		echo $before_title . $title . $after_title;
+// 		echo $before_title . $title . $after_title;
 
-		echo get_most_comments_friends( array(
-			'number' => 20,
-            'size' => 40
-            ));
+// 		echo get_most_comments_friends( array(
+// 			'number' => 20,
+//             'size' => 40
+//             ));
 
-		echo $after_widget;
-	}
+// 		echo $after_widget;
+// 	}
 
-	function update($new_instance, $old_instance) {
+// 	function update($new_instance, $old_instance) {
 		
-		$instance = $old_instance;
+// 		$instance = $old_instance;
 		
-		$instance['title'] = strip_tags($new_instance['title']);
-		$instance['count'] = strip_tags($new_instance['count']);
-		$instance['size'] = strip_tags($new_instance['size']);
+// 		$instance['title'] = strip_tags($new_instance['title']);
+// 		$instance['count'] = strip_tags($new_instance['count']);
+// 		$instance['size'] = strip_tags($new_instance['size']);
 
-		return $instance;
-	}
+// 		return $instance;
+// 	}
 
-	function form($instance) {
-		$instance = wp_parse_args( (array) $instance, array( 
-			'title' => '', 
-			'count' => '',
-			'size' => '' 
-			) );
+// 	function form($instance) {
+// 		$instance = wp_parse_args( (array) $instance, array( 
+// 			'title' => '', 
+// 			'count' => '',
+// 			'size' => '' 
+// 			) );
 
-		$title 	= strip_tags($instance['title']);
-		$count 	= strip_tags($instance['count']);
-		$size 	= strip_tags($instance['size']);
+// 		$title 	= strip_tags($instance['title']);
+// 		$count 	= strip_tags($instance['count']);
+// 		$size 	= strip_tags($instance['size']);
 
-		echo '<p><label>标题：<input id="'.$this->get_field_id('title').'" name="'.$this->get_field_name('title').'" type="text" value="'.attribute_escape($title).'" size="24" /></label></p>';
-		echo '<p><label>数目：<input id="'.$this->get_field_id('count').'" name="'.$this->get_field_name('count').'" type="number" value="'.attribute_escape($count).'" size="3" /></label></p>';
-		echo '<p><label>大小：<input id="'.$this->get_field_id('size').'" name="'.$this->get_field_name('size').'" type="number" value="'.attribute_escape($size).'" size="3" /></label></p>';
-	}
+// 		echo '<p><label>标题：<input id="'.$this->get_field_id('title').'" name="'.$this->get_field_name('title').'" type="text" value="'.attribute_escape($title).'" size="24" /></label></p>';
+// 		echo '<p><label>数目：<input id="'.$this->get_field_id('count').'" name="'.$this->get_field_name('count').'" type="number" value="'.attribute_escape($count).'" size="3" /></label></p>';
+// 		echo '<p><label>大小：<input id="'.$this->get_field_id('size').'" name="'.$this->get_field_name('size').'" type="number" value="'.attribute_escape($size).'" size="3" /></label></p>';
+// 	}
+// }
+
+
+/*************************************************************************************
+*************************************** 缩略图相关 ***********************************
+**************************************************************************************/
+
+
+if ( function_exists('add_theme_support') ) {
+	add_theme_support( 'post-thumbnails', array( 'post' ) ); // 给日志启用日志缩略图
+	add_theme_support( 'post-thumbnails', array( 'page' ) ); // 给页面启用日志缩略图
+	set_post_thumbnail_size( 155, 110, true ); // 设置默认的缩略图大小尺寸
+	add_image_size( 'normal', 155, 110, true ); // 设置标记为”one”的缩略图尺寸，这里的one应该是数组下标
 }
+
+function get_post_thumbnail_url ( $post_ID, $default_thumbnail_url = "" ) {
+	$post_thumbnail_url = "";
+
+	// 如果没有默认主题缩略图就用主题默认自带的
+	$default_thumbnail_url = ( isset($default_thumbnail_url) || $default_thumbnail_url === "") ? 
+								get_stylesheet_directory_uri() . "/image/" . "default_thumbnail.jpg" : 
+								$default_thumbnail_url ;
+	
+	
+	// 获取文章当前ID
+	$post_ID = ( $post_ID === null ) ? get_the_ID() : $post_ID;
+	
+	// 获取缩略图ID
+	$thumbnail_id = get_post_thumbnail_id($post_id);
+
+	if ( $thumbnail_id ) { // 如果存在后台上传的缩略图
+		// 获取缩略图属性
+		$thumb_attribute = wp_get_attachment_image_src($thumbnail_id, 'thumbnail');
+		$post_thumbnail_url = $thumb_attribute[0];
+	} else {
+		$post_thumbnail_url = $default_thumbnail_url;
+	}
+
+
+	return $post_thumbnail_url;
+}
+
 
 /**
  * 获取评论
  */
-function get_most_comments_friends($config) {
+// function get_most_comments_friends($config) {
 
-	$config['container'] 		= !empty($config['container']) ? $config['container'] : "";
-	$config['container_class'] 	= !empty($config['container_class']) ? $config['container_class'] : "most-comments-friend-wall";
-	$config['container_id']		= !empty($config['container_id']) ? $config['container_id'] : "MostCommentsFirendsWall";
-	$config['echo']				= !empty($config['echo']) ? !!$config['echo'] : false;
-	$config['before']			= !empty($config['before']) ? $config['before'] : "li";
-	$config['number'] 			= !empty($config['number']) ? $config['number'] : 15;
-	$config['size'] 			= !empty($config['size']) ? $config['size'] : 45;
-	$config['time']				= !empty($config['time']) ? $config['time'] : 3;
+// 	$config['container'] 		= !empty($config['container']) ? $config['container'] : "";
+// 	$config['container_class'] 	= !empty($config['container_class']) ? $config['container_class'] : "most-comments-friend-wall";
+// 	$config['container_id']		= !empty($config['container_id']) ? $config['container_id'] : "MostCommentsFirendsWall";
+// 	$config['echo']				= !empty($config['echo']) ? !!$config['echo'] : false;
+// 	$config['before']			= !empty($config['before']) ? $config['before'] : "li";
+// 	$config['number'] 			= !empty($config['number']) ? $config['number'] : 15;
+// 	$config['size'] 			= !empty($config['size']) ? $config['size'] : 45;
+// 	$config['time']				= !empty($config['time']) ? $config['time'] : 3;
 
-	global $wpdb;
+// 	global $wpdb;
   	
-  	$counts = wp_cache_get( 'simpleway_mostactive' );
+//   	$counts = wp_cache_get( 'simpleway_mostactive' );
 
-  	$query = "SELECT 
-  		COUNT(comment_author) AS cnt,
-  		comment_author, 
-  		comment_author_url, 
-  		comment_author_email
-  	FROM {$wpdb->prefix}comments
-  	WHERE comment_date > date_sub( NOW(), INTERVAL {$config['time']} MONTH )
-        AND comment_approved = '1'
-        AND comment_author_email != 'example@example.com'
-        -- AND comment_author_url != ''
-        AND comment_type = ''
-        AND user_id = '0'
-    GROUP BY comment_author_email
-    ORDER BY cnt DESC
-    LIMIT {$config['number']}";
+//   	$query = "	SELECT 
+//   					COUNT(comment_author) AS cnt,
+//   					comment_author, 
+//   					comment_author_url, 
+//   					comment_author_email
+//   				FROM {$wpdb->prefix}comments
+//   				WHERE comment_date > date_sub( NOW(), INTERVAL {$config['time']} MONTH )
+//         		AND comment_approved = '1'
+//         		AND comment_author_email != 'example@example.com'
+//         		-- AND comment_author_url != ''
+//         		AND comment_type = ''
+//         		AND user_id = '0'
+//     			GROUP BY comment_author_email
+//     			ORDER BY cnt DESC
+//     			LIMIT {$config['number']}";
 
 
-  	if ( false === $counts ) {
-    	$counts = $wpdb->get_results($query);
-    	wp_cache_set( 'simpleway_mostactive', $counts );
-  	}
+//   	if ( false === $counts ) {
+//     	$counts = $wpdb->get_results($query);
+//     	wp_cache_set( 'simpleway_mostactive', $counts );
+//   	}
 
-  	$mostactive = '';
+//   	$mostactive = '';
 
-	if ( $counts ) {
-  		$mostactive .= "<ul class=\"{$config['container_class']}\" id=\"{$config['container_id']}\">";
+// 	if ( $counts ) {
+//   		$mostactive .= "<ul class=\"{$config['container_class']}\" id=\"{$config['container_id']}\">";
 
-  		wp_cache_set( 'simpleway_mostactive', $counts );
+//   		wp_cache_set( 'simpleway_mostactive', $counts );
   		
-  		$_index = 1;
+//   		$_index = 1;
   		
-    	foreach ($counts as $count) {
-      		$c_url 		= $count->comment_author_url != "" ? $count->comment_author_url : get_bloginfo('url');
-      		$c_count	= $count->cnt;
-      		$c_author 	= $count->comment_author;
-      		$c_email 	= $count->comment_author_email;
+//     	foreach ($counts as $count) {
+//       		$c_url 		= $count->comment_author_url != "" ? $count->comment_author_url : get_bloginfo('url');
+//       		$c_count	= $count->cnt;
+//       		$c_author 	= $count->comment_author;
+//       		$c_email 	= $count->comment_author_email;
 
-     		$mostactive .= "<li id=\"mostActivePeople-{$_index}\" class=\"most-active-people\"><a href=\"{$c_url}\" title=\"{$c_author} 发表 {$c_count} 条评论\" rel=\"nofollow\" target=\"_blank\">" . 
-	     		my_avatar($c_email, $config['size']) . "</a></li>";
+//      		$mostactive .= "<li id=\"mostActivePeople-{$_index}\" class=\"most-active-people\"><a href=\"{$c_url}\" title=\"{$c_author} 发表 {$c_count} 条评论\" rel=\"nofollow\" target=\"_blank\">" . 
+// 	     		my_avatar($c_email, $config['size']) . "</a></li>";
    			
-   			$_index++;
-   		}
-   		$mostactive .="</ul>";
- 	}
+//    			$_index++;
+//    		}
+//    		$mostactive .="</ul>";
+//  	}
 
-	if ( $config['echo'] ) {
-		echo $mostactive;
-	} else {
-		return $mostactive;
-	}
-}
+// 	if ( $config['echo'] ) {
+// 		echo $mostactive;
+// 	} else {
+// 		return $mostactive;
+// 	}
+// }
 
 
-//时间可读
+// 时间可读
 add_filter( 'the_date', 'human_readable_date');
 add_filter( 'get_the_date', 'human_readable_date');
 add_filter( 'the_modified_date', 'human_readable_date' );

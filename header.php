@@ -68,24 +68,23 @@
     <meta name="generator" content="WordPress" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/style/normalize.css">
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/style/ionicons.min.css">
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/style/style.min.css">
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/style/mobile.min.css">
     <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name');?>&raquo;Feed" href="<?php bloginfo('rss2_url');?>" />
     <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name');?>&raquo;评论&raquo;Feed" href="<?php bloginfo('comments_rss2_url'); ?>comments/feed" />
-    <!-- <link rel="dns-prefetch" href="<?php ?>" /> -->
   </head>
   <body>
-  <div class="wrap"><!-- Blog Wrap Begain -->
-    <header class="header"><!-- Bolg Header Begain -->
-      <div class="content"><!-- Blog Header Content Begain -->
-        <div class="header-top-column"><!--Header Top Column Begain -->
+  <div class="mian-wrap" id="mainWrap"><!-- Blog Wrap Begin -->
+    <header class="main-header"><!-- Bolg Header Begin -->
+      <div class="header-content"><!-- Blog Header Content Begin -->
+        <div class="header-top-column"><!--Header Top Column Begin -->
           <h1 class="title"><!-- Blog Title Begain -->
             <a href="<?php bloginfo('url');?>"> <?php bloginfo('name'); ?> </a>
           </h1><!-- Blog Header Title Ends -->
-          <span class="blog-desciption"></span>
+          <span class="blog-desciption"><?php echo bloginfo('description') ?></span>
         </div><!--Header Top Column End -->
-
         <div class="header-bottom-column clear"><!-- Header Bottom  Begain -->
           <?php get_template_part('nav'); ?>
           <div class="search-form right-column">

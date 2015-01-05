@@ -5,7 +5,7 @@
 					<div class="card tag description">
 						<div class="description-content clear">
 							<img class="description-image left-column" src="<?php echo get_stylesheet_directory_uri(); ?>/image/logo.png" alt="标签 <?php single_tag_title("", true); ?> 下的文章" title="标签 <?php single_tag_title("", true); ?> 下的文章">
-							<div class="descripton-text-content">
+							<div class="description-text-content">
 								<h2 class="description-title ion-ios7-pricetags-outline">
 									标签 <q><?php single_tag_title("", true); ?></q> 下的文章						
 								</h2>

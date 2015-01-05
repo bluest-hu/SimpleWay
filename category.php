@@ -5,7 +5,7 @@
 					<div class="card tag description">
 						<div class="description-content clear">
 							<img class="description-image left-column" src="<?php echo get_stylesheet_directory_uri(); ?>/image/logo.png" alt="分类 <?php single_cat_title('', true); ?> 下的文章" title="分类 <?php single_cat_title('', true); ?> 下的文章">
-							<div class="descripton-text-content">
+							<div class="description-text-content">
 								<h2 class="description-title ion-ios7-albums-outline-after">
 									分类 <q><?php single_cat_title('', true); ?></q> 下的文章						
 								</h2>
