@@ -1,5 +1,4 @@
 <?php get_sidebar();?>
-
  <li class="tab">
     <div class="tab-switcher">
         <ul class="tab-swither-container">
@@ -13,7 +12,7 @@
             <li class="tab-content-list current">
                 <h3 class="widget-title">最近的评论！</h3>
                 <ul class="new-comments">
-                    <?php simpleway_newcomments(6); ?>
+                    <!-- <?php //simpleway_newcomments(6); ?> -->
                 </ul>
             </li>
             <li class="tab-content-list">
@@ -42,10 +41,12 @@
             </li>
             <li class="tab-content-list">
                 <h3 class="widget-title">本月灌水王！</h3>
-            	<?php echo get_most_comments_friends( array(
-                    'number' => 49,
-                    'size' => 38
-                )); ?>
+        	<?php 
+                // echo get_most_comments_friends( array(
+                //     'number' => 49,
+                //     'size' => 38
+                // )); 
+            ?>
             </li>
         </ul>
     </div>

@@ -100,7 +100,7 @@
 			<?php endif;?>
 				</div><!-- Post Ends -->
 
-				<aside class="aside right-column"><!-- Right Aside Begain -->
+				<aside class="main-right-aside right-column"><!-- Right Aside Begain -->
 					<?php get_sidebar();?>
 				</aside><!-- Right Aside Ends -->
 			</div><!-- Content Ends -->

@@ -1,13 +1,12 @@
-
-<nav class="navigation left-column">
+<nav class="top-navigation left-column">
 	<?php
 	wp_nav_menu( array(
 		'theme_location'  => 'header_menu',
-		'menu'            => '',
+		'menu'            => 'header-nemu',
 		'container'       => 'div',
-		'container_class' => 'navigation-container',
-		'container_id'    => 'navigationContainer',
-		'menu_class'      => 'menu',
+		'container_class' => 'top-nav-container',
+		'container_id'    => 'topNavgationContainer',
+		'menu_class'      => 'top-menu',
 		'menu_id'         => 'topMenu',
 		'echo'            => true,
 		'fallback_cb'     => 'wp_page_menu',

@@ -17,15 +17,15 @@ h3,
 h4, 
 h5, 
 p {
-	margin: 0px;
-	padding: 0px;
+	margin: 0;
+	padding: 0;
 }
 
 ul, 
 ul li {
 	list-style: none;
-	margin: 0px;
-	padding: 0px;
+	margin: 0;
+	padding: 0;
 }
 
 input, 
@@ -46,7 +46,7 @@ textarea:focus {
 }
 
 form {
-	margin-bottom: 0px;
+	margin-bottom: 0;
 }
 
 a {
@@ -102,16 +102,17 @@ blockquote::after {
 
 blockquote::before {
 	top: 10px;
-	left: 0px;
+	left: 0;
 }
 
 blockquote::after {
-	right: 0px;
+	right: 0;
 	bottom: 10px;
 	background-position: -20px 0;
 }
-
+/*===========================================================================================*/
 /*======================================== Font Begain ======================================*/
+/*===========================================================================================*/
 /*
 @font-face {
   font-weight: 400;
@@ -128,7 +129,9 @@ blockquote::after {
 }*/
 
 
+/*===========================================================================================*/
 /*======================================== Base Begain ======================================*/
+/*===========================================================================================*/
 
 /***************************************** Layout *******************************************/
 .clear:after {
@@ -140,10 +143,12 @@ blockquote::after {
 	content: "";
 }
 
+.left,
 .left-column {
 	float: left;
 }
 
+.right,
 .right-column {
 	float: right;
 }
@@ -154,19 +159,16 @@ blockquote::after {
 	color: #FFF;
 }
 
+/*==========================================================================================*/
 /*======================================== Wrap Begin ======================================*/
-
+/*==========================================================================================*/
 body {
 	background-color: rgb(240, 240, 240); 
 }
 
-/*======================================== Header Begin ======================================*/
-.main-header {
-	overflow-x: hidden;
-	box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
-	background-color: #FFF;
-} 
-
+/*======================================================================================*/
+/*======================================== Common ======================================*/
+/*======================================================================================*/
 .card {
 	margin: 10px 0;
 	border-radius: 2px;
@@ -175,110 +177,157 @@ body {
 	padding: 25px 30px;
 }
 
-.main-body,
-.header-content {
+.main-content,
+.header-content,
+.main-footer-content {
 	margin: 0 auto;
 	width: 1000px;
 }
 
-.header .header-top-column {
+/*============================================================================================*/
+/*======================================== Header Begin ======================================*/
+/*============================================================================================*/
+.main-header {
+	overflow-x: hidden;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+	background-color: #FFF;
+} 
+
+.main-header .header-top-column {
 	height: 60px;
 	box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .1);
 }
 
-.header-top-column h1.title {
+.main-header .blog-description {
+	margin-left: 5px;
+	color: #8D8D8D;
+	font-size: 14px;
+}
+
+.main-header .blog-title {
 	display: inline-block;
 }
 
-.header-top-column h1.title a {
+.blog-title .link {
 	color: #FFA200;
 	font: normal 32px/60px "Microsoft Yahei";
 }
 
-.header-top-column h1.title a:hover {
+.main-header .blog-title .link:hover {
 	text-decoration: none;
 }
 
-.header .navigation {
+/*************************************** Header Navigation Begin **************************/
+
+.main-header .top-navigation {
 	padding-bottom: 2px;
 	width: 680px;
 }
-/*************************************** Header Navigation Begain **************************/ 
 
-.header .navigation .navigation-container {
+.main-header  .top-navigation{
 	padding: 8px 0;
 }
 
-.navigation .navigation-container ul {
+.top-navigation .top-menu {
 	font-size: 0;
 }
 
-.navigation .navigation-container ul li {
+.top-navigation .menu-item {
 	position: relative;
 	display: inline-block;
 }
 
-.navigation-container ul li ul {
-	position: absolute;
-	display: none;
-	background-color: #FAFAFA;
-}
-
-.navigation-container ul li ul li {
-	width: 200px;
-}
-
-.navigation-container ul li a {
+.top-navigation .menu-item  a {
 	display: block;
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
 	margin-right: 10px;
 	padding: 3px 9px;
 	color: #585858;
 	font-size: 12px;
-	transition: all .1s ease;
+	transition: color .1s ease;
 }
 
-.navigation-container ul li a:first-child {
+.top-navigation .menu-item a:first-child {
 	margin-left: -8px;
 }
 
-.navigation-container ul li a:hover {
+.top-navigation .menu-item a:hover {
 	color: #ffa200;
 	text-decoration: none;
 }
+
 /***************************************** Search Form Begain *******************************************/
-.header-bottom-column .search-form {
+.main-header .top-search-form {
 	position: relative;
 	display: block;
-	margin: 7px 0 5px 0;
 	width: 180px;
 	height: 28px;
+	margin: 8px 0;
 }
 
-.search-form #s {
+#s {
+	float: right;
 	display: block;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
 	margin-bottom: 0;
-	padding: 6px 12px;
-	width: inherit;
+	width: 120px;
 	height: 28px;
 	border: 1px solid #F7F5F5;
 	border-radius: 20px;
+	text-indent: 1em;
 	color: #727272;
-	transition: all .1s ease;
+	font-size: 12px;
+	transition: border-color .2s ease,
+				width .3s ease-in;
 }
 
-.search-form #s:focus {
+.top-search-form #s:focus {
+	color: #727272;
+	width: 180px;
 	border: 1px solid #dadada;
 }
 
-.search-form #s:focus, .search-form #searchsubmit:focus {
+#s:focus, 
+#searchsubmit:focus {
 	outline: 0 none;
 }
 
-.search-form #searchsubmit {
+/* Webkit */
+#s::-webkit-input-placeholder {
+	color: #ABABAB;
+}
+/* Firefox 4-18 */
+#s:-moz-placeholder {
+	color: #ABABAB;
+}
+
+/* Firefox 19+ */
+#s::-moz-placeholder {
+  	color: #ABABAB;
+}
+/* IE10+ */
+#s:-ms-input-placeholder {
+	color: #ABABAB;
+}
+
+/* Webkit */
+#s:focus::-webkit-input-placeholder {
+	color: #727272;
+}
+
+/* Firefox 4-18 */
+#s:focus:-moz-placeholder {
+	color: #727272;
+}
+
+/* Firefox 19+ */
+#s:focus::-moz-placeholder {
+  	color: #727272;
+}
+/* IE10+ */
+#s:focus:-ms-input-placeholder {
+	color: #727272;
+}
+
+#searchsubmit {
 	position: absolute;
 	top: 6px;
 	right: 10px;
@@ -288,77 +337,98 @@ body {
 	width: 16px;
 	height: 16px;
 	border: none;
-	background-color: transparent;
-	background-image: url("../image/icons.png");
-	background-position: -60px -20px;
-	background-repeat: no-repeat;
+	background: transparent url("../image/icons.png") -60px -20px no-repeat scroll;
 	text-indent: 99em;
 }
 
-.search-form #searchsubmit:hover {
+#searchsubmit:hover {
 	cursor: pointer;
 }
 
-/*======================================== Main Begain ======================================*/
-/*.main {
-	overflow: hidden; 
-}*/
+/*===========================================================================================*/
+/*======================================== Header Ends ======================================*/
+/*===========================================================================================*/
 
-.main .content {
+/*==============================================================================================*/
+/*======================================== Main Content Begain =================================*/
+/*==============================================================================================*/
+.main-boy .body-content {
 	margin-top: 10px;
-	/*margin-bottom: 10px;*/
 }
-.main .content .post {
+
+.main-content .post-list {
 	width: 650px;
 	margin-bottom: 20px;
 }
 /*======================================== Article Begain ======================================*/
-/*.main .content .post article.article {
-	margin: 10px 0;
-	border-radius: 2px;
-	background-color: #FFF;
-	box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
-}*/
-
-article.article .article-top-column {
+.post .post-top-column {
 	margin: 0 0 10px 0;
-	/*padding: 25px 30px 0px 30px;*/
 }
 
-/************************************** Article Avatar ***************************************/
-
-.article-top-column .author-avatar-container {
-	margin-right: 20px;
+/************************************** Post Avatar ***************************************/
+.post .author-avatar-wrap {
+	margin-right: 10px;
 }
 
-.article-top-column .author-avatar, 
-.article-top-column .avatar {
+.author-avatar-wrap .author-avatar, 
+.author-avatar-wrap .avatar {
 	display: block;
 	width: 50px;
 	height: 50px;
-	border-radius: 4px;
+	border-radius: 3px;
+	box-shadow: 0 0 1px rgba(0,0,0,.08);
 }
 
-
-.article-top-column .article-title {
+/************************************** Post Title ***************************************/
+.post .post-title {
 	min-height: 30px;
-	max-width: 520px;
+	max-width: 530px;
 }
 
-.article-top-column .article-title,
-.article-top-column .article-title a {
-	color: #585858;
+.post .post-title {
+	line-height: 0;
+}
+
+.post .post-title .post-url {
 	text-decoration: none;
-	font: bold 24px/30px "Microsoft Yahei";
-	transiton: color .5s ease;
+	font: bold 24px/30px "Microsoft Yahei", Arial;
+	color: #555;
+	transition: color .6s ease;
 }
 
-.article-top-column .article-title a:hover {
-	color: #000;
+.post .post-title {
+	position: relative;
+	top: -2px;
 }
 
-.article-top-column .post-meta {
-	width: 520px;
+.post .post-title .post-url:hover {
+	color: #444;
+}
+/************************************** Post Ends ***************************************/
+
+/************************************** Post Icons ***************************************/
+.post .post-meta .icons {
+	float: left;
+	display: block;
+	min-width: 10px;
+	height: 20px;
+	margin-right: 5px;
+	font-size: 0;
+	line-height: 20px;
+}
+
+.post .icons::before {
+	font-size: 20px;
+	line-height: 20px;
+	display: block;
+}
+
+.post-time .ion-ios7-clock-outline::before {
+	font-size: 17px
+}
+/************************************** Post Icons Ends ************************************/
+.post .post-meta {
+	width: 530px;
 	min-height: 20px;
 	font-size: 12px;
 	line-height: 20px;
@@ -367,69 +437,64 @@ article.article .article-top-column {
 	top:3px;
 }
 
-.article .article-category .icons {
+.post .post-category .icons {
 	float: left;
+	display: table-cell;
 }
 
-.article .article-category .article-category-list {
+.post .post-category {
 	max-width: 400px;
 }
 
-.article .article-category .article-category-list a {
+.post .post-category a {
 	display: inline-block;
 }
 
-.article .article-category,
-.article .article-time,
-.article .article-comment,
-.article .post-meta a,
-.article .post-meta .icons {
+.post .post-category,
+.post .post-time,
+.post .post-time-date,
+.post .post-comment,
+.post .post-meta a {
+	display: inline-block;
 	color: #999;
 	font:normal 12px/20px "Microsoft Yahei"; 
 }
 
-.article .post-meta a:hover {
+.post .post-meta a:hover {
 	color: #FFA200;
 }
 
-.article .post-meta .icons {
-	margin-right: 5px;
-	height: 20px;
-	display: block;
-	float: left;
-	font-size: 0px;
-	line-height: 20px;
-}
-
-.article .icons::before {
-	font-size: 20px;
-	line-height: 20px;
-	display: block;
-}
-
-.article .article-column-bottom {
-	padding: 15px 0px 0px 0px;
+.post .post-column-bottom {
+	padding: 15px 0 0 0;
 	width: 590px;
 	min-height: 20px;
 }
 
-.post-meta .article-tags .tag-list {
-	max-width: 475px;
+.post-meta .post-tags .tag-list {
+	width: 480px;
+	float: left;
+	margin-left: 0;
 }
 
-.post-meta .article-tags a {
-	padding: 0px 8px;
+.post-tags .icons {
+	display: table-cell;
+}
+
+.post-meta .post-tags a {
+	padding: 0 8px;
 	border-radius: 10px;
 	color: #4AA5FD;
 	border: 1px solid #4AA5FD;
 	display: block;
 	float: left;
 	line-height: 18px;
-	margin-bottom: 3px;
+	height: 18px;
+	font-size: 12px;
+	margin-bottom: 2px;
 	margin-right: 3px;
 }
 
-.post-meta .article-tags a:hover {
+.post-meta .post-tags a:hover {
 	background-color: #4AA5FD;
 	color: #FFF;
 	text-decoration: none;
@@ -437,8 +502,10 @@ article.article .article-top-column {
 	transition: all .2s ease-in;
 }
 
-/************************************** Article Entry ***************************************/
-.article .entry {
+/********************************************************************************************/
+/************************************** post Entry ***************************************/
+/********************************************************************************************/
+.post .entry {
 	padding-top: 5px; 
 	padding-bottom: 10px;
 	border-top: 1px solid rgba(0, 0, 0, .05);
@@ -454,7 +521,7 @@ article.article .article-top-column {
 .entry h4, 
 .entry h5, 
 .entry h6 {
-	margin: 15px 0px;
+	margin: 15px 0;
 	color: #333;
 	line-height: 1.6;
 }
@@ -481,8 +548,8 @@ article.article .article-top-column {
 
 .entry p:after {
 	content: "";
-	width: 0px;
-	height: 0px;
+	width: 0;
+	height: 0;
 	display: block;
 	visibility: hidden;
 	border:none;
@@ -491,9 +558,9 @@ article.article .article-top-column {
 
 .entry blockquote {
 	padding: 25px 60px;
-	margin: 0px -30px;
+	margin: 0 -30px;
 	background-color: #FBFBFB;
-	box-shadow: inset 0 1px 0px rgba(0, 0, 0, .03),
+	box-shadow: inset 0 1px 0 rgba(0, 0, 0, .03),
 				inset 0 -1px 0 rgba(0, 0, 0, .03);
 }
 
@@ -544,7 +611,7 @@ article.article .article-top-column {
 	border-radius: 3px;
 	background-color: #f8f8f8;
 	white-space: nowrap;
-	font-family: "Source Code Pro", "Microsoft Yahei", Arial;
+	font-family: "Source Code Pro", "Microsoft Yahei", Arial, sans-serif;
 }
 
 .entry table tr {
@@ -593,6 +660,7 @@ article.article .article-top-column {
 	/*box-shadow: 0 0 1px rgba(0,0,0,.1);*/
 }
 
+/************************* Article *******************/
 .entry .site-info {
 	position: relative;
 	margin: 15px 0;
@@ -602,7 +670,6 @@ article.article .article-top-column {
 	background-color: #FBFBFB;
 	box-shadow: 0 0 1px rgba(0, 0, 0, .05);
 }
-
 
 .entry .site-info:after {
 	position: absolute;
@@ -629,10 +696,10 @@ article.article .article-top-column {
 }
 
 .entry .site-info h2 {
-	margin: 0px 0 10px 0;
+	margin: 0 0 10px 0;
 	box-shadow: inset 0 -1px 1px rgba(255, 255, 255, .4);
 	color: #FFA200;
-	font: bold 25px/45px "Microsoft Yahei", Arial;
+	font: bold 25px/45px "Microsoft Yahei", Arial, sans-serif;
 }
 
 .entry .site-info img {
@@ -669,8 +736,8 @@ article.article .article-top-column {
 }
 
 /*======================================== Post Navigation ======================================*/
-.post .page-navigation {
-	margin: 20px 0 0 0 0; 
+.page-navigation {
+	margin: 20px 0 0 0 ;
 	text-align: center;
 	font-size: 0;
 	position: relative;
@@ -679,12 +746,12 @@ article.article .article-top-column {
 .page-navigation .post-navigation-content {
 	position: relative;
 	margin: auto;
-	top: 0px;
-	left: 0px;
-	bottom: 0px;
-	right: 0px;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
 	display: inline-block;	
-	box-shadow: 0px 1px 1px rgba(0, 0, 0, .1);
+	box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
 }
  
 .post .page-navigation a:first-child {
@@ -717,32 +784,34 @@ article.article .article-top-column {
 	color: #FFF;
 }
 
-.main .content .aside {
+/*========================================================================================*/
+/*======================================== Siderbar ======================================*/
+/*========================================================================================*/
+.main-right-aside {
 	margin-top: 10px;
 	margin-left: 10px;
 	width: 340px; 
 }
 
-/*======================================== Siderbar ======================================*/
-.aside ul li,.aside ul li a {
+.main-right-aside ul li,
+.main-right-aside li a {
 	color: #666;
 	font-size: 13px;
 	line-height: 25px;
 	transition: color .2s ease;
 }
 
-.aside ul li a:hover {
+.main-right-aside  ul li a:hover {
 	color: #FFA200;
 }
 
-
-.aside ul, .aside ul li {
+.main-right-aside ul, .main-right-aside ul li {
 	margin: 0;
 	padding: 0;
 	list-style: none;
 }
 
-.aside .widgets-lists {
+.main-right-aside .widgets-lists {
 	margin: 0 0 10px 0;
 	padding: 20px;
 	border-radius: 2px;
@@ -750,24 +819,24 @@ article.article .article-top-column {
 	box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
 }
 
-.aside .widgets-lists .textwidget {
+.main-right-aside .widgets-lists .textwidget {
 	text-align: center;
 }
 
-.aside .widgets-lists ul {
+.main-right-aside .widgets-lists ul {
 	padding: 0 0 0 5px;
 }
 
 /************************************** Blog Roll ***************************************/
-.aside .widgets-lists ul.blogroll,
-.aside .widgets-lists ul.blogroll li,
+.main-right-aside .widgets-lists ul.blogroll,
+.main-right-aside .widgets-lists ul.blogroll li,
 .tab-container .tab-content .tab-content-list ul.blogroll, 
 .tab-container .tab-content .tab-content-list ul.blogroll li {
 	list-style: disc;
 }
 
 .blogroll li,
-.aside .widgets-lists ul.blogroll li,
+.main-right-aside .widgets-lists ul.blogroll li,
 .tab-container .tab-content .tab-content-list ul.blogroll li {
 	/*margin-right: 5px;*/
 }
@@ -784,36 +853,29 @@ article.article .article-top-column {
 	vertical-align: middle;
 	line-height: 25px;
 }
-                    
-/*.aside .tagcloud a {
-	background-color: blue;
-	color: #FFF;
-	padding: 4px 6px;
-	border-radius: 2px;
-	margin:2px;
-}
-*//**** inside list *****/
-.aside .widgets-lists ul, .aside .widgets-lists ul li {
+
+/***** inside list *****/
+.main-right-aside .widgets-lists ul, .main-right-aside .widgets-lists ul li {
 	margin: 0 0 0 5px;
 	list-style-type: disc;
 }
 
-.aside .widgets-lists ul li ul {
+.main-right-aside .widgets-lists ul li ul {
 	padding: 0 0 0 5px;
 }
 
 /************************************** Category List ***************************************/
-.aside .category-list .cat-item a {
+.main-right-aside .category-list .cat-item a {
 	font-weight: normal;
 }
 
-.aside .category-list .cat-item .children li.cat-item a {
+.main-right-aside .category-list .cat-item .children li.cat-item a {
 	font-weight: lighter;
 } 
 
 /************************************** Siderbar Most Comment Wall ***************************************/
-.aside .widgets-lists ul.most-comments-friend-wall,
-.aside .widgets-lists ul.most-comments-friend-wall li.most-active-people,
+.main-right-aside .widgets-lists ul.most-comments-friend-wall,
+.main-right-aside .widgets-lists ul.most-comments-friend-wall li.most-active-people,
 .tab-container .tab-content .tab-content-list ul.most-comments-friend-wall,
 .tab-container .tab-content .tab-content-list ul.most-comments-friend-wall li.most-active-people {
 	margin: 0;
@@ -846,6 +908,9 @@ article.article .article-top-column {
 
 .most-comments-friend-wall .most-active-people .avatar:hover {
 	-webkit-filter: blur(1px);
+	-moz-filter: blur(1px);
+	-ms-filter: blur(1px);
+	filter: blur(1px);
 }
 
 /************************************** Siderbar Calendar ***************************************/
@@ -876,7 +941,7 @@ article.article .article-top-column {
 	color: #777;
 	text-align: center;
 	font-size: 16px;
-	font-family: Consolas, Arial;
+	font-family: Consolas, Arial, sans-serif;
 	line-height: 24px;
 }
 
@@ -948,8 +1013,8 @@ article.article .article-top-column {
 }
 
 /************************************** Wdgit New Coments ***************************************/
-.aside .widgets-lists ul.new-comments, 
-.aside .widgets-lists ul.new-comments li.new-comment-lists ,
+.main-right-aside .widgets-lists ul.new-comments,
+.main-right-aside .widgets-lists ul.new-comments li.new-comment-lists ,
 .tab .tab-container .tab-content .tab-content-list ul.new-comments,
 .tab .tab-container .tab-content .tab-content-list ul.new-comments li.new-comment-lists {
 	margin: 0;
@@ -977,9 +1042,10 @@ article.article .article-top-column {
 	box-shadow: 0 0 1px rgba(0, 0, 0, .4);
 }
 
-
-/*======================================== Tab Switcher ========================================*/
-.aside ul .tab {
+/**************************************************************************************************/
+/****************************************** Tab Switcher ******************************************/
+/**************************************************************************************************/
+.main-right-aside ul .tab {
 	margin-bottom: 10px;
 }
 
@@ -988,9 +1054,9 @@ article.article .article-top-column {
 }
 
 .tab .tab-switcher .tab-swither-container {
-	margin: 0px;
+	margin: 0;
 	list-style: none;
-	font-size: 0px;
+	font-size: 0;
 } 
 
 .tab .tab-switcher .tab-switcher-list {
@@ -1042,7 +1108,7 @@ article.article .article-top-column {
 }
 
 .tab .tab-container .tab-content {
-	margin: 0px;
+	margin: 0;
 	padding: 15px 20px 20px 20px;
 	background-color: #FFF;
 	box-shadow: 0 1px 1px rgba(0, 0, 0 , .1);
@@ -1050,8 +1116,8 @@ article.article .article-top-column {
 
 .tab .tab-container .tab-content .tab-content-list {
 	display: none;
-	margin: 0px;
-	padding: 0px;
+	margin: 0;
+	padding: 0;
 	list-style: none;
 }
 
@@ -1065,66 +1131,127 @@ article.article .article-top-column {
 	display: block;
 }
 
-/*======================================== Footer ======================================*/
-.footer {
+/*============================================================================================*/
+/*======================================== Footer Begin ======================================*/
+/*============================================================================================*/
+
+.main-footer {
 	padding: 30px 0;
 	background-color: #333;
 	overflow-x: hidden;
 }
 
-.footer .navigation {
-	box-shadow: 0 1px 0px rgba(255, 255, 255, .06);
+.main-footer p,
+.main-footer a {
+	color: #646464;
+	font: normal 12px/20px Arial,"Microsoft Yahei";
+	text-shadow: 0 1px 1px rgba(0, 0, 0, .7);
+}
+
+.main-footer a:hover {
+	color: #ffa200;
+	text-decoration: underline;
+}
+
+/******************** Main Footer Navigation Begin ********************/
+.main-footer .footer-nav-wrap {
+	box-shadow: 0 1px 0 rgba(255, 255, 255, .06);
 	border-bottom: 1px solid rgba(0, 0, 0, .2);
 	margin-bottom: 15px;
 }
 
-.footer .navigation .navigation-container {
+.footer-nav-wrap .menu-wrap {
 	padding: 0 0 2px 0;
 }
 
-.footer .navigation ul {
+.footer-nav-wrap .menu-wrap {
 	text-align: center;
 }
 
+.footer-nav-wrap .menu-item {
+	display: inline-block;
+	margin: 0 5px;
+}
 
-.navigation .navigation-container ul li a {
-	font-size: 13px;
+.footer-nav-wrap .menu-item a {
+	display: block;
+	padding-bottom: 5px;
+	font-size: 14px;
 	line-height: 20px;
-	margin-right: 5px;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, .9);
+	transition:color .3s ease;
 }
+/******************** Main Footer Navigation End ********************/
 
-.navigation-container ul li a:first-child {
-	margin-left: 0px;
-}
-
-.footer p,
- .footer a {
-	color: #646464;
-	font: normal 12px/20px "Microsoft Yahei", Arial;
-	text-shadow: 0 1px 1px rgba(0, 0, 0, .8);
-}
-
-.footer a:hover {
-	color: #ffa200;
-}
-
-.footer .powered-by a .wordpress-logo {
+/******************** Main Footer Infomation Begin ********************/
+.powered-by .wordpress-logo {
 	display: inline-block;
 	margin-right: 2px;
 	margin-bottom: -2px;
 	width: 13px;
 	height: 13px;
-	background-image: url("../image/icons.png");
-	background-attachment: scroll;
-	background-position: -100px 0;
-	background-repeat: no-repeat;
+	background: transparent url("../image/icons.png") -100px 0 no-repeat scroll;
 	transition: all .1s ease-in-out;
 }
 
-.footer .powered-by a:hover .wordpress-logo {
+.powered-by .wordpress:hover .wordpress-logo {
 	background-position: -100px -20px;
 }
 
+.designer .heart {
+	color: #FF6262;
+}
+
+.designer .heart:hover {
+	-webkit-animation: heartbeat 1s linear infinite;
+	-moz-animation: heartbeat 1s linear infinite;
+	-ms-animation: heartbeat 1s linear infinite;
+	animation: heartbeat 1s linear infinite;
+	cursor: pointer;
+}
+
+
+/*********** Animation Heart Beat ***********/
+@keyframes heartbeat {
+ to {
+    -webkit-transform: scale(1.4);
+   	-moz-transform: scale(1.4);
+   	-o-transform: scale(1.4);
+   	-ms-transform: scale(1.4);
+   	transform: scale(1.4);
+ }
+}
+
+@-moz-keyframes heartbeat {
+	to {
+		-moz-transform: scale(1.4);
+		transform: scale(1.4);
+	}
+}
+
+@-webkit-keyframes heartbeat {
+	to {
+		-webkit-transform: scale(1.4);
+		transform: scale(1.4);
+	}
+}
+
+@-ms-keyframes heartbeat {
+	to {
+		-ms-transform: scale(1.4);
+		transform: scale(1.4);
+	}
+}
+
+@-o-keyframes heartbeat {
+	to {
+		-o-transform: scale(1.4);
+		transform: scale(1.4);
+	}
+}
+/*===========================================================================================*/
+/*======================================== Footer Ends ======================================*/
+/*===========================================================================================*/
 
 /************************************** Post Navigation ***************************************/
 .main .post-navigation {
@@ -1157,7 +1284,7 @@ article.article .article-top-column {
 
 .post-navigation .ion-chevron-left-after::after {
 	content: "\f125";
-	font-family: Ionicons;
+	font-family: Ionicons, "Noto Sans", sans-serif;
 }
 
 .post-navigation  a {
@@ -1167,7 +1294,7 @@ article.article .article-top-column {
 }
 
 .post-navigation .previous-post:hover ,
-.post-navigation  next-post:hover{
+.post-navigation .next-post:hover{
 	background-color: #FBFBFB;
 	color: #333;
 	text-decoration: none;
@@ -1198,7 +1325,7 @@ article.article .article-top-column {
 	background-color: #4AA5FD;
 	color: #FFF;
 	font-size: 10px;
-	font-family: Georgia;
+	font-family: Georgia, sans-serif;
 	line-height: 25px;
 }
 
@@ -1214,7 +1341,7 @@ article.article .article-top-column {
 
 .comment-meta .edit-link .comment-edit-link {
 	display: none;
-	font-family: "宋体";
+	font-family: "宋体",sans-serif;
 	margin-left: 5px; 
 }
 
@@ -1232,7 +1359,7 @@ article.article .article-top-column {
 	color: #999;
 	font-size: 10px;
 	line-height: 20px;
-	font-family: "Microsoft Yahei";
+	font-family: "Microsoft Yahei", sans-serif;
 }
 
 .comment-metadata a:hover {
@@ -1264,7 +1391,7 @@ article.article .article-top-column {
 	color: #FFF;
 	background-color: #FF7373;
 	border-radius: 2px;
-	text-shadow: 0 1px 0px rgba(0, 0, 0, .2);
+	text-shadow: 0 1px 0 rgba(0, 0, 0, .2);
 	transition: all .4s ease-in-out;
 }
 
@@ -1290,7 +1417,6 @@ article.article .article-top-column {
 .comment-author.vcard .fn, 
 .comment-author.vcard .fn .url {
 	font-weight: normal;
-	/*font-weight: bold;*/
 	font-size: 16px;
 }
 
@@ -1326,7 +1452,7 @@ article.article .article-top-column {
 
 .article-comments-container .comment-title, 
 .article-comments-container .comment-reply-title, 
-.aside .widget-title {
+..main-right-aside .widget-title {
 	margin-bottom: 10px;
 	color: #333;
 	font-weight: 600;
@@ -1351,7 +1477,6 @@ article.article .article-top-column {
 	border-radius: 2px;
 	background-color: #FF7373;
 	color: #FFF;
-	color: white;
 	font-size: 10px;
 }
 
@@ -1461,7 +1586,7 @@ article.article .article-top-column {
 .author-info .author-descript .author-summery {
 	color: #999;
 	font-size: 14px;
-	line-height: 1.5px;
+	line-height: 1.5;
 }
 
 .author-info .author-contact {
@@ -1497,9 +1622,7 @@ article.article .article-top-column {
 	margin-right: 5px;
 	width: 20px;
 	height: 20px;
-	background-image: url("../image/icons.png");
-	background-attachment: scroll;
-	background-repeat: no-repeat;
+	background: transparent url("../image/icons.png") center no-repeat scroll;
 	content: "";
 	transition: all .15s ease;
 }
@@ -1572,10 +1695,6 @@ article.article .article-top-column {
 	background-position: -121px -50px;
 }
 
-.heart {
-	color: #FF6262;
-}
-
 .related-post {
 	padding: 0;
 }
@@ -1591,7 +1710,7 @@ article.article .article-top-column {
 
 .description:after {
 	position: absolute;
-	top: 0px;
+	top: 0;
 	right: 25px;
 	display: block;
 	width: 20px;
@@ -1640,7 +1759,7 @@ article.article .article-top-column {
 	height: 80px;
 	float: left;
 	border-radius: 4px;
-	box-shadow: 0 0px 1px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
 }
 
 .description .description-text {

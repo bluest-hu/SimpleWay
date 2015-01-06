@@ -6,7 +6,7 @@
     <?php if ( get_option('simple_way_index_keywords' ) != '' ) { ?>
     <meta name="keywords" content="<?php echo trim(get_option('simple_way_index_keywords')); ?>" />
     <?php } ?>
-    <?php if (get_option('simple_way_index_description') != '' ) { ?>
+    <?php if ( get_option('simple_way_index_description') != '' ) { ?>
     <meta name="description" content="<?php echo trim(get_option('simple_way_index_description')); ?>" />
     <?php } ?>
   <?php } ?>
@@ -70,28 +70,26 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/style/normalize.css">
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/style/ionicons.min.css">
-    <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/style/style.min.css">
+    <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/style/style.css">
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/style/mobile.min.css">
     <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name');?>&raquo;Feed" href="<?php bloginfo('rss2_url');?>" />
     <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name');?>&raquo;评论&raquo;Feed" href="<?php bloginfo('comments_rss2_url'); ?>comments/feed" />
   </head>
   <body>
-  <div class="mian-wrap" id="mainWrap"><!-- Blog Wrap Begin -->
-    <header class="main-header"><!-- Bolg Header Begin -->
-      <div class="header-content"><!-- Blog Header Content Begin -->
-        <div class="header-top-column"><!--Header Top Column Begin -->
-          <h1 class="title"><!-- Blog Title Begain -->
-            <a href="<?php bloginfo('url');?>"> <?php bloginfo('name'); ?> </a>
-          </h1><!-- Blog Header Title Ends -->
-          <span class="blog-desciption"><?php echo bloginfo('description') ?></span>
-        </div><!--Header Top Column End -->
-        <div class="header-bottom-column clear"><!-- Header Bottom  Begain -->
-          <?php get_template_part('nav'); ?>
-          <div class="search-form right-column">
-            <?php get_search_form(); ?>
-          </div>
-        </div><!-- Header Bottom Ends -->
-        
-      </div><!-- Blog Header Content Ends -->
-    </header><!-- Bolg Header Ends -->
+    <div class="main-wrap" id="mainWrap"><!-- Blog Wrap Begin -->
+      <header class="main-header"><!-- Blog Header Begin -->
+        <div class="header-content"><!-- Blog Header Content Begin -->
+          <div class="header-top-column"><!--Header Top Column Begin -->
+            <h1 class="blog-title"><!-- Blog Title Begin -->
+              <a class="link" href="<?php bloginfo('url');?>"> <?php bloginfo('name'); ?> </a>
+            </h1><!-- Blog Header Title Ends --><span class="blog-description"><?php echo bloginfo('description') ?></span>
+          </div><!--Header Top Column End -->
+          <div class="header-bottom-column clear"><!-- Header Bottom Begin -->
+            <?php get_template_part('nav'); ?>
+            <div class="search-form top-search-form right-column">
+              <?php get_search_form(); ?>
+            </div>
+          </div><!-- Header Bottom Ends -->
+        </div><!-- Blog Header Content Ends -->
+      </header><!-- Blog Header Ends -->
     

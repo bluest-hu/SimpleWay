@@ -1,50 +1,47 @@
-
-<?php 
-if ( is_single() ) {
-?>
-   <img class="default-thumbnail" src="<?php echo get_post_thumbnail_url($post_id, ''); ?>" style="margin-bottom:
-   -20px;border-top-left-radius:4px;"> 
-<?php
-}
-?>
-<article class="article card" id="post-<?php the_ID();?>"><!-- Article Begain -->
-
-    <div class="article-top-column post-meta-container clear">
-        <div class="left-column author-avatar-container"><!-- Author Avastar Container Begain -->
-            <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" title="文章作者：<?php the_author(); ?>" class="author-avatar"><!-- Article Author Begain -->
-                <?php echo my_avatar( get_the_author_email(), 50 ); ?>
-            </a><!-- Article Author Ends -->
-        </div><!-- Author Avastar Container Ends -->
-
-        <div class="left-column fix-width">
-            <h1 class="article-title top-column"><!-- Article Title Begain -->
-                <a href="<?php the_permalink();?>" title="<?php the_title();?>"><?php the_title(); ?></a>
-            </h1><!-- Article Title End -->
-            <div class="bottom-column post-meta clear">
-                <div class="left-column article-category">
-                    <span class="icons ion-ios7-folder-outline"></span>
-                    <div class="clear left-column article-category-list">
+<div class="post-wrap card">
+    <?php 
+    if ( is_single() ) {
+    ?>
+       <img class="default-thumbnail" src="<?php echo get_post_thumbnail_url($post_id, ''); ?>" style="margin-bottom:
+       -20px;border-top-left-radius:4px;"> 
+    <?php
+    }
+    ?>
+    <article class="post" id="post-<?php the_ID();?>"><!-- Post Begin -->
+        <div class="post-top-column post-meta-wrap clear">
+            <div class="left-column author-avatar-wrap"><!-- Author Avastar Wrap Begin -->
+                <a class="author-avatar" href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" title="文章作者：<?php the_author(); ?>" alt="文章作者：<?php the_author(); ?>" ><!-- Article Author Begain -->
+                    <?php echo my_avatar( get_the_author_email(), 50, ""); ?>
+                </a><!-- Article Author Ends -->
+            </div><!-- Author Avastar Wrap Ends -->
+            <div class="left-column fix-width">
+                <h1 class="post-title top-column"><!-- post Title Begain -->
+                    <a class="post-url" href="<?php the_permalink();?>" title="<?php the_title();?>"><?php the_title(); ?></a>
+                </h1><!-- post Title End -->
+                <div class="bottom-column post-meta clear">
+                    <div class="left-column post-category clear">
+                        <span class="icons ion-ios7-folder-outline"></span>
                         <?php the_category(' / ') ?>
-                    </div>
-                </div><!--Category End -->
-                <div class="right-column article-time"><span class="icons ion-ios7-clock-outline"></span><time class="article-time"><?php the_time('Y-m-d') ?></time></div><!--Article Time End-->
-            </div><!-- Left Column Begin -->
-        </div><!-- Left Column Ends -->
-    </div><!-- Article Top Column Ends -->
+                    </div><!--Category End -->
+                    <div class="right-column post-time"><span class="icons ion-ios7-clock-outline"></span><time class="post-time-date"><?php the_time('Y-m-d') ?></time></div><!--post Time End-->
+                </div><!-- Left Column Begin -->
+            </div><!-- Left Column Ends -->
+        </div><!-- post Top Column Ends -->
 
-    <div class="entry clear">
-        <?php the_content("继续阅读 >>"); ?>
-    </div><!-- End Blog Entry -->
+        <div class="entry clear">
+            <?php the_content("继续阅读 >>"); ?>
+        </div><!-- End Blog Entry -->
 
-    <div class="article-column-bottom post-meta clear">
-        <div class="article-tags left-column">
-            <span class="icons ion-ios7-pricetags-outline"></span>
-            <div class="tag-list left-column clear">
-                <?php the_tags("", " "); ?>
-            </div>
-        </div><!-- Article Tags End -->
-        <div class="article-comment right-column">
-            <span class="icons ion-ios7-chatboxes-outline"></span><?php comments_popup_link('木有评论', '1 条评论', '% 条评论'); ?>
-        </div><!-- Comments End -->
-    </div><!-- Article Bottom Column Ends -->
-</article><!-- Article Ends -->
+        <div class="post-column-bottom post-meta clear">
+            <div class="post-tags left-column clear">
+                <span class="icons ion-ios7-pricetags-outline"></span>
+                <div class="tag-list clear">
+                    <?php the_tags("", " "); ?>
+                </div>
+            </div><!-- post Tags End -->
+            <div class="post-comment right-column">
+                <span class="icons ion-ios7-chatboxes-outline"></span><?php comments_popup_link('木有评论', '1 条评论', '% 条评论'); ?>
+            </div><!-- Comments End -->
+        </div><!-- post Bottom Column Ends -->
+    </article><!-- post Ends -->
+</div>

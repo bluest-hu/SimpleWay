@@ -27,7 +27,7 @@
 					<?php include( TEMPLATEPATH . '/article.php'); ?>
 				<?php endwhile;?>
 				<nav class="page-navigation">
-					<?php par_pagenavi(8); ?><!-- Article Navigation Ends-->
+					<?php page_navigation(8); ?><!-- Article Navigation Ends-->
 				</nav> <!-- Article Navigation Ends-->
 			<?php else:?>
 				<article class="article" id="post-<?php the_ID();?>"><!-- Article Begain -->
