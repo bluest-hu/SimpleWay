@@ -187,60 +187,59 @@ class widget_newcomments extends WP_Widget {
 	}
 }
 
-// function simpleway_newcomments( $limit ){
-// 	global $wpdb;
+function simpleway_newcomments( $limit ){
+	global $wpdb;
 
-//     $output = "";
-
-// 	$comments = wp_cache_get( 'simpleway_newcomments' );
-
-// 	$sql = "SELECT DISTINCT 
-// 		ID,
-// 		post_title,
-// 		post_password,
-// 		comment_ID, 
-// 		comment_post_ID,
-// 		comment_author,
-// 		comment_date_gmt,
-// 		comment_approved, 
-// 		comment_author_email,
-// 		comment_type,
-// 		comment_author_url,
-// 		comment_content
-// 	FROM $wpdb->comments 
-// 		LEFT OUTER JOIN $wpdb->posts 
-// 		ON ($wpdb->comments.comment_post_ID = $wpdb->posts.ID) 
-// 		WHERE comment_approved = '1'
-// 	AND comment_type = ''
-// 	AND post_password = ''
-// 	AND user_id  = '0'
-// 	ORDER BY comment_date_gmt DESC 
-// 	LIMIT $limit ";
+    $output = "";
+    // 读取缓存
+	$comments = wp_cache_get( 'my_new_comments' );
+	$sql = "SELECT DISTINCT 
+				ID,
+				post_title,
+				post_password,
+				comment_ID, 
+				comment_post_ID,
+				comment_author,
+				comment_date_gmt,
+				comment_approved, 
+				comment_author_email,
+				comment_type,
+				comment_author_url,
+				comment_content
+			FROM $wpdb->comments 
+				LEFT OUTER JOIN $wpdb->posts 
+				ON ($wpdb->comments.comment_post_ID = $wpdb->posts.ID) 
+				WHERE comment_approved = '1'
+			AND comment_type = ''
+			AND post_password = ''
+			AND user_id  = '0'
+			ORDER BY comment_date_gmt DESC 
+			LIMIT $limit ";
 	
-// 	if ( $comments === false ) {
-// 		$comments = $wpdb->get_results($sql);
-// 		wp_cache_set( 'simpleway_newcomments', $comments );
-// 	}
+	if ( $comments === false ) {
+		$comments = $wpdb->get_results($sql);
+		wp_cache_set( 'my_new_comments', $comments );
+	}
 
-// 	foreach ( $comments as $comment ) {
-// 		if ( mb_strlen($comment->comment_content, 'utf-8') > 37 ) {
-// 			$comment->comment_content = mb_substr($comment->comment_content, 0, 37, 'utf-8') . "......";
-// 		}
+	foreach ( $comments as $comment ) {
+		if ( mb_strlen($comment->comment_content, 'utf-8') > 37 ) {
+			$comment->comment_content = mb_substr($comment->comment_content, 0, 37, 'utf-8') . "......";
+		}
 
-// 		$output .= "<li class=\"new-comment-lists\" ><a href=\"" . 
-// 						get_permalink($comment->ID) . 
-// 						"#comment-" . $comment->comment_ID . 
-// 						"\" title=\"" . 
-// 						$comment->post_title .
-// 						"上的评论\">" .
-// 						my_avatar( $comment->comment_author_email, 40) . 
-// 						"<strong class=\"comment-author\">". strip_tags($comment->comment_author) . 
-// 						"：</strong>" .
-// 						strip_tags($comment->comment_content) 
-// 						."</a></li>";
-// 	}
-// 	echo $output;
-// };
+		$output .= "<li class=\"new-comment-lists\" ><a href=\"" . 
+						get_permalink($comment->ID) . 
+						"#comment-" . $comment->comment_ID . 
+						"\" title=\"" . 
+						$comment->post_title .
+						"上的评论\">" .
+						my_avatar( $comment->comment_author_email, 40) . 
+						"<strong class=\"comment-author\">". strip_tags($comment->comment_author) . 
+						"：</strong>" .
+						strip_tags($comment->comment_content) 
+						."</a></li>";
+	}
+	echo $output;
+};
 
 
 register_widget('widget_most_comments_wall');
@@ -306,14 +305,12 @@ class widget_most_comments_wall extends WP_Widget {
 
 
 /*************************************************************************************
-*************************************** 缩略图相关 ***********************************
+*************************************** 缩略图相关 *************************************
 **************************************************************************************/
-
-
 if ( function_exists('add_theme_support') ) {
 	add_theme_support( 'post-thumbnails', array( 'post' ) ); // 给日志启用日志缩略图
 	add_theme_support( 'post-thumbnails', array( 'page' ) ); // 给页面启用日志缩略图
-	set_post_thumbnail_size( 155, 110, true ); // 设置默认的缩略图大小尺寸
+	set_post_thumbnail_size( 650, 110, true ); // 设置默认的缩略图大小尺寸
 	add_image_size( 'normal', 155, 110, true ); // 设置标记为”one”的缩略图尺寸，这里的one应该是数组下标
 }
 
@@ -415,7 +412,6 @@ function get_most_comments_friends($config) {
 	}
 }
 
-
 // 时间可读
 add_filter( 'the_date', 'human_readable_date');
 add_filter( 'get_the_date', 'human_readable_date');
@@ -434,8 +430,9 @@ function human_readable_date( $the_date ){
 function page_navigation($range = 9) {
 	global	$paged, 
 			$wp_query;
-	echo "<div class=\"post-navigation-content\">";
-	if ( !$max_page ) {
+	echo "<nav class=\"page-navigation-wrap\">";
+
+	if ( !isset($max_page) ) {
 		$max_page = $wp_query->max_num_pages;
 	}
 
@@ -449,7 +446,6 @@ function page_navigation($range = 9) {
 		}
 
 		previous_posts_link('<<');
-
 
     	if ($max_page > $range) {
 			if ($paged < $range) {
@@ -494,7 +490,7 @@ function page_navigation($range = 9) {
     	}
     }
 
-    echo "</div>";
+    echo "</nav>";
 }
 
 // 增加后台作者资料
@@ -663,5 +659,4 @@ function simple_way_theme_settings(){?>
 		</p>
 	</form>
 </div>
- 
 <?php }

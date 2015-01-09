@@ -74,6 +74,19 @@
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/style/mobile.min.css">
     <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name');?>&raquo;Feed" href="<?php bloginfo('rss2_url');?>" />
     <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name');?>&raquo;评论&raquo;Feed" href="<?php bloginfo('comments_rss2_url'); ?>comments/feed" />
+    <!-- jQuery -->
+    <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/script/jquery-2.0.3.min.js"></script>
+    <!-- 博客所用 JavaScript 文件 -->
+    <script type="text/javascript" async="async" src="<?php echo get_stylesheet_directory_uri(); ?>/script/script.js"></script>
+  <?php if (get_option('simple_way_analytics')!="") {
+    echo trim(stripslashes(get_option('simple_way_analytics')));
+  }?>
+
+  <?php if ( is_single() ) { 
+  if (get_option('simple_way_single_script') != '') {
+    echo trim(stripslashes(get_option('simple_way_single_script')));
+    }
+  } ?>
   </head>
   <body>
     <div class="main-wrap" id="mainWrap"><!-- Blog Wrap Begin -->

@@ -1,3 +1,4 @@
+// 给评论添加文章发布者标志
 $(document).ready(function () {
 	if ($(".article-comments-container")) {
 		$(".article-comments-container .bypostauthor > .comment-body .comment-meta .comment-author")
@@ -12,7 +13,6 @@ $(document).ready(function() {
 	var timer = null;
 
 	$scrollBtn = $("#backToTopBtn");
-
 
 	if (!$scrollBtn) {
 		return;
@@ -42,12 +42,10 @@ $(document).ready(function() {
 		}
 		
 		timer = setInterval(function () {
-
 			doc.scrollTop = parseInt(doc.scrollTop / 1.5);
-
 			if (doc.scrollTop == 0) {
 				clearInterval(timer);
-			};
+			}
 		}, 30);
 		event.preventDefault();
 	});
@@ -74,24 +72,50 @@ $(document).ready(function () {
 });
 
 
-// navigation
-// $(document).ready(function () {
+// 
+$(function () {
+	var $SinglePostWrap = $("#singlePostWrap");
 
-// 	var $navigationIteams 			= $(".navigation .navigation-container .menu li");
-// 	var navigationContainerWidth 	= document.getElementById('navigationContainer').offsetWidth;
-// 	var IteamSumWith 				= 0;
+	// 如果是非文章页面 那么不处理
+	if ( !$SinglePostWrap ) {
+		return;
+	}
 
-// 	$navigationIteams.each(function (index) {
+	var $ThumbnailWrap 	= $SinglePostWrap.find(".post-thumbnail-wrap"),
+		$Thumbnail 		= $ThumbnailWrap.find(".thumbnail"),
+		$ThumnailCover 	= $ThumbnailWrap.find(".thumbnail-cover");
 
-// 		IteamSumWith += $navigationIteams.eq(index)[0].offsetWidth;
+	var $Post 			= $SinglePostWrap.find(".single-post"),
+		$PostMeta 		= $Post.find(".post-top-column");
 
-// 		// find those more iteams
-// 		if (IteamSumWith > navigationContainerWidth) {
+	var paddingOffset 	= parseInt($Post.css("paddingTop")),
+		thumbnailHeight = 0,
+		postMetaHeight 	= parseInt($PostMeta.height()) + parseInt($PostMeta.css("marginBottom"));
 
-// 			// wrap this more iteams
-// 		}
-// 	});
-// });
+	var offset = paddingOffset + postMetaHeight;
+
+	var image = new Image;
+	image.src = $Thumbnail.attr("src");
+	$(image).on("load",function() {
+		thumbnailHeight = parseInt($(this).get(0).height);
+
+		var position = (postMetaHeight / thumbnailHeight) * 100 + "%";
+		
+		$ThumnailCover.css({
+			"background-image": "-webkit-linear-gradient(transparent " + position  + ", rgba(0, 0, 0, .7))",
+			"background-image": "-moz-linear-gradient(transparent " + position  + ", rgba(0, 0, 0, .7))",
+			"background-image": "-ms-linear-gradient(transparent " + position  + ", rgba(0, 0, 0, .7))",
+			"background-image": "linear-gradient(transparent " + position  + ", rgba(0, 0, 0, .7))"
+		});
+		
+		$Post.css({
+			"marginTop": -offset,
+			"position": "relative"
+		});
+		
+		$SinglePostWrap.addClass("has-thumbnail");
+	});
+});
 
 // fix the single article page empty navigation 
 $(function () {
@@ -102,12 +126,16 @@ $(function () {
 	$prev = $(".post-navigation div.previous-post");
 	$next = $(".post-navigation div.next-post");
 
-	if ($prev.find("a").length == 0) {
-		$prev.css({display: "none"});
+	if ( !$prev.find("a") ) {
+		$prev.css({
+			display: "none"
+		});
 	}
 
-	if ($next.find("a").length == 0) {
-		$next.css({display: "none"});
+	if ( !$next.find("a") ) {
+		$next.css({
+			display: "none"
+		});
 	}
 });
 
@@ -138,3 +166,5 @@ function tabSwitcher() {
         });
     });
 }
+
+

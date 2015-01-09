@@ -189,7 +189,7 @@ body {
 /*============================================================================================*/
 .main-header {
 	overflow-x: hidden;
-	box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+	box-shadow: 0 1px 5px rgba(0, 0, 0, .25);
 	background-color: #FFF;
 } 
 
@@ -352,14 +352,56 @@ body {
 /*==============================================================================================*/
 /*======================================== Main Content Begain =================================*/
 /*==============================================================================================*/
-.main-boy .body-content {
+.body-content {
 	margin-top: 10px;
 }
 
-.main-content .post-list {
+.main-content .post-list,
+.main-content .mian-left-part {
 	width: 650px;
 	margin-bottom: 20px;
 }
+
+
+/********************************** Single Post ****************************/
+.main-content .single-post-wrap {
+	padding: 0;
+}
+
+.single-post-wrap .post {
+	padding: 20px 30px 25px 30px;
+	overflow: hidden;
+}
+
+.single-post-wrap .post-thumbnail-wrap {
+	position: relative;
+	border-radius: 4px 4px 0 0;
+	overflow: hidden; 
+}
+
+.single-post-wrap .post-thumbnail-wrap .thumbnail-cover {
+	position: absolute;
+	top: 0;
+	left: 0;
+	content: "";
+	display: block;
+	width: 100%;
+	height: 100%;
+	/*background-color: rgba(0, 0, 0, .5);*/
+	background-image: linear-gradient(transparent 0%, rgba(0,0,0,.1));
+	transition: background .4s ease-in;
+}
+
+.single-post-wrap .post-thumbnail-wrap .thumbnail {
+	display: block;
+	width: 650px;
+	min-height: 50px;
+}
+
+.single-post-wrap .single-post {
+	transtion: margin 05s ease;
+}
+
 /*======================================== Article Begain ======================================*/
 .post .post-top-column {
 	margin: 0 0 10px 0;
@@ -386,6 +428,8 @@ body {
 }
 
 .post .post-title {
+	position: relative;
+	top: -3px;
 	line-height: 0;
 }
 
@@ -394,11 +438,6 @@ body {
 	font: bold 24px/30px "Microsoft Yahei", Arial;
 	color: #555;
 	transition: color .6s ease;
-}
-
-.post .post-title {
-	position: relative;
-	top: -2px;
 }
 
 .post .post-title .post-url:hover {
@@ -452,12 +491,15 @@ body {
 
 .post .post-category,
 .post .post-time,
-.post .post-time-date,
-.post .post-comment,
-.post .post-meta a {
+.post .post-comment {
 	display: inline-block;
-	color: #999;
-	font:normal 12px/20px "Microsoft Yahei"; 
+	color: #A3A3A3;
+	font:normal 12px/20px Arial,"宋体","Microsoft Yahei"; 
+}
+
+.post .post-time-date,
+.post .post-meta a {
+	color: inherit;
 }
 
 .post .post-meta a:hover {
@@ -501,6 +543,28 @@ body {
 	box-shadow: 0 0 1px rgba(0, 0, 0, .04);
 	transition: all .2s ease-in;
 }
+
+/**** 有缩略图的文章标题 ***/
+.single-post-wrap.has-thumbnail .post-title .post-url {
+	color: #FFF;
+	transition: none;
+}
+
+.single-post-wrap.has-thumbnail .post-title .post-url:hover {
+	color: #FFA200;
+}
+
+.single-post-wrap.has-thumbnail .author-avatar {
+	position: relative;
+}
+
+/**** 有缩略图 *****/
+.single-post-wrap.has-thumbnail .post-category,
+.single-post-wrap.has-thumbnail .post-time,
+.single-post-wrap.has-thumbnail .a {
+ 	color: #EEE;
+ }
+
 
 /********************************************************************************************/
 /************************************** post Entry ***************************************/
@@ -718,7 +782,8 @@ body {
 	font-weight: normal;
 }
 
-.article .entry .more-link { 
+/*** Read More ****/
+.entry .more-link {
 	float: right;
 	clear: right;
 	padding: 4px 6px;
@@ -726,24 +791,28 @@ body {
 	border-radius: 2px;
 	background-color: #FF7373;
 	color: #FFF;
-	font: normal 13px/1.5 "Microsoft Yahei";
-	transition: background-color 0.2s ease;
+	font: lighter 13px/1.5 "Microsoft Yahei";
+	transition: background-color 0.2s ease,
+				color 0.2s ease,
+				box-shadow 0.2s ease;
 }
 
-.article .entry .more-link:hover {
+.entry .more-link:hover {
 	background-color: #FF5E5E;
 	text-decoration: none;
+	color: #FFF;
+	box-shadow: 0 0 1px rgba(0, 0, 0, .3);
 }
 
 /*======================================== Post Navigation ======================================*/
-.page-navigation {
+.post-page-nav {
 	margin: 20px 0 0 0 ;
 	text-align: center;
 	font-size: 0;
 	position: relative;
 }
 
-.page-navigation .post-navigation-content {
+.post-page-nav .page-navigation-wrap {
 	position: relative;
 	margin: auto;
 	top: 0;
@@ -754,17 +823,17 @@ body {
 	box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
 }
  
-.post .page-navigation a:first-child {
+.page-navigation-wrap a:first-child {
 	border-top-left-radius: 2px;
 	border-bottom-left-radius: 2px;
 }
 
-.post .page-navigation a:last-child {
+.page-navigation-wrap a:last-child {
 	border-top-right-radius: 2px;
 	border-bottom-right-radius: 2px;
 }
 
-.post .page-navigation a {
+.page-navigation-wrap a {
 	display: inline-block;
 	padding: 10px 14px;
 	background-color: #FFF;
@@ -773,13 +842,13 @@ body {
 	line-height: 20px;
 }
 
-.post .page-navigation a:hover {
+.page-navigation-wrap a:hover {
 	background-color: #FBFBFB;
 	color: #333;
 	text-decoration: none;
 }
 
-.post .page-navigation a.current {
+.page-navigation-wrap a.current {
 	background-color: #ffa200;
 	color: #FFF;
 }
@@ -1452,7 +1521,7 @@ body {
 
 .article-comments-container .comment-title, 
 .article-comments-container .comment-reply-title, 
-..main-right-aside .widget-title {
+.main-right-aside .widget-title {
 	margin-bottom: 10px;
 	color: #333;
 	font-weight: 600;

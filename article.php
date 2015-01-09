@@ -1,13 +1,15 @@
-<div class="post-wrap card">
+<div class="post-wrap <?php echo is_single()? "single-post-wrap": "";?> card"  <?php echo is_single()? 'id="singlePostWrap"': "";?>>
     <?php 
     if ( is_single() ) {
-    ?>
-       <img class="default-thumbnail" src="<?php echo get_post_thumbnail_url($post_id, ''); ?>" style="margin-bottom:
-       -20px;border-top-left-radius:4px;"> 
+    ?> 
+    <div class="post-thumbnail-wrap">
+        <img class="thumbnail" src="<?php echo get_post_thumbnail_url($post_id, ''); ?>"> 
+        <span class="thumbnail-cover"></span>
+    </div>
     <?php
     }
     ?>
-    <article class="post" id="post-<?php the_ID();?>"><!-- Post Begin -->
+    <article class="post <?php echo is_single()? "single-post": "";?>" id="post-<?php the_ID();?>"><!-- Post Begin -->
         <div class="post-top-column post-meta-wrap clear">
             <div class="left-column author-avatar-wrap"><!-- Author Avastar Wrap Begin -->
                 <a class="author-avatar" href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" title="文章作者：<?php the_author(); ?>" alt="文章作者：<?php the_author(); ?>" ><!-- Article Author Begain -->
