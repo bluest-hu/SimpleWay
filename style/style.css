@@ -388,8 +388,8 @@ body {
 	width: 100%;
 	height: 100%;
 	/*background-color: rgba(0, 0, 0, .5);*/
-	background-image: linear-gradient(transparent 0%, rgba(0,0,0,.1));
-	transition: background .4s ease-in;
+	background-image: linear-gradient(transparent 0%, rgba(0,0,0,.0));
+	transition: background .4s ease;
 }
 
 .single-post-wrap .post-thumbnail-wrap .thumbnail {
@@ -399,7 +399,7 @@ body {
 }
 
 .single-post-wrap .single-post {
-	transtion: margin 05s ease;
+	transition: margin 0.8s ease-in-out;
 }
 
 /*======================================== Article Begain ======================================*/
@@ -554,8 +554,10 @@ body {
 	color: #FFA200;
 }
 
-.single-post-wrap.has-thumbnail .author-avatar {
+.single-post-wrap.has-thumbnail .author-avatar img {
 	position: relative;
+	border-radius: 50%;
+	transition: border-radius .5s linear; 
 }
 
 /**** 有缩略图 *****/

@@ -16,7 +16,7 @@
 			</article><!-- Article Ends -->
 		<?php endif;?>
 			</div><!-- Post Ends -->
-			<aside class="main-right-aside right-column"><!-- Right Aside Begin -->
+			<aside class="main-right-aside right-column" id="mainRightAside"><!-- Right Aside Begin -->
 				<?php get_sidebar();?>
 			</aside><!-- Right Aside Ends -->
 		</div><!-- Main Ends -->

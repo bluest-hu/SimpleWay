@@ -21,7 +21,6 @@
 							</div>
 						</div><!-- Description Content Ends -->
 					</div><!-- Tag Card Ends -->
-
 			<?php if(have_posts()):?>
 				<?php while (have_posts()):the_post();?>
 					<?php include( TEMPLATEPATH . '/article.php'); ?>

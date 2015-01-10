@@ -6,7 +6,7 @@ $(document).ready(function () {
 	}
 });
 
-// srcoll to top 
+// scroll to top
 $(document).ready(function() {
 
 	var documentHeight = document.documentElement.offsetHeight || document.body.offsetHeight;
@@ -23,8 +23,8 @@ $(document).ready(function() {
 	$(document).on("scroll", function () {
 
 		var scrollToTopDis = document.documentElement.scrollTop || document.body.scrollTop;
-		// 使得返回顶部按钮在合适的时候出现
 
+		// 使得返回顶部按钮在合适的时候出现
 		if (scrollToTopDis >= parseInt(documentHeight / 4)) {
 			$scrollBtn.fadeIn();
 		} else {
@@ -51,7 +51,7 @@ $(document).ready(function() {
 	});
 });
 
-/*** Fixed TextWeidget ***/
+/*** Fixed TextWedgit ***/
 $(document).ready(function () {
 	
 	var $textwidget = $(".widgets-lists .textwidget");
@@ -95,25 +95,34 @@ $(function () {
 	var offset = paddingOffset + postMetaHeight;
 
 	var image = new Image;
+
 	image.src = $Thumbnail.attr("src");
+
 	$(image).on("load",function() {
 		thumbnailHeight = parseInt($(this).get(0).height);
 
 		var position = (postMetaHeight / thumbnailHeight) * 100 + "%";
 		
-		$ThumnailCover.css({
-			"background-image": "-webkit-linear-gradient(transparent " + position  + ", rgba(0, 0, 0, .7))",
-			"background-image": "-moz-linear-gradient(transparent " + position  + ", rgba(0, 0, 0, .7))",
-			"background-image": "-ms-linear-gradient(transparent " + position  + ", rgba(0, 0, 0, .7))",
-			"background-image": "linear-gradient(transparent " + position  + ", rgba(0, 0, 0, .7))"
-		});
+		var timer= setTimeout(function () {
+			$SinglePostWrap.addClass("has-thumbnail");
+			
+			$Post.css({
+				"marginTop": -offset,
+				"position": "relative"
+			});
+			
+			$ThumnailCover.css({
+				//"background-image": "-webkit-linear-gradient(transparent " + position  + ", rgba(0, 0, 0, .7))",
+				//"background-image": "-moz-linear-gradient(transparent " + position  + ", rgba(0, 0, 0, .7))",
+				//"background-image": "-ms-linear-gradient(transparent " + position  + ", rgba(0, 0, 0, .7))",
+				"background-image": "linear-gradient(transparent " + position  + ", rgba(0, 0, 0, .7))"
+			});
+			// 清除定时器
+			clearTimeout(timer);
+		}, 500);
+
 		
-		$Post.css({
-			"marginTop": -offset,
-			"position": "relative"
-		});
-		
-		$SinglePostWrap.addClass("has-thumbnail");
+
 	});
 });
 

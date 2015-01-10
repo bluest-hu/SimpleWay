@@ -188,57 +188,57 @@ class widget_newcomments extends WP_Widget {
 }
 
 function simpleway_newcomments( $limit ){
-	global $wpdb;
+	// global $wpdb;
 
-    $output = "";
-    // 读取缓存
-	$comments = wp_cache_get( 'my_new_comments' );
-	$sql = "SELECT DISTINCT 
-				ID,
-				post_title,
-				post_password,
-				comment_ID, 
-				comment_post_ID,
-				comment_author,
-				comment_date_gmt,
-				comment_approved, 
-				comment_author_email,
-				comment_type,
-				comment_author_url,
-				comment_content
-			FROM $wpdb->comments 
-				LEFT OUTER JOIN $wpdb->posts 
-				ON ($wpdb->comments.comment_post_ID = $wpdb->posts.ID) 
-				WHERE comment_approved = '1'
-			AND comment_type = ''
-			AND post_password = ''
-			AND user_id  = '0'
-			ORDER BY comment_date_gmt DESC 
-			LIMIT $limit ";
+ //    $output = "";
+ //    // 读取缓存
+	// $comments = wp_cache_get( 'my_new_comments' );
+	// $sql = "SELECT DISTINCT 
+	// 			ID,
+	// 			post_title,
+	// 			post_password,
+	// 			comment_ID, 
+	// 			comment_post_ID,
+	// 			comment_author,
+	// 			comment_date_gmt,
+	// 			comment_approved, 
+	// 			comment_author_email,
+	// 			comment_type,
+	// 			comment_author_url,
+	// 			comment_content
+	// 		FROM $wpdb->comments 
+	// 			LEFT OUTER JOIN $wpdb->posts 
+	// 			ON ($wpdb->comments.comment_post_ID = $wpdb->posts.ID) 
+	// 			WHERE comment_approved = '1'
+	// 		AND comment_type = ''
+	// 		AND post_password = ''
+	// 		AND user_id  = '0'
+	// 		ORDER BY comment_date_gmt DESC 
+	// 		LIMIT $limit ";
 	
-	if ( $comments === false ) {
-		$comments = $wpdb->get_results($sql);
-		wp_cache_set( 'my_new_comments', $comments );
-	}
+	// if ( $comments === false ) {
+	// 	$comments = $wpdb->get_results($sql);
+	// 	wp_cache_set( 'my_new_comments', $comments );
+	// }
 
-	foreach ( $comments as $comment ) {
-		if ( mb_strlen($comment->comment_content, 'utf-8') > 37 ) {
-			$comment->comment_content = mb_substr($comment->comment_content, 0, 37, 'utf-8') . "......";
-		}
+	// foreach ( $comments as $comment ) {
+	// 	if ( mb_strlen($comment->comment_content, 'utf-8') > 37 ) {
+	// 		$comment->comment_content = mb_substr($comment->comment_content, 0, 37, 'utf-8') . "......";
+	// 	}
 
-		$output .= "<li class=\"new-comment-lists\" ><a href=\"" . 
-						get_permalink($comment->ID) . 
-						"#comment-" . $comment->comment_ID . 
-						"\" title=\"" . 
-						$comment->post_title .
-						"上的评论\">" .
-						my_avatar( $comment->comment_author_email, 40) . 
-						"<strong class=\"comment-author\">". strip_tags($comment->comment_author) . 
-						"：</strong>" .
-						strip_tags($comment->comment_content) 
-						."</a></li>";
-	}
-	echo $output;
+	// 	$output .= "<li class=\"new-comment-lists\" ><a href=\"" . 
+	// 					get_permalink($comment->ID) . 
+	// 					"#comment-" . $comment->comment_ID . 
+	// 					"\" title=\"" . 
+	// 					$comment->post_title .
+	// 					"上的评论\">" .
+	// 					my_avatar( $comment->comment_author_email, 40) . 
+	// 					"<strong class=\"comment-author\">". strip_tags($comment->comment_author) . 
+	// 					"：</strong>" .
+	// 					strip_tags($comment->comment_content) 
+	// 					."</a></li>";
+	// }
+	// echo $output;
 };
 
 
@@ -347,69 +347,69 @@ function get_post_thumbnail_url ( $post_ID, $default_thumbnail_url = "" ) {
  */
 function get_most_comments_friends($config) {
 
-	$config['container'] 		= !empty($config['container']) ? $config['container'] : "";
-	$config['container_class'] 	= !empty($config['container_class']) ? $config['container_class'] : "most-comments-friend-wall";
-	$config['container_id']		= !empty($config['container_id']) ? $config['container_id'] : "MostCommentsFirendsWall";
-	$config['echo']				= !empty($config['echo']) ? !!$config['echo'] : false;
-	$config['before']			= !empty($config['before']) ? $config['before'] : "li";
-	$config['number'] 			= !empty($config['number']) ? $config['number'] : 15;
-	$config['size'] 			= !empty($config['size']) ? $config['size'] : 45;
-	$config['time']				= !empty($config['time']) ? $config['time'] : 3;
+	// $config['container'] 		= !empty($config['container']) ? $config['container'] : "";
+	// $config['container_class'] 	= !empty($config['container_class']) ? $config['container_class'] : "most-comments-friend-wall";
+	// $config['container_id']		= !empty($config['container_id']) ? $config['container_id'] : "MostCommentsFirendsWall";
+	// $config['echo']				= !empty($config['echo']) ? !!$config['echo'] : false;
+	// $config['before']			= !empty($config['before']) ? $config['before'] : "li";
+	// $config['number'] 			= !empty($config['number']) ? $config['number'] : 15;
+	// $config['size'] 			= !empty($config['size']) ? $config['size'] : 45;
+	// $config['time']				= !empty($config['time']) ? $config['time'] : 3;
 
-	global $wpdb;
+	// global $wpdb;
   	
-  	$counts = wp_cache_get( 'simpleway_mostactive' );
+ //  	$counts = wp_cache_get( 'simpleway_mostactive' );
 
-  	$query = "	SELECT 
-  					COUNT(comment_author) AS cnt,
-  					comment_author, 
-  					comment_author_url, 
-  					comment_author_email
-  				FROM {$wpdb->prefix}comments
-  				WHERE comment_date > date_sub( NOW(), INTERVAL {$config['time']} MONTH )
-        		AND comment_approved = '1'
-        		AND comment_author_email != 'example@example.com'
-        		-- AND comment_author_url != ''
-        		AND comment_type = ''
-        		AND user_id = '0'
-    			GROUP BY comment_author_email
-    			ORDER BY cnt DESC
-    			LIMIT {$config['number']}";
+ //  	$query = "	SELECT 
+ //  					COUNT(comment_author) AS cnt,
+ //  					comment_author, 
+ //  					comment_author_url, 
+ //  					comment_author_email
+ //  				FROM {$wpdb->prefix}comments
+ //  				WHERE comment_date > date_sub( NOW(), INTERVAL {$config['time']} MONTH )
+ //        		AND comment_approved = '1'
+ //        		AND comment_author_email != 'example@example.com'
+ //        		-- AND comment_author_url != ''
+ //        		AND comment_type = ''
+ //        		AND user_id = '0'
+ //    			GROUP BY comment_author_email
+ //    			ORDER BY cnt DESC
+ //    			LIMIT {$config['number']}";
 
 
-  	if ( false === $counts ) {
-    	$counts = $wpdb->get_results($query);
-    	wp_cache_set( 'simpleway_mostactive', $counts );
-  	}
+ //  	if ( false === $counts ) {
+ //    	$counts = $wpdb->get_results($query);
+ //    	wp_cache_set( 'simpleway_mostactive', $counts );
+ //  	}
 
-  	$mostactive = '';
+ //  	$mostactive = '';
 
-	if ( $counts ) {
-  		$mostactive .= "<ul class=\"{$config['container_class']}\" id=\"{$config['container_id']}\">";
+	// if ( $counts ) {
+ //  		$mostactive .= "<ul class=\"{$config['container_class']}\" id=\"{$config['container_id']}\">";
 
-  		wp_cache_set( 'simpleway_mostactive', $counts );
+ //  		wp_cache_set( 'simpleway_mostactive', $counts );
   		
-  		$_index = 1;
+ //  		$_index = 1;
   		
-    	foreach ($counts as $count) {
-      		$c_url 		= $count->comment_author_url != "" ? $count->comment_author_url : get_bloginfo('url');
-      		$c_count	= $count->cnt;
-      		$c_author 	= $count->comment_author;
-      		$c_email 	= $count->comment_author_email;
+ //    	foreach ($counts as $count) {
+ //      		$c_url 		= $count->comment_author_url != "" ? $count->comment_author_url : get_bloginfo('url');
+ //      		$c_count	= $count->cnt;
+ //      		$c_author 	= $count->comment_author;
+ //      		$c_email 	= $count->comment_author_email;
 
-     		$mostactive .= "<li id=\"mostActivePeople-{$_index}\" class=\"most-active-people\"><a href=\"{$c_url}\" title=\"{$c_author} 发表 {$c_count} 条评论\" rel=\"nofollow\" target=\"_blank\">" . 
-	     		my_avatar($c_email, $config['size']) . "</a></li>";
+ //     		$mostactive .= "<li id=\"mostActivePeople-{$_index}\" class=\"most-active-people\"><a href=\"{$c_url}\" title=\"{$c_author} 发表 {$c_count} 条评论\" rel=\"nofollow\" target=\"_blank\">" . 
+	//      		my_avatar($c_email, $config['size']) . "</a></li>";
    			
-   			$_index++;
-   		}
-   		$mostactive .="</ul>";
- 	}
+ //   			$_index++;
+ //   		}
+ //   		$mostactive .="</ul>";
+ // 	}
 
-	if ( $config['echo'] ) {
-		echo $mostactive;
-	} else {
-		return $mostactive;
-	}
+	// if ( $config['echo'] ) {
+	// 	echo $mostactive;
+	// } else {
+	// 	return $mostactive;
+	// }
 }
 
 // 时间可读

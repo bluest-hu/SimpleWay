@@ -1,7 +1,7 @@
 <?php get_header();?>
-		<div class="main">
-			<div class="content clear">
-				<div class="post left-column">
+		<div class="main-content clear" id="mainContent">
+			<div class="main-left-part post-list left-column" id="mainLeftPart">
+				<div class="post-list left-column">
 					<div class="card tag description">
 						<div class="description-content clear">
 							<img class="description-image left-column" src="<?php echo get_stylesheet_directory_uri(); ?>/image/logo.png" alt="分类 <?php single_cat_title('', true); ?> 下的文章" title="分类 <?php single_cat_title('', true); ?> 下的文章">
@@ -29,6 +29,7 @@
 				<nav class="page-navigation">
 					<?php page_navigation(8); ?><!-- Article Navigation Ends-->
 				</nav> <!-- Article Navigation Ends-->
+			</div>
 			<?php else:?>
 				<article class="article" id="post-<?php the_ID();?>"><!-- Article Begain -->
 					<div>
@@ -38,7 +39,7 @@
 			<?php endif;?>
 				</div><!-- Post Ends -->
 				
-				<aside class="aside right-column"><!-- Right Aside Begain -->
+				<aside class="main-right-aside right-column" id="mainRightAside"><!-- Right Aside Begain -->
 					<?php get_sidebar();?>
 				</aside><!-- Right Aside Ends -->
 
