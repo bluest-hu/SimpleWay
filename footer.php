@@ -41,4 +41,15 @@
 		</footer><!-- Footer Ends -->
 	</div><!-- Wrap Ends -->
 </body>
+<?php if (get_option('simple_way_analytics')!="") {
+	echo trim(stripslashes(get_option('simple_way_analytics')));
+}?>
+<?php 
+// 统计文件
+if (is_single()) { 
+	if (get_option('simple_way_single_script') != '') {
+		echo trim(stripslashes(get_option('simple_way_single_script')));
+	}
+} 
+?>
 </html>

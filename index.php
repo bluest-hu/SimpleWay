@@ -21,4 +21,4 @@
 			</aside><!-- Right Aside Ends -->
 		</div><!-- Main Ends -->
 		<!-- Footer Begin -->
-		<?php get_footer(  ); ?>
+		<?php get_footer(); ?>

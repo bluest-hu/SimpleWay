@@ -9,7 +9,7 @@
     <?php
     }
     ?>
-    <article class="post <?php echo is_single()? "single-post": "";?>" id="post-<?php the_ID();?>"><!-- Post Begin -->
+    <article <?php echo is_single()? post_class("single-post") : post_class() ;?>" id="post-<?php the_ID();?>"><!-- Post Begin -->
         <div class="post-top-column post-meta-wrap clear">
             <div class="left-column author-avatar-wrap"><!-- Author Avastar Wrap Begin -->
                 <a class="author-avatar" href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" title="文章作者：<?php the_author(); ?>" alt="文章作者：<?php the_author(); ?>" ><!-- Article Author Begain -->
@@ -22,10 +22,10 @@
                 </h1><!-- post Title End -->
                 <div class="bottom-column post-meta clear">
                     <div class="left-column post-category clear">
-                        <span class="icons ion-ios7-folder-outline"></span>
+                        <span class="icon ion-ios-folder-outline"></span>
                         <?php the_category(' / ') ?>
                     </div><!--Category End -->
-                    <div class="right-column post-time"><span class="icons ion-ios7-clock-outline"></span><time class="post-time-date"><?php the_time('Y-m-d') ?></time></div><!--post Time End-->
+                    <div class="right-column post-time"><span class="icon ion-ios-clock-outline"></span><time class="post-time-date"><?php the_time('Y-m-d') ?></time></div><!--post Time End-->
                 </div><!-- Left Column Begin -->
             </div><!-- Left Column Ends -->
         </div><!-- post Top Column Ends -->
@@ -36,13 +36,13 @@
 
         <div class="post-column-bottom post-meta clear">
             <div class="post-tags left-column clear">
-                <span class="icons ion-ios7-pricetags-outline"></span>
+                <span class="icon ion-ios-pricetags-outline"></span>
                 <div class="tag-list clear">
                     <?php the_tags("", " "); ?>
                 </div>
             </div><!-- post Tags End -->
             <div class="post-comment right-column">
-                <span class="icons ion-ios7-chatboxes-outline"></span><?php comments_popup_link('木有评论', '1 条评论', '% 条评论'); ?>
+                <span class="icon ion-ios-chatboxes-outline"></span><?php comments_popup_link('木有评论', '1 条评论', '% 条评论'); ?>
             </div><!-- Comments End -->
         </div><!-- post Bottom Column Ends -->
     </article><!-- post Ends -->

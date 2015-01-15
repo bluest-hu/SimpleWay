@@ -3,19 +3,19 @@
   <head>
   <?php if ( is_home() ) { ?>
     <title><?php bloginfo('name'); ?> - <?php bloginfo('description'); ?></title>
-    <?php if ( get_option('simple_way_index_keywords' ) != '' ) { ?>
+  <?php if ( get_option('simple_way_index_keywords' ) != '' ) { ?>
     <meta name="keywords" content="<?php echo trim(get_option('simple_way_index_keywords')); ?>" />
-    <?php } ?>
-    <?php if ( get_option('simple_way_index_description') != '' ) { ?>
+  <?php } ?>
+  <?php if ( get_option('simple_way_index_description') != '' ) { ?>
     <meta name="description" content="<?php echo trim(get_option('simple_way_index_description')); ?>" />
-    <?php } ?>
+  <?php } ?>
   <?php } ?>
   <?php if ( is_search() ) { ?>
     <title>搜索结果 | <?php bloginfo('name'); ?></title>
   <?php } ?>
-  <?php if ( is_single() ) { ?>
+<?php if ( is_single() ) { ?>
     <title><?php echo trim(wp_title('', 0)); ?> | <?php bloginfo('name'); ?></title>
-  <?php } ?>
+<?php } ?>
   <?php if ( is_page() ) { ?>
     <title><?php echo trim(wp_title('', 0)); ?> | <?php bloginfo('name'); ?></title>
   <?php } ?>
@@ -26,9 +26,9 @@
     <title><?php the_time('F'); ?> | <?php bloginfo('name'); ?></title>
   <?php } ?>
   <?php if ( is_tag() ) { ?>
-  <title><?php  single_tag_title("", true); ?> | <?php bloginfo('name'); ?></title>
-  <meta name="keywords" content="<?php single_tag_title("", true); ?>" />
-  <meta name="description" content="<?php echo mb_substr(tag_description(), 36); ?>" />
+    <title><?php  single_tag_title("", true); ?> | <?php bloginfo('name'); ?></title>
+    <meta name="keywords" content="<?php single_tag_title("", true); ?>" />
+    <meta name="description" content="<?php echo mb_substr(tag_description(), 36); ?>" />
   <?php } ?>
     <?php
       if (!function_exists('utf8Substr')) {
@@ -64,6 +64,7 @@
     <meta name="description" content="<?php echo trim($description); ?>" />
     <meta name="keywords" content="<?php echo rtrim($keywords,','); ?>" />
   <?php } ?>
+    <meta charset="<?php bloginfo('charset'); ?>" />
     <meta http-equiv="Content-Type" content="<?php bloginfo( 'html_type' ); ?>; charset=<?php bloginfo('charset'); ?>" />
     <meta name="generator" content="WordPress" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -78,15 +79,6 @@
     <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/script/jquery-2.0.3.min.js"></script>
     <!-- 博客所用 JavaScript 文件 -->
     <script type="text/javascript" async="async" src="<?php echo get_stylesheet_directory_uri(); ?>/script/script.js"></script>
-  <?php if (get_option('simple_way_analytics')!="") {
-    echo trim(stripslashes(get_option('simple_way_analytics')));
-  }?>
-
-  <?php if ( is_single() ) { 
-  if (get_option('simple_way_single_script') != '') {
-    echo trim(stripslashes(get_option('simple_way_single_script')));
-    }
-  } ?>
   </head>
   <body>
     <div class="main-wrap" id="mainWrap"><!-- Blog Wrap Begin -->
@@ -105,4 +97,3 @@
           </div><!-- Header Bottom Ends -->
         </div><!-- Blog Header Content Ends -->
       </header><!-- Blog Header Ends -->
-    

@@ -1,10 +1,10 @@
  <li class="tab">
     <div class="tab-switcher">
         <ul class="tab-swither-container">
-            <li class="current tab-switcher-list"><span class="icons ion-ios7-calendar-outline"></span>日历</li>
-            <li class="tab-switcher-list"><span class="icons ion-ios7-time-outline"></span>近期文章</li>
-            <li class="tab-switcher-list"><span class="icons ion-ios7-cloud-outline"></span>标签云</li>
-            <li class="tab-switcher-list"><span class="icons ion-ios7-filing-outline"></span>分类</li>
+            <li class="current tab-switcher-list"><span class="icon ion-ios-calendar-outline"></span>日历</li>
+            <li class="tab-switcher-list"><span class="icon ion-ios-time-outline"></span>近期文章</li>
+            <li class="tab-switcher-list"><span class="icon ion-ios-cloud-outline"></span>标签云</li>
+            <li class="tab-switcher-list"><span class="icon ion-ios-filing-outline"></span>分类</li>
         </ul>
     </div>
     <div class="tab-container">

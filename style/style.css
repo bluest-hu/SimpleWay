@@ -6,6 +6,8 @@
 
 /*======================================== Reset Begin ======================================*/
 body {
+ 	-webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 	font: normal 16px/1.5 'Microsoft Yahei', Tahoma, Arial, Helvetica, STHeiti;
 }
 
@@ -423,60 +425,78 @@ body {
 
 /************************************** Post Title ***************************************/
 .post .post-title {
-	min-height: 30px;
-	max-width: 530px;
-}
-
-.post .post-title {
 	position: relative;
-	top: -3px;
+	top: -2px;
+	min-height: 35px;
+	max-width: 530px;
 	line-height: 0;
 }
 
-.post .post-title .post-url {
+.post-title .post-url {
 	text-decoration: none;
-	font: bold 24px/30px "Microsoft Yahei", Arial;
+	font: normal 28px/35px "Microsoft Yahei", Arial;
 	color: #555;
-	transition: color .6s ease;
+	transition: color .5s ease;
 }
 
-.post .post-title .post-url:hover {
-	color: #444;
+.post-title .post-url:hover {
+	color: #333;
 }
 /************************************** Post Ends ***************************************/
 
 /************************************** Post Icons ***************************************/
-.post .post-meta .icons {
+.post-meta .icon {
 	float: left;
 	display: block;
 	min-width: 10px;
-	height: 20px;
+	height: 15px;
 	margin-right: 5px;
-	font-size: 0;
-	line-height: 20px;
+	font-size: 0px;
+	line-height: 15px;
 }
 
-.post .icons::before {
+.post-meta .icon::before {
 	font-size: 20px;
-	line-height: 20px;
+	line-height: 15px;
 	display: block;
+	font-family: "Ionicons";
 }
 
-.post-time .ion-ios7-clock-outline::before {
-	font-size: 17px
+.post-column-bottom.post-meta .icon {
+	height: 20px;
+	line-height: 20px;
 }
+
+.post-column-bottom.post-meta .icon::before {
+	line-height: 20px;
+}
+
+/* 特殊时间 */
+.post-category .icon::before {
+	font-size: 15px;
+}
+
 /************************************** Post Icons Ends ************************************/
 .post .post-meta {
 	width: 530px;
-	min-height: 20px;
+	min-height: 15px;
 	font-size: 12px;
-	line-height: 20px;
+	line-height: 15px;
 	color: #999;
 	position: relative;
-	top:3px;
+	bottom: -1px;
 }
 
-.post .post-category .icons {
+/* 特殊底部Post Meta */
+.post .post-column-bottom.post-meta {
+	line-height: 20px;
+	min-height: 20px;
+	bottom: 0;
+} 
+
+/* 特殊化分类 */
+.post-tags .icons，
+.post-category .icons {
 	float: left;
 	display: table-cell;
 }
@@ -494,49 +514,54 @@ body {
 .post .post-comment {
 	display: inline-block;
 	color: #A3A3A3;
-	font:normal 12px/20px Arial,"宋体","Microsoft Yahei"; 
+	font:normal 12px/15px Arial, "宋体","Microsoft Yahei"; 
+}
+
+.post .post-comment {
+	line-height: 20px;
 }
 
 .post .post-time-date,
 .post .post-meta a {
 	color: inherit;
+	line-height: inherit;
 }
 
 .post .post-meta a:hover {
 	color: #FFA200;
 }
 
+
 .post .post-column-bottom {
 	padding: 15px 0 0 0;
 	width: 590px;
 	min-height: 20px;
+	line-height: 20px;
 }
 
-.post-meta .post-tags .tag-list {
+/* tag 换行 */
+.post-tags .tag-list {
 	width: 480px;
 	float: left;
 	margin-left: 0;
 }
 
-.post-tags .icons {
-	display: table-cell;
-}
-
-.post-meta .post-tags a {
+/* 每个 tag */
+.post-tags .tag-list a {
 	padding: 0 8px;
 	border-radius: 10px;
 	color: #4AA5FD;
 	border: 1px solid #4AA5FD;
 	display: block;
 	float: left;
-	line-height: 18px;
-	height: 18px;
+	line-height: 17px;
+	height: 17px;
 	font-size: 12px;
-	margin-bottom: 2px;
+	margin: 1px 0;
 	margin-right: 3px;
 }
 
-.post-meta .post-tags a:hover {
+.post-tags .tag-list a:hover {
 	background-color: #4AA5FD;
 	color: #FFF;
 	text-decoration: none;
@@ -590,6 +615,7 @@ body {
 	margin: 15px 0;
 	color: #333;
 	line-height: 1.6;
+	font-weight: normal;
 }
 
 .entry h1 {
@@ -609,7 +635,8 @@ body {
 	margin: 10px 0;
 	color: #555;
 	font: normal 14px/25px "Microsoft Yahei",SimHei,YouYuan,STHeiti;
-	/*text-indent: 1em;*/
+	text-align: justify;
+	text-indent: 1em;
 }
 
 .entry p:after {
@@ -722,8 +749,22 @@ body {
 
 .entry img {
 	margin-top: 5px;
+	padding: 5px;''
 	border: 1px solid #EEE;
-	/*box-shadow: 0 0 1px rgba(0,0,0,.1);*/
+	box-shadow: 0 0 1px rgba(0,0,0,.1);
+}
+
+.entry .video {
+	background: #333;
+	padding: 20px 0;
+	width: 650px;
+	margin: 0px 0 0 -30px;
+	border-bottom: 1px solid #111;
+}
+
+.entry embed {
+	display: block;
+	margin: 0 auto;
 }
 
 /************************* Article *******************/
@@ -770,6 +811,7 @@ body {
 
 .entry .site-info img {
 	display: block;
+	padding: 0;
 	margin: 0;
 	box-shadow: none;
 }
@@ -864,8 +906,8 @@ body {
 	width: 340px; 
 }
 
-.main-right-aside ul li,
-.main-right-aside li a {
+.main-right-aside li,
+.main-right-aside  a {
 	color: #666;
 	font-size: 13px;
 	line-height: 25px;
@@ -899,24 +941,31 @@ body {
 }
 
 /************************************** Blog Roll ***************************************/
-.main-right-aside .widgets-lists ul.blogroll,
-.main-right-aside .widgets-lists ul.blogroll li,
-.tab-container .tab-content .tab-content-list ul.blogroll, 
-.tab-container .tab-content .tab-content-list ul.blogroll li {
-	list-style: disc;
+.main-right-aside .blogroll {
+	margin-left: 20px;
 }
 
-.blogroll li,
-.main-right-aside .widgets-lists ul.blogroll li,
-.tab-container .tab-content .tab-content-list ul.blogroll li {
-	/*margin-right: 5px;*/
+.blogroll:after {
+	display: block;
+	content: "";
+	width: 0;
+	height: 0;
+	clear: both;
 }
 
-.blogroll li {
-	/*display: block;*/
+.main-right-aside .blogroll li {
+	line-height: 25px;
+	width: 50%;
+	float: left;
+	list-style-type: disc;
 }
 
-.blogroll li a img {
+.blogroll li a {
+	line-height: inherit;
+}
+
+
+.blogroll  img {
 	display: inline-block;
 	margin-bottom: 4px;
 	width: 16px;
@@ -936,14 +985,27 @@ body {
 }
 
 /************************************** Category List ***************************************/
-.main-right-aside .category-list .cat-item a {
-	font-weight: normal;
+.main-right-aside .category-list  {
+	list-style: none;
 }
 
-.main-right-aside .category-list .cat-item .children li.cat-item a {
-	font-weight: lighter;
-} 
+.main-right-aside .cat-item a {
+	font-weight: normal;
+	line-height: 25px;
+}
 
+.main-right-aside .cat-item::before {
+	content: "\f139";
+	font-family: "Ionicons";
+	font-size: 20px;
+	line-height: 25px;
+	margin-right: 5px;
+	display: block;
+	float: left;
+}
+
+/*.main-right-aside .category-list .cat-item .children li.cat-item a {
+	font-weight: lighter;
 /************************************** Siderbar Most Comment Wall ***************************************/
 .main-right-aside .widgets-lists ul.most-comments-friend-wall,
 .main-right-aside .widgets-lists ul.most-comments-friend-wall li.most-active-people,
@@ -1116,7 +1178,7 @@ body {
 /**************************************************************************************************/
 /****************************************** Tab Switcher ******************************************/
 /**************************************************************************************************/
-.main-right-aside ul .tab {
+.main-right-aside .tab {
 	margin-bottom: 10px;
 }
 
@@ -1124,52 +1186,53 @@ body {
 	margin-bottom: -1px;
 }
 
-.tab .tab-switcher .tab-swither-container {
+.tab .tab-swither-container {
 	margin: 0;
 	list-style: none;
-	font-size: 0;
+	height: 35px;
+	overflow: hidden;
 } 
 
-.tab .tab-switcher .tab-switcher-list {
-	display: inline-block;
-	padding: 2px 13px;
-	border: 1px solid rgba(0, 0, 0, 0);
+.tab .tab-switcher-list {
+	float: left;
+	max-width: 85px;
+	padding: 0px 13px;
+	height: 35px;
 	color: #999;
 	font-weight: normal;
-	font-size: 14px;
-	line-height: 30px;
-	transition: color .2s linear;
+	font-size: 13px;
+	line-height: 35px;
+	transition: color .4s linear;
 }
 
-.tab .tab-switcher .tab-swither-container.icons {
-	line-height: 30px;
-	font-size: inherit;
+.tab-switcher-list .icon {
+	line-height: inherit;
+	font-size: 0;
 }
 
-.tab .tab-switcher  .tab-swither-container  .tab-switcher-list  .icons:before {
-	font-size: 18px;
+.tab-switcher-list .icon::before {
+	display: block;
+	margin-right: 5px;
+	float: left;
+	font-size: 20px;
 	line-height: inherit;
 	font-weight: normal;
-	display: block;
-	float: left;
-	padding-right: 4px;
 	vertical-align: middle;
 }
 
-.tab .tab-switcher .tab-switcher-list:hover {
+.tab .tab-switcher-list:hover {
 	color: #333;
 	cursor: pointer;
 }
 
-.tab .tab-switcher .tab-switcher-list.current {
-	border-bottom: 1px solid transparent;
+.tab .tab-switcher-list.current {
 	border-top-left-radius: 3px;
 	border-top-right-radius: 3px;
 	background-color: #FFF;
 	color: #333;
 }
 
-.tab .tab-switcher .tab-switcher-list.current:hover {
+.tab .tab-switcher-list.current:hover {
 	cursor: auto;
 }
 
@@ -1178,28 +1241,36 @@ body {
 	border-radius: 2px;
 }
 
-.tab .tab-container .tab-content {
+.tab .tab-content {
 	margin: 0;
 	padding: 15px 20px 20px 20px;
 	background-color: #FFF;
 	box-shadow: 0 1px 1px rgba(0, 0, 0 , .1);
 }
 
-.tab .tab-container .tab-content .tab-content-list {
+.tab .tab-content-list {
 	display: none;
 	margin: 0;
 	padding: 0;
 	list-style: none;
 }
 
-.tab-container .tab-content .tab-content-list ul,
-.tab-container .tab-content .tab-content-list ul li {
+.tab-content-list li {
 	margin: 0 0 0 10px;
 	list-style-type: disc;
 }
 
-.tab .tab-container .tab-content .tab-content-list.current {
+.tab .tab-content-list.current {
 	display: block;
+}
+
+/****** 四合一小工具 图标修复 ******/
+.tab-switcher-list .ion-ios-time-outline::before {
+	font-size: 18px;
+}
+
+.tab-switcher-list .ion-ios-filing-outline::before {
+	font-size: 22px;
 }
 
 /*============================================================================================*/
