@@ -5,20 +5,19 @@
 			<?php while (have_posts()):the_post();?>
 				<?php include( TEMPLATEPATH . '/article.php'); ?>
 			<?php endwhile;?>
-			<nav class="post-page-nav"><!-- Article Navigation Begin-->
+			<nav class="post-page-nav">
 				<?php page_navigation(8); ?>
-			</nav> <!-- Article Navigation Ends-->
+			</nav>
 		<?php else:?>
-			<article class="article" id="post-<?php the_ID();?>"><!-- Article Begain -->
+			<article class="article" id="post-<?php the_ID();?>">
 				<div>
 					<h2><?php _e("Not Found");?></h2> 
 				</div>
-			</article><!-- Article Ends -->
+			</article>
 		<?php endif;?>
-			</div><!-- Post Ends -->
+			</div>
 			<aside class="main-right-aside right-column" id="mainRightAside"><!-- Right Aside Begin -->
 				<?php get_sidebar();?>
-			</aside><!-- Right Aside Ends -->
-		</div><!-- Main Ends -->
-		<!-- Footer Begin -->
+			</aside>
+		</div>
 		<?php get_footer(); ?>

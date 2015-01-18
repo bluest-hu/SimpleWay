@@ -9,15 +9,15 @@
     <?php
     }
     ?>
-    <article <?php echo is_single()? post_class("single-post") : post_class() ;?>" id="post-<?php the_ID();?>"><!-- Post Begin -->
+    <article <?php echo is_single()? post_class("single-post") : post_class() ;?> id="post-<?php the_ID();?>">
         <div class="post-top-column post-meta-wrap clear">
-            <div class="left-column author-avatar-wrap"><!-- Author Avastar Wrap Begin -->
+            <div class="left-column author-avatar-wrap">
                 <a class="author-avatar" href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" title="文章作者：<?php the_author(); ?>" alt="文章作者：<?php the_author(); ?>" ><!-- Article Author Begain -->
                     <?php echo my_avatar( get_the_author_email(), 50, ""); ?>
                 </a><!-- Article Author Ends -->
             </div><!-- Author Avastar Wrap Ends -->
             <div class="left-column fix-width">
-                <h1 class="post-title top-column"><!-- post Title Begain -->
+                <h1 class="post-title top-column">
                     <a class="post-url" href="<?php the_permalink();?>" title="<?php the_title();?>"><?php the_title(); ?></a>
                 </h1><!-- post Title End -->
                 <div class="bottom-column post-meta clear">

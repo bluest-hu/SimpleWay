@@ -77,7 +77,7 @@ $(function () {
 	var $SinglePostWrap = $("#singlePostWrap");
 
 	// 如果是非文章页面 那么不处理
-	if ( !$SinglePostWrap ) {
+	if ( !$SinglePostWrap.length ) {
 		return;
 	}
 
@@ -175,5 +175,37 @@ function tabSwitcher() {
         });
     });
 }
+
+
+$(function () {
+	var $CatItems = $("#sidebar .cat-item");
+	$CatItems.each(function (index, element) {
+		var $CatItem = $(element);
+		if ( $CatItem.children(".children").length ) {
+			$CatItem.addClass("active");
+		}
+	});
+
+	$CatItems.hover(function () {
+		var $This = $(this);
+		var $Children = $This.children(".children");
+		
+		if ( $Children.length ) {
+			$This.children(".children").slideDown("fast", function () {
+				$This.removeClass("active");
+			});
+		}
+	}, function () {
+		var $This = $(this);
+		var $Children = $This.children(".children");
+		
+		if ( $Children.length ) {
+			$This.children(".children").slideUp("slow", function () {
+				$This.addClass("active");
+			});
+		}
+	
+	});
+});
 
 

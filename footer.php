@@ -22,7 +22,7 @@
 				?>
 				<div class="column clear">
 					<p class="copy-right left-column"><!-- Copy Right Begin -->
-						Copyright © <a class="blog-link" href="" title="链递阁" >链递阁</a>
+						Copyright © <a class="blog-link" href="<?php bloginfo("url"); ?>" title="<?php bloginfo("name"); ?>"><?php bloginfo("name"); ?></a>
 					</p><!-- Copy Right Ends -->
 					<p class="designer right-column"><!-- Blog Designer Begin -->
 						<a href="<?php echo wp_get_theme()->display('ThemeURI');?>" title="访问主题页面"><?php echo wp_get_theme()->display('Name');?></a><!--

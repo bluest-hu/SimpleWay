@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
   <head>
   <?php if ( is_home() ) { ?>
     <title><?php bloginfo('name'); ?> - <?php bloginfo('description'); ?></title>
@@ -69,31 +69,26 @@
     <meta name="generator" content="WordPress" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/style/normalize.css">
-    <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/style/ionicons.min.css">
-    <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/style/style.css">
-    <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/style/mobile.min.css">
+    <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/style/style.min.css">
     <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name');?>&raquo;Feed" href="<?php bloginfo('rss2_url');?>" />
     <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name');?>&raquo;评论&raquo;Feed" href="<?php bloginfo('comments_rss2_url'); ?>comments/feed" />
-    <!-- jQuery -->
     <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/script/jquery-2.0.3.min.js"></script>
-    <!-- 博客所用 JavaScript 文件 -->
-    <script type="text/javascript" async="async" src="<?php echo get_stylesheet_directory_uri(); ?>/script/script.js"></script>
+    <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/script/script.js"></script>
   </head>
   <body>
-    <div class="main-wrap" id="mainWrap"><!-- Blog Wrap Begin -->
-      <header class="main-header"><!-- Blog Header Begin -->
-        <div class="header-content"><!-- Blog Header Content Begin -->
-          <div class="header-top-column"><!--Header Top Column Begin -->
-            <h1 class="blog-title"><!-- Blog Title Begin -->
+    <div class="main-wrap" id="mainWrap">
+      <header class="main-header">
+        <div class="header-content">
+          <div class="header-top-column">
+            <h1 class="blog-title">
               <a class="link" href="<?php bloginfo('url');?>"> <?php bloginfo('name'); ?> </a>
-            </h1><!-- Blog Header Title Ends --><span class="blog-description"><?php echo bloginfo('description') ?></span>
-          </div><!--Header Top Column End -->
-          <div class="header-bottom-column clear"><!-- Header Bottom Begin -->
+            </h1><span class="blog-description"><?php echo bloginfo('description') ?></span>
+          </div>
+          <div class="header-bottom-column clear">
             <?php get_template_part('nav'); ?>
             <div class="search-form top-search-form right-column">
               <?php get_search_form(); ?>
             </div>
-          </div><!-- Header Bottom Ends -->
-        </div><!-- Blog Header Content Ends -->
-      </header><!-- Blog Header Ends -->
+          </div>
+        </div>
+      </header>

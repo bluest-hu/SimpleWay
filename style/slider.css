@@ -1,0 +1,303 @@
+/*========================================================================================*/
+/*======================================== Siderbar ======================================*/
+/*========================================================================================*/
+.main-right-aside {
+	margin-top: 10px;
+	margin-left: 10px;
+	width: 340px; 
+}
+
+.main-right-aside li,
+.main-right-aside  a {
+	color: #666;
+	font-size: 13px;
+	line-height: 25px;
+	transition: color .2s ease;
+}
+
+.main-right-aside  ul li a:hover {
+	color: #FFA200;
+}
+
+.main-right-aside ul, .main-right-aside ul li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.main-right-aside .widgets-lists {
+	margin: 0 0 10px 0;
+	padding: 20px;
+	border-radius: 2px;
+	background-color: #FFF;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
+}
+
+.main-right-aside .widgets-lists .textwidget {
+	text-align: center;
+}
+
+.main-right-aside .widgets-lists ul {
+	padding: 0 0 0 5px;
+}
+
+/************************************** Blog Roll ***************************************/
+.main-right-aside .blogroll {
+	margin-left: 20px;
+}
+
+.blogroll:after {
+	display: block;
+	content: "";
+	width: 0;
+	height: 0;
+	clear: both;
+}
+
+.main-right-aside .blogroll li {
+	line-height: 25px;
+	width: 50%;
+	float: left;
+	list-style-type: disc;
+}
+
+.blogroll li a {
+	line-height: inherit;
+}
+
+
+.blogroll  img {
+	display: inline-block;
+	margin-bottom: 4px;
+	width: 16px;
+	height: 16px;
+	vertical-align: middle;
+	line-height: 25px;
+}
+
+/***** inside list *****/
+.main-right-aside .widgets-lists ul, 
+.main-right-aside .widgets-lists ul li {
+	margin: 0 0 0 5px;
+	/*list-style-type: disc;*/
+}
+
+.main-right-aside .widgets-lists ul li ul {
+	padding: 0 0 0 5px;
+}
+
+/************************************** Category List ***************************************/
+
+.main-right-aside .category-list  {
+	padding-left: 15px;
+	list-style: none;
+}
+
+.main-right-aside .cat-item {
+	list-style: none;
+}
+
+.main-right-aside .cat-item .children {
+	margin-left: 10px;
+	display: none;
+}
+
+.main-right-aside .cat-item a {
+	font-weight: normal;
+	line-height: 25px;
+}
+
+.main-right-aside .cat-item::before {
+	content: "\f434";
+	font-family: "Ionicons";
+	font-size: 16px;
+	line-height: 25px;
+	margin-right: 5px;
+	display: block;
+	float: left;
+	transition: all .5s ease-in;
+}
+
+.main-right-aside .cat-item.active::before {
+	content: "\f435";
+}
+
+/*.main-right-aside .category-list .cat-item .children li.cat-item a {
+	font-weight: lighter;
+/************************************** Siderbar Most Comment Wall ***************************************/
+.main-right-aside .widgets-lists ul.most-comments-friend-wall,
+.main-right-aside .widgets-lists ul.most-comments-friend-wall li.most-active-people,
+.tab-container .tab-content .tab-content-list ul.most-comments-friend-wall,
+.tab-container .tab-content .tab-content-list ul.most-comments-friend-wall li.most-active-people {
+	margin: 0;
+	padding: 0;
+	list-style: none;	
+}
+
+.most-comments-friend-wall {
+	overflow: hidden;
+}
+
+.most-comments-friend-wall .most-active-people {
+	float: left;
+}
+
+.most-comments-friend-wall .most-active-people a {
+	display: block;
+	margin: 0 5px 5px 0;
+}
+
+.most-comments-friend-wall .most-active-people:nth-child(7n+7) a {
+	margin-right: 0;
+}
+
+.most-comments-friend-wall .most-active-people .avatar {
+	display: block;
+	border-radius: 3px;
+	box-shadow: 0 0 1px rgba(0, 0, 0, .2);
+} 
+
+.most-comments-friend-wall .most-active-people .avatar:hover {
+	-webkit-filter: blur(1px);
+	-moz-filter: blur(1px);
+	-ms-filter: blur(1px);
+	filter: blur(1px);
+}
+
+/************************************** Siderbar Calendar ***************************************/
+#wp-calendar {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+#wp-calendar caption {
+	border-top: 1px solid rgba(0, 0, 0, .1);
+	border-bottom: 1px solid rgba(0, 0, 0, .1);
+	font-size: 17px;
+	line-height: 35px;
+}
+
+#wp-calendar tfoot tr td {
+	padding-top: 10px;
+}
+
+#wp-calendar thead {
+	border-collapse:collapse;
+	text-align: center;
+	font-size: 15px;
+	line-height: 30px;
+}
+
+#wp-calendar tbody, #wp-calendar tbody a{
+	color: #777;
+	text-align: center;
+	font-size: 16px;
+	font-family: Consolas, Arial, sans-serif;
+	line-height: 24px;
+}
+
+#wp-calendar tbody a {
+	display: block;
+	margin: 0 auto;
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+	background-color: #FF7373;
+	color: #FFF;
+}
+
+#wp-calendar tbody a:hover{
+	background-color: #FF5E5E;
+}
+
+#wp-calendar tbody tr td {
+	padding: 2px 0;
+}
+
+#wp-calendar tbody tr:last-child td {
+	padding-bottom: 10px;
+	border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+#prev a, 
+#next a {
+	padding: 3px 15px;
+	border-radius: 2px;
+	background-color: #4AA5FD;
+	color: #FFF;
+} 
+
+#prev a:hover, 
+#next a:hover{
+	background-color: #2D78FF;
+	text-decoration: none;
+}
+
+#wp-calendar #next {
+	text-align: right;
+}
+
+/************************************** Siderbar Search ***************************************/
+.sidebar #searchform #s, .sidebar #searchform #searchsubmit{
+	margin: 0;
+	padding: 0;
+	height: 25px;
+	border: 1px solid #DDD;
+	border-radius: 2px;
+}
+
+.sidebar #searchform #searchsubmit {
+	padding: 0 5px;
+	border-color: #ffa200;
+	background-color: #ffa200;
+	color: #FFF;
+}
+
+.sidebar #searchform #searchsubmit:hover {
+	cursor: pointer;
+}
+
+.article-comments-container {
+	border-radius: 2px;
+	background-color: #FFF;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
+}
+
+/************************************** Wdgit New Coments ***************************************/
+.main-right-aside .widgets-lists ul.new-comments,
+.main-right-aside .widgets-lists ul.new-comments li.new-comment-lists ,
+.tab .tab-container .tab-content .tab-content-list ul.new-comments,
+.tab .tab-container .tab-content .tab-content-list ul.new-comments li.new-comment-lists {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.new-comments .new-comment-lists {
+	line-height: 20px;
+}
+
+.new-comments .new-comment-lists a {
+	display: block;
+	overflow: hidden;
+	margin: 10px 0;
+	font-size: 12px;
+	line-height: 20px;
+}
+
+.new-comments .new-comment-lists a .avatar {
+	display: block;
+	float: left;
+	margin-right: 10px;
+	border-radius: 3px;
+	box-shadow: 0 0 1px rgba(0, 0, 0, .4);
+}
+
+/****** 四合一小工具 图标修复 ******/
+.tab-switcher-list .ion-ios-time-outline::before {
+	font-size: 18px;
+}
+
+.tab-switcher-list .ion-ios-filing-outline::before {
+	font-size: 22px;
+}

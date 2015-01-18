@@ -1,0 +1,164 @@
+/*============================================================================================*/
+/*===================================== Header Begin =========================================*/
+/*============================================================================================*/
+.main-header {
+	overflow-x: hidden;
+	box-shadow: 0 1px 5px rgba(0, 0, 0, .25);
+	background-color: #FFF;
+} 
+
+.main-header .header-top-column {
+	height: 60px;
+	box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .1);
+}
+
+.main-header .blog-description {
+	margin-left: 5px;
+	color: #8D8D8D;
+	font-size: 14px;
+}
+
+.main-header .blog-title {
+	display: inline-block;
+}
+
+.blog-title .link {
+	color: #FFA200;
+	font: normal 32px/60px "Microsoft Yahei";
+}
+
+.main-header .blog-title .link:hover {
+	text-decoration: none;
+}
+
+/*************************************** Header Navigation Begin **************************/
+
+.main-header .top-navigation {
+	padding-bottom: 2px;
+	width: 680px;
+}
+
+.main-header  .top-navigation{
+	padding: 8px 0;
+}
+
+.top-navigation .top-menu {
+	font-size: 0;
+}
+
+.top-navigation .menu-item {
+	position: relative;
+	display: inline-block;
+}
+
+.top-navigation .menu-item  a {
+	display: block;
+	margin-right: 10px;
+	padding: 3px 9px;
+	color: #585858;
+	font-size: 12px;
+	transition: color .1s ease;
+}
+
+.top-navigation .menu-item a:first-child {
+	margin-left: -8px;
+}
+
+.top-navigation .menu-item a:hover {
+	color: #ffa200;
+	text-decoration: none;
+}
+
+/***************************************** Search Form Begain *******************************************/
+.main-header .top-search-form {
+	position: relative;
+	display: block;
+	width: 180px;
+	height: 28px;
+	margin: 8px 0;
+}
+
+#s {
+	float: right;
+	display: block;
+	margin-bottom: 0;
+	width: 120px;
+	height: 28px;
+	border: 1px solid #F7F5F5;
+	border-radius: 20px;
+	text-indent: 1em;
+	color: #727272;
+	font-size: 12px;
+	transition: border-color .2s ease,
+				width .3s ease-in;
+}
+
+.top-search-form #s:focus {
+	color: #727272;
+	width: 180px;
+	border: 1px solid #dadada;
+}
+
+#s:focus, 
+#searchsubmit:focus {
+	outline: 0 none;
+}
+
+/* Webkit */
+#s::-webkit-input-placeholder {
+	color: #ABABAB;
+}
+/* Firefox 4-18 */
+#s:-moz-placeholder {
+	color: #ABABAB;
+}
+
+/* Firefox 19+ */
+#s::-moz-placeholder {
+  	color: #ABABAB;
+}
+/* IE10+ */
+#s:-ms-input-placeholder {
+	color: #ABABAB;
+}
+
+/* Webkit */
+#s:focus::-webkit-input-placeholder {
+	color: #727272;
+}
+
+/* Firefox 4-18 */
+#s:focus:-moz-placeholder {
+	color: #727272;
+}
+
+/* Firefox 19+ */
+#s:focus::-moz-placeholder {
+  	color: #727272;
+}
+/* IE10+ */
+#s:focus:-ms-input-placeholder {
+	color: #727272;
+}
+
+#searchsubmit {
+	position: absolute;
+	top: 6px;
+	right: 10px;
+	display: block;
+	margin: 0;
+	padding: 0;
+	width: 16px;
+	height: 16px;
+	border: none;
+	background: transparent url("../image/icons.png") -60px -20px no-repeat scroll;
+	text-indent: 99em;
+}
+
+#searchsubmit:hover {
+	cursor: pointer;
+}
+
+/*===========================================================================================*/
+/*======================================== Header Ends ======================================*/
+/*===========================================================================================*/
