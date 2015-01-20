@@ -1,46 +1,54 @@
 <?php get_header();?>
-		<div class="main">
-			<div class="content clear">
-				<div class="post left-column">
-					<div class="card tag description">
-						<div class="description-content clear">
-							<img class="description-image left-column" src="<?php echo get_stylesheet_directory_uri(); ?>/image/logo.png" alt="标签 <?php single_tag_title("", true); ?> 下的文章" title="标签 <?php single_tag_title("", true); ?> 下的文章">
-							<div class="description-text-content">
-								<h2 class="description-title ion-ios7-pricetags-outline">
+		<div class="main-content clear" id="mainContent">
+			<div class="mian-left-part post-list left-column">
+				<div class="post-list left-column">
+					<!-- tag 描述 -->
+					<div class="description-card card">
+						<div class="desc-content tag-desc-content clear">
+							<img class="desc-image left-column" src="<?php echo get_stylesheet_directory_uri(); ?>/image/logo.png" alt="标签 <?php single_tag_title("", true); ?> 下的文章" title="标签 <?php single_tag_title("", true); ?> 下的文章">
+							<div class="desc-text-wrap">
+								<h2 class="desc-title ion-ios-pricetags-outline">
 									标签 <q><?php single_tag_title("", true); ?></q> 下的文章						
 								</h2>
-								<div class="description-text">
+								<div class="desc-text">
 									<?php 
 									if (tag_description() != '') {
 										echo tag_description();
 									} else {
-										echo "<p>暂时还没有关于 <q>" . single_tag_title("", false) . "</q> 的文字介绍，博主太懒啦，要打小 PP 哦!</p>";
+										echo "<p>暂时还没有关于 <q><b>" . single_tag_title("", false) . "</b></q> 的文字介绍，博主太懒啦，要打小 PP 哦!</p>";
 									}
 									?>
 								</div>
 							</div>
-						</div><!-- Description Content Ends -->
-					</div><!-- Tag Card Ends -->
+						</div>	
+					</div>
+
 			<?php if(have_posts()):?>
 				<?php while (have_posts()):the_post();?>
 					<?php include( TEMPLATEPATH . '/article.php'); ?>
 				<?php endwhile;?>
-				<nav class="page-navigation">
-					<?php page_navigation(8); ?><!-- Article Navigation Ends-->
-				</nav> <!-- Article Navigation Ends-->
+				<nav class="post-page-nav">
+					<?php page_navigation(8); ?>
+				</nav> 
+			</div>	
 			<?php else:?>
-				<article class="article" id="post-<?php the_ID();?>"><!-- Article Begain -->
+				<article class="article" id="post-<?php the_ID();?>">
 					<div>
 						<h2><?php _e("Not Found");?></h2> 
 					</div>
-				</article><!-- Article Ends -->
+				</article>
 			<?php endif;?>
-				</div><!-- Post Ends -->
+				</div>
 				
-				<aside class="aside right-column"><!-- Right Aside Begain -->
+				<aside class="main-right-aside right-column" id="mainRightAside">
 					<?php get_sidebar();?>
-				</aside><!-- Right Aside Ends -->
-			</div><!-- Content Ends -->
-		</div><!-- Main Ends -->
-		<!-- Footer Begain -->
+				</aside>
+
+			</div>
+		</div>
+
 		<?php get_footer(); ?>
+	</div><!-- Wrap Ends -->
+	<a href="#" id="backToTopBtn"></a>
+</body>
+</html>

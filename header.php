@@ -68,6 +68,12 @@
     <meta http-equiv="Content-Type" content="<?php bloginfo( 'html_type' ); ?>; charset=<?php bloginfo('charset'); ?>" />
     <meta name="generator" content="WordPress" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--360 6.X 以上可识别-->
+    <meta name="renderer" content="webkit" />
+    <!--其他双核可识别-->
+    <meta name="force-rendering" content="webkit" />
+    <!-- IE 使用 最新版 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/style/style.min.css">
     <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name');?>&raquo;Feed" href="<?php bloginfo('rss2_url');?>" />

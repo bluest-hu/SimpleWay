@@ -16,18 +16,18 @@
 	display: inline-block;	
 	box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
 }
- 
-.page-navigation-wrap a:first-child {
+
+.post-page-nav a:first-child {
 	border-top-left-radius: 2px;
 	border-bottom-left-radius: 2px;
 }
 
-.page-navigation-wrap a:last-child {
+.post-page-nav a:last-child {
 	border-top-right-radius: 2px;
 	border-bottom-right-radius: 2px;
 }
 
-.page-navigation-wrap a {
+.post-page-nav a {
 	display: inline-block;
 	padding: 10px 14px;
 	background-color: #FFF;
@@ -36,18 +36,16 @@
 	line-height: 20px;
 }
 
-.page-navigation-wrap a:hover {
+.post-page-nav a:hover {
 	background-color: #FBFBFB;
 	color: #333;
 	text-decoration: none;
 }
 
-.page-navigation-wrap a.current {
+.post-page-nav a.current {
 	background-color: #ffa200;
 	color: #FFF;
 }
-
-
 
 /************************************** Post Navigation ***************************************/
 .main .post-navigation {

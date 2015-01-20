@@ -13,7 +13,7 @@
         <div class="post-top-column post-meta-wrap clear">
             <div class="left-column author-avatar-wrap">
                 <a class="author-avatar" href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" title="文章作者：<?php the_author(); ?>" alt="文章作者：<?php the_author(); ?>" ><!-- Article Author Begain -->
-                    <?php echo my_avatar( get_the_author_email(), 50, ""); ?>
+                    <?php echo get_avatar( get_the_author_meta('email'), 50, ""); ?>
                 </a><!-- Article Author Ends -->
             </div><!-- Author Avastar Wrap Ends -->
             <div class="left-column fix-width">

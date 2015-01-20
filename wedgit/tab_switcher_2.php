@@ -1,10 +1,10 @@
 <?php get_sidebar();?>
  <li class="tab">
     <div class="tab-switcher">
-        <ul class="tab-swither-container">
-            <li class="current tab-switcher-list"><span class="icons ion-ios7-chatbubble-outline"></span>最近评论</li>
-            <li class="tab-switcher-list"><span class="icons ion-ios7-world-outline"></span>友链</li>
-            <li class="tab-switcher-list"><span class="icons ion-ios7-chatboxes-outline"></span>评论墙</li>
+        <ul class="tab-switcher-wrap">
+            <li class="current tab-switcher-list"><span class="icon ion-ios-chatbubble-outline"></span>最近评论</li>
+            <li class="tab-switcher-list"><span class="icon ion-ios-world-outline"></span>友链</li>
+            <li class="tab-switcher-list"><span class="icon ion-ios-chatboxes-outline"></span>评论墙</li>
         </ul>
     </div>
     <div class="tab-container">
@@ -12,7 +12,12 @@
             <li class="tab-content-list current">
                 <h3 class="widget-title">最近的评论！</h3>
                 <ul class="new-comments">
-                    <!-- <?php //simpleway_newcomments(6); ?> -->
+
+                <?php
+
+                  
+
+                     ?>
                 </ul>
             </li>
             <li class="tab-content-list">
@@ -42,10 +47,14 @@
             <li class="tab-content-list">
                 <h3 class="widget-title">本月灌水王！</h3>
         	<?php 
-                // echo get_most_comments_friends( array(
-                //     'number' => 49,
-                //     'size' => 38
-                // )); 
+                 // //echo get_most_comments_friends( array(
+                 //     'number' => 49,
+                 //     'size' => 38
+                 // ));
+//            get_calendar();
+
+
+//            wp_get_archives();
             ?>
             </li>
         </ul>

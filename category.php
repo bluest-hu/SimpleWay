@@ -2,19 +2,19 @@
 		<div class="main-content clear" id="mainContent">
 			<div class="main-left-part post-list left-column" id="mainLeftPart">
 				<div class="post-list left-column">
-					<div class="card tag description">
-						<div class="description-content clear">
-							<img class="description-image left-column" src="<?php echo get_stylesheet_directory_uri(); ?>/image/logo.png" alt="分类 <?php single_cat_title('', true); ?> 下的文章" title="分类 <?php single_cat_title('', true); ?> 下的文章">
-							<div class="description-text-content">
-								<h2 class="description-title ion-ios7-albums-outline-after">
+					<div class="description-card card">
+						<div class="desc-content cat-desc-content clear">
+							<img class="desc-image left-column" src="<?php echo get_stylesheet_directory_uri(); ?>/image/logo.png" alt="分类 <?php single_cat_title('', true); ?> 下的文章" title="分类 <?php single_cat_title('', true); ?> 下的文章">
+							<div class="desc-text-content">
+								<h2 class="desc-title ion-ios-folder-outline">
 									分类 <q><?php single_cat_title('', true); ?></q> 下的文章						
 								</h2>
-								<div class="description-text">
+								<div class="desc-text">
 									<?php 
 									if (category_description()) {
 										echo category_description();
 									} else {
-										echo "<p>暂时还没有关于分类 <q>" . single_cat_title("", false) . "</q> 的文字介绍，博主太懒啦，要打小 PP 哦!</P>";
+										echo "<p>暂时还没有关于分类 <q><b>" . single_cat_title("", false) . "</b></q> 的文字介绍，博主太懒啦，要打小 PP 哦!</P>";
 									}
 									?>
 								</div>
@@ -26,12 +26,12 @@
 				<?php while (have_posts()):the_post();?>
 					<?php include( TEMPLATEPATH . '/article.php'); ?>
 				<?php endwhile;?>
-				<nav class="page-navigation">
-					<?php page_navigation(8); ?><!-- Article Navigation Ends-->
-				</nav> <!-- Article Navigation Ends-->
+				<nav class="post-page-nav">
+					<?php page_navigation(8); ?>
+				</nav> 
 			</div>
 			<?php else:?>
-				<article class="article" id="post-<?php the_ID();?>"><!-- Article Begain -->
+				<article class="article" id="post-<?php the_ID();?>">
 					<div>
 						<h2><?php _e("Not Found");?></h2> 
 					</div>
@@ -43,9 +43,9 @@
 					<?php get_sidebar();?>
 				</aside><!-- Right Aside Ends -->
 
-			</div><!-- Content Ends -->
-		</div><!-- Main Ends -->
-		<!-- Footer Begain -->
+			</div>
+		</div>
+		
 		<?php get_footer(  ); ?>
 		<!-- Footer Ends -->
 	</div><!-- Wrap Ends -->

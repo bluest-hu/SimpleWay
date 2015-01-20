@@ -16,7 +16,7 @@
 			</article>
 		<?php endif;?>
 			</div>
-			<aside class="main-right-aside right-column" id="mainRightAside"><!-- Right Aside Begin -->
+			<aside class="main-right-aside right-column" id="mainRightAside">
 				<?php get_sidebar();?>
 			</aside>
 		</div>

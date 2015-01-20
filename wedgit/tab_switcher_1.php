@@ -1,6 +1,6 @@
  <li class="tab">
     <div class="tab-switcher">
-        <ul class="tab-swither-container">
+        <ul class="tab-switcher-wrap">
             <li class="current tab-switcher-list"><span class="icon ion-ios-calendar-outline"></span>日历</li>
             <li class="tab-switcher-list"><span class="icon ion-ios-time-outline"></span>近期文章</li>
             <li class="tab-switcher-list"><span class="icon ion-ios-cloud-outline"></span>标签云</li>
@@ -11,13 +11,13 @@
         <ul class="tab-content">
             <li class="tab-content-list current">
                 <h3 class="widget-title">看这个月我又在偷懒了！</h3>
-                <?php get_calendar();?>                                     
+                <?php get_calendar(true, true);?>
             </li>
             <li class="tab-content-list">
             	<h3 class="widget-title">排排队啦！</h3>
-            	<ul class="article-cata">
+            	<ul class="article-archives">
             		<?php wp_get_archives( array(
-                        'type'            => 'postbypost', //yearly、monthly - Default、daily、weekly、postbypost (posts ordered by post date)、alpha (same as postbypost but posts are ordered by post title)
+                        'type'            => 'monthly', //yearly、monthly - Default、daily、weekly、postbypost (posts ordered by post date)、alpha (same as postbypost but posts are ordered by post title)
                         'limit'           => 10,
                         'format'          => 'html', 
                         'before'          => '',
@@ -30,14 +30,15 @@
             </li>
             <li class="tab-content-list">
                 <h3 class="widget-title">它们像云一样~~</h3>
-                <div class="tagcloud">
+                <div class="tag-cloud">
             	   <?php wp_tag_cloud(); ?>
                 </div>
             </li>
             <li class="tab-content-list">
             	<h3 class="widget-title">分分类啦！</h3>
                 <ul class="category-list">
-                <?php wp_list_categories( array(
+                <?php
+                $cats = wp_list_categories( array(
                     'show_option_all'    => '',
                     'orderby'            => 'name',
                     'order'              => 'ASC',
@@ -59,10 +60,11 @@
                     'echo'               => 1,
                     'depth'              => 0,
                     'current_category'   => 0,
-                    'pad_counts'         => 0,
+                    'pad_counts'         => 1,
                     'taxonomy'           => 'category',
                     'walker'             => null
-                ) ); ?>   
+                ) );
+                ?>
                 </ul>                         
             </li>
         </ul>

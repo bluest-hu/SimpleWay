@@ -2,7 +2,7 @@
 body {
  	/*-webkit-font-smoothing: antialiased;*/
     -moz-osx-font-smoothing: grayscale;
-	font: normal 16px/1.5 'Microsoft Yahei', Tahoma, Arial, Helvetica, STHeiti;
+	font: normal 16px/1.5 Arial,'Microsoft Yahei',Tahoma, Helvetica, STHeiti;
 }
 
 html,

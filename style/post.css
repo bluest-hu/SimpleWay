@@ -13,7 +13,6 @@
 	border-radius: 4px 4px 0 0;
 	overflow: hidden; 
 }
-
 .single-post-wrap .post-thumbnail-wrap .thumbnail-cover {
 	position: absolute;
 	top: 0;
@@ -59,7 +58,7 @@
 /************************************** Post Title ***************************************/
 .post .post-title {
 	position: relative;
-	top: -3px;
+	top: -1px;
 	min-height: 35px;
 	max-width: 530px;
 	line-height: 0;
@@ -231,7 +230,7 @@
 
 
 /********************************************************************************************/
-/************************************** post Entry ***************************************/
+/************************************** Post Entry ******************************************/
 /********************************************************************************************/
 .post .entry {
 	padding-top: 5px; 
@@ -385,9 +384,11 @@
 }
 
 .entry img {
+	display: block;
 	margin-top: 5px;
 	padding: 5px;
 	border: 1px solid #EEE;
+	max-width: 578px;
 	box-shadow: 0 0 1px rgba(0,0,0,.1);
 }
 

@@ -112,9 +112,6 @@ $(function () {
 			});
 			
 			$ThumnailCover.css({
-				//"background-image": "-webkit-linear-gradient(transparent " + position  + ", rgba(0, 0, 0, .7))",
-				//"background-image": "-moz-linear-gradient(transparent " + position  + ", rgba(0, 0, 0, .7))",
-				//"background-image": "-ms-linear-gradient(transparent " + position  + ", rgba(0, 0, 0, .7))",
 				"background-image": "linear-gradient(transparent " + position  + ", rgba(0, 0, 0, .7))"
 			});
 			// 清除定时器
@@ -181,6 +178,28 @@ $(function () {
 	var $CatItems = $("#sidebar .cat-item");
 	$CatItems.each(function (index, element) {
 		var $CatItem = $(element);
+
+		var children = $CatItem.eq(0)[0].childNodes;
+
+		for (var i = 0, length = children.length; i< length; i++ ) {
+			var child = children[i]; 
+
+			// console.log(child)
+
+			if (child.nodeType === 3 )  {
+				var count = child.nodeValue.match(/\d+/);
+				if (count != null) {
+					var span = document.createElement("span");
+					span.setAttribute("class", "count");
+					var num = document.createElement("b");
+					num.setAttribute("class", "number");
+					num.appendChild(document.createTextNode(count));
+					span.appendChild(num);
+					element.replaceChild(span, child);
+				}
+			}
+		}
+
 		if ( $CatItem.children(".children").length ) {
 			$CatItem.addClass("active");
 		}
@@ -191,7 +210,8 @@ $(function () {
 		var $Children = $This.children(".children");
 		
 		if ( $Children.length ) {
-			$This.children(".children").slideDown("fast", function () {
+			$Children.filter(":animated").stop(true);
+			$Children.slideDown("fast", function () {
 				$This.removeClass("active");
 			});
 		}
@@ -200,7 +220,8 @@ $(function () {
 		var $Children = $This.children(".children");
 		
 		if ( $Children.length ) {
-			$This.children(".children").slideUp("slow", function () {
+			$Children.filter(":animated").stop(true);
+			$Children.slideUp("fast", function () {
 				$This.addClass("active");
 			});
 		}

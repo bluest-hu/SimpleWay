@@ -2,14 +2,18 @@
 .author {
 	width: 650px;
 }
-.description {
+
+
+/**** 分类页 与 标签页 的介绍小卡片 ****/
+.description-card {
 	position: relative;
 }
 
-.description:after {
+/**** 小装饰 ****/
+.description-card:after {
 	position: absolute;
 	top: 0;
-	right: 25px;
+	right: 20px;
 	display: block;
 	width: 20px;
 	height: 60px;
@@ -17,10 +21,10 @@
 	content: "";
 }
 
-.description:before {
+.description-card:before {
 	position: absolute;
 	top: 40px;
-	right: 25px;
+	right: 20px;
 	z-index: 999;
 	display: block;
 	width: 0;
@@ -29,11 +33,13 @@
 	border-bottom-color: #FFF;
 	content: "";
 }
+/*** 小装饰 结束 ****/
 
-.description .description-text-content {
+.description-card  .desc-text-wrap {
+	/*margin-left: 95px;*/
 }
 
-.description .description-title {
+.description-card .desc-title {
 	margin-left: 90px;
 	padding-bottom: 5px;
 	font: normal 20px/30px "Microsoft Yahei", Arial;
@@ -41,16 +47,20 @@
 	color: #4AA5FD;
 }
 
-.description .description-title q {
+.description-card .desc-title q {
 	font-weight: bold;
 }
 
-.description .description-title::before {
-	font-size: 24px;
+.description-card .desc-title::before {
+	font-size: 22px;
+	vertical-align: middle;
+	display: block;
+	float: left;
+	margin-right: 5px;
 	line-height: inherit;
 }
 
-.description .description-image {
+.description-card .desc-image {
 	display: block;
 	margin-right: 15px;
 	width: 80px;
@@ -60,10 +70,10 @@
 	box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
 }
 
-.description .description-text {
+.description-card .desc-text {
 	margin-top: 5px;
 }
 
-.description .description-text p {
+.description-card .desc-text p {
 	font: normal 13px/23px "Microsoft Yahei", Arial;
 }
