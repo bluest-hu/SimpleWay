@@ -7,20 +7,24 @@
  * @param  boolean/string $alt     [alt文本]
  * @return string   [html img 字符串]
  */
- function my_avatar( $avatar, $id_or_email, $size = '50', $default = null, $alt = false ) {
+ function my_avatar( $avatar, $id_or_email, $size = '50', $default = '', $alt = false ) {
 
 	$email = '';
+
     if ( is_numeric($id_or_email) ) {
         $id = (int) $id_or_email;
         $user = get_userdata($id);
+
         if ( $user ) {
             $email = $user->user_email;
         }
     } elseif ( is_object($id_or_email) ) {
         $allowed_comment_types = apply_filters( 'get_avatar_comment_types', array( 'comment' ) );
+
         if ( ! empty( $id_or_email->comment_type ) && ! in_array( $id_or_email->comment_type, (array) $allowed_comment_types ) ) {
         	return false;
         }
+
         if ( ! empty( $id_or_email->user_id ) ) {
                 $id = (int) $id_or_email->user_id;
                 $user = get_userdata($id);
@@ -28,6 +32,7 @@
                     $email = $user->user_email;
                 }
         }
+
         if ( ! $email && ! empty( $id_or_email->comment_author_email ) ) {
             $email = $id_or_email->comment_author_email;
         }
@@ -35,14 +40,16 @@
         $email = $id_or_email;
     }
 
-	$alt 			= (false === $alt) ? '' : esc_attr( $alt );
-	$STORE_PATH 	= ABSPATH . '/avatar'; //默认存储地址
-	$email_md5 		= md5(strtolower(trim($email)));// 对email 进行 md5处理
-	$avatar_url 	= home_url() . '/avatar/'. $email_md5 . '.jpg'; // 猜测在在博客的头像
-	$avatar_local 	= preg_replace('/wordpress\//', '', ABSPATH) . 'avatar/' . $email_md5 . '.jpg';// 猜测本地绝对路径
-	$expire 		= 604800; //设定7天, 单位:秒
-	$r 				= get_option('avatar_rating');
-	$max_size 		= 1048576;
+    $FLODER 			= '/avatar/';
+	$email_md5 			= md5(strtolower(trim($email)));// 对email 进行 md5处理
+    $avatar_file_name 	= $email_md5 . "_" . $size . '.jpg';
+	$STORE_PATH 		= ABSPATH . $FLODER; //默认存储地址
+	$alt 				= (false === $alt) ? '' : esc_attr( $alt );
+	$avatar_url 		= home_url() . $FLODER . $avatar_file_name ; // 猜测在在博客的头像
+	$avatar_local 		= preg_replace('/wordpress\//', '', ABSPATH) . 'avatar/' . $avatar_file_name;// 猜测本地绝对路径
+	$expire 			= 604800; //设定7天, 单位:秒
+	$r 					= get_option('avatar_rating');
+	$max_size 			= 1048576;
 
     // 暂时判断目录存在，如果不存在创建，存放的文件夹
 	if ( !is_dir($STORE_PATH)) {
@@ -53,35 +60,34 @@
 
 	// 默认的头像 在add_filter get_avatar 会默认传入默认的url;
 	$fix_default = get_stylesheet_directory_uri() . '/image/default.jpg';
+	
 	// 设置默认头像
 	if ( empty($default) ) {
 		$default = $fix_default;
 	}
 
 	// 判断在本地的头像文件 是否存在或者已经过期
-	if ( !is_file($avatar_local) || (time() - filemtime($avatar_local)) > $expire ) {
+	if ( !file_exists($avatar_local) || (time() - filemtime($avatar_local)) > $expire ) {
 
 		// 如果不能存在 Gravatar 会返回你设置的地址的头像
 		$gravatar_uri = "https://secure.gravatar.com/avatar/". $email_md5. '?s='. $size . '&r='. $r . '&d=404';
 		
 		$response_code = get_http_response_code($gravatar_uri);
-		
-		// echo $response_code;
 
-		if ($response_code == 404) {
+		if ((integer)$response_code != 200) {
 			$gravatar_uri = $fix_default;
 		}
 
 		@copy($gravatar_uri, $avatar_local);
-	}
 
-	// 如果头像大于 1 MB 那么还用默认头像替代
-	if (filesize($avatar_local) > max_size) {
-		@copy($fix_default, $avatar_local);
+		//如果头像大于 1 MB 那么还用默认头像替代
+		if (filesize($avatar_local) > $max_size) {
+			@copy($fix_default, $avatar_local);
+		}
 	}
 
 	$avatar = "<img title='{$alt}' alt='{$alt}' src='{$avatar_url}' class='avatar avatar-{$size} photo' height='{$size}' width='{$size}' />";
-	return $avatar;
+	return $avatar ;
  }
 
 function get_http_response_code($theURL) {
@@ -253,12 +259,12 @@ function my_new_comments( $limit ){
 	 			comment_author_url,
 	 			comment_content
 	 		FROM $wpdb->comments
-	 			LEFT OUTER JOIN $wpdb->posts
-	 			ON ($wpdb->comments.comment_post_ID = $wpdb->posts.ID)
-	 			WHERE comment_approved = '1'
-	 		AND comment_type = ''
-	 		AND post_password = ''
-	 		AND user_id  = '0'
+ 			LEFT OUTER JOIN $wpdb->posts
+ 			ON ($wpdb->comments.comment_post_ID = $wpdb->posts.ID)
+ 			WHERE comment_approved = '1'
+	 			AND comment_type = ''
+	 			AND post_password = ''
+	 			AND user_id  = '0'
 	 		ORDER BY comment_date_gmt DESC
 	 		LIMIT $limit ";
 	

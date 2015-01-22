@@ -68,21 +68,20 @@
 				<nav class="post-navigation clear">
 					<div class="left-column previous-post-wrap" >
 						<div class="previous-post ion-chevron-left">
-							<?php previous_post_link(" %link"); ?>
+							<?php get_next_post_link(" %link"); ?>
 						</div>
 					</div><!-- previous post -->
 					<div class="right-column next-post-wrap">
 						<div class="next-post ion-chevron-left-after">
-							<?php next_post_link(" %link"); ?>
+							<?php get_next_post_link(" %link"); ?>
 						</div>
 					</div><!-- next post -->
 				</nav> <!-- Article Navigation Ends-->
 				
-				<div class="article-comments-container card">
+				<div class="article-comments-wrap card" id="postComments">
 					<ul>
 						<?php
-							ini_set('max_execution_time', 300);
-							comments_template(); 
+							comments_template();
 						?>
 					</ul>
 					
@@ -104,5 +103,5 @@
 				<?php get_sidebar();?>
 			</aside><!-- Right Aside Ends -->
 		</div><!-- Main Content Ends -->
-		<!-- Footer Begain -->
+		<!-- Footer Begin -->
 		<?php get_footer(); ?>

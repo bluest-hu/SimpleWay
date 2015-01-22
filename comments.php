@@ -10,7 +10,7 @@
 			'callback'          => null,
 			'end-callback'      => null,
 			'type'              => 'all',
-			'reply_text'        => 'Reply ↓',
+			'reply_text'        => 'Reply',
 			'page'              => '',
 			'per_page'          => '',
 			'avatar_size'       => 45,

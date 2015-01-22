@@ -1,8 +1,8 @@
 // 给评论添加文章发布者标志
 $(document).ready(function () {
-	if ($(".article-comments-container")) {
-		$(".article-comments-container .bypostauthor > .comment-body .comment-meta .comment-author")
-			.append($('<span class="comment-by-post-author">Post author</span>'));
+	if ($(".article-comments-wrap")) {
+		$(".article-comments-wrap .bypostauthor > .comment-body .comment-meta .comment-author")
+			.append($('<span class="comment-by-post-author">Author</span>'));
 	}
 });
 

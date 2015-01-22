@@ -1,11 +1,18 @@
 /*======================================== Article Comemnts ======================================*/
-.article-comments-container .comment .comment-body {
-	padding: 10px 0 10px 0;
-	border-bottom: 1px solid rgba(0, 0, 0, .1);
-	/*overflow: hidden;*/
+.comment-title {
+	font-size: 24px;
+	font-weight: normal;
 }
 
-.article-comments-container .comment .comment-body:after {
+.comment .comment-body {
+	position: relative;
+	padding: 15px 0 0 0;
+	margin: 5px 0;
+	border-bottom: 1px solid rgba(0, 0, 0, .1);
+
+}
+
+.comment .comment-body:after {
 	display: block;
 	visibility: hidden;
 	clear: both;
@@ -14,25 +21,64 @@
 	content: "";
 }
 
-.article-comments-container .bypostauthor .comment-by-post-author  {
-	display:inline;
+.comment .children .comment {
+	margin-left: 40px;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+
+.comment .comment-meta {
+	margin-left: 60px;
+
+}
+
+.comment .children .comment-meta {
+	margin-left: 40px;
+}
+
+.comment .comment-meta::after {
+	content: "";
+	display: block;
+	width: 0;
+	height: 0;
+	clear: both;
+}
+
+/* 博主标识 */
+.bypostauthor .comment-by-post-author  {
+	display:inline-block;
 	margin: 0;
 	padding: 2px 6px;
-	border: 1px solid #178FFF; 
+	height: 12px;
+	border: 1px solid #4AA5FD;
 	border-radius: 2px;
-	background-color: #4AA5FD;
+	background-color: #3DA0FF;
 	color: #FFF;
-	font-size: 10px;
+	font-size: 12px;
 	font-family: Georgia, sans-serif;
-	line-height: 25px;
+	line-height: 12px;
 }
 
-.comment ul.children li {
-	padding-left: 30px; 
+.comment-author .avatar {
+	position: absolute;
+	left: 0;
+	display: block;
+	overflow: hidden;
+	margin: 0 10px 0 0;
+	width: 50px;
+	height: 50px;
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+	border-radius: 50%;
+	transition: all .6s ease-in-out;
 }
 
-
-.comment ul.children .avatar {
+.comment .children .avatar {
 	width: 35px;
 	height: 35px;
 }
@@ -51,13 +97,23 @@
 	color: #FF5E5E;
 }
 
-.comment-metadata,
-.comment-metadata a, 
-.comment-metadata a time {
-	color: #999;
-	font-size: 10px;
+.comment-metadata {
+	height: 20px;
+	font-size: 12px;
 	line-height: 20px;
-	font-family: "Microsoft Yahei", sans-serif;
+}
+
+.comment-metadata a,
+.comment-metadata time {
+	color: #b5b5b5;
+	font-size: inherit;
+	line-height: inherit;
+	font-family: Arial,"宋体","Microsoft Yahei", sans-serif;
+}
+
+.children .comment-metadata {
+	height: 15px;
+	line-height: 15px;
 }
 
 .comment-metadata a:hover {
@@ -68,75 +124,98 @@
 	color: #555;
 }
 
+/* 评论内容 */
 .comment-body .comment-content {
-	padding-left: 55px;
+	padding: 5px 0 5px 10px ;
 }
 
 .comment-body .comment-content p {
-	font-size: 13px; 
-	line-height: 25px;
+	font-size: 13px;
+	line-height: 1.5;
+	color: #888888;
+	margin: 10px 0;
 }
 
-.comment-body .reply {
-	margin-top: -15px;
-	float: right;
-}
-
-.comment-body .reply a.comment-reply-link {
-	padding: 4px 10px;
+/* 回复链接*/
+.comment-body .comment-reply-link {
+	position: absolute;
+	top: 15px;
+	right: 0;
+	display: inline-block;
+	padding: 0 14px;
 	font-size: 12px;
+	line-height: 30px;
+	height: 30px;
 	opacity: 0;
 	color: #FFF;
 	background-color: #FF7373;
 	border-radius: 2px;
 	text-shadow: 0 1px 0 rgba(0, 0, 0, .2);
-	transition: all .4s ease-in-out;
+	transition: opacity .4s ease-in-out,
+				background-color .5s ease;
 }
 
-.comment-body .reply a.comment-reply-link:hover {
+.children .comment-body .comment-reply-link {
+	top: 10px;
+}
+
+.comment-body .comment-reply-link:hover {
 	background-color: #FF5E5E;
 	box-shadow: 0 0 1px rgba(0, 0, 0, .1);
 }
 
-.comment-body:hover .reply a.comment-reply-link {
+.comment-body:hover .comment-reply-link {
 	visibility: visible;
 	opacity: 1;
 }
 
-.comment-meta.comment-author,
-.comment-meta .comment-author.vcard {
-	line-height: 25px;
+.comment-body .comment-reply-link::after {
+	content: "\f498";
+	font-family: "Ionicons",Arial,sans-serif;
+	font-size: 18px;
+	margin-left: 5px;
+	line-height: 30px;
+	float: right;
 }
 
-.comment-author.vcard .fn {
+.comment .comment-author {
+	line-height: 30px;
+	height: 30px;
+}
+
+.comment .children .comment-author {
+	line-height: 20px;
+	height: 20px;
+}
+
+.comment-author .fn {
 	margin-right: 5px;
 }
 
-.comment-author.vcard .fn, 
-.comment-author.vcard .fn .url {
+.comment-author.fn,
+.comment-author .fn .url {
 	font-weight: normal;
-	font-size: 16px;
+	font-size: 18px;
+	line-height: 30px;
+	color: #666666;
+	font-family: Arial,"Microsoft Yahei","Helvetica Neue",Helvetica, "Nimbus Sans L", sans-serif;
 }
 
-.comment-author.vcard .fn .url {
-	color: #FFA200;
-}	
-
-.comment-author.vcard .says {
-	color: #999; 
-	font-size: 10px;
+.comment-author .fn .url:hover {
+	color:#FFA200
 }
 
-.comment-author.vcard .avatar {
-	display: block;
-	float: left;
-	overflow: hidden;
-	margin: 0 10px 0 0;
-	width: 45px;
-	height: 45px;
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.22);
-	border-radius: 4px;
-	transition: all .6s ease-in-out;
+.children .comment-author .fn,
+.children .fn .url {
+	line-height: 20px;
+}
+
+
+.comment-author .says {
+	color: #B5B5B5;
+	margin-left: 5px;
+	font-size: 12px;
+	font-family: Arial, Consolas, sans-serif;
 }
 
 .comment-author.vcard .avatar:hover {

@@ -74,7 +74,9 @@
     <meta name="force-rendering" content="webkit" />
     <!-- IE 使用 最新版 -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="theme-color" content="#db5945">
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="icon" sizes="192x192" href="nice-highres.png">
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/style/style.min.css">
     <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name');?>&raquo;Feed" href="<?php bloginfo('rss2_url');?>" />
     <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name');?>&raquo;评论&raquo;Feed" href="<?php bloginfo('comments_rss2_url'); ?>comments/feed" />
