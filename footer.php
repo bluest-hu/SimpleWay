@@ -41,9 +41,7 @@
 		</footer><!-- Footer Ends -->
 	</div><!-- Wrap Ends -->
 
-	<?php 
-		print_r($avatar_set);
-	?>
+	<?php  wp_print_scripts('myjquery'); ?>
 </body>
 <?php if (get_option('simple_way_analytics')!="") {
 	echo trim(stripslashes(get_option('simple_way_analytics')));

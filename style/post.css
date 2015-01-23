@@ -383,12 +383,14 @@
 }
 
 .entry img {
+	font-size: 0;
 	display: block;
 	margin-top: 5px;
 	padding: 5px;
-	border: 1px solid #EEE;
-	max-width: 578px;
-	box-shadow: 0 0 1px rgba(0,0,0,.1);
+	border: 1px solid #E0E0E0;
+	box-shadow: 0 0 2px rgba(0,0,0,.1);
+	box-sizing: border-box;
+
 }
 
 .entry .video {

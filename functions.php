@@ -366,14 +366,23 @@ if ( function_exists('add_theme_support') ) {
 	add_image_size( 'normal', 155, 110, true ); // 设置标记为”one”的缩略图尺寸，这里的one应该是数组下标
 }
 
+/**
+ * 获取文章中的特色图像
+ *
+ * 如果文章设置了特色图像，那么返回设置的特色图像
+ * 如果文章没有设置特色图像，但是使用自定义字段"thumb" 定义了特色图像地址，那么返回自定义字段的图片地址
+ * 如果上述两者均为定义，那么获取文章中第一张图片地址
+ * 如果文章中未包含图片那么返回默认图片地址
+ * 
+ * @param  integer| null $post_ID               文章ID
+ * @param  string | null $default_thumbnail_url 自定义首页图像
+ * @return string                        		特色图像URL
+ */
 function get_post_thumbnail_url ( $post_ID, $default_thumbnail_url = "" ) {
-	$post_thumbnail_url = "";
-
 	// 如果没有默认主题缩略图就用主题默认自带的
 	$default_thumbnail_url = ( isset($default_thumbnail_url) || $default_thumbnail_url === "") ? 
 								get_stylesheet_directory_uri() . "/image/" . "default_thumbnail.jpg" : 
 								$default_thumbnail_url ;
-	
 	
 	// 获取文章当前ID
 	$post_ID = ( $post_ID === null ) ? get_the_ID() : $post_ID;
@@ -386,27 +395,61 @@ function get_post_thumbnail_url ( $post_ID, $default_thumbnail_url = "" ) {
 		$thumb_attribute = wp_get_attachment_image_src($thumbnail_id, 'thumbnail');
 		$post_thumbnail_url = $thumb_attribute[0];
 	} else {
-		$post_thumbnail_url = $default_thumbnail_url;
-	}
+		// 获取自定义的 thumb 字段
+		if ( get_post_custom_values("thumb", $post_ID) != null) {
+			$post_thumbnail_url = get_post_custom_values("thumb", $post_ID);
+		} else {
+			// 如果实在找不到获取文章内容中第一张图像的地址
+			$first_img = get_first_img_of_post();
 
+			if ( is_null( $first_img ) ) {
+				$post_thumbnail_url = $default_thumbnail_url;
+			} else {
+				// 如果文章中也没有地址那么用第一张替代
+				$post_thumbnail_url = $first_img;
+			}
+		}
+	}
 
 	return $post_thumbnail_url;
 }
 
+/**
+ * 获取文章第一张图像地址
+ * @return string | null 返回字符串 
+ */
+function get_first_img_of_post() {
+	global $post, $posts;
+
+	$first_img = null;
+	
+	ob_start();
+	ob_end_clean();
+
+	$output = preg_match_all('|<img.*?src=[\'"](.*?)[\'"].*?>|i', $post->post_content, $matches);
+	
+	if ( $output ) {
+		$first_img = $matches[1][0];
+	}
+
+	return $first_img;
+}
 
 /**
- * 获取评论
+ * [get_most_comments_friends description]
+ * @param  [type] $config [description]
+ * @return [type]         [description]
  */
 function get_most_comments_friends($config) {
 
 	 $config['container'] 		= !empty($config['container']) ? $config['container'] : "";
-	 $config['container_class'] 	= !empty($config['container_class']) ? $config['container_class'] : "most-comments-friend-wall";
-	 $config['container_id']		= !empty($config['container_id']) ? $config['container_id'] : "MostCommentsFirendsWall";
-	 $config['echo']				= !empty($config['echo']) ? !!$config['echo'] : false;
+	 $config['container_class'] = !empty($config['container_class']) ? $config['container_class'] : "most-comments-friend-wall";
+	 $config['container_id']	= !empty($config['container_id']) ? $config['container_id'] : "MostCommentsFirendsWall";
+	 $config['echo']			= !empty($config['echo']) ? !!$config['echo'] : false;
 	 $config['before']			= !empty($config['before']) ? $config['before'] : "li";
 	 $config['number'] 			= !empty($config['number']) ? $config['number'] : 15;
 	 $config['size'] 			= !empty($config['size']) ? $config['size'] : 45;
-	 $config['time']				= !empty($config['time']) ? $config['time'] : 3;
+	 $config['time']			= !empty($config['time']) ? $config['time'] : 3;
 
 	 global $wpdb;
 

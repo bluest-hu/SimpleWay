@@ -1,4 +1,6 @@
-	<h3 class="comment-title">给文章 “<?php the_title()?>” 的评论</h3>
+	<div class="comment-title-wrap">
+		<h3 class="comment-title"><span class="icons ion-ios-chatboxes-outline"></span>给文章 “<?php the_title()?>” 的评论</h3>
+	</div>
 
 <?php
  // is_plugin_active()

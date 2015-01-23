@@ -77,11 +77,11 @@
     <meta name="theme-color" content="#db5945">
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link rel="icon" sizes="192x192" href="nice-highres.png">
-    <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/style/style.min.css">
+    <?php wp_enqueue_style("main-style", get_stylesheet_directory_uri()."/style/style.min.css");?>
+    <?php wp_enqueue_script('myjquery', get_stylesheet_directory_uri() ."/script/jquery-2.0.3.min.js", '', '', true); ?>
+    <?php wp_enqueue_script('main', get_stylesheet_directory_uri() ."/script/script.js", 'myjquery', '', true); ?>
     <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name');?>&raquo;Feed" href="<?php bloginfo('rss2_url');?>" />
     <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name');?>&raquo;评论&raquo;Feed" href="<?php bloginfo('comments_rss2_url'); ?>comments/feed" />
-    <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/script/jquery-2.0.3.min.js"></script>
-    <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/script/script.js"></script>
   </head>
   <body>
     <div class="main-wrap" id="mainWrap">

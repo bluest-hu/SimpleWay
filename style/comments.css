@@ -1,7 +1,47 @@
 /*======================================== Article Comemnts ======================================*/
 .comment-title {
-	font-size: 24px;
+	/*display: inline-block;*/
+	position: relative;
+	padding: 0 45px 0 45px;
+	margin-left: -45px;
+	font-size: 20px;
+	line-height: 42px;
+	min-height: 42px;
+	min-height: 42px;
 	font-weight: normal;
+	background-color: #FF5E5E;
+	color: #FFF;
+	border-top-left-radius: 2px;
+}
+.comment-title::before,
+.comment-title::after {
+	position: absolute;
+	content: "";
+	display: block;
+	width: 0;
+	height: 0;
+	border: 21px solid transparent;
+}
+
+.comment-title::after {
+	border-right-color: #FFF;
+	right: 0;
+	top: 0;
+}
+
+.comment-title::before {
+	border-width: 10px;
+	border-left-color:#903737;
+	bottom: -10px;
+	left: 5px;
+	transform: rotate(-45deg);
+}
+
+.comment-title .icons {
+	margin-right: 10px;
+	float: left;
+	line-height: inherit;
+	font-size: 26px;
 }
 
 .comment .comment-body {
@@ -25,11 +65,9 @@
 	margin-left: 40px;
 	-webkit-backface-visibility: hidden;
 	-moz-backface-visibility: hidden;
-	-ms-backface-visibility: hidden;
 	backface-visibility: hidden;
 	-webkit-transform-style: preserve-3d;
 	-moz-transform-style: preserve-3d;
-	-ms-transform-style: preserve-3d;
 	transform-style: preserve-3d;
 }
 
@@ -39,7 +77,7 @@
 }
 
 .comment .children .comment-meta {
-	margin-left: 40px;
+	margin-left: 45px;
 }
 
 .comment .comment-meta::after {
@@ -73,7 +111,7 @@
 	margin: 0 10px 0 0;
 	width: 50px;
 	height: 50px;
-	box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
 	border-radius: 50%;
 	transition: all .6s ease-in-out;
 }
@@ -83,18 +121,19 @@
 	height: 35px;
 }
 
-.comment-meta .edit-link .comment-edit-link {
+.comment-meta .comment-edit-link {
 	display: none;
 	font-family: "宋体",sans-serif;
 	margin-left: 5px; 
 }
 
-.comment-body:hover .comment-meta .edit-link .comment-edit-link {
+.comment-body:hover .comment-edit-link {
 	display: inline-block;
 }
 
-.comment-meta .edit-link .comment-edit-link:hover {
+.comment-meta .comment-edit-link:hover {
 	color: #FF5E5E;
+	text-decoration: underline;
 }
 
 .comment-metadata {
@@ -112,8 +151,9 @@
 }
 
 .children .comment-metadata {
-	height: 15px;
-	line-height: 15px;
+	height: 12px;
+	line-height: 12px;
+	margin-top: 3px;
 }
 
 .comment-metadata a:hover {
@@ -176,6 +216,7 @@
 	margin-left: 5px;
 	line-height: 30px;
 	float: right;
+	text-shadow: 0 1px 0 rgba(0, 0, 0, .2);
 }
 
 .comment .comment-author {
@@ -195,7 +236,7 @@
 .comment-author.fn,
 .comment-author .fn .url {
 	font-weight: normal;
-	font-size: 18px;
+	font-size: 16px;
 	line-height: 30px;
 	color: #666666;
 	font-family: Arial,"Microsoft Yahei","Helvetica Neue",Helvetica, "Nimbus Sans L", sans-serif;
