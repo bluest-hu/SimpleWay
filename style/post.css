@@ -82,7 +82,7 @@
 	min-width: 10px;
 	height: 15px;
 	margin-right: 5px;
-	font-size: 0px;
+	font-size: 0;
 	line-height: 15px;
 }
 
@@ -397,7 +397,7 @@
 	background: #333;
 	padding: 20px 0;
 	width: 650px;
-	margin: 0px 0 0 -30px;
+	margin: 0 0 0 -30px;
 	border-bottom: 1px solid #111;
 }
 
