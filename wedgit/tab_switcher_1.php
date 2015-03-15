@@ -15,7 +15,7 @@
             </li>
             <li class="tab-content-list">
             	<h3 class="widget-title">排排队啦！</h3>
-            	<ul class="article-archives">
+            	<ul class="article-archives clear">
             		<?php wp_get_archives( array(
                         'type'            => 'monthly', //yearly、monthly - Default、daily、weekly、postbypost (posts ordered by post date)、alpha (same as postbypost but posts are ordered by post title)
                         'limit'           => 10,

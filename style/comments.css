@@ -46,7 +46,7 @@
 
 .comment .comment-body {
 	position: relative;
-	padding: 15px 0 0 0;
+	padding: 15px 0 10px 0;
 	margin: 5px 0;
 	border-bottom: 1px solid rgba(0, 0, 0, .1);
 
@@ -73,11 +73,12 @@
 
 .comment .comment-meta {
 	margin-left: 60px;
-
 }
 
 .comment .children .comment-meta {
-	margin-left: 45px;
+	padding-left: 55px;
+	margin-left: 0;
+	border-left: 5px solid #E6E6E6;
 }
 
 .comment .comment-meta::after {
@@ -111,7 +112,7 @@
 	margin: 0 10px 0 0;
 	width: 50px;
 	height: 50px;
-	box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 0 1px rgba(0, 0, 0, 0.8);
 	border-radius: 50%;
 	transition: all .6s ease-in-out;
 }
@@ -119,6 +120,7 @@
 .comment .children .avatar {
 	width: 35px;
 	height: 35px;
+	left: 15px;
 }
 
 .comment-meta .comment-edit-link {
@@ -150,7 +152,7 @@
 	font-family: Arial,"宋体","Microsoft Yahei", sans-serif;
 }
 
-.children .comment-metadata {
+.comment .children .comment-metadata {
 	height: 12px;
 	line-height: 12px;
 	margin-top: 3px;
@@ -166,14 +168,19 @@
 
 /* 评论内容 */
 .comment-body .comment-content {
-	padding: 5px 0 5px 10px ;
+	padding: 10px 0 0 0 ;
+}
+
+.comment .children .comment-content {
+	border-left: 5px solid #E6E6E6;
+	padding-left: 15px;
 }
 
 .comment-body .comment-content p {
 	font-size: 13px;
 	line-height: 1.5;
-	color: #888888;
-	margin: 10px 0;
+	color: #666;
+	padding: 0 0 10px 0;
 }
 
 /* 回复链接*/
@@ -251,7 +258,6 @@
 	line-height: 20px;
 }
 
-
 .comment-author .says {
 	color: #B5B5B5;
 	margin-left: 5px;
@@ -265,7 +271,6 @@
 	-moz-transform:rotate(720deg);
 	-ms-transform:rotate(720deg);
 	transform:rotate(720deg);
-
 }
 
 .article-comments-container .comment-title, 
@@ -303,7 +308,8 @@
 	line-height: 25px;
 }
 
-.comment-form-container .comment-reply-title small a, .comment-form-container .logged-in-as a:nth-child(2) {
+.comment-form-container .comment-reply-title small a, 
+.comment-form-container .logged-in-as a:nth-child(2) {
 	padding: 2px 6px;
 	border: 1px solid rgb(246, 92, 92);
 	color: white;

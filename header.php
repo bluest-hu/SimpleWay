@@ -77,9 +77,9 @@
     <meta name="theme-color" content="#db5945">
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link rel="icon" sizes="192x192" href="nice-highres.png">
-    <?php wp_enqueue_style("main-style", get_stylesheet_directory_uri()."/style/style.min.css");?>
+    <link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_directory_uri()."/style/style.min.css"; ?>">
     <?php wp_enqueue_script('myjquery', get_stylesheet_directory_uri() ."/script/jquery-2.0.3.min.js", '', '', true); ?>
-    <?php wp_enqueue_script('main', get_stylesheet_directory_uri() ."/script/script.js", 'myjquery', '', true); ?>
+    <?php wp_enqueue_script('main', get_stylesheet_directory_uri() ."/script/script.min.js", 'myjquery', '', true); ?>
     <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name');?>&raquo;Feed" href="<?php bloginfo('rss2_url');?>" />
     <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name');?>&raquo;评论&raquo;Feed" href="<?php bloginfo('comments_rss2_url'); ?>comments/feed" />
   </head>

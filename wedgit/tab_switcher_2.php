@@ -11,14 +11,33 @@
         <ul class="tab-content">
             <li class="tab-content-list current">
                 <h3 class="widget-title">最近的评论！</h3>
-                <ul class="new-comments">
-
-                <?php
-
-                  
-
-                     ?>
-                </ul>
+                <div class="new-comments">
+                    <ul class="avatar-list-wrap">
+                        <li class="avatr-item">
+                            <a class="avatar-wrap" href="">
+                                <img class="avatar" src="http://localhost:8080/avatar/61086c21318d64c31844f0072c5df3a4_50.jpg">
+                            </a>
+                        </li>
+                        <li class="avatr-item">
+                            <a class="avatar-wrap" href="">
+                                <img class="avatar" src="http://localhost:8080/avatar/61086c21318d64c31844f0072c5df3a4_50.jpg">
+                            </a>
+                        </li>
+                        <li class="avatr-item">
+                            <a class="avatar-wrap" href="">
+                                <img class="avatar" src="http://localhost:8080/avatar/61086c21318d64c31844f0072c5df3a4_50.jpg">
+                            </a>
+                        </li>
+                        <li class="avatr-item">
+                            <a class="avatar-wrap" href="">
+                                <img class="avatar" src="http://localhost:8080/avatar/61086c21318d64c31844f0072c5df3a4_50.jpg">
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="comments-wrap">
+                        
+                    </ul>
+                </div>
             </li>
             <li class="tab-content-list">
                 <?php wp_list_bookmarks(array(

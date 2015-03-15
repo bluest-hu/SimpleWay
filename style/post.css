@@ -45,11 +45,58 @@
 	margin-right: 10px;
 }
 
-.author-avatar-wrap .author-avatar, 
-.author-avatar-wrap .avatar {
+.author-avatar-wrap .author-avatar {
+	position: relative;
 	display: block;
 	width: 50px;
 	height: 50px;
+} 
+
+.author-avatar-wrap .author-name {
+	position: absolute;
+	display: none;
+	text-align: center;
+	padding: 3px 5px;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	bottom: -24px;
+	background-color: #333;
+	color: #FFF;
+	font-size: 12px; 
+	line-height: 1;
+	border-radius: 2px; 
+	opacity: 0;
+	transition: opacity .5s ease;
+	font-family: Arial;
+}
+
+.author-avatar-wrap:hover .author-name {
+	display: inline-block;
+	opacity: 1;
+}
+
+.author-avatar-wrap .author-name::after {
+	position: absolute;
+	top: -10px;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	content: "";
+	display: block;
+	width: 0;
+	height: 0;
+	border: 5px solid transparent;
+	border-bottom-color: #333;
+	/*z-index: 99; */
+}
+
+.author-avatar-wrap .avatar {
+	display: block;
+	width: inherit;
+	height: inherit;
 	border-radius: 3px;
 	box-shadow: 0 0 1px rgba(0,0,0,.08);
 }
@@ -192,8 +239,7 @@
 	line-height: 17px;
 	height: 17px;
 	font-size: 12px;
-	margin: 1px 0;
-	margin-right: 3px;
+	margin: 1px 3px 1px 0;
 }
 
 .post-tags .tag-list a:hover {
@@ -491,7 +537,7 @@
 
 
 
-/*======================================== Article Single Page Author Infomation Card ========================================*/
+/*======================================== Article Single Page Author Information Card ========================================*/
 .author-info .author-avatar {
 	margin-right: 10px;
 	width: 80px;

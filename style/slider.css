@@ -55,8 +55,8 @@
 }
 
 .main-right-aside .blogroll li {
-	line-height:25x;
-	width: 50%;
+	line-height:25px;
+	width: 33.333%;
 	float: left;
 	list-style-type: none;
 }
@@ -108,7 +108,7 @@
 	font-weight: normal;
 	line-height: inherit;
 	font-size: inherit;
-	font-family: Arial, "宋体";
+	font-family: Arial, "宋体",sans-serif;
 }
 
 .main-right-aside .children .cat-item  {
@@ -122,11 +122,12 @@
 	width: 30px;
 }
 
+
+.main-right-aside .article-archives .number,
 .cat-item .number {
 	display: inline-block;
 	padding: 0 4px;
 	height: 15px;
-	/*min-width:1px;*/
 	font-size: 12px;
 	border: 1px solid #777;
 	font-family: Arial,sans-serif;
@@ -134,13 +135,12 @@
 	vertical-align: middle;
 	border-radius: 14px;
 	color: #777;
-	
 	text-align: center;
 }
 
 .main-right-aside .cat-item::before {
 	content: "\f434";
-	font-family: "Ionicons";
+	font-family: "Ionicons",sans-serif;
 	font-size: 17px;
 	line-height: inherit;
 	margin-right: 5px;
@@ -157,7 +157,29 @@
 	content: "\f435";
 }
 
-/************************************** Siderbar Most Comment Wall ***************************************/
+/************************************** Sidebar Most Comment Wall ***************************************/
+
+.main-right-aside .article-archives li {
+    width: 40%;
+    float: left;
+    margin-left: 10%;
+}
+
+.main-right-aside .article-archives li:nth-child(2n+1) {
+    margin-left: 0;
+    margin-right: 10%;
+}
+
+.main-right-aside .article-archives .count {
+    float: right;
+}
+
+.main-right-aside .article-archives li:hover .number {
+    background-color:  #777;
+    color: #FFF;
+}
+
+/************************************** Sidebar Most Comment Wall ***************************************/
 .main-right-aside .widgets-lists ul.most-comments-friend-wall,
 .main-right-aside .widgets-lists ul.most-comments-friend-wall li.most-active-people,
 .tab-container .tab-content .tab-content-list ul.most-comments-friend-wall,
@@ -197,7 +219,7 @@
 	filter: blur(1px);
 }
 
-/************************************** Siderbar Calendar ***************************************/
+/************************************** Sidebar Calendar ***************************************/
 #wp-calendar {
 	width: 100%;
 	border-collapse: collapse;
@@ -264,26 +286,27 @@
 	background-color: #FF5E5E;
 }
 
+/*** 上一月 下一月 ***/
 #prev a, 
 #next a {
 	position: relative;
 	display: block;
-	/*background-color: #4AA5FD;*/
 	border: 1px solid #4AA5FD;
 	color: #4AA5FD;
-	line-height: 26px;
-	height: 24px;
-	width: 50px;
+	line-height: 22px;
+	height: 22px;
+	width: 45px;
 	margin-left: auto;
 	margin-right: auto;
-	/*color: #FFF;*/
 	text-align: center;
-	border-radius: 5px;
+	border-radius: 3px;
+    text-indent: -10px;
+    font-size: 13px;
 } 
 
 #prev a {
-	border-top-left-radius: 0px;
-	border-bottom-left-radius: 0px;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
 }
 
 #prev a::before, 
@@ -291,13 +314,11 @@
 #prev a::after, 
 #next a::after  {
 	position: absolute;
-	left: 0px;
 	display: block;
 	content: "";
-	width: 0px;
-	height: 0px;
-	border: 13px solid transparent;
-	/*border-radius: 5px;*/
+	width: 0;
+	height: 0;
+	border: 12px solid transparent;
 }
 
 #prev a::before, 
@@ -307,32 +328,58 @@
 
 #prev a::after, 
 #next a::after {
-	top: 0px;
+	top: -1px;
 	border: 12px solid transparent;
 }
 
 #prev a::after {
-	border-right-color: #FFF; 
-	left: -24px;
+    border-right-color: #fff;
+	left: -23px;
+}
+
+#next a::after {
+    border-left-color: #fff;
+    right: -23px;
 }
 
 #prev a::before {
-	left: -27px;
+	left: -25px;
 	border-right-color:#4AA5FD; 
 }
 
-#prev a:hover, 
-#next a:hover{
+#next a::before {
+    right: -25px;
+    border-left-color:#4AA5FD;
+}
+
+#prev a:hover,
+#next a:hover {
 	background-color: #2D78FF;
 	text-decoration: none;
+    color: #FFF;
 }
 
-#wp-calendar #next {
-	text-align: right;
+#prev a:hover::after,
+#prev a:hover::before {
+    border-right-color: #2D78FF;
 }
 
-/************************************** Siderbar Search ***************************************/
-.sidebar #searchform #s, .sidebar #searchform #searchsubmit{
+
+#next a:hover::after,
+#next a:hover::before {
+    border-left-color: #2D78FF;
+}
+
+#next a {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    text-indent: 10px;
+}
+
+
+/************************************** Sidebar Search ***************************************/
+.sidebar #s,
+.sidebar #searchsubmit{
 	margin: 0;
 	padding: 0;
 	height: 25px;
@@ -340,14 +387,14 @@
 	border-radius: 2px;
 }
 
-.sidebar #searchform #searchsubmit {
+.sidebar  #searchsubmit {
 	padding: 0 5px;
 	border-color: #ffa200;
 	background-color: #ffa200;
 	color: #FFF;
 }
 
-.sidebar #searchform #searchsubmit:hover {
+.sidebar #searchsubmit:hover {
 	cursor: pointer;
 }
 

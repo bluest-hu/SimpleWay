@@ -66,16 +66,24 @@
 				</div>
 
 				<nav class="post-navigation clear">
-					<div class="left-column previous-post-wrap" >
-						<div class="previous-post ion-chevron-left">
-							<?php get_next_post_link(" %link"); ?>
-						</div>
-					</div><!-- previous post -->
-					<div class="right-column next-post-wrap">
-						<div class="next-post ion-chevron-left-after">
-							<?php get_next_post_link(" %link"); ?>
-						</div>
-					</div><!-- next post -->
+<!--					<div class="left-column previous-post-wrap" >-->
+<!--						<div class="previous-post ion-chevron-left">-->
+                        <?php
+                            if (get_next_post_link(" %link")) {
+                                echo get_next_post_link();
+                            }
+                        ?>
+<!--						</div>-->
+<!--					</div><!-- previous post -->
+<!--					<div class="right-column next-post-wrap">-->
+<!--						<div class="next-post ion-chevron-left-after">-->
+                        <?php
+                            if (get_next_post_link(" %link")) {
+                                echo get_previous_post_link();
+                            }
+                        ?>
+<!--						</div>-->
+<!--					</div><!-- next post -->
 				</nav> <!-- Article Navigation Ends-->
 				
 				<div class="article-comments-wrap card" id="postComments">
