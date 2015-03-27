@@ -1,6 +1,6 @@
 <?php get_header();?>
 		<div class="main-content clear" id="mainContent">
-			<div class="mian-left-part post-list left-column">
+			<div class="main-left-part post-list left-column">
 				<div class="post-list left-column">
 					<!-- tag 描述 -->
 					<div class="description-card card">

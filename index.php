@@ -1,6 +1,6 @@
 <?php get_header();?>
 		<div class="main-content clear" id="mainContent">
-			<div class="mian-left-part post-list left-column">
+			<div class="main-left-part post-list left-column">
 		<?php if( have_posts()) :?>
 			<?php while (have_posts()):the_post();?>
 				<?php include( TEMPLATEPATH . '/article.php'); ?>

@@ -1,5 +1,5 @@
 /*========================================================================================*/
-/*======================================== Siderbar ======================================*/
+/*======================================== Slider ========================================*/
 /*========================================================================================*/
 .main-right-aside {
 	margin-top: 10px;
@@ -119,7 +119,7 @@
 .cat-item .count {
 	float: right;
 	text-align: center;
-	width: 30px;
+	min-width: 30px;
 }
 
 
@@ -251,7 +251,7 @@
 	height: 50px;
 	font-weight: normal;
 	color: #666;
-	font-family: "宋体","仿宋";
+	font-family: "宋体","仿宋", sans-serif;
 	border-top: 1px solid rgba(0, 0, 0, .1);
 	border-bottom: 1px solid rgba(0, 0, 0, .1);
 }
@@ -354,20 +354,20 @@
 
 #prev a:hover,
 #next a:hover {
-	background-color: #2D78FF;
+	background-color: #4AA5FD;
 	text-decoration: none;
     color: #FFF;
 }
 
 #prev a:hover::after,
 #prev a:hover::before {
-    border-right-color: #2D78FF;
+    border-right-color: #4AA5FD;
 }
 
 
 #next a:hover::after,
 #next a:hover::before {
-    border-left-color: #2D78FF;
+    border-left-color: #4AA5FD;
 }
 
 #next a {
@@ -407,8 +407,8 @@
 /************************************** Wdgit New Coments ***************************************/
 .main-right-aside .widgets-lists ul.new-comments,
 .main-right-aside .widgets-lists ul.new-comments li.new-comment-lists ,
-.tab .tab-container .tab-content .tab-content-list ul.new-comments,
-.tab .tab-container .tab-content .tab-content-list ul.new-comments li.new-comment-lists {
+.tab ul.new-comments,
+.tab ul.new-comments li.new-comment-lists {
 	margin: 0;
 	padding: 0;
 	list-style: none;

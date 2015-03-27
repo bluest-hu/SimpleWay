@@ -54,7 +54,7 @@
     // 暂时判断目录存在，如果不存在创建，存放的文件夹
 	if ( !is_dir($STORE_PATH)) {
 		if ( !!mkdir( $STORE_PATH ) ) {
-            return ;
+            return null;
 		}
 	}
 
@@ -97,6 +97,18 @@ function get_http_response_code($theURL) {
 
 // 替换原来的系统函数
 add_filter( 'get_avatar', 'my_avatar', 10, 5);
+
+
+
+function my_wp_get_archives ($args) {
+    echo '<div class="test">';
+    wp_get_archives($args);
+    echo '</div>';
+}
+
+add_filter( 'wp_get_archives', 'my_wp_get_archives', 10, 1);
+
+
 
 /**
  * 注册顶部菜单

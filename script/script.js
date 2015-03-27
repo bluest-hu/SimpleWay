@@ -270,5 +270,24 @@ $(function () {
 });
 
 
+(function (win, $, undefined) {
+
+    var _Video = function () {
+
+
+
+    };
+
+    _Video.prototype.init = function () {
+
+    };
+
+
+
+
+})(window, $);
+
+
+
 
 

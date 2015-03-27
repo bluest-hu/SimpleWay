@@ -1,7 +1,7 @@
 <?php get_header();?>
-		<div class="main">
-			<div class="content clear">
-				<div class="post left-column">
+    <div class="main-content clear" id="mainContent">
+        <div class="main-left-part left-column">
+            <div class="page card">
 			<?php if(have_posts()):?>
 				<?php while (have_posts()):the_post();?>
 					<?php include( TEMPLATEPATH . '/article.php'); ?>
@@ -52,13 +52,13 @@
 							<?php if (get_the_author_meta('google_plus')) { ?> 
 								<li class="google-plus">
 									<a href="<?php the_author_meta('google_plus'); ?>?rel=author" alt="Google+" title="Google Plus" rel="nofollow">Google+</a>
-								</li><!-- Post Auhtor Google Plus -->
+								</li><!-- Post Author Google Plus -->
 							<?php } ?>	
 
 							<?php if (get_the_author_meta('github')) { ?>
 								<li class="github">
 									<a href="<?php the_author_meta('github'); ?>" alt="Github" title="Github" rel="nofollow">Github</a>
-								</li><!-- Post Author Github -->
+								</li><!-- Post Author GitHub -->
 							<?php } ?>	
 
 							</ul>
@@ -68,18 +68,6 @@
 					<div  class="related-post">
 						<div id="hm_t_23962"></div>
 					</div>
-
-					<nav class="post-navigation clear">
-					
-						<div class="left-column previous-post">
-							<?php previous_post_link(); ?>
-						</div>
-					
-						<div class="right-column next-post">
-							<?php next_post_link(); ?>
-						</div>
-					
-					</nav> <!-- Article Navigation Ends-->
 					
 					<div class="article-comments-container card">
 						<ul>
@@ -92,7 +80,7 @@
 					</div><!-- Single Article Comment Ends -->
 
 			<?php else:?>
-					<article class="article" id="post-<?php the_ID();?>"><!-- Article Begain -->
+					<article class="article" id="post-<?php the_ID();?>"><!-- Article Begin -->
 						<div>
 							<h2><?php _e("Not Found");?></h2> 
 						</div>
@@ -100,7 +88,7 @@
 			<?php endif;?>
 				</div><!-- Post Ends -->
 
-				<aside class="aside right-column"><!-- Right Aside Begain -->
+                <aside class="main-right-aside right-column" id="mainRightAside">
 					<?php get_sidebar();?>
 				</aside><!-- Right Aside Ends -->
 			</div><!-- Content Ends -->

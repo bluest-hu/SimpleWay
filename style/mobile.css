@@ -1,4 +1,4 @@
-@media screen and (min-width: 0px) and (max-width: 640px) { 
+@media screen and (min-width: 0px) and (max-width: 640px) {
 	.wrap {
 		overflow-x: hidden; 
 	}
@@ -22,6 +22,7 @@
 	.article-top-column .post-meta {
 		width: auto;
 	}
+
 	.main .content .post {
 		clear: left;
 		width: inherit;
