@@ -19,7 +19,7 @@ $(document).ready(function() {
 	}
 
 	$scrollBtn.css({'display': 'none'});
-	
+
 	$(document).on("scroll", function () {
 
 		var scrollToTopDis = document.documentElement.scrollTop || document.body.scrollTop;
@@ -40,7 +40,7 @@ $(document).ready(function() {
 		} else if(document.body) {
 			doc = document.body;
 		}
-		
+
 		timer = setInterval(function () {
 			doc.scrollTop = parseInt(doc.scrollTop / 1.5);
 			if (doc.scrollTop == 0) {
@@ -53,7 +53,7 @@ $(document).ready(function() {
 
 /*** Fixed TextWedgit ***/
 $(document).ready(function () {
-	
+
 	var $textwidget = $(".widgets-lists .textwidget");
 
 	if ($textwidget) {
@@ -72,7 +72,7 @@ $(document).ready(function () {
 });
 
 
-// 
+//
 $(function () {
 	var $SinglePostWrap = $("#singlePostWrap");
 
@@ -102,15 +102,15 @@ $(function () {
 		thumbnailHeight = parseInt($(this).get(0).height);
 
 		var position = (postMetaHeight / thumbnailHeight) * 100 + "%";
-		
+
 		var timer= setTimeout(function () {
 			$SinglePostWrap.addClass("has-thumbnail");
-			
+
 			$Post.css({
 				"marginTop": -offset,
 				"position": "relative"
 			});
-			
+
 			$ThumnailCover.css({
 				"background-image": "linear-gradient(transparent " + position  + ", rgba(0, 0, 0, .7))"
 			});
@@ -118,12 +118,12 @@ $(function () {
 			clearTimeout(timer);
 		}, 500);
 
-		
+
 
 	});
 });
 
-// fix the single article page empty navigation 
+// fix the single article page empty navigation
 $(function () {
 	if ($(".post-navigation").length == 0) {
 		return;
@@ -158,7 +158,7 @@ function tabSwitcher() {
         var $tabContainer = $(element).find(".tab-container");
 
         $tabSwitcherList.on("click", function (event) {
-            
+
             event = event || window.event;
             event.preventDefault();
 
@@ -167,7 +167,7 @@ function tabSwitcher() {
 
             	var index = $(this).addClass("current").index();
 
-            	$tabContentList.css({display:"none"}).eq(index).fadeIn(300);	
+            	$tabContentList.css({display:"none"}).eq(index).fadeIn(300);
             }
         });
     });
@@ -211,7 +211,7 @@ $(function () {
 	$CatItems.hover(function () {
 		var $This = $(this);
 		var $Children = $This.children(".children");
-		
+
 		if ( $Children.length ) {
 			$Children.filter(":animated").stop(true);
 			$Children.slideDown("fast", function () {
@@ -221,14 +221,14 @@ $(function () {
 	}, function () {
 		var $This = $(this);
 		var $Children = $This.children(".children");
-		
+
 		if ( $Children.length ) {
 			$Children.filter(":animated").stop(true);
 			$Children.slideUp("fast", function () {
 				$This.addClass("active");
 			});
 		}
-	
+
 	});
 });
 
@@ -269,7 +269,6 @@ $(function () {
     });
 });
 
-
 (function (win, $, undefined) {
 
     var _Video = function () {
@@ -288,6 +287,4 @@ $(function () {
 })(window, $);
 
 
-
-
-
+var a = new Date();

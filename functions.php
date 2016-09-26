@@ -1,48 +1,48 @@
-<?php 
+<?php
 /**
  * [my_avatar 将Gavatar的头像存储在本地，防止伟大的GFW Fuck Gavatar，反强奸（很不幸已经被墙了）]
- * @param  string  $email   [email]
- * @param  string  $size    [头像大小]
- * @param  string  $default [默认头像地址]
- * @param  boolean/string $alt     [alt文本]
- * @return string   [html img 字符串]
+ * @param	string	$email	 [email]
+ * @param	string	$size		[头像大小]
+ * @param	string	$default [默认头像地址]
+ * @param	boolean/string $alt	[alt文本]
+ * @return string	[html img 字符串]
  */
  function my_avatar( $avatar, $id_or_email, $size = '50', $default = '', $alt = false ) {
 
 	$email = '';
 
-    if ( is_numeric($id_or_email) ) {
-        $id = (int) $id_or_email;
-        $user = get_userdata($id);
+		if ( is_numeric($id_or_email) ) {
+				$id = (int) $id_or_email;
+				$user = get_userdata($id);
 
-        if ( $user ) {
-            $email = $user->user_email;
-        }
-    } elseif ( is_object($id_or_email) ) {
-        $allowed_comment_types = apply_filters( 'get_avatar_comment_types', array( 'comment' ) );
+				if ( $user ) {
+						$email = $user->user_email;
+				}
+		} elseif ( is_object($id_or_email) ) {
+				$allowed_comment_types = apply_filters( 'get_avatar_comment_types', array( 'comment' ) );
 
-        if ( ! empty( $id_or_email->comment_type ) && ! in_array( $id_or_email->comment_type, (array) $allowed_comment_types ) ) {
-        	return false;
-        }
+				if ( ! empty( $id_or_email->comment_type ) && ! in_array( $id_or_email->comment_type, (array) $allowed_comment_types ) ) {
+					return false;
+				}
 
-        if ( ! empty( $id_or_email->user_id ) ) {
-                $id = (int) $id_or_email->user_id;
-                $user = get_userdata($id);
-                if ( $user ) {
-                    $email = $user->user_email;
-                }
-        }
+				if ( ! empty( $id_or_email->user_id ) ) {
+								$id = (int) $id_or_email->user_id;
+								$user = get_userdata($id);
+								if ( $user ) {
+										$email = $user->user_email;
+								}
+				}
 
-        if ( ! $email && ! empty( $id_or_email->comment_author_email ) ) {
-            $email = $id_or_email->comment_author_email;
-        }
-    } else {
-        $email = $id_or_email;
-    }
+				if ( ! $email && ! empty( $id_or_email->comment_author_email ) ) {
+						$email = $id_or_email->comment_author_email;
+				}
+		} else {
+				$email = $id_or_email;
+		}
 
-    $FLODER 			= '/avatar/';
+	$FLODER 			= '/avatar/';
 	$email_md5 			= md5(strtolower(trim($email)));// 对email 进行 md5处理
-    $avatar_file_name 	= $email_md5 . "_" . $size . '.jpg';
+	$avatar_file_name 	= $email_md5 . "_" . $size . '.jpg';
 	$STORE_PATH 		= ABSPATH . $FLODER; //默认存储地址
 	$alt 				= (false === $alt) ? '' : esc_attr( $alt );
 	$avatar_url 		= home_url() . $FLODER . $avatar_file_name ; // 猜测在在博客的头像
@@ -51,16 +51,16 @@
 	$r 					= get_option('avatar_rating');
 	$max_size 			= 1048576;
 
-    // 暂时判断目录存在，如果不存在创建，存放的文件夹
+		// 暂时判断目录存在，如果不存在创建，存放的文件夹
 	if ( !is_dir($STORE_PATH)) {
 		if ( !!mkdir( $STORE_PATH ) ) {
-            return null;
+						return null;
 		}
 	}
 
 	// 默认的头像 在add_filter get_avatar 会默认传入默认的url;
 	$fix_default = get_stylesheet_directory_uri() . '/image/default.jpg';
-	
+
 	// 设置默认头像
 	if ( empty($default) ) {
 		$default = $fix_default;
@@ -71,7 +71,7 @@
 
 		// 如果不能存在 Gravatar 会返回你设置的地址的头像
 		$gravatar_uri = "https://secure.gravatar.com/avatar/". $email_md5. '?s='. $size . '&r='. $r . '&d=404';
-		
+
 		$response_code = get_http_response_code($gravatar_uri);
 
 		if ((integer)$response_code != 200) {
@@ -91,23 +91,21 @@
  }
 
 function get_http_response_code($theURL) {
-    $headers = get_headers($theURL);
-    return substr($headers[0], 9, 3);
+		$headers = get_headers($theURL);
+		return substr($headers[0], 9, 3);
 }
 
 // 替换原来的系统函数
 add_filter( 'get_avatar', 'my_avatar', 10, 5);
 
 
-
 function my_wp_get_archives ($args) {
-    echo '<div class="test">';
-    wp_get_archives($args);
-    echo '</div>';
+		echo '<div class="test">';
+						wp_get_archives($args);
+		echo '</div>';
 }
 
 add_filter( 'wp_get_archives', 'my_wp_get_archives', 10, 1);
-
 
 
 /**
@@ -122,89 +120,89 @@ if ( function_exists( 'register_nav_menus' ) ) {
 
 /**
  * 注册侧边栏
- */ 
-if ( function_exists('register_sidebar')) { 
-	register_sidebar(array( 
-		'name' 			=> __( 'Index Right Sidebar', '首页的右边栏，如果其他页面未定义侧边栏，则默认调用首页的侧边栏' ), // 侧边栏 1 的名称 
+ */
+if ( function_exists('register_sidebar')) {
+	register_sidebar(array(
+		'name' 			=> __( 'Index Right Sidebar', '首页的右边栏，如果其他页面未定义侧边栏，则默认调用首页的侧边栏' ), // 侧边栏 1 的名称
 		'class'			=> 'right-sidebar',
-		'before_widget' => '<li class="widgets-lists">', // widget 的开始标签 
-		'after_widget' 	=> '</li>', // widget 的结束标签 
-		'before_title' 	=> '<h3 class="widget-title">', // 标题的开始标签 
-		'after_title' 	=> '</h3>'// 标题的结束标签
-	));
-	
-	register_sidebar(array( 
-		'name' 			=> __( 'Post Right Sidebar', '文章页面的右边栏，如果未定义侧边栏，则默认调用首页的侧边栏' ), // 侧边栏 1 的名称 
-		'class'			=> 'right-sidebar',
-		'before_widget' => '<li class="widgets-lists">', // widget 的开始标签 
-		'after_widget' 	=> '</li>', // widget 的结束标签 
-		'before_title' 	=> '<h3 class="widget-title">', // 标题的开始标签 
+		'before_widget' => '<li class="widgets-lists">', // widget 的开始标签
+		'after_widget' 	=> '</li>', // widget 的结束标签
+		'before_title' 	=> '<h3 class="widget-title">', // 标题的开始标签
 		'after_title' 	=> '</h3>'// 标题的结束标签
 	));
 
-	register_sidebar(array( 
-		'name' 			=> __( 'Achieve Right Sidebar', '存档页页面的右边栏，如果未定义侧边栏，则默认调用首页的侧边栏' ), // 侧边栏 1 的名称 
+	register_sidebar(array(
+		'name' 			=> __( 'Post Right Sidebar', '文章页面的右边栏，如果未定义侧边栏，则默认调用首页的侧边栏' ), // 侧边栏 1 的名称
 		'class'			=> 'right-sidebar',
-		'before_widget' => '<li class="widgets-lists">', // widget 的开始标签 
-		'after_widget' 	=> '</li>', // widget 的结束标签 
-		'before_title' 	=> '<h3 class="widget-title">', // 标题的开始标签 
+		'before_widget' => '<li class="widgets-lists">', // widget 的开始标签
+		'after_widget' 	=> '</li>', // widget 的结束标签
+		'before_title' 	=> '<h3 class="widget-title">', // 标题的开始标签
 		'after_title' 	=> '</h3>'// 标题的结束标签
 	));
 
-	register_sidebar(array( 
-		'name' 			=> __( 'Author Right Sidebar', '存档页页面的右边栏，如果未定义侧边栏，则默认调用首页的侧边栏' ), // 侧边栏 1 的名称 
+	register_sidebar(array(
+		'name' 			=> __( 'Achieve Right Sidebar', '存档页页面的右边栏，如果未定义侧边栏，则默认调用首页的侧边栏' ), // 侧边栏 1 的名称
 		'class'			=> 'right-sidebar',
-		'before_widget' => '<li class="widgets-lists">', // widget 的开始标签 
-		'after_widget' 	=> '</li>', // widget 的结束标签 
-		'before_title' 	=> '<h3 class="widget-title">', // 标题的开始标签 
+		'before_widget' => '<li class="widgets-lists">', // widget 的开始标签
+		'after_widget' 	=> '</li>', // widget 的结束标签
+		'before_title' 	=> '<h3 class="widget-title">', // 标题的开始标签
+		'after_title' 	=> '</h3>'// 标题的结束标签
+	));
+
+	register_sidebar(array(
+		'name' 			=> __( 'Author Right Sidebar', '存档页页面的右边栏，如果未定义侧边栏，则默认调用首页的侧边栏' ), // 侧边栏 1 的名称
+		'class'			=> 'right-sidebar',
+		'before_widget' => '<li class="widgets-lists">', // widget 的开始标签
+		'after_widget' 	=> '</li>', // widget 的结束标签
+		'before_title' 	=> '<h3 class="widget-title">', // 标题的开始标签
 		'after_title' 	=> '</h3>'// 标题的结束标签
 	));
 
 
-	register_sidebar(array( 
-		'name' 			=> __( 'Page Right Sidebar', '存档页页面的右边栏，如果未定义侧边栏，则默认调用首页的侧边栏' ), // 侧边栏 1 的名称 
+	register_sidebar(array(
+		'name' 			=> __( 'Page Right Sidebar', '存档页页面的右边栏，如果未定义侧边栏，则默认调用首页的侧边栏' ), // 侧边栏 1 的名称
 		'class'			=> 'right-sidebar',
-		'before_widget' => '<li class="widgets-lists">', // widget 的开始标签 
-		'after_widget' 	=> '</li>', // widget 的结束标签 
-		'before_title' 	=> '<h3 class="widget-title">', // 标题的开始标签 
+		'before_widget' => '<li class="widgets-lists">', // widget 的开始标签
+		'after_widget' 	=> '</li>', // widget 的结束标签
+		'before_title' 	=> '<h3 class="widget-title">', // 标题的开始标签
 		'after_title' 	=> '</h3>'// 标题的结束标签
 	));
 
-	register_sidebar(array( 
-		'name' 			=> __( 'Category Right Sidebar', '存档页页面的右边栏，如果未定义侧边栏，则默认调用首页的侧边栏' ), // 侧边栏 1 的名称 
+	register_sidebar(array(
+		'name' 			=> __( 'Category Right Sidebar', '存档页页面的右边栏，如果未定义侧边栏，则默认调用首页的侧边栏' ), // 侧边栏 1 的名称
 		'class'			=> 'right-sidebar',
-		'before_widget' => '<li class="widgets-lists">', // widget 的开始标签 
-		'after_widget' 	=> '</li>', // widget 的结束标签 
-		'before_title' 	=> '<h3 class="widget-title">', // 标题的开始标签 
+		'before_widget' => '<li class="widgets-lists">', // widget 的开始标签
+		'after_widget' 	=> '</li>', // widget 的结束标签
+		'before_title' 	=> '<h3 class="widget-title">', // 标题的开始标签
 		'after_title' 	=> '</h3>'// 标题的结束标签
 	));
 
-	register_sidebar(array( 
-		'name' 			=> __( 'Tag Right Sidebar', '存档页页面的右边栏，如果未定义侧边栏，则默认调用首页的侧边栏' ), // 侧边栏 1 的名称 
+	register_sidebar(array(
+		'name' 			=> __( 'Tag Right Sidebar', '存档页页面的右边栏，如果未定义侧边栏，则默认调用首页的侧边栏' ), // 侧边栏 1 的名称
 		'class'			=> 'right-sidebar',
-		'before_widget' => '<li class="widgets-lists">', // widget 的开始标签 
-		'after_widget' 	=> '</li>', // widget 的结束标签 
-		'before_title' 	=> '<h3 class="widget-title">', // 标题的开始标签 
+		'before_widget' => '<li class="widgets-lists">', // widget 的开始标签
+		'after_widget' 	=> '</li>', // widget 的结束标签
+		'before_title' 	=> '<h3 class="widget-title">', // 标题的开始标签
 		'after_title' 	=> '</h3>'// 标题的结束标签
 	));
-} 
+}
 
 //注册侧边栏小工具
-if ( function_exists('wp_register_sidebar_widget' ) ) {   
-    wp_register_sidebar_widget(1, '四合一小工具：日历最近文章、标签云、分类目录', 'tab_switcher_one');
-}  
+if ( function_exists('wp_register_sidebar_widget' ) ) {
+		wp_register_sidebar_widget(1, '四合一小工具：日历最近文章、标签云、分类目录', 'tab_switcher_one');
+}
 
 function tab_switcher_one () {
-    include(TEMPLATEPATH . '/wedgit/tab_switcher_1.php');
+		include(TEMPLATEPATH . '/wedgit/tab_switcher_1.php');
 }
 
 // 注册侧边栏小工具2
-if ( function_exists('wp_register_sidebar_widget' ) ) {   
-    wp_register_sidebar_widget(2, '三合一小工具：最近评论、友情链接、评论墙。', 'tab_switcher_two');
+if ( function_exists('wp_register_sidebar_widget' ) ) {
+		wp_register_sidebar_widget(2, '三合一小工具：最近评论、友情链接、评论墙。', 'tab_switcher_two');
 }
 
 function tab_switcher_two () {
-    include(TEMPLATEPATH . '/wedgit/tab_switcher_2.php');
+		include(TEMPLATEPATH . '/wedgit/tab_switcher_2.php');
 }
 
 //URL:http://www.daqianduan.com/wordpress-tools-newcomments/
@@ -215,7 +213,7 @@ class widget_new_comments extends WP_Widget {
 	function widget_new_comments() {
 		$option = array(
 			'classname' => 'widget_new_comments',
-			'description' => '显示网友最新评论（头像+名称+评论）' 
+			'description' => '显示网友最新评论（头像+名称+评论）'
 		);
 		$this->WP_Widget(false, '最新评论', $option);
 	}
@@ -253,8 +251,8 @@ class widget_new_comments extends WP_Widget {
 function my_new_comments( $limit ){
 	 global $wpdb;
 
-     $output = "";
-     // 读取缓存
+		 $output = "";
+		 // 读取缓存
 	 $comments = wp_cache_get( 'my_new_comments' );
 
 	 $sql = "SELECT DISTINCT
@@ -276,10 +274,10 @@ function my_new_comments( $limit ){
  			WHERE comment_approved = '1'
 	 			AND comment_type = ''
 	 			AND post_password = ''
-	 			AND user_id  = '0'
+	 			AND user_id	= '0'
 	 		ORDER BY comment_date_gmt DESC
 	 		LIMIT $limit ";
-	
+
 	 if ( $comments === false ) {
 	 	$comments = $wpdb->get_results($sql);
 	 	wp_cache_set( 'my_new_comments', $comments );
@@ -322,9 +320,9 @@ class widget_most_comments_wall extends WP_Widget {
 	function widget($args, $instance) {
 
 		extract($args, EXTR_SKIP);
-		
+
 		echo $before_widget;
-		
+
 		$title = empty($instance['title']) ? '读者评论墙' : apply_filters('widget_title', $instance['title']);
 		$count = empty($instance['count']) ? '5' : apply_filters('widget_count', $instance['count']);
 		$size = empty($instance['width']) ? '40' : apply_filters('widget_count', $instance['size']);
@@ -333,16 +331,16 @@ class widget_most_comments_wall extends WP_Widget {
 
 		echo get_most_comments_friends( array(
 			'number' => 20,
-            'size' => 40
-            ));
+						'size' => 40
+						));
 
 		echo $after_widget;
 	}
 
 	function update($new_instance, $old_instance) {
-		
+
 		$instance = $old_instance;
-		
+
 		$instance['title'] = strip_tags($new_instance['title']);
 		$instance['count'] = strip_tags($new_instance['count']);
 		$instance['size'] = strip_tags($new_instance['size']);
@@ -351,10 +349,10 @@ class widget_most_comments_wall extends WP_Widget {
 	}
 
 	function form($instance) {
-		$instance = wp_parse_args( (array) $instance, array( 
-			'title' => '', 
+		$instance = wp_parse_args( (array) $instance, array(
+			'title' => '',
 			'count' => '',
-			'size' => '' 
+			'size' => ''
 			) );
 
 		$title 	= strip_tags($instance['title']);
@@ -385,20 +383,20 @@ if ( function_exists('add_theme_support') ) {
  * 如果文章没有设置特色图像，但是使用自定义字段"thumb" 定义了特色图像地址，那么返回自定义字段的图片地址
  * 如果上述两者均为定义，那么获取文章中第一张图片地址
  * 如果文章中未包含图片那么返回默认图片地址
- * 
- * @param  integer| null $post_ID               文章ID
- * @param  string | null $default_thumbnail_url 自定义首页图像
- * @return string                        		特色图像URL
+ *
+ * @param	integer| null $post_ID							 文章ID
+ * @param	string | null $default_thumbnail_url 自定义首页图像
+ * @return string														特色图像URL
  */
 function get_post_thumbnail_url ( $post_ID, $default_thumbnail_url = "" ) {
 	// 如果没有默认主题缩略图就用主题默认自带的
-	$default_thumbnail_url = ( isset($default_thumbnail_url) || $default_thumbnail_url === "") ? 
-								get_stylesheet_directory_uri() . "/image/" . "default_thumbnail.jpg" : 
+	$default_thumbnail_url = ( isset($default_thumbnail_url) || $default_thumbnail_url === "") ?
+								get_stylesheet_directory_uri() . "/image/" . "default_thumbnail.jpg" :
 								$default_thumbnail_url ;
-	
+
 	// 获取文章当前ID
 	$post_ID = ( $post_ID === null ) ? get_the_ID() : $post_ID;
-	
+
 	// 获取缩略图ID
 	$thumbnail_id = get_post_thumbnail_id($post_id);
 
@@ -428,18 +426,18 @@ function get_post_thumbnail_url ( $post_ID, $default_thumbnail_url = "" ) {
 
 /**
  * 获取文章第一张图像地址
- * @return string | null 返回字符串 
+ * @return string | null 返回字符串
  */
 function get_first_img_of_post() {
 	global $post, $posts;
 
 	$first_img = null;
-	
+
 	ob_start();
 	ob_end_clean();
 
 	$output = preg_match_all('|<img.*?src=[\'"](.*?)[\'"].*?>|i', $post->post_content, $matches);
-	
+
 	if ( $output ) {
 		$first_img = $matches[1][0];
 	}
@@ -449,8 +447,8 @@ function get_first_img_of_post() {
 
 /**
  * [get_most_comments_friends description]
- * @param  [type] $config [description]
- * @return [type]         [description]
+ * @param	[type] $config [description]
+ * @return [type]				 [description]
  */
 function get_most_comments_friends($config) {
 
@@ -465,52 +463,52 @@ function get_most_comments_friends($config) {
 
 	 global $wpdb;
 
-   	$counts = wp_cache_get( 'simpleway_mostactive' );
+	 	$counts = wp_cache_get( 'simpleway_mostactive' );
 
-   	$query = "	SELECT
-   					COUNT(comment_author) AS cnt,
-   					comment_author,
-   					comment_author_url,
-   					comment_author_email
-   				FROM {$wpdb->prefix}comments
-   				WHERE comment_date > date_sub( NOW(), INTERVAL {$config['time']} MONTH )
-         		AND comment_approved = '1'
-         		AND comment_author_email != 'example@example.com'
-         		-- AND comment_author_url != ''
-         		AND comment_type = ''
-         		AND user_id = '0'
-     			GROUP BY comment_author_email
-     			ORDER BY cnt DESC
-     			LIMIT {$config['number']}";
+	 	$query = "	SELECT
+	 					COUNT(comment_author) AS cnt,
+	 					comment_author,
+	 					comment_author_url,
+	 					comment_author_email
+	 				FROM {$wpdb->prefix}comments
+	 				WHERE comment_date > date_sub( NOW(), INTERVAL {$config['time']} MONTH )
+				 		AND comment_approved = '1'
+				 		AND comment_author_email != 'example@example.com'
+				 		-- AND comment_author_url != ''
+				 		AND comment_type = ''
+				 		AND user_id = '0'
+		 			GROUP BY comment_author_email
+		 			ORDER BY cnt DESC
+		 			LIMIT {$config['number']}";
 
 
-   	if ( false === $counts ) {
-     	$counts = $wpdb->get_results($query);
-     	wp_cache_set( 'simpleway_mostactive', $counts );
-   	}
+	 	if ( false === $counts ) {
+		 	$counts = $wpdb->get_results($query);
+		 	wp_cache_set( 'simpleway_mostactive', $counts );
+	 	}
 
-   	$mostactive = '';
+	 	$mostactive = '';
 
 	 if ( $counts ) {
-   		$mostactive .= "<ul class=\"{$config['container_class']}\" id=\"{$config['container_id']}\">";
+	 		$mostactive .= "<ul class=\"{$config['container_class']}\" id=\"{$config['container_id']}\">";
 
-   		wp_cache_set( 'simpleway_mostactive', $counts );
+	 		wp_cache_set( 'simpleway_mostactive', $counts );
 
-   		$_index = 1;
+	 		$_index = 1;
 
-     	foreach ($counts as $count) {
-       		$c_url 		= $count->comment_author_url != "" ? $count->comment_author_url : get_bloginfo('url');
-       		$c_count	= $count->cnt;
-       		$c_author 	= $count->comment_author;
-       		$c_email 	= $count->comment_author_email;
+		 	foreach ($counts as $count) {
+			 		$c_url 		= $count->comment_author_url != "" ? $count->comment_author_url : get_bloginfo('url');
+			 		$c_count	= $count->cnt;
+			 		$c_author 	= $count->comment_author;
+			 		$c_email 	= $count->comment_author_email;
 
-      		$mostactive .= "<li id=\"mostActivePeople-{$_index}\" class=\"most-active-people\"><a href=\"{$c_url}\" title=\"{$c_author} 发表 {$c_count} 条评论\" rel=\"nofollow\" target=\"_blank\">" .
-	      		my_avatar($c_email, $config['size']) . "</a></li>";
+					$mostactive .= "<li id=\"mostActivePeople-{$_index}\" class=\"most-active-people\"><a href=\"{$c_url}\" title=\"{$c_author} 发表 {$c_count} 条评论\" rel=\"nofollow\" target=\"_blank\">" .
+						my_avatar($c_email, $config['size']) . "</a></li>";
 
-    			$_index++;
-    		}
-    		$mostactive .="</ul>";
-  	}
+					$_index++;
+				}
+				$mostactive .="</ul>";
+		}
 
 	 if ( $config['echo'] ) {
 	 	echo $mostactive;
@@ -526,16 +524,16 @@ add_filter( 'the_modified_date', 'human_readable_date' );
 add_filter( 'get_the_modified_date', 'human_readable_date' );
 
 function human_readable_date( $the_date ){
-    return human_time_diff( strtotime($the_date) ) .  __(' ago');
+		return human_time_diff( strtotime($the_date) ) .	__(' ago');
 }
 
 /**
  * 页面分页
- * @param  integer $range 分页计数
- * @return string         html字符串
+ * @param	integer $range 分页计数
+ * @return string				 html字符串
  */
 function page_navigation($range = 9) {
-	global	$paged, 
+	global	$paged,
 			$wp_query;
 
 	echo "<nav class=\"page-nav-wrap\">";
@@ -558,7 +556,7 @@ function page_navigation($range = 9) {
 		// 上一页
 		previous_posts_link('<<');
 
-    	if ($max_page > $range) {
+			if ($max_page > $range) {
 			if ($paged < $range) {
 				for ( $i = 1; $i <= ($range + 1); $i++) {
 					echo "<a href='" . get_pagenum_link($i) ."'";
@@ -587,21 +585,21 @@ function page_navigation($range = 9) {
 		} else {
 			for ($i = 1; $i <= $max_page; $i++) {
 				echo "<a href='" . get_pagenum_link($i) ."'";
-			    if ($i==$paged) {
-			    	echo " class='current'";
-			    }
-			    echo ">$i</a>";
+					if ($i==$paged) {
+						echo " class='current'";
+					}
+					echo ">$i</a>";
 			}
 		}
 
 		// 下一页
 		next_posts_link('>>');
 
-    	if ($paged != $max_page) {
-    		echo "<a href='" . get_pagenum_link($max_page) . "' class='extend' title='跳转到最后一页'>最后</a>";
-    	}
-    }
-    echo "</nav>";
+			if ($paged != $max_page) {
+				echo "<a href='" . get_pagenum_link($max_page) . "' class='extend' title='跳转到最后一页'>最后</a>";
+			}
+		}
+		echo "</nav>";
 }
 
 // 增加后台作者资料
@@ -613,7 +611,7 @@ function add_author_contact_fields( $contact_methods ) {
 	$contact_methods['google_plus'] 	= 'Google+';
 	$contact_methods['facebook'] 	= 'Faceboook';
 	$contact_methods['github'] 		= 'GitHub';
-	
+
 	// unset( $contactmethods['yim'] );
 	// unset( $contactmethods['aim'] );
 	// unset( $contactmethods['jabber'] );
@@ -623,28 +621,28 @@ function add_author_contact_fields( $contact_methods ) {
 
 
 // 增加主页关键字以及描述
-$new_general_setting = new new_general_setting();
+// $new_general_setting = new new_general_setting();
 
-class new_general_setting {
+// class new_general_setting {
 
-	function new_general_setting( ) {
-		add_filter( 'admin_init' , array( &$this , 'register_fields' ) );
-	}
+// 	function new_general_setting( ) {
+// 		add_filter( 'admin_init' , array( &$this , 'register_fields' ) );
+// 	}
 
-	function register_fields() {
-		register_setting( 'general', 'favorite_color', 'esc_attr' );
-		add_settings_field('fav_color', 
-			'<label for="favorite_color">'.__('最喜欢的颜色' ).'</label>',
-			array(&$this, 'fields_html') ,
-			'general' 
-			);
-	}
+// 	function register_fields() {
+// 		register_setting( 'general', 'favorite_color', 'esc_attr' );
+// 		add_settings_field('fav_color',
+// 			'<label for="favorite_color">'.__('最喜欢的颜色' ).'</label>',
+// 			array(&$this, 'fields_html') ,
+// 			'general'
+// 			);
+// 	}
 
-	function fields_html() {
-		$value = get_option( 'favorite_color', '' );
-		echo '<input type="text" id="favorite_color" name="favorite_color" value="' . $value . '" />';
-	}
-}
+// 	function fields_html() {
+// 		$value = get_option( 'favorite_color', '' );
+// 		echo '<input type="text" id="favorite_color" name="favorite_color" value="' . $value . '" />';
+// 	}
+// }
 
 
 
@@ -652,7 +650,7 @@ class new_general_setting {
 add_filter('comment_reply_link', 'add_nofollow', 420, 4);
 
 function add_nofollow($link, $args, $comment, $post) {
-  return str_replace("href=", "rel='nofollow' href=", $link);
+	return str_replace("href=", "rel='nofollow' href=", $link);
 }
 
 // 恢复友情链接
@@ -664,26 +662,26 @@ add_filter( 'pre_option_link_manager_enabled', '__return_true' );
 add_action('admin_menu', 'theme_way_setting_page');
 
 function theme_way_setting_page (){
- 
+
 	if ( count($_POST) > 0 && isset($_POST['simple_way_theme_settings']) ) {
 
 		$settings = $_POST;
 		foreach ( $settings as $setting => $value ) {
-			
+
 			if ($setting != 'simple_way_theme_settings' && $setting != 'Submit') {
-				
+
 				$option_key = 'simple_way_' . $setting;
 				delete_option ( $option_key );
-				add_option ( $option_key , trim( $value ));	
+				add_option ( $option_key , trim( $value ));
 			}
 		}
 	}
-	
+
 	add_menu_page(__('主题选项'), __('主题选项'), 'edit_themes', basename(__FILE__), 'simple_way_theme_settings');
 }
- 
+
 function simple_way_theme_settings(){?>
- 
+
 <div class="wrap">
 	<h2>主题选项</h2>
 	<form method="post" action="">
@@ -762,7 +760,7 @@ function simple_way_theme_settings(){?>
 						</fieldset>
 					</td>
 				</tr>
-			</tbody>	
+			</tbody>
 		</table>
 		<p class="submit">
 			<input type="submit" name="Submit" class="button-primary" value="保存设置" />

@@ -11,11 +11,11 @@
 .single-post-wrap .post-thumbnail-wrap {
 	position: relative;
 	border-radius: 4px 4px 0 0;
-	overflow: hidden; 
+	overflow: hidden;
 }
 .single-post-wrap .post-thumbnail-wrap .thumbnail-cover {
 	position: absolute;
-	top: 0;
+	top: 0;fgu
 	left: 0;
 	content: "";
 	display: block;
@@ -50,7 +50,7 @@
 	display: block;
 	width: 50px;
 	height: 50px;
-} 
+}
 
 .author-avatar-wrap .author-name {
 	position: absolute;
@@ -64,9 +64,9 @@
 	bottom: -24px;
 	background-color: #333;
 	color: #FFF;
-	font-size: 12px; 
+	font-size: 12px;
 	line-height: 1;
-	border-radius: 2px; 
+	border-radius: 2px;
 	opacity: 0;
 	transition: opacity .5s ease;
 	font-family: Arial, sans-serif;
@@ -174,7 +174,7 @@
 	line-height: 20px;
 	min-height: 20px;
 	bottom: 0;
-} 
+}
 
 /* 特殊化分类 */
 .post-tags .icons，
@@ -196,7 +196,7 @@
 .post .post-comment {
 	display: inline-block;
 	color: #A3A3A3;
-	font:normal 12px/15px Arial, "宋体", "Microsoft Yahei"; 
+	font:normal 12px/15px Arial, "宋体", "Microsoft Yahei";
 }
 
 .post .post-comment {
@@ -263,7 +263,7 @@
 .single-post-wrap.has-thumbnail .author-avatar img {
 	position: relative;
 	border-radius: 50%;
-	transition: border-radius .5s linear; 
+	transition: border-radius .5s linear;
 }
 
 /**** 有缩略图 *****/
@@ -278,7 +278,7 @@
 /************************************** Post Entry ******************************************/
 /********************************************************************************************/
 .post .entry {
-	padding-top: 5px; 
+	padding-top: 5px;
 	padding-bottom: 10px;
 	border-top: 1px solid rgba(0, 0, 0, .05);
 	border-bottom: 1px solid rgba(0, 0, 0, .05);
@@ -288,10 +288,10 @@
 }
 
 .entry h1,
-.entry h2, 
-.entry h3, 
-.entry h4, 
-.entry h5, 
+.entry h2,
+.entry h3,
+.entry h4,
+.entry h5,
 .entry h6 {
 	margin: 15px 0;
 	color: #333;
@@ -406,7 +406,7 @@
 }
 
 .entry ul {
-	padding-left: 15px;	
+	padding-left: 15px;
 }
 
 .entry ul li {
@@ -503,7 +503,7 @@
 }
 
 .entry .summary {
-	margin-top: 15px; 
+	margin-top: 15px;
 	color: #4AA5FD;
 	font: bold 20px/40px "Microsoft Yahei", Arial;
 }
