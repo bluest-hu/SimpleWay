@@ -42,7 +42,7 @@
 			</div>
 		</div>
 		<!-- Footer Begain -->
-		<?php get_footer(  ); ?>
+		<?php get_footer(); ?>
 		<!-- Footer Ends -->
 	</div><!-- Blog Wrap Ends -->
 </body>

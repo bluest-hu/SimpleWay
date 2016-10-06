@@ -100,7 +100,7 @@
 }
 
 #s:focus, 
-#searchsubmit:focus {
+#searchSubmitBtn:focus {
 	outline: 0 none;
 }
 
@@ -141,7 +141,7 @@
 	color: #727272;
 }
 
-#searchsubmit {
+#searchSubmitBtn {
 	position: absolute;
 	top: 6px;
 	right: 10px;
@@ -155,7 +155,7 @@
 	text-indent: 99em;
 }
 
-#searchsubmit:hover {
+#searchSubmitBtn:hover {
 	cursor: pointer;
 }
 

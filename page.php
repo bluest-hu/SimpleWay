@@ -13,7 +13,7 @@
 								<?php echo my_avatar( get_the_author_email(), 80 ); ?>
 							</div>
 					
-							<div class="author-descrption right-column">
+							<div class="author-description right-column">
 								<p class="author-name">
 									<?php the_author_posts_link(); ?>
 								</p>

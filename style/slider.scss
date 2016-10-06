@@ -379,7 +379,7 @@
 
 /************************************** Sidebar Search ***************************************/
 .sidebar #s,
-.sidebar #searchsubmit{
+.sidebar #searchSubmitBtn {
 	margin: 0;
 	padding: 0;
 	height: 25px;
@@ -387,14 +387,14 @@
 	border-radius: 2px;
 }
 
-.sidebar  #searchsubmit {
+.sidebar #searchSubmitBtn {
 	padding: 0 5px;
 	border-color: #ffa200;
 	background-color: #ffa200;
 	color: #FFF;
 }
 
-.sidebar #searchsubmit:hover {
+.sidebar #searchSubmitBtn:hover {
 	cursor: pointer;
 }
 

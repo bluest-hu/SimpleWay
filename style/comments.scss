@@ -7,7 +7,6 @@
 	font-size: 20px;
 	line-height: 42px;
 	min-height: 42px;
-	min-height: 42px;
 	font-weight: normal;
 	background-color: #FF5E5E;
 	color: #FFF;
@@ -49,7 +48,20 @@
 	padding: 15px 0 10px 0;
 	margin: 5px 0;
 	border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
 
+.comment .comment-content  p {
+	text-align: justify;
+}
+
+.comment .comment-content  p a {
+	color: inherit;
+	text-decoration: underline;
+
+}
+
+.comment .comment-content  p a:hover {
+	color: #FFA200;
 }
 
 .comment .comment-body:after {
@@ -78,7 +90,7 @@
 .comment .children .comment-meta {
 	padding-left: 55px;
 	margin-left: 0;
-	border-left: 5px solid #E6E6E6;
+	border-left: 5px solid rgba(230, 230, 230, 0.8);
 }
 
 .comment .comment-meta::after {
@@ -95,13 +107,18 @@
 	margin: 0;
 	padding: 2px 6px;
 	height: 12px;
-	border: 1px solid #4AA5FD;
-	border-radius: 2px;
-	background-color: #3DA0FF;
+	border: 1px solid rgba(74, 165, 253, 0.1);
+	border-radius: 1px;
+	background-color: rgba(61, 160, 255, 0.5);
 	color: #FFF;
 	font-size: 12px;
 	font-family: Georgia, sans-serif;
 	line-height: 12px;
+}
+
+.bypostauthor:hover .comment-by-post-author {
+	border: 1px solid rgba(74, 165, 253, 1);
+	background-color: rgba(61, 160, 255, 1);
 }
 
 .comment-author .avatar {
@@ -172,7 +189,7 @@
 }
 
 .comment .children .comment-content {
-	border-left: 5px solid #E6E6E6;
+	border-left: 5px solid rgba(230, 230, 230, 0.8);
 	padding-left: 15px;
 }
 
@@ -260,7 +277,7 @@
 
 .comment-author .says {
 	color: #B5B5B5;
-	margin-left: 5px;
+	//margin-left: 5px;
 	font-size: 12px;
 	font-family: Arial, Consolas, sans-serif;
 }
