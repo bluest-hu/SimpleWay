@@ -1,0 +1,94 @@
+/*======================================== Reset Begin ======================================*/
+body {
+  /*-webkit-font-smoothing: antialiased;*/
+  -moz-osx-font-smoothing: grayscale;
+  font: normal 16px/1.5 Arial,'Microsoft Yahei',Tahoma, Helvetica, STHeiti; }
+
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  margin: 0;
+  padding: 0; }
+
+ul,
+ul li {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+input,
+textarea {
+  margin: 0;
+  padding: 0;
+  border: 1px solid #CCC;
+  text-indent: 5px;
+  line-height: 1.5; }
+
+input[type="text"]:focus,
+input[type="passwod"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: #FFA200;
+  transition: border-color .2s  ease-in-out; }
+
+form {
+  margin-bottom: 0; }
+
+a {
+  text-decoration: none; }
+
+a:hover {
+  text-decoration: none; }
+
+p {
+  margin: 0;
+  padding: 0;
+  color: #666;
+  font: normal 14px/25px "Microsoft Yahei"; }
+
+img {
+  max-width: 100%;
+  border: none; }
+
+pre {
+  overflow-x: auto;
+  padding: 15px 20px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  border-radius: 2px;
+  background-color: #F7F7F7;
+  color: #777;
+  font: normal 14px/1.5 "Source Code Pro", Consolas, Arial; }
+
+blockquote {
+  position: relative;
+  margin: 0;
+  padding: 10px 30px 10px 30px;
+  color: #777; }
+
+blockquote p {
+  color: #777; }
+
+blockquote::before,
+blockquote::after {
+  position: absolute;
+  display: block;
+  width: 16px;
+  height: 16px;
+  background: transparent url("../image/icons.png") 0 0 no-repeat scroll;
+  content: ""; }
+
+blockquote::before {
+  top: 10px;
+  left: 0; }
+
+blockquote::after {
+  right: 0;
+  bottom: 10px;
+  background-position: -20px 0; }
+
+/*# sourceMappingURL=myReset.css.map */

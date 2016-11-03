@@ -1,4 +1,15 @@
 <?php
+
+
+if (!function_exists('utf8Substr')) {
+    function utf8Substr($str, $from, $len)
+    {
+        return preg_replace('#^(?:[\x00-\x7F]|[\xC0-\xFF][\x80-\xBF]+){0,' . $from . '}' .
+            '((?:[\x00-\x7F]|[\xC0-\xFF][\x80-\xBF]+){0,' . $len . '}).*#s',
+            '$1', $str);
+    }
+}
+
 /**
  * [my_avatar 将Gavatar的头像存储在本地，防止伟大的GFW Fuck Gavatar，反强奸（很不幸已经被墙了）]
  * @param    string $id_or_email [email]
@@ -102,7 +113,7 @@ add_filter('get_avatar', 'my_avatar', 10, 5);
 function my_wp_get_archives($args)
 {
     echo '<div class="test">';
-    wp_get_archives($args);
+        wp_get_archives($args);
     echo '</div>';
 }
 
@@ -314,8 +325,6 @@ function my_new_comments($limit)
     echo $output;
 }
 
-;
-
 
 register_widget('widget_most_comments_wall');
 
@@ -383,14 +392,30 @@ class widget_most_comments_wall extends WP_Widget
 }
 
 
-/*************************************************************************************
+// 设置元素宽度
+if ( ! isset( $content_width ) ) {
+    $content_width = 590;
+}
+
+add_theme_support("content_width", 590);
+
+//add_theme_support( 'title-tag' );
+
+
+add_filter( 'embed_oembed_discover', '__return_true' );
+
+/**************************************************************************************
  *************************************** 缩略图相关 *************************************
  **************************************************************************************/
 if (function_exists('add_theme_support')) {
-    add_theme_support('post-thumbnails', array('post')); // 给日志启用日志缩略图
-    add_theme_support('post-thumbnails', array('page')); // 给页面启用日志缩略图
-    set_post_thumbnail_size(650, 110, true); // 设置默认的缩略图大小尺寸
-    add_image_size('normal', 155, 110, true); // 设置标记为”one”的缩略图尺寸，这里的one应该是数组下标
+    // 给日志启用日志缩略图
+    add_theme_support('post-thumbnails', array('post'));
+    // 给页面启用日志缩略图
+    add_theme_support('post-thumbnails', array('page'));
+    // 设置默认的缩略图大小尺寸
+    set_post_thumbnail_size(650, 250, true);
+    // 增加适用于文章缩略图的尺寸
+    add_image_size("post_cover", 650, 250, true);
 }
 
 /**
@@ -402,36 +427,38 @@ if (function_exists('add_theme_support')) {
  * 如果文章中未包含图片那么返回默认图片地址
  *
  * @param    integer| null $post_ID 文章ID
- * @param    string | null $default_thumbnail_url 自定义首页图像
+ * @param    string | null $default_cover_img_url 自定义首页图像
  * @return string                                                        特色图像URL
  */
-function get_post_thumbnail_url($post_ID, $default_thumbnail_url = "")
+function get_post_thumbnail_url($post_ID, $default_cover_img_url = "")
 {
     // 如果没有默认主题缩略图就用主题默认自带的
-    $default_thumbnail_url = (isset($default_thumbnail_url) || $default_thumbnail_url === "") ?
+    $default_cover_img_url = (!isset($default_cover_img_url) || $default_cover_img_url === "") ?
         get_stylesheet_directory_uri() . "/image/" . "default_thumbnail.jpg" :
-        $default_thumbnail_url;
+        $default_cover_img_url;
 
     // 获取文章当前ID
     $post_ID = ($post_ID === null) ? get_the_ID() : $post_ID;
-
     // 获取缩略图ID
-    $thumbnail_id = get_post_thumbnail_id($post_id);
+    $thumbnail_id = get_post_thumbnail_id($post_ID);
 
     if ($thumbnail_id) { // 如果存在后台上传的缩略图
         // 获取缩略图属性
-        $thumb_attribute = wp_get_attachment_image_src($thumbnail_id, 'thumbnail');
+        $thumb_attribute = wp_get_attachment_image_src($thumbnail_id, 650);
         $post_thumbnail_url = $thumb_attribute[0];
     } else {
-        // 获取自定义的 thumb 字段
-        if (get_post_custom_values("thumb", $post_ID) != null) {
-            $post_thumbnail_url = get_post_custom_values("thumb", $post_ID);
+        // 获取自定义的封面字段 sw_post_cover
+        $post_custom_post_cover_value = get_post_custom_values("sw_post_cover", $post_ID);
+        $post_custom_post_cover_value = ($post_custom_post_cover_value != null && isset($post_custom_post_cover_value[0])) ?
+            $post_custom_post_cover_value[0] : null;
+        // todo 验证是图片
+        if ( $post_custom_post_cover_value != null ) {
+            $post_thumbnail_url = $post_custom_post_cover_value;
         } else {
             // 如果实在找不到获取文章内容中第一张图像的地址
             $first_img = get_first_img_of_post();
-
             if (is_null($first_img)) {
-                $post_thumbnail_url = $default_thumbnail_url;
+                $post_thumbnail_url = $default_cover_img_url;
             } else {
                 // 如果文章中也没有地址那么用第一张替代
                 $post_thumbnail_url = $first_img;
@@ -448,19 +475,14 @@ function get_post_thumbnail_url($post_ID, $default_thumbnail_url = "")
  */
 function get_first_img_of_post()
 {
-    global $post, $posts;
-
+    global $post;
     $first_img = null;
-
     ob_start();
-    ob_end_clean();
-
     $output = preg_match_all('|<img.*?src=[\'"](.*?)[\'"].*?>|i', $post->post_content, $matches);
-
     if ($output) {
         $first_img = $matches[1][0];
     }
-
+    ob_end_clean();
     return $first_img;
 }
 
@@ -668,10 +690,17 @@ function add_author_contact_fields($contact_methods)
 // }
 
 
-// 给评论链接添加No-follw
-add_filter('comment_reply_link', 'add_nofollow', 420, 4);
+// 给评论链接添加No-follow
+add_filter('comment_reply_link', 'sw_add_no_follow', 420, 4);
 
-function add_nofollow($link, $args, $comment, $post)
+/**
+ * @param $link
+ * @param $args
+ * @param $comment
+ * @param $post
+ * @return mixed
+ */
+function sw_add_no_follow($link, $args, $comment, $post)
 {
     return str_replace("href=", "rel='nofollow' href=", $link);
 }
@@ -682,9 +711,9 @@ add_filter('pre_option_link_manager_enabled', '__return_true');
 /**
  * 添加主题设置选项
  */
-add_action('admin_menu', 'theme_way_setting_page');
+add_action('admin_menu', 'sw_setting_page');
 
-function theme_way_setting_page()
+function sw_setting_page()
 {
 
     if (count($_POST) > 0 && isset($_POST['simple_way_theme_settings'])) {
@@ -701,10 +730,10 @@ function theme_way_setting_page()
         }
     }
 
-    add_menu_page(__('主题选项'), __('主题选项'), 'edit_themes', basename(__FILE__), 'simple_way_theme_settings');
+    add_menu_page(__('主题选项'), __('主题选项'), 'edit_themes', basename(__FILE__), 'sw_theme_settings');
 }
 
-function simple_way_theme_settings()
+function sw_theme_settings()
 {
     ?>
 
@@ -767,7 +796,11 @@ function simple_way_theme_settings()
                                     在主题底部添加统计代码或者分享代码等（请包含 <code>&lt;script&gt;&lt;/script&gt;</code>标签 ）
                                 </label>
                             </p>
-                            <textarea name="analytics" class="large-text code" id="analytics" rows="10" cols="50"
+                            <textarea name="analytics"
+                                      class="large-text code"
+                                      id="analytics"
+                                      rows="10"
+                                      cols="50"
                                       style="text-indent:0;padding:0"><?php echo stripslashes(trim(get_option('simple_way_analytics'))); ?></textarea>
                         </fieldset>
                     </td>
@@ -784,7 +817,9 @@ function simple_way_theme_settings()
                                     在文章主题底部添加统计代码或者分享代码等（请包含 <code>&lt;script&gt;&lt;/script&gt;</code>标签 ）
                                 </label>
                             </p>
-                            <textarea name="single_script" class="large-text code" id="single_script" rows="10"
+                            <textarea name="single_script"
+                                      class="large-text code"
+                                      id="single_script" rows="10"
                                       cols="50"
                                       style="text-indent:0;padding:0"><?php echo stripslashes(trim(get_option('simple_way_single_script'))); ?></textarea>
                             <p class="description">
@@ -809,7 +844,40 @@ class sw_blog_info extends WP_Widget
 
 }
 
+/**
+ * aside - Typically styled without a title. Similar to a Facebook note update.
+ * gallery - A gallery of images. Post will likely contain a gallery shortcode and will have image attachments.
+ * link - A link to another site. Themes may wish to use the first <a href=””> tag in the post content as the external link for that post. An alternative approach could be if the post consists only of a URL, then that will be the URL and the title (post_title) will be the name attached to the anchor for it.
+ * image - A single image. The first <img /> tag in the post could be considered the image. Alternatively, if the post consists only of a URL, that will be the image URL and the title of the post (post_title) will be the title attribute for the image.
+ * quote - A quotation. Probably will contain a blockquote holding the quote content. Alternatively, the quote may be just the content, with the source/author being the title.
+ * status - A short status update, similar to a Twitter status update.
+ * video - A single video or video playlist. The first <video /> tag or object/embed in the post content could be considered the video. Alternatively, if the post consists only of a URL, that will be the video URL. May also contain the video as an attachment to the post, if video support is enabled on the blog (like via a plugin).
+ * audio - An audio file or playlist. Could be used for Podcasting.
+ * chat - A chat transcript, like so:
+ */
+add_theme_support('post-formats', array(
+    'aside',
+    'gallery',
+    'link',
+    'image',
+    'quote',
+    'status',
+    'video',
+    'audio',
+    'chart'
+));
 
 
-
+//add_action('after_setup_theme');
+//
+//
+//function wp_add_custom_logo () {
+//    add_theme_support('custom-logo', array(
+//        'height'=> 100,
+//        'width' => 100,
+//        'flex-height' => true,
+//        'flex-width'  => true,
+//        'header-text' => array( 'site-title', 'site-description' ),
+//    ));
+//}
 ?>

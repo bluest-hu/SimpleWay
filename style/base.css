@@ -1,0 +1,114 @@
+/***************************************** Layout *******************************************/
+.clear:after {
+  display: block;
+  visibility: hidden;
+  clear: both;
+  width: 0;
+  height: 0;
+  content: ""; }
+
+.left,
+.left-column {
+  float: left; }
+
+.right,
+.right-column {
+  float: right; }
+
+.card {
+  margin: 10px 0;
+  border-radius: 2px;
+  background-color: #FFF;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  padding: 25px 30px; }
+
+::selection {
+  background: #FFA200;
+  text-shadow: none;
+  color: #FFF; }
+
+.main-content,
+.header-content,
+.main-footer-content {
+  margin: 0 auto;
+  width: 1000px; }
+
+body {
+  background-color: #f0f0f0; }
+
+/**************************************************************************************************/
+/****************************************** Tab Switcher ******************************************/
+/**************************************************************************************************/
+.main-right-aside .tab {
+  margin-bottom: 10px; }
+
+.tab .tab-switcher {
+  margin-bottom: -1px; }
+
+.tab .tab-switcher-wrap {
+  margin: 0;
+  list-style: none;
+  height: 35px;
+  overflow: hidden; }
+
+.tab .tab-switcher-list {
+  float: left;
+  max-width: 85px;
+  padding: 0px 13px;
+  height: 35px;
+  color: #999;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 35px;
+  transition: color .4s linear; }
+
+.tab-switcher-list .icon {
+  line-height: inherit;
+  font-size: 0; }
+
+.tab-switcher-list .icon::before {
+  display: block;
+  margin-right: 5px;
+  float: left;
+  font-size: 20px;
+  line-height: inherit;
+  font-weight: normal;
+  vertical-align: middle; }
+
+.tab .tab-switcher-list:hover {
+  color: #333;
+  cursor: pointer; }
+
+.tab .tab-switcher-list.current {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  background-color: #FFF;
+  color: #333; }
+
+.tab .tab-switcher-list.current:hover {
+  cursor: auto; }
+
+.tab .tab-container {
+  /*border-top: 1px solid #D5D5D5;*/
+  border-radius: 2px; }
+
+.tab .tab-content {
+  margin: 0;
+  padding: 15px 20px 20px 20px;
+  background-color: #FFF;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); }
+
+.tab .tab-content-list {
+  display: none;
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+.tab-content-list li {
+  margin: 0 0 0 10px;
+  list-style-type: disc; }
+
+.tab .tab-content-list.current {
+  display: block; }
+
+/*# sourceMappingURL=base.css.map */

@@ -5,12 +5,14 @@
 	padding: 0 45px 0 45px;
 	margin-left: -45px;
 	font-size: 20px;
-	line-height: 42px;
-	min-height: 42px;
-	font-weight: normal;
+	line-height: 50px;
+	min-height: 50px;
+	//font-weight: normal;
 	background-color: #FF5E5E;
 	color: #FFF;
+	margin-bottom: 15px;
 	border-top-left-radius: 2px;
+	font-weight: lighter;
 }
 .comment-title::before,
 .comment-title::after {
@@ -19,7 +21,7 @@
 	display: block;
 	width: 0;
 	height: 0;
-	border: 21px solid transparent;
+	border: 25px solid transparent;
 }
 
 .comment-title::after {
@@ -185,7 +187,7 @@
 
 /* 评论内容 */
 .comment-body .comment-content {
-	padding: 10px 0 0 0 ;
+	padding: 10px 0 0 50px ;
 }
 
 .comment .children .comment-content {
@@ -291,7 +293,7 @@
 }
 
 .article-comments-container .comment-title, 
-.article-comments-container .comment-reply-title, 
+.article-comments-wrap .comment-reply-title,
 .main-right-aside .widget-title {
 	margin-bottom: 10px;
 	color: #333;
@@ -301,6 +303,12 @@
 }
 
 /*======================================== Article Comemnts Form ======================================*/
+
+.article-comments-container .comment-reply-title {
+
+}
+
+
 .comment-form-container .comment-reply-title a, 
 .comment-form-container .logged-in-as a:nth-child(1){
 	color: #FFA200;
@@ -358,7 +366,9 @@
 	width: 70px;
 	color: #777;
 	font-size: 13px;
-	line-height: 33px;
+	line-height: 28px;
+	//display: block;
+	float: left;
 }
 
 #commentform .required {
@@ -366,9 +376,12 @@
 }
 
 #commentform input[type="text"] {
-	margin: 3px 0;
-	height: 25px;
+
+	height: 30px;
 	border-radius: 2px;
+	width: 320px;
+	//clear: left;
+	box-sizing: border-box;
 }
 #commentform .form-submit {
 	overflow: hidden;
@@ -395,5 +408,15 @@
 }
 
 #commentform textarea {
-	margin: 5px 0;
+	//margin: 5px 0;
+	width: 520px;
+	box-sizing: border-box;
+}
+
+
+#commentform .comment-form-author,
+#commentform .comment-form-email,
+#commentform .comment-form-url {
+	overflow: hidden;
+	margin: 10px 0;
 }

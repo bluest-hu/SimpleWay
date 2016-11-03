@@ -1,0 +1,100 @@
+/*============================================================================================*/
+/*======================================== Footer Begin ======================================*/
+/*============================================================================================*/
+.main-footer {
+  padding: 30px 0;
+  background-color: #333;
+  overflow-x: hidden; }
+
+.main-footer p,
+.main-footer a {
+  color: #646464;
+  font: normal 12px/20px Arial,"Microsoft Yahei";
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.7); }
+
+.main-footer a:hover {
+  color: #ffa200;
+  text-decoration: underline; }
+
+/******************** Main Footer Navigation Begin ********************/
+.main-footer .footer-nav-wrap {
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px; }
+
+.footer-nav-wrap .menu-wrap {
+  padding: 0 0 2px 0; }
+
+.footer-nav-wrap .menu-wrap {
+  text-align: center; }
+
+.footer-nav-wrap .menu-item {
+  display: inline-block;
+  margin: 0 5px; }
+
+.footer-nav-wrap .menu-item a {
+  display: block;
+  padding-bottom: 5px;
+  font-size: 14px;
+  line-height: 20px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.9);
+  transition: color .3s ease; }
+
+/******************** Main Footer Navigation End ********************/
+/******************** Main Footer Infomation Begin ********************/
+.powered-by .wordpress-logo {
+  display: inline-block;
+  margin-right: 2px;
+  margin-bottom: -2px;
+  width: 13px;
+  height: 13px;
+  background: transparent url("../image/icons.png") -100px 0 no-repeat scroll;
+  transition: all .1s ease-in-out; }
+
+.powered-by .wordpress:hover .wordpress-logo {
+  background-position: -100px -20px; }
+
+.designer .heart {
+  color: #FF6262; }
+
+.designer .heart:hover {
+  -webkit-animation: heartbeat 1s linear infinite;
+  -moz-animation: heartbeat 1s linear infinite;
+  -ms-animation: heartbeat 1s linear infinite;
+  animation: heartbeat 1s linear infinite;
+  cursor: pointer; }
+
+/*********** Animation Heart Beat ***********/
+@keyframes heartbeat {
+  to {
+    -webkit-transform: scale(1.4);
+    -moz-transform: scale(1.4);
+    -o-transform: scale(1.4);
+    -ms-transform: scale(1.4);
+    transform: scale(1.4); } }
+
+@-moz-keyframes heartbeat {
+  to {
+    -moz-transform: scale(1.4);
+    transform: scale(1.4); } }
+
+@-webkit-keyframes heartbeat {
+  to {
+    -webkit-transform: scale(1.4);
+    transform: scale(1.4); } }
+
+@-ms-keyframes heartbeat {
+  to {
+    -ms-transform: scale(1.4);
+    transform: scale(1.4); } }
+
+@-o-keyframes heartbeat {
+  to {
+    -o-transform: scale(1.4);
+    transform: scale(1.4); } }
+
+/*===========================================================================================*/
+/*======================================== Footer Ends ======================================*/
+/*===========================================================================================*/
+
+/*# sourceMappingURL=footer.css.map */

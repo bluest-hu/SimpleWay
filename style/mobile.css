@@ -1,0 +1,67 @@
+@media screen and (min-width: 0px) and (max-width: 640px) {
+  .header-content, .main-content,
+  .main-footer-content {
+    width: 100%; }
+  .main-content .main-left-part,
+  .main-content .post-list {
+    width: 100%;
+    float: none; }
+  .main-content .post-list .post-wrap {
+    padding: 20px; }
+  .post .post-category,
+  .post .post-comment,
+  .post .post-meta,
+  .post .tag-list,
+  .post .post-time {
+    float: none;
+    width: auto;
+    margin: 10px 0;
+    display: block; }
+  .single-post-wrap .post-thumbnail-wrap .thumbnail {
+    width: 100%; }
+  .entry p {
+    text-indent: 0; }
+  .post .author-avatar-wrap {
+    display: none; }
+  .main-right-aside {
+    float: none;
+    width: 100%;
+    margin-left: 0;
+    margin-top: 20px; }
+  /*.main-wrap {*/
+  /*overflow-x: hidden; */
+  /*}*/
+  /*.header .navigation {*/
+  /*width: 100%;*/
+  /*}*/
+  /*.main-wrap {*/
+  /*width: 100%;*/
+  /*}*/
+  /*.article-top-column .author-avatar-container {*/
+  /*display: none;*/
+  /*}*/
+  /*.article .article-column-bottom {*/
+  /*width: auto;*/
+  /*}*/
+  /*.article-top-column .post-meta {*/
+  /*width: auto;*/
+  /*}*/
+  /*.main-wrap .content .post {*/
+  /*clear: left;*/
+  /*width: inherit;*/
+  /*}*/
+  /*.main-wrap .content .aside {*/
+  /*clear: both;*/
+  /*width: 100%;*/
+  /*}*/
+  /*.footer .content {*/
+  /*}*/
+  /*.footer .designer  {*/
+  /*margin-right: 10px;*/
+  /*}*/
+  /*.footer .powered-by,*/
+  /*.footer .copy-right {*/
+  /*margin-left: 10px;*/
+  /*}*/ }
+
+/*# sourceMappingURL=mobile.css.map */

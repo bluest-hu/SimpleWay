@@ -74,7 +74,7 @@
                     <?php if (get_preview_post_link('%link')) { ?>
                         <div class="left-column previous-post-wrap">
                             <div class="previous-post ion-chevron-left">
-                                <?php preview_post_link("%link"); ?>
+                                <?php echo get_preview_post_link("%link"); ?>
                             </div>
                         </div><!-- previous post -->
                     <?php } ?>
@@ -82,7 +82,7 @@
                     <?php if (get_next_post_link('%link')) { ?>
                         <div class="right-column next-post-wrap">
                             <div class="next-post ion-chevron-left-after">
-                                <?php next_post_link("%link"); ?>
+                                <?php echo next_post_link("%link"); ?>
                             </div>
                         </div><!-- next post -->
                     <?php } ?>

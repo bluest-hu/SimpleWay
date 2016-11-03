@@ -1,8 +1,4 @@
 <?php get_header();?>
-
-	<pre>
-		<?php  ?>
-	</pre>
 	<div class="main-content clear" id="mainContent">
 		<div class="main-left-part post-list left-column">
 	<?php if( have_posts()) :?>

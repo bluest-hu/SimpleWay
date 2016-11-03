@@ -1,0 +1,36 @@
+.body-content {
+  margin-top: 10px; }
+
+.main-content .post-list,
+.main-content .main-left-part {
+  width: 650px;
+  margin-bottom: 20px; }
+
+/*************************************** Back To Top Buttom ***********************************/
+#backToTopBtn {
+  position: fixed;
+  right: 50px;
+  bottom: 160px;
+  display: block;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #EAEAEA;
+  border-radius: 50%;
+  background: #FFF url("../image/icons.png") -121px 0 no-repeat scroll;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+  transition: all .1s ease-in-out; }
+
+#backToTopBtn:hover {
+  background-color: #FAFAFA;
+  background-position: -121px -50px; }
+
+.related-post {
+  padding: 0; }
+
+.radius-round {
+  border-radius: 50%; }
+
+.overflow-hidden {
+  overflow: hidden; }
+
+/*# sourceMappingURL=common.css.map */
