@@ -7,12 +7,12 @@
 /*===========================================================================================*/
 /*===================================== Import Normalize ====================================*/
 /*===========================================================================================*/
-@import url(normalize.css);
+@import url(../style/normalize.css);
 /*===========================================================================================*/
 /*===================================== Import Myself Reset =================================*/
 /*===========================================================================================*/
 /*======================================== Reset Begin ======================================*/
-@import url(ionicons.css);
+@import url(../style/ionicons.css);
 body {
   /*-webkit-font-smoothing: antialiased;*/
   -moz-osx-font-smoothing: grayscale;
@@ -159,30 +159,24 @@ body {
   margin-bottom: -1px; }
 
 .tab .tab-switcher-wrap {
+  display: flex;
   margin: 0;
   list-style: none;
   height: 35px;
   overflow: hidden; }
 
 .tab .tab-switcher-list {
-  float: left;
-  max-width: 85px;
-  padding: 0px 13px;
+  flex: 1;
   height: 35px;
   color: #999;
   font-weight: normal;
   font-size: 13px;
   line-height: 35px;
-  transition: color .4s linear; }
-
-.tab-switcher-list .icon {
-  line-height: inherit;
-  font-size: 0; }
+  transition: color .4s linear;
+  text-align: center; }
 
 .tab-switcher-list .icon::before {
-  display: block;
   margin-right: 5px;
-  float: left;
   font-size: 20px;
   line-height: inherit;
   font-weight: normal;
@@ -341,7 +335,7 @@ body {
   text-indent: 1em;
   color: #727272;
   font-size: 12px;
-  transition: border-color .2s ease, width .3s ease-in; }
+  transition: border-color .2s ease, width .3s ease-in; }
 
 .top-search-form #s:focus {
   color: #727272;
@@ -901,7 +895,7 @@ body {
   color: #FDFDFD;
   text-decoration: none;
   font: lighter 13px/1.5 "Microsoft Yahei";
-  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease; }
+  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease; }
 
 .entry .more-link:hover {
   background-color: #FF5E5E;
@@ -1653,7 +1647,7 @@ body {
   background-color: #FF7373;
   border-radius: 2px;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
-  transition: opacity .4s ease-in-out, background-color .5s ease; }
+  transition: opacity .4s ease-in-out, background-color .5s ease; }
 
 .children .comment-body .comment-reply-link {
   top: 10px; }

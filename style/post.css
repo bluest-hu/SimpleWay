@@ -494,7 +494,7 @@
   color: #FDFDFD;
   text-decoration: none;
   font: lighter 13px/1.5 "Microsoft Yahei";
-  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease; }
+  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease; }
 
 .entry .more-link:hover {
   background-color: #FF5E5E;

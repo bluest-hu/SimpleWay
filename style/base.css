@@ -46,30 +46,24 @@ body {
   margin-bottom: -1px; }
 
 .tab .tab-switcher-wrap {
+  display: flex;
   margin: 0;
   list-style: none;
   height: 35px;
   overflow: hidden; }
 
 .tab .tab-switcher-list {
-  float: left;
-  max-width: 85px;
-  padding: 0px 13px;
+  flex: 1;
   height: 35px;
   color: #999;
   font-weight: normal;
   font-size: 13px;
   line-height: 35px;
-  transition: color .4s linear; }
-
-.tab-switcher-list .icon {
-  line-height: inherit;
-  font-size: 0; }
+  transition: color .4s linear;
+  text-align: center; }
 
 .tab-switcher-list .icon::before {
-  display: block;
   margin-right: 5px;
-  float: left;
   font-size: 20px;
   line-height: inherit;
   font-weight: normal;

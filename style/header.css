@@ -74,7 +74,7 @@
   text-indent: 1em;
   color: #727272;
   font-size: 12px;
-  transition: border-color .2s ease, width .3s ease-in; }
+  transition: border-color .2s ease, width .3s ease-in; }
 
 .top-search-form #s:focus {
   color: #727272;
