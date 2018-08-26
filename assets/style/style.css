@@ -7,12 +7,12 @@
 /*===========================================================================================*/
 /*===================================== Import Normalize ====================================*/
 /*===========================================================================================*/
-@import url(../style/normalize.css);
+@import url(normalize.css);
 /*===========================================================================================*/
 /*===================================== Import Myself Reset =================================*/
 /*===========================================================================================*/
 /*======================================== Reset Begin ======================================*/
-@import url(../style/ionicons.css);
+@import url(ionicons.css);
 body {
   /*-webkit-font-smoothing: antialiased;*/
   -moz-osx-font-smoothing: grayscale;
@@ -224,7 +224,7 @@ body {
 .body-content {
   margin-top: 10px; }
 
-.main-content .post-list,
+.main-content .main-content,
 .main-content .main-left-part {
   width: 650px;
   margin-bottom: 20px; }
@@ -2290,10 +2290,10 @@ body {
   .main-footer-content {
     width: 100%; }
   .main-content .main-left-part,
-  .main-content .post-list {
+  .main-content .main-content {
     width: 100%;
     float: none; }
-  .main-content .post-list .post-wrap {
+  .main-content .main-content .post-wrap {
     padding: 20px; }
   .post .post-category,
   .post .post-comment,

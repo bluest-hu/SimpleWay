@@ -1,11 +1,9 @@
-@@ -1,49 +0,0 @@
 <!doctype html>
 <html lang="zh-cn">
 <head>
     <meta charset="UTF-8">
     <title>404</title>
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/style/style.min.css">
-    <!-- <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/style/error.min.css"> -->
     <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name');?>&raquo;Feed" href="<?php bloginfo('rss2_url');?>" />
     <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name');?>&raquo;评论&raquo;Feed" href="<?php bloginfo('comments_rss2_url'); ?>comments/feed" />
     <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/script/jquery-2.0.3.min.js"></script>

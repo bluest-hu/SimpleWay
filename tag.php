@@ -1,7 +1,7 @@
 <?php get_header();?>
 		<div class="main-content clear" id="mainContent">
-			<div class="main-left-part post-list left-column">
-				<div class="post-list left-column">
+			<div class="main-left-part main-content left-column">
+				<div class="main-content left-column">
 					<!-- tag 描述 -->
 					<div class="description-card card">
 						<div class="desc-content tag-desc-content clear">

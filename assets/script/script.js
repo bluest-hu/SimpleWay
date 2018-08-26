@@ -285,6 +285,3 @@ $(function () {
 
 
 })(window, $);
-
-
-var a = new Date();

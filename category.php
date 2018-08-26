@@ -1,7 +1,7 @@
 <?php get_header();?>
 		<div class="main-content clear" id="mainContent">
-			<div class="main-left-part post-list left-column" id="mainLeftPart">
-				<div class="post-list left-column">
+			<div class="main-left-part main-content left-column" id="mainLeftPart">
+				<div class="main-content left-column">
 					<div class="description-card card">
 						<div class="desc-content cat-desc-content clear">
 							<img class="desc-image left-column" src="<?php echo get_stylesheet_directory_uri(); ?>/image/logo.png" alt="分类 <?php single_cat_title('', true); ?> 下的文章" title="分类 <?php single_cat_title('', true); ?> 下的文章">

@@ -35,8 +35,6 @@ gulp.task('concat', function () {
     gulp.src("style/**/*.css")
         .pipe(concat('main.min.css'))
         .pipe(gulp.dest('./style/'));
-
-
 });
 
 // default
